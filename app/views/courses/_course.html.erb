@@ -1,0 +1,38 @@
+<div class="tt-seachbar-entry">
+  <div class="tt-cours type-2 type-2-custom">
+    <a class="tt-cours-img custom-hover" href="courses.html#">
+      <span class="tt-cours-pic background-block">
+        <%= load_image course %>
+      </span>
+    </a>
+    <div class="tt-cours-info">
+      <div class="tt-cours-cat"><%= course.course_category.name %></div>
+      <%= link_to course.name, course_path(course),
+        class: "tt-cours-title c-h6"%>
+      <div class="simple-text size-4">
+        <p>
+          <%= truncate course.description,
+            length: Settings.courses.length_description %>
+          <%= link_to t(".readmore"), course_path(course) %>
+        </p>
+      </div>
+    </div>
+    <div class="tt-cours-bottom clearfix">
+      <div class="tt-cours-left">
+        <span class="tt-cours-rating">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="tt-cours-right">
+        <div class="tt-cours-price">
+          <%= number_to_currency course.cost, unit: "VND", precision: 0,
+            delimiter: ".", format: "%n %u" %>
+        </div>
+      </div>
+    </div>
+  </div>                            
+</div> 

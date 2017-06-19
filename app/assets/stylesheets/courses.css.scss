@@ -1,0 +1,15 @@
+.tt-two-colors {
+  .contain-courses {
+    display: flex;
+    flex-wrap: wrap;    
+
+    [class*='item-course'] {
+      display: flex;
+      flex-direction: column;      
+    }
+  }
+}
+
+.type-2-custom {
+  height: 100%;
+}

@@ -76,3 +76,5 @@ node_modules
 
 # Generated js bundles
 /public/webpack/*
+client/app/libs/i18n/default.js
+client/app/libs/i18n/translations.js
