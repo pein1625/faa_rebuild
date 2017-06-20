@@ -6,16 +6,11 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,800" rel="stylesheet" type="text/css">
-    <%= javascript_pack_tag "webpack-bundle" %>
   </head>
 
   <body>
+    <%= render "shared/loading" %>
     <%= render "layouts/header" %>
-    <div id="loader-wrapper">
-      <div id="loader-container">
-        <p id="loadingText"><%= t ".loading" %></p>
-      </div>
-    </div>
     <%= yield %>
     <%= render "layouts/footer" %>
   </body>

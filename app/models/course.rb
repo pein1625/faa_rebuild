@@ -8,6 +8,7 @@ class Course < ApplicationRecord
   delegate :name, to: :course_category, prefix: true, allow_nil: true
 
   scope :newest, ->{order created_at: :desc}
+  scope :by_words, -> words{where("name LIKE ?", "%#{words}%")}
 
   def enrolled_count
     self.registrations.count

@@ -92,4 +92,22 @@ vi:
         ngành CNTT."
     our_clients:
       our_clients: "Đối tác của chúng tôi"
-
+  shared:
+    top_heading:
+      home: "Trang chủ"
+    loading:
+      loading: "Đang tải"
+  number:
+    currency:
+      format:
+        unit: "VND"
+  views:
+    pagination:
+      truncate: "..."
+  courses:
+    right_sidebar:
+      course_category: "Danh mục"
+    index:
+      all_course: "Danh mục các khóa học"
+      course: "Khóa học"
+      search_course: "Tìm kiếm khóa học"
