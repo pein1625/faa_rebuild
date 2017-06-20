@@ -1,0 +1,9 @@
+framgia:
+  more_tool: "http://education.framgia.vn/tools"
+  phone: "(+84) 4 3795 5417"
+  email: "faa@framgia.com"
+  facebook: "https://facebook.com/FramgiaVietnam/"
+home:
+  courses_limit: 10
+  trainers_limit: 10
+  trainer_quote_limit: 50

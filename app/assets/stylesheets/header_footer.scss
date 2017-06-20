@@ -1,0 +1,20 @@
+.logo-faa-img {
+  height: 60px;
+  width: 258px;
+}
+
+.faa-header-text a {
+  font-family: 'Roboto' !important;
+}
+
+.footer-info {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

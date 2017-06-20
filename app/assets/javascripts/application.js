@@ -14,5 +14,10 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap-sprockets
-//= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/
+
+$(document).ready(function(){
+  window.onload = function(){
+    $('[data-toggle="tooltip"]').tooltip();
+  }
+});
