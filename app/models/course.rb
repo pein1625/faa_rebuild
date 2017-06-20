@@ -4,4 +4,12 @@ class Course < ApplicationRecord
   has_many :course_techniques, dependent: :destroy
   has_many :techniques, through: :course_techniques
   belongs_to :course_category
+
+  delegate :name, to: :course_category, prefix: true, allow_nil: true
+
+  scope :newest, ->{order created_at: :desc}
+
+  def enrolled_count
+    self.registrations.count
+  end
 end

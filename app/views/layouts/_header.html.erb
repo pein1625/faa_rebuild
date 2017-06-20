@@ -1,0 +1,33 @@
+<header class="tt-header">
+  <div class="container">
+    <div class="top-inner">
+      <%= link_to root_path, class: "logo" do %>
+        <%= image_tag "logo-faa.png", class: "logo-faa-img", alt: t(".logo_alt") %>
+      <% end %>
+    </div>
+    <button class="cmn-toggle-switch"><span></span></button>
+    <div class="toggle-block">
+      <nav class="main-nav clearfix">
+        <ul class="faa-header-text">
+          <%= view_object(:home_tabs).html %>
+        </ul>
+      </nav>
+      <div class="top-line">
+        <div class="container">
+          <div class="top-info">
+            <i class="fa fa-cogs"></i>
+            <span>
+              <a href="<%= Settings.framgia.more_tool %>" target="_blank">
+                <%= t ".more_tool" %>
+              </a>
+            </span>
+          </div>
+          <div class="top-info">
+            <i class="fa fa-phone"></i>
+            <span><%= Settings.framgia.phone %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

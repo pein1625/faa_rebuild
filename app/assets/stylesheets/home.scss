@@ -1,0 +1,101 @@
+.faa-icon-service img {
+  height: 90px;
+  width: 90px;
+}
+
+.who-we-are-container {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .faa-service-detail {
+    height: 100%;
+    padding-top: 20px !important;
+    padding-bottom: 5px !important;
+  }
+
+  .mg-top-20 {
+    margin-top: 20px;
+  }
+}
+
+.icon-certification-index {
+  border-radius: 10%;
+  height: 30px;
+  width: 30px;
+}
+
+.about-faa-index img {
+  height: 120px;
+}
+
+.client-say-image img {
+  height: 100%;
+  object-fit: scale-down;
+  width: 100%;
+}
+
+.our-client-list {
+  height: 105px;
+}
+
+.our-client-detail {
+  width: 140px;
+
+  img {
+    height: 100%;
+    object-fit: scale-down;
+    width: 100%;
+  }
+}
+
+.client-logo {
+  margin-bottom: 30px;
+
+  img {
+    height: 100%;
+    object-fit: scale-down;
+    width: 100%;
+  }
+
+  ul {
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  li {
+    list-style: none;
+    height: 100px;
+    width: 150px;
+  }
+
+  .suga-container {
+    padding: .2em;
+    max-width: 570px;
+    margin: 5em auto;
+    border-radius: 5px;
+  }
+
+  .suga-slider-wrap {
+    overflow: hidden;
+    margin: 1em;
+  }
+
+  .suga-slide {
+    float: left;
+    position: relative;
+    margin-left: 0;
+    padding-right: 8px;
+  }
+}
+
+.index-trainer-info {
+  min-height: 162px;
+}

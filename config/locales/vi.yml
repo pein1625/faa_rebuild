@@ -1,2 +1,95 @@
 vi:
-  hello: "Hello world"
+  layouts:
+    application:
+      title: "Framgia Awesome Academy"
+      loading: "Đang tải"
+    header:
+      logo_alt: "Logo Framgia Awesome Academy"
+      home: "Trang chủ"
+      courses: "Lịch khai giảng"
+      news: "Tin tức - Thông báo"
+      contact: "Liên hệ"
+      more_tool: "Các công cụ khác"
+    footer:
+      our_courses: "Các khóa học"
+      ruby: "Ruby"
+      php: "PHP"
+      java: "Java"
+      android: "Android"
+      ios: "IOS"
+      quick_links: "Liên kết"
+      home: "Trang chủ"
+      courses: "Lịch khai giảng"
+      news: "Tin tức - Thông báo"
+      contact: "Liên hệ"
+      contact_us: "Liên hệ với chúng tôi"
+      framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
+      faa: "Framgia Awesome Academy"
+      copyright: "© 2017 Framgia Awesome Academy - All rights reserved."
+      created_by: "Created by: Framgia Education"
+  home:
+    index:
+      index_title: "Trang chủ"
+    slider:
+      welcome: "Chào mừng đến với"
+      faa: "Framgia Awesome Academy"
+    who_we_are:
+      who_we_are: "Chúng tôi là ai?"
+      text: "Framgia Awesome Academy là một trung tâm đào tạo của công ty
+        Framgia Việt Nam, được hình thành trên cơ sở kế thừa và nhân rộng mô hình
+        đào tạo theo chuẩn Framgia. Awesome Academy mong muốn sẽ trở thành nôi
+        đào tạo và chắp cánh cho sự phát triển toàn diện của các lập trình viên
+        trong tương lai."
+      agile: "Chương trình đào tạo bài bản, được xây dựng theo mô hình Agile"
+      network: "Được trực tiếp tham gia vào các dự án thực tế, hoạt động theo mô hình virtual company"
+      certificate: "Hệ thống đào tạo theo chuẩn quốc tế được chứng nhận bởi IC Agile và Ruby Association sau khi hoàn thành khóa học"
+      teaching: "Môi trường học tập năng động, trẻ trung với cơ sở vật chất hiện đại."
+      expert: "Đội ngũ giảng dạy là những chuyên gia có nhiều năm kinh nghiệm trong lĩnh vực công nghệ thông tin."
+      job: "Cam kết hỗ trợ việc làm cho học viên sau khóa học."
+      sort_skill: "Học viên được đào tạo để phát triển kỹ năng mềm một cách toàn diện."
+      activities: "Tham gia các hoạt động ngoại khóa hấp dẫn và bổ ích."
+    lastest_courses:
+      lastest_courses: "Những khóa học mới nhất"
+      enrolled_count: "Tổng số người đã đăng ký"
+    trainers:
+      trainers: "Những người hướng dẫn"
+    client_say:
+      about_us: "Giới thiệu ngắn về chúng tôi"
+      our_mission: "Sứ mệnh"
+      mission_text: "Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
+      our_vision: "Tầm nhìn"
+      vision_text: "Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
+      core_value: "Giá trị cốt lõi"
+      core_value_text: "Duis aute irure dolor in reprehenderit in voluptate velit
+        esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in
+        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
+      client_said: "Nhận xét từ khách hàng"
+      client1_name: "TEAMLAB"
+      client1_said: "Chúng tôi không thể hài lòng hơn với Framgia Awesome Academy.
+        Một chương trình đào tạo giàu kiến thức nhưng rất thực tế.
+        Một dịch vụ training chuyên nghiệp và đốc đáo."
+      client2_name: "Đại học Bách khoa Hà Nội"
+      client2_said: "Cám ơn Framgia Awesome Academy! Sinh viên của chúng tôi đã
+        có những trải nghiệm tuyệt vời tại Framgia Awesome Academy.
+        Giờ đây với những kỹ năng và kiến thức có được từ đó, các em cảm thấy
+        vững vàng hơn rất nhiều khi bước vào môi trường làm việc thực tế trong
+        ngành CNTT."
+      client3_name: "Lê Đình Đoan"
+      client3_said: "Khóa học thật sự rất tuyệt. Em nhận thấy các kiến thức và
+        kỹ năng được học đều rất thiết thực và giúp em tiến bộ lên từng ngày.
+        Giờ em đã là lập trình viên tại đúng công ty mà mình từng mơ ước.
+        Em cảm thấy tự tin khi áp dụng những điều học được tại Framgia Awesome Academy
+        để phát triển xa hơn với sự nghiệp của mình."
+      client4_name: "Đại học Đông Á"
+      client4_said: "Cám ơn Framgia Awesome Academy! Sinh viên của chúng tôi đã
+        có những trải nghiệm tuyệt vời tại Framgia Awesome Academy.
+        Giờ đây với những kỹ năng và kiến thức có được từ đó, các em cảm thấy
+        vững vàng hơn rất nhiều khi bước vào môi trường làm việc thực tế trong
+        ngành CNTT."
+    our_clients:
+      our_clients: "Đối tác của chúng tôi"
+
