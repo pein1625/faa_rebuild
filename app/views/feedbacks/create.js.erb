@@ -1,0 +1,6 @@
+<% if flash[:success].present? %>
+  window.location.href = '<%= root_path %>';
+<% elsif flash[:danger].present? %>
+  $.growl.error({title: '', message: '<%= flash[:danger] %>'});
+  $('.contact-form').html('<%= j render partial: "feedbacks/form", locals: {feedback: @feedback} %>');
+<% end %>

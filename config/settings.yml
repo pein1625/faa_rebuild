@@ -1,6 +1,10 @@
+messages:
+  success: "success"
+  notice: "notice"
 framgia:
   more_tool: "http://education.framgia.vn/tools"
-  phone: "(+84) 4 3795 5417"
+  phone_text: "(+84) 4 3795 5417"
+  phone_number: +84437955417
   email: "faa@framgia.com"
   facebook: "https://facebook.com/FramgiaVietnam/"
 home:
@@ -10,3 +14,9 @@ home:
 courses:
   length_description: 200
   per_page: 12
+feedbacks:
+  max_name_length: 127
+  max_email_length: 127
+  max_subject_length: 255
+  max_content_length: 1023
+  max_phone_length: 15

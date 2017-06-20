@@ -1,0 +1,22 @@
+vi:
+  activerecord:
+    errors:
+      models:
+        feedback:
+          attributes:
+            email:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            phone:
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 15 ký tự)"
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            subject:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"
+            content:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 1023 ký tự)"

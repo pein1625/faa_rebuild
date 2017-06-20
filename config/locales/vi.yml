@@ -111,3 +111,24 @@ vi:
       all_course: "Danh mục các khóa học"
       course: "Khóa học"
       search_course: "Tìm kiếm khóa học"
+  feedbacks:
+    new:
+      title: "Liên hệ"
+    heading:
+      title_contact: "Liên hệ với chúng tôi"
+      title_text1: "Nếu bạn quan tâm đến việc tìm hiểu thêm về cách chúng tôi có
+        thể giúp bạn, vui lòng điền vào mẫu dưới đây."
+      title_text2: "Bạn có thể gọi cho chúng tôi bất cứ lúc nào giữa
+        7h45 đến 16h45"
+      framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6,
+        Pham Hung Road, Nam Tu Liem Dist."
+    form:
+      name: "Tên"
+      email: "Thư điện tử"
+      phone: "Số điện thoại"
+      subject: "Chủ đề"
+      content: "Nội dung"
+      submit: "Gửi phản hồi"
+    create:
+      success: "Cảm ơn bạn đã gửi phản hồi!"
+      fail: "Không gửi được phản hồi"

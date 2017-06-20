@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
 
   resources :courses, only: [:index, :show]
+  resources :feedbacks, only: [:new, :create]
 end

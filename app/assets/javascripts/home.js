@@ -66,7 +66,7 @@ $.fn.suga = function(options) {
   }
 }
 
-$(window).load(function(){
+$(window).on('load', function(){
   $('.client-logo').suga({
     'transitionSpeed': 2000,
     'snap': true

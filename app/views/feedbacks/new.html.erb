@@ -1,0 +1,24 @@
+<%= provide :title, t(".title") %>
+<div class="tt-header-margin"></div>
+<%= render "shared/top_heading", title: t(".title"), page_name: t(".title") %>
+<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
+<div id="content-wrapper">
+  <div class="container">
+    <%= render "heading" %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="tt-contact-form contact-form">
+          <%= render "form", feedback: @feedback %>
+        </div>
+        <div class="simple-text tt-request-success">
+          <p></p>
+        </div>
+        <div class="empty-space marg-xs-b30"></div>
+      </div>
+      <div class="col-sm-6">
+        <%= render "map" %>
+      </div>
+    </div>
+    <div class="empty-space marg-lg-b135 marg-md-b120 marg-sm-b100 marg-xs-b60"></div>
+  </div>
+</div>
