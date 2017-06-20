@@ -1,0 +1,7 @@
+import { defineMessages } from 'react-intl';
+
+const defaultLocale = 'vi';
+
+const defaultMessages = defineMessages({"adminNavbarHeaderBrand":{"id":"admin.navbar_header.brand","defaultMessage":"FAA Admin"},"adminNavbarRightUser":{"id":"admin.navbar_right.user","defaultMessage":"Tran Xuan Nam"},"adminNavbarRightProfile":{"id":"admin.navbar_right.profile","defaultMessage":"Profile"},"adminNavbarRightSettings":{"id":"admin.navbar_right.settings","defaultMessage":"Settings"},"adminNavbarRightInbox":{"id":"admin.navbar_right.inbox","defaultMessage":"Inbox"},"adminNavbarRightLogout":{"id":"admin.navbar_right.logout","defaultMessage":"Logout"},"adminSidebarDashboard":{"id":"admin.sidebar.dashboard","defaultMessage":"Dashboard"},"adminSidebarCharts":{"id":"admin.sidebar.charts","defaultMessage":"Charts"},"adminSidebarTables":{"id":"admin.sidebar.tables","defaultMessage":"Tables"},"adminSidebarForms":{"id":"admin.sidebar.forms","defaultMessage":"Forms"},"adminSidebarDropdown":{"id":"admin.sidebar.dropdown","defaultMessage":"Dropdown"},"adminSidebarDropdownItem":{"id":"admin.sidebar.dropdown_item","defaultMessage":"Dropdown Item"},"adminSidebarBlankPage":{"id":"admin.sidebar.blank_page","defaultMessage":"Blank Page"},"adminPageHeaderDashboard":{"id":"admin.page_header.dashboard","defaultMessage":"Dashboard"},"hello":{"id":"hello","defaultMessage":"Hello world"}});
+
+export { defaultMessages, defaultLocale };

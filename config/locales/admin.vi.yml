@@ -1,2 +1,20 @@
 vi:
   admin:
+    navbar_header:
+      brand: "FAA Admin"
+    navbar_right:
+      user: "Tran Xuan Nam"
+      profile: "Profile"
+      settings: "Settings"
+      inbox: "Inbox"
+      logout: "Logout"
+    sidebar:
+      dashboard: "Dashboard"
+      charts: "Charts"
+      tables: "Tables"
+      forms: "Forms"
+      dropdown: "Dropdown"
+      dropdown_item: "Dropdown Item"
+      blank_page: "Blank Page"
+    page_header:
+      dashboard: "Dashboard"
