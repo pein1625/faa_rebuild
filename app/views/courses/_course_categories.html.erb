@@ -1,5 +1,5 @@
 <ul class="tt-slist">
   <% @course_categories.each do |cate| %>
-    <li><a href="javascript:;" class="course-category"><%= cate.name %></a></li>
+    <li><%= link_to cate.name, courses_path(course_category: cate.name) %></li>
   <% end %>
 </ul>

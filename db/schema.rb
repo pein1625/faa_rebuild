@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20170619042817) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.text     "content"
     t.date     "start_date"
     t.date     "end_date"
     t.date     "registration_deadline"

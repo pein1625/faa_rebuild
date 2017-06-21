@@ -27,6 +27,7 @@ gem "config"
 gem "kaminari"
 gem "simple_form"
 gem "foreman"
+gem "redcarpet"
 
 group :development, :test do
   gem "byebug", platform: :mri

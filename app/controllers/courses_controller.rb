@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
+  before_action :load_course, only: :show
+  before_action :load_all_course_category
+
   def index
     @courses = load_course_by_category || load_by_search_word || load_course_default
-    @course_categories = CourseCategory.all
 
     respond_to do |format|
       format.html
@@ -9,10 +11,20 @@ class CoursesController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
+
+  def load_course
+    @course = Course.includes(:course_category, :images).find_by id: params[:id]
+    return if @course
+    flash[:error] = t ".not_found"
+    redirect_to courses_path
+  end
+
+  def load_all_course_category
+    @course_categories = CourseCategory.all
+  end
 
   def load_course_default
     Course.includes(:images, :course_category).newest.page(params[:page])
@@ -22,7 +34,8 @@ class CoursesController < ApplicationController
   def load_course_by_category
     category = CourseCategory.find_by name: params[:course_category]
     return unless category
-    category.courses.includes(:images)
+    category.courses.includes(:images).page(params[:page])
+      .per Settings.courses.per_page
   end
 
   def load_by_search_word

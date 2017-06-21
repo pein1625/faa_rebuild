@@ -14,12 +14,29 @@ module ApplicationHelper
     class_name.constantize.new(self)
   end
 
-  def load_image object
+  def load_image object, css_class = ""
     image = object.images
     if image.any?
-      image_tag(image.first.url, class: "img wth-100")
+      image_tag image.first.url, class: "img wth-100 #{css_class}"
     else
-      image_tag(ImageUploader.new.default_url, class: "img wth-100")
+      image_tag ImageUploader.new.default_url,
+        class: "img wth-100 #{css_class}"
     end
+  end
+
+
+  def markdown text
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, filter_html: true)
+    options = {
+      autolink: true,
+      no_intra_emphasis: true,
+      disable_indented_code_blocks: true,
+      fenced_code_blocks: true,
+      lax_html_blocks: true,
+      strikethrough: true,
+      superscript: true
+    }
+
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 end

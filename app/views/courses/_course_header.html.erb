@@ -1,0 +1,52 @@
+<div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
+<div class="tt-heding type-2">
+  <h2 class="tt-heding-title c-h4 txt-uppercase">
+    <span><%= course.name %></span>
+  </h2>
+</div>
+<div class="empty-space marg-lg-b25"></div>
+
+<div class="simple-text size-4 color-3">
+  <p><%= course.description %></p>
+</div>
+<div class="empty-space marg-lg-b50"></div>
+
+<div class="tt-simple-image-2">
+  <%= load_image course, "image-course" %>
+</div>
+
+<div class="empty-space marg-lg-b10"></div>
+<div class="tt-author">
+  <div class="tt-author-avacell">
+    <div class="tt-author-ava">
+      <div class="tt-author-imgcell">
+        <a class="custom-hover round" href="single_course.html#">
+          <img src="/img/author/author.jpg" class="image-author" alt="">
+        </a>
+      </div>
+      <div class="tt-author-infocell">
+        <div class="tt-author-position"><%= t ".teacher" %></div>
+        <a class="tt-author-name" href="#"><%= t ".framgia_vietnam" %></a>
+      </div>
+    </div>
+  </div>
+  <div class="tt-author-catcell">
+    <div class="tt-author-label"><%= t ".category" %></div>
+    <div class="tt-author-tags">
+      <a href="#"><%= course.course_category_name %></a>
+    </div>
+  </div>
+  <div class="tt-author-pricecell tt-author-ratecell">
+    <%= number_to_currency @course.cost, unit: "VND", precision: 0,
+    delimiter: ".", format: "%n %u" %>
+  </div>
+</div>
+<div class="empty-space marg-lg-b30"></div>
+
+<a class="c-btn type-1 size-3 color-2" href="single_course.html#">
+  <span>
+    <%= t ".register_now" %>
+    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  </span>
+</a>
+<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
