@@ -31,9 +31,9 @@ const config = {
 
     // Leading slash is necessary
     // publicPath: `/${webpackPublicOutputDir}`,
-    // path: webpackOutputPath,
+    path: webpackOutputPath,
     filename: 'webpack-bundle.js',
-    path: '/home/framgia/project/faa_rebuild/app/assets/javascripts',
+    // path: '/home/framgia/project/faa_rebuild/app/assets/javascripts',
   },
 
   resolve: {
