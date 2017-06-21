@@ -27,11 +27,13 @@ const config = {
 
   output: {
     // Name comes from the entry section.
-    filename: '[name]-[hash].js',
+    // filename: '[name]-[hash].js',
 
     // Leading slash is necessary
-    publicPath: `/${webpackPublicOutputDir}`,
-    path: webpackOutputPath,
+    // publicPath: `/${webpackPublicOutputDir}`,
+    // path: webpackOutputPath,
+    filename: 'webpack-bundle.js',
+    path: '/home/framgia/project/faa_rebuild/app/assets/javascripts',
   },
 
   resolve: {
