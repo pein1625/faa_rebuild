@@ -1,0 +1,9 @@
+<script type="text/javascript">
+  <% flash.each do |message_type, message| %>
+    <% if message_type == Settings.messages.success || message_type == Settings.messages.notice %>
+      $.growl.notice({title: '', message: '<%= message %>'});
+    <% else %>
+      $.growl.error({title: '', message: '<%= message %>'});
+    <% end %>
+  <% end %>
+</script>

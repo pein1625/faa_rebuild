@@ -6,15 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 gem "bootstrap-sass"
-gem "bootstrap-sass"
 gem "coffee-rails", "~> 4.2"
-gem "config"
 gem "ffaker"
 gem "font-awesome-rails"
 gem "jquery-turbolinks"
 gem "jquery-rails"
 gem "jbuilder", "~> 2.5"
-gem "jquery-turbolinks"
 gem "pg", "~> 0.20.0"
 gem "puma", "~> 3.0"
 gem "rails", "~> 5.0.3"
@@ -28,6 +25,8 @@ gem "carrierwave"
 gem "mini_magick"
 gem "config"
 gem "kaminari"
+gem "simple_form"
+gem "foreman"
 
 group :development, :test do
   gem "byebug", platform: :mri

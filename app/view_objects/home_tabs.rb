@@ -19,7 +19,7 @@ class HomeTabs < ViewObject
 
   def courses_tab
     build_tab t("layouts.header.courses"),
-      "#", :coures
+      courses_path, :coures
   end
 
   def news_tab
@@ -29,7 +29,7 @@ class HomeTabs < ViewObject
 
   def contacts_tab
     build_tab t("layouts.header.contact"),
-      "#", :feedbacks
+      new_feedback_path, :feedbacks
   end
 
   def build_tab text, path, tab_name
