@@ -107,9 +107,13 @@ vi:
     pagination:
       truncate: "..."
   courses:
+<<<<<<< HEAD
     course:
       register: "Đăng ký"
     right_sidebar:
+=======
+    right_sidebar_course:
+>>>>>>> show_index_news
       course_category: "Chuyên ngành"
     course_header:
       category: "Chuyên ngành"
@@ -124,6 +128,8 @@ vi:
     show:
       detail_course: "Chi tiết khóa học"
       course: "Khóa học"
+    course:
+      readmore: "Xem thêm"
   feedbacks:
     new:
       title: "Liên hệ"
@@ -182,3 +188,20 @@ vi:
       contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
       more_course: "Xem các khóa học khác"
       this_course: "Xem khóa học vừa đăng ký"
+  news:
+    news_header:
+      by: "Đăng bởi: "
+      comments: "Nhận xét: "
+    news:
+      readmore: "Xem thêm"
+    right_sidebar_news:
+      news_category: "Danh mục"
+    index:
+      all_news: "Tin tức - Thông báo >"
+      news: "Tin tức-Thông báo"
+    show:
+      all_news: "Tin tức - Thông báo >"
+      news: "Tin tức-Thông báo"
+  time:
+    formats:
+      date_month_year_concise: '%d-%m-%Y'

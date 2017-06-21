@@ -21,6 +21,7 @@
         <p>
           <%= truncate course.description,
             length: Settings.courses.length_description %>
+          <br>
           <%= link_to t(".readmore"), course_path(course) %>
         </p>
       </div>

@@ -1,0 +1,16 @@
+<div class="bg-1 tt-sidebar-right tt-overflow">
+  <%= render "shared/top_heading", title: t(".all_news"),
+    page_name: t(".news") %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="tt-two-colors pright20">
+          <%= render @newses %>
+          <%= paginate @newses %>
+          <div class="empty-space marg-lg-b135 marg-md-b120 marg-sm-b50 marg-xs-b30"></div>
+        </div>
+      </div>
+      <%= render "right_sidebar_news" %>
+    </div>
+  </div>
+</div>

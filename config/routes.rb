@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :feedbacks, only: [:new, :create]
   resources :trainers, only: [:show, :index]
   resources :registrations, only: [:new, :create]
+  resources :news, only: [:index, :show]
 end
