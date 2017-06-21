@@ -1,0 +1,12 @@
+<%= provide :title, @trainer.name %>
+<div class="tt-header-margin"></div>
+<div id="content-wrapper">
+  <%= render "shared/top_heading", title: t(".title_heading"),
+    page_name: t(".title") %>
+
+  <div class="container">
+    <div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
+    <%= render "trainer_info", trainer: @trainer %>
+    <div class="empty-space marg-lg-b100 marg-sm-b50 marg-xs-b30"></div>
+  </div>
+</div>

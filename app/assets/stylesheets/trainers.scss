@@ -1,0 +1,28 @@
+.trainers-trainer-wrapper {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+
+    [class*='col-'] {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .trainers-trainer-detail {
+    height: 100%;
+  }
+}
+
+.trainer-avatar img {
+  height: 492;
+  width: 370;
+}
+
+.trainers-trainer-cer {
+  li {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-right: 10px;
+  }
+}

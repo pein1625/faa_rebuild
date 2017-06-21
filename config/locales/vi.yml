@@ -52,7 +52,8 @@ vi:
       lastest_courses: "Những khóa học mới nhất"
       enrolled_count: "Tổng số người đã đăng ký"
     trainers:
-      trainers: "Những người hướng dẫn"
+      trainers: "Đội ngủ giảng viên"
+      more: "Xem tất cả"
     client_say:
       about_us: "Giới thiệu ngắn về chúng tôi"
       our_mission: "Sứ mệnh"
@@ -132,3 +133,23 @@ vi:
     create:
       success: "Cảm ơn bạn đã gửi phản hồi!"
       fail: "Không gửi được phản hồi"
+  trainers:
+    index:
+      title: "Giảng viên"
+      title_heading: "Đội ngủ giảng viên"
+    heading:
+      our_trainer: "Đội ngủ giảng viên của chúng tôi"
+      description: "Đội ngũ giảng viên của chúng tôi là những chuyên gia có
+        nhiều năm kinh nghiệm trong lĩnh vực công nghệ thông tin."
+    show:
+      not_found: "Không tìm thấy giảng viên này"
+      title_heading: "Thông tin giảng viên"
+      title: "Giảng viên"
+    trainer_info:
+      about_me: "Giới thiệu về tôi"
+      name: "Tên"
+      email: "Thư điện tử"
+      phone: "Số điện thoại"
+      office: "Cơ quan"
+      certification: "Chứng chỉ"
+      quote: "Câu trích dẫn"
