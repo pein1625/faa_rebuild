@@ -20,3 +20,21 @@ vi:
             content:
               blank: "không được để trống"
               too_long: "quá dài (tối đa 1023 ký tự)"
+        registration:
+          attributes:
+            email:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            phone:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 15 ký tự)"
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            course_id:
+              blank: "không được để trống"
+            address:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 1023 ký tự)"
