@@ -106,11 +106,20 @@ vi:
       truncate: "..."
   courses:
     right_sidebar:
-      course_category: "Danh mục"
+      course_category: "Chuyên ngành"
+    course_header:
+      category: "Chuyên ngành"
+      teacher: "Giảng dạy"
+      framgia_vietnam: "Framgia Việt Nam"
+      number_of_member: "Số lương học viên"
+      register_now: "Đăng ký ngay"
     index:
       all_course: "Danh mục các khóa học"
       course: "Khóa học"
       search_course: "Tìm kiếm khóa học"
+    show:
+      detail_course: "Chi tiết khóa học"
+      course: "Khóa học"
   feedbacks:
     new:
       title: "Liên hệ"
