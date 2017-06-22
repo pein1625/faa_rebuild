@@ -10,7 +10,7 @@ class Registration < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX}
   validates :phone, presence: true,
     length: {maximum: Settings.registrations.max_phone_length},
-      format: {with: VALID_PHONE_NUMBER_REGEX}
+    format: {with: VALID_PHONE_NUMBER_REGEX}
   validates :address, length:
     {maximum: Settings.registrations.max_address_length}, allow_blank: true
   validates :course_id, presence: true

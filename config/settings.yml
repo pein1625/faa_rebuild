@@ -34,4 +34,4 @@ registrations:
 news:
   per_page: 6
   length_content: 320
-image_deafult: "/assets/course.jpg"
+image_default: "/assets/course.jpg"
