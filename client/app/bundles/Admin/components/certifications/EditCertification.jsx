@@ -4,6 +4,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
+import Errors from '../Errors';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
@@ -18,7 +19,8 @@ class EditCertification extends React.Component {
       name: "",
       description: "",
       url: "",
-      submitSuccess: false
+      submitSuccess: false,
+      errors: []
     }
   }
 
@@ -64,6 +66,7 @@ class EditCertification extends React.Component {
           this.setState({submitSuccess: true});
           $.growl.notice({message: message});
         } else {
+          this.setState({errors: content});
           $.growl.notice({message: message});
         }
       })
@@ -96,6 +99,9 @@ class EditCertification extends React.Component {
       return (
         <div className="row">
           <div className="col-md-7 col-md-offset-2">
+            {
+              this.state.errors.length > 0 && <Errors errors={this.state.errors}/>
+            }
             <form role="form" onSubmit={this.handleFormSubmit} id="edit-certification-form">
               <div className="form-group">
                 <label className="control-label">
