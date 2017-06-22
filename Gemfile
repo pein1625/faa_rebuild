@@ -28,11 +28,11 @@ gem "simple_form"
 gem "foreman"
 gem "redcarpet"
 gem "acts-as-taggable-on"
+gem "faker"
 
 group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
-  gem "faker"
   gem "pry"
 end
 
