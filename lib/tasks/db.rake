@@ -62,5 +62,17 @@ namespace :db do
             "và mong muốn học thêm ngôn ngữ lập trình mới. "
       end
     end
+
+    puts "Create Certification"
+    Certification.create! name: "Agile"
+    Certification.create! name: "Enflish"
+
+    puts "Create trainers"
+    quote = "Git Push and Go Home"
+    trainers = ["Pham Van Chien", "Nguyen Van Tran Anh", "Tran Duc Quoc",
+      "Do Thi Diem Thao", "Hoang Thi Nhung"]
+    trainers.each do |trainer|
+      User.create! name: trainer, role: 1, quote: quote
+    end
   end
 end

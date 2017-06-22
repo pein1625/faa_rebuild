@@ -1,0 +1,13 @@
+<%= provide :title, t(".title") %>
+<div class="tt-header-margin"></div>
+<div id="content-wrapper">
+  <%= render "shared/top_heading", title: t(".title_heading"),
+    page_name: t(".title") %>
+  <div class="container">
+    <%= render "heading" %>
+    <%= render "trainers", trainers: @trainers %>
+    <%= paginate @trainers %>
+    <div class="empty-space marg-lg-b135 marg-md-b120 marg-sm-b100 marg-xs-b60"></div>
+  </div>
+
+</div>
