@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :certifications
+    get "certifications/(*all)", to: "certifications#index"
   end
 
   resources :courses, only: [:index, :show]

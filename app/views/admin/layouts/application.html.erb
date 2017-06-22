@@ -5,14 +5,10 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,800" rel="stylesheet" type="text/css">
+    <%= javascript_pack_tag "webpack-bundle" %>
   </head>
 
   <body>
-    <%= render "shared/loading" %>
-    <%= render "layouts/messages" %>
-    <%= render "layouts/header" %>
     <%= yield %>
-    <%= render "layouts/footer" %>
   </body>
 </html>

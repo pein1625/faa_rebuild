@@ -1,9 +1,10 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import Main from './Main.jsx';
+import {Provider} from 'react-redux';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor(props, _railsContext) {
     super(props);
   }
 
@@ -12,7 +13,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Main/>
       </BrowserRouter>
-    )
+    );
   }
 }
 

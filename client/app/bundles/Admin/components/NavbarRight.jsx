@@ -3,7 +3,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../libs/i18n/default';
 
 class NavbarRight extends React.Component {
-  constructor(props) {
+  constructor(props, _railsContext) {
     super(props);
   }
 

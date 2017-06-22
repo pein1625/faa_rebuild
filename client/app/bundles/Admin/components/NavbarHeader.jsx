@@ -7,7 +7,7 @@ class NavbarHeader extends React.Component {
     intl: intlShape.isRequired
   }
 
-  constructor(props) {
+  constructor(props, _railsContext) {
     super(props);
   }
 

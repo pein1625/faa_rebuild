@@ -1,3 +1,3 @@
 class Admin::BaseController < ApplicationController
-  respond_to :json
+  layout "admin/layouts/application"
 end

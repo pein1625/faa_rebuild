@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+source "https://rails-assets.org"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -33,6 +34,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
   gem "faker"
+  gem "pry"
 end
 
 group :development do
