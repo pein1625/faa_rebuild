@@ -23,7 +23,7 @@
             <div class="swiper-slide" data-val="<%= _index %>">
               <div class="tt-teacher">
                 <div class="tt-teacher-img">
-                  <div class="tt-teacher-pic">
+                  <div class="tt-teacher-pic index-trainer-avatar">
                     <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg", class: "img-responsive" %>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
                   <%= link_to trainer_path(trainer), class: "tt-teacher-title" do %>
                     <%= trainer.name %>
                   <% end %>
-                  <div>
+                  <div class="index-certifications-trainer">
                     <ul class="list-inline">
                       <% trainer.certifications.each do |certification| %>
                         <li>
