@@ -67,13 +67,14 @@ class EditCertification extends React.Component {
           $.growl.notice({message: message});
         } else {
           this.setState({errors: content});
-          $.growl.notice({message: message});
+          $.growl.error({message: message});
         }
       })
       .catch(error => {
         console.log(error);
       });
   }
+
   componentDidMount() {
     let id = this.props.match.params.id;
     axios.get(`/v1/certifications/${id}/edit.json`)

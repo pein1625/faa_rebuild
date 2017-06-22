@@ -17,7 +17,7 @@ class Errors extends React.Component {
         <div className="panel-body">
           {
             this.props.errors.map((error, index) => (
-              <p key={index}>{error}</p>
+              <p className="text-danger" key={index}>{error}</p>
             ))
           }
         </div>

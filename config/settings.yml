@@ -47,3 +47,7 @@ courses:
   min_name_length: 3
   max_description_length: 1000
   min_description_length: 10
+users:
+  min_name_length: 2
+  max_name_length: 30
+  max_quote_length: 500
