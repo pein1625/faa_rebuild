@@ -1,0 +1,15 @@
+<div class="tt-heding type-3">
+  <h5 class="tt-heding-title c-h5 txt-uppercase">
+    <span><small><%= t ".tag_cloud" %></small></span>
+  </h5>
+</div>
+<div class="empty-space marg-lg-b10"></div>
+<ul class="tt-cloud-wrapper">
+  <% tags.each do |tag| %>
+    <li>
+      <%= link_to tag.name, tag_path(tag.name), class: "tt-cloud"%>
+    </li>
+  <% end %>
+</ul>
+
+<div class="empty-space marg-sm-b80 marg-xs-b60"></div> 

@@ -99,6 +99,12 @@ vi:
       home: "Trang chủ"
     loading:
       loading: "Đang tải"
+    popular_course:
+      popular_course: "Khóa học phổ biến"
+    latest_news:
+      latest_news: "Tin tức mới"
+    tags:
+      tag_cloud: "Tag clounds"
   number:
     currency:
       format:

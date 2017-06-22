@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "home#index"
+  get "tags/:tag", to: "news#index", as: :tag
 
   api_version(module: "V1", path: {value: "v1"}, default: true) do
     resources :certifications

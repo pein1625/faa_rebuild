@@ -8,4 +8,6 @@ class News < ApplicationRecord
   delegate :name, to: :admin, prefix: true, allow_nil: true
 
   scope :newest, ->{order created_at: :desc}
+  scope :popular_tags, ->{tag_counts.order(taggings_count: :desc)
+    .first(Settings.news.popular_tags)}
 end

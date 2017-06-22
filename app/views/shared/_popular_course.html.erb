@@ -1,0 +1,26 @@
+<div class="tt-heding type-3">
+  <h5 class="tt-heding-title c-h5 txt-uppercase">
+    <span><small><%= t ".popular_course" %></small></span>
+  </h5>
+</div>
+<div class="empty-space marg-lg-b15"></div>
+<ul class="tt-scours-wrapper">
+  <% popular_courses.each do |course| %>
+    <li>
+      <div class="tt-scours clearfix">
+        <a class="tt-scours-img custom-hover" href="#">
+          <%= load_image course, "image-popular-course"%>
+        </a>
+        <div class="tt-scours-info">
+          <%= link_to course.name, course_path(course),
+            class: "tt-scours-title" %>
+          <div class="tt-scours-price">
+            <%= number_to_currency course.cost, unit: "đ", precision: 0,
+              delimiter: ".", format: "%n %u" %>
+          </div>
+        </div>
+      </div> 
+    </li>
+  <% end %>
+</ul>
+<div class="empty-space marg-lg-b40"></div> 

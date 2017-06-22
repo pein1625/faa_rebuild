@@ -14,6 +14,7 @@ home:
 courses:
   length_description: 200
   per_page: 12
+  popular: 4
 feedbacks:
   max_name_length: 127
   max_email_length: 127
@@ -34,4 +35,6 @@ registrations:
 news:
   per_page: 6
   length_content: 320
+  latest_news: 4
+  popular_tags: 10
 image_default: "/assets/course.jpg"
