@@ -107,13 +107,9 @@ vi:
     pagination:
       truncate: "..."
   courses:
-<<<<<<< HEAD
     course:
       register: "Đăng ký"
-    right_sidebar:
-=======
     right_sidebar_course:
->>>>>>> show_index_news
       course_category: "Chuyên ngành"
     course_header:
       category: "Chuyên ngành"
