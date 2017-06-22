@@ -3,7 +3,7 @@
     <%= link_to new_registration_path(course: course.id), remote: true,
       class: "tt-cours-img tt-gallery-1" do %>
       <span class="tt-gallery-1-overlay"></span>
-        <%= load_image course %>
+        <%= load_image course, "image-w100-h100" %>
       <span class="tt-gallery-1-caption">
         <span class="tt-gallery-1-caption-table">
           <span class="tt-gallery-1-caption-inner">

@@ -9,6 +9,8 @@ class Course < ApplicationRecord
 
   scope :newest, ->{order created_at: :desc}
   scope :by_words, -> words{where("name LIKE ?", "%#{words}%")}
+  scope :popular, ->{left_joins(:registrations).group(:id)
+    .order("COUNT(registrations.id) DESC").first(Settings.courses.popular)}
 
   def enrolled_count
     self.registrations.count

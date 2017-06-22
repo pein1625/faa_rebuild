@@ -13,5 +13,8 @@
       <% end %>
     </ul>
     <div class="empty-space marg-lg-b30"></div>
+    <%= render "shared/popular_course", popular_courses: @popular_courses %>
+    <%= render "shared/latest_news", latest_news: @latest_news %>
+    <%= render "shared/tags", tags: @popular_tags %>
   </div>                    
 </div>

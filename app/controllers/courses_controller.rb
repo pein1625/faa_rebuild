@@ -1,6 +1,9 @@
 class CoursesController < ApplicationController
   before_action :load_course, only: :show
   before_action :load_all_course_category
+  before_action :popular_courses
+  before_action :latest_news
+  before_action :popular_tags
 
   def index
     @courses = load_course_by_category || load_by_search_word || load_course_default
