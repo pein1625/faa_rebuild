@@ -31,6 +31,7 @@ class V1::CertificationsController < V1::ApiController
       response_success nil, @certification
     else
       response_error t(".delete_failed"), nil
+    end
   end
 
   private
