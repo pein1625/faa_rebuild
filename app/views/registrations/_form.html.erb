@@ -1,0 +1,42 @@
+<div class="modal-dialog modal-md">
+  <%= simple_form_for registration, remote: true do |f| %>
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t ".heading" %></h4>
+      </div>
+      <div class="modal-body">
+        <div class="col_full">
+          <%= f.input :course_id, label: t(".course"),
+            collection: courses_select_options, as: :select,
+            selected: params[:course].present? ? params[:course] : registration.course_id,
+            required: true, input_html: {class: "sm-form-control"} %>
+        </div>
+        <div class="col_half">
+          <%= f.input :name, label: t(".name"), required: true,
+            input_html: {class: "sm-form-control"} %>
+        </div>
+        <div class="col_half col_last">
+          <%= f.input :email, label: t(".email"), required: true,
+            input_html: {class: "sm-form-control"} %>
+        </div>
+        <div class="clear"></div>
+        <div class="col_half">
+          <%= f.input :phone, label: t(".phone"), required: true,
+            input_html: {class: "sm-form-control"} %>
+        </div>
+        <div class="col_half col_last">
+          <%= f.input :address, as: :string, label: t(".address"),
+            input_html: {class: "sm-form-control"} %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div class="modal-footer">
+        <div class="c-btn type-1 color-1">
+          <%= f.submit t(".submit") %>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

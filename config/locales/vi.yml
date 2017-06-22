@@ -17,11 +17,12 @@ vi:
       java: "Java"
       android: "Android"
       ios: "IOS"
-      quick_links: "Liên kết"
+      quick_links: "Liên kết nhanh"
       home: "Trang chủ"
       courses: "Lịch khai giảng"
       news: "Tin tức - Thông báo"
       contact: "Liên hệ"
+      trainers: "Đội ngủ giảng viên"
       contact_us: "Liên hệ với chúng tôi"
       framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
       faa: "Framgia Awesome Academy"
@@ -106,6 +107,8 @@ vi:
     pagination:
       truncate: "..."
   courses:
+    course:
+      register: "Đăng ký"
     right_sidebar:
       course_category: "Chuyên ngành"
     course_header:
@@ -162,3 +165,20 @@ vi:
       office: "Cơ quan"
       certification: "Chứng chỉ"
       quote: "Câu trích dẫn"
+  registrations:
+    form:
+      heading: "Đăng ký khóa học"
+      course: "Khóa học"
+      name: "Tên"
+      email: "Thư điện tử"
+      phone: "Số điện thoại"
+      address: "Địa chỉ"
+      submit: "Đăng ký"
+    create:
+      success: "Đăng ký khóa học thành công"
+      fail: "Đăng ký khóa học thất bại"
+    registration_success:
+      thank: "Cảm ơn bạn đã đăng ký khóa học"
+      contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
+      more_course: "Xem các khóa học khác"
+      this_course: "Xem khóa học vừa đăng ký"

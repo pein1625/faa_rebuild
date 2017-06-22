@@ -22,9 +22,10 @@
 
         <ul class="tt-footer-list clearfix">
           <li><%= link_to t(".home"), root_path %></li>
-          <li><%= link_to t(".courses"), "#" %></li>
+          <li><%= link_to t(".courses"), courses_path %></li>
           <li><%= link_to t(".news"), "#" %></li>
-          <li><%= link_to t(".contact"), "#" %></li>
+          <li><%= link_to t(".trainers"), trainers_path %></li>
+          <li><%= link_to t(".contact"), new_feedback_path %></li>
         </ul>
         <div class="empty-space marg-xs-b30"></div>
       </div>
