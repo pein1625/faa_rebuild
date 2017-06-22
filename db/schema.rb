@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621035607) do
+ActiveRecord::Schema.define(version: 20170621082908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,8 +84,10 @@ ActiveRecord::Schema.define(version: 20170621035607) do
     t.string   "title"
     t.text     "content"
     t.integer  "news_category_id"
+    t.integer  "admin_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["admin_id"], name: "index_news_on_admin_id", using: :btree
     t.index ["news_category_id"], name: "index_news_on_news_category_id", using: :btree
   end
 
@@ -104,6 +107,31 @@ ActiveRecord::Schema.define(version: 20170621035607) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_registrations_on_course_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.string   "taggable_type"
+    t.integer  "taggable_id"
+    t.string   "tagger_type"
+    t.integer  "tagger_id"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context", using: :btree
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+    t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
   end
 
   create_table "techniques", force: :cascade do |t|
@@ -137,6 +165,7 @@ ActiveRecord::Schema.define(version: 20170621035607) do
   add_foreign_key "course_techniques", "courses"
   add_foreign_key "course_techniques", "techniques"
   add_foreign_key "courses", "course_categories"
+  add_foreign_key "news", "admins"
   add_foreign_key "news", "news_categories"
   add_foreign_key "registrations", "courses"
   add_foreign_key "user_certifications", "certifications"

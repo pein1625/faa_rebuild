@@ -19,12 +19,12 @@ class HomeTabs < ViewObject
 
   def courses_tab
     build_tab t("layouts.header.courses"),
-      courses_path, :coures
+      courses_path, :courses
   end
 
   def news_tab
     build_tab t("layouts.header.news"),
-      "#", :news
+      news_index_path, :news
   end
 
   def contacts_tab

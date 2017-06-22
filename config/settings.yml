@@ -31,3 +31,7 @@ registrations:
   max_email_length: 127
   max_phone_length: 15
   max_address_length: 1023
+news:
+  per_page: 6
+  length_content: 320
+image_deafult: "/assets/course.jpg"

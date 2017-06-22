@@ -46,7 +46,7 @@ function searchCourse() {
         complete: function(xhr){
           var html_text = xhr.responseText;
           $('.contain-courses').html(html_text);
-          scaleCourseItem();
+          resetCourseCss();
         }
       });  
     } else {
@@ -58,10 +58,19 @@ function searchCourse() {
           complete: function(xhr){
             var html_text = xhr.responseText;
             $('.contain-courses').html(html_text);
-            scaleCourseItem();
+            resetCourseCss();
           }
         });        
       }
     }
   });
+}
+
+function resetCourseCss() {
+  var option = $('.tt-seachbar-content').data('view');
+  if(option == "grid") {
+    scaleCourseItem();
+  } else {
+    $('.tt-cours-info').css({'width':'', 'height':'', 'top': '', 'left':''});
+  }
 }

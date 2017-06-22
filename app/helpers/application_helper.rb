@@ -15,12 +15,11 @@ module ApplicationHelper
   end
 
   def load_image object, css_class = ""
-    image = object.images
+    image = object.images || object.image
     if image.any?
       image_tag image.first.url, class: "img wth-100 #{css_class}"
     else
-      image_tag ImageUploader.new.default_url,
-        class: "img wth-100 #{css_class}"
+      image_tag Settings.image_default, class: "img wth-100 #{css_class}"
     end
   end
 

@@ -1,0 +1,17 @@
+<div class="col-md-3">
+  <div class="pleft20">
+    <div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
+    <div class="tt-heding type-3">
+      <h5 class="tt-heding-title c-h5 txt-uppercase">
+        <span><small><%= t ".news_category" %></small></span>
+      </h5>
+    </div>
+    <div class="empty-space marg-lg-b10"></div>
+    <ul class="tt-slist">
+      <% @news_categories.each do |cate| %>
+        <li><%= link_to cate.name, news_index_path(news_category: cate.name) %></li>
+      <% end %>
+    </ul>
+    <div class="empty-space marg-lg-b30"></div>
+  </div>                    
+</div>

@@ -1,0 +1,22 @@
+<a class="tt-post-img custom-hover" href="#">
+  <%= load_image news, "image-news"%>
+</a>
+<div class="tt-post-date">
+  <%= l news.created_at, format: :date_month_year_concise %>
+</div>
+<div class="tt-post-label">
+  <span>
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <%= t ".by" %>
+    <a href="#"><%= news.admin_name %></a>
+  </span>
+  <span>
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <%= raw news.tag_list.map{|t| link_to t, "#"}.join(', ') %>
+  </span>
+  <span>
+    <i class="fa fa-comments-o" aria-hidden="true"></i>
+    <%= t ".comments" %>
+    <a href="#"></a>
+  </span>
+</div>

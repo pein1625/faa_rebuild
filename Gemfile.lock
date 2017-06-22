@@ -39,6 +39,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (5.0.0)
+      activerecord (>= 4.2.8)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
@@ -50,10 +52,6 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
-    carrierwave (1.1.0)
-      activemodel (>= 4.0.0)
-      activesupport (>= 4.0.0)
-      mime-types (>= 1.16)
     coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -115,7 +113,6 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    mini_magick (4.7.0)
     mini_portile2 (2.2.0)
     mini_racer (0.1.9)
       libv8 (~> 5.3)
@@ -230,9 +227,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   bootstrap-sass
   byebug
-  carrierwave
   coffee-rails (~> 4.2)
   config
   faker
@@ -244,7 +241,6 @@ DEPENDENCIES
   jquery-turbolinks
   kaminari
   listen (~> 3.0.5)
-  mini_magick
   mini_racer
   pg (~> 0.20.0)
   pry
@@ -266,4 +262,4 @@ DEPENDENCIES
   webpacker_lite
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

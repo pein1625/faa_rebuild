@@ -22,13 +22,12 @@ gem "sass-rails", "~> 5.0"
 gem "versionist"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "carrierwave"
-gem "mini_magick"
 gem "config"
 gem "kaminari"
 gem "simple_form"
 gem "foreman"
 gem "redcarpet"
+gem "acts-as-taggable-on"
 
 group :development, :test do
   gem "byebug", platform: :mri
