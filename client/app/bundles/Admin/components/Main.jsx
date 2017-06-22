@@ -6,9 +6,8 @@ import morrisCss from '../../../assets/styles/morris.css';
 import {IntlProvider} from 'react-intl';
 import {translations} from '../../../libs/i18n/translations';
 
-
 export default class Main extends React.Component {
-  constructor(props) {
+  constructor(props, _railsContext) {
     super(props);
     this.state = {
       certifications: []

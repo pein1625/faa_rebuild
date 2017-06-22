@@ -1,5 +1,8 @@
 vi:
   admin:
+    layouts:
+      application:
+        title: "Management"
     navbar_header:
       brand: "FAA Admin"
     navbar_right:
@@ -18,3 +21,14 @@ vi:
       blank_page: "Blank Page"
     page_header:
       dashboard: "Dashboard"
+    certifications:
+      add_success: "Thêm mới thành công"
+      delete_success: "Xóa thành công"
+      certifications: "Chứng chỉ"
+      new: "Thêm chứng chỉ"
+      name: "Tên"
+      description: "Mô tả"
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      save: "Lưu"
+    errors: "Lỗi"

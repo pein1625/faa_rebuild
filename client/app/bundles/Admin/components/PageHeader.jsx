@@ -3,7 +3,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../libs/i18n/default';
 
 class PageHeader extends React.Component {
-  constructor(props) {
+  constructor(props, _railsContext) {
     super(props);
   }
 
@@ -11,7 +11,7 @@ class PageHeader extends React.Component {
     const {formatMessage} = this.props.intl;
     return (
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-md-12">
           <h1 className="page-header">
             {formatMessage(defaultMessages.adminPageHeaderDashboard)}
           </h1>

@@ -4,7 +4,6 @@
 
 const webpack = require('webpack');
 const { resolve } = require('path');
-
 const ManifestPlugin = require('webpack-manifest-plugin');
 const webpackConfigLoader = require('react-on-rails/webpackConfigLoader');
 

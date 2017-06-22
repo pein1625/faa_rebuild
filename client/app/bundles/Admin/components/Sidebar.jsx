@@ -1,6 +1,7 @@
 import React from 'react';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../libs/i18n/default';
+import {Link} from 'react-router-dom';
 
 class Sidebar extends React.Component {
   constructor(props) {
@@ -13,10 +14,10 @@ class Sidebar extends React.Component {
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav side-nav">
           <li className="active">
-            <a href="index.html">
+            <Link to="/admin/certifications">
               <i className="fa fa-fw fa-dashboard" />
               {formatMessage(defaultMessages.adminSidebarDashboard)}
-            </a>
+            </Link>
           </li>
           <li>
             <a href="charts.html">

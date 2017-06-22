@@ -25,6 +25,7 @@ body {
     width: 100%;
     padding: 0;
     background-color: #fff;
+    min-height: 100vh;
 }
 
 .huge {
@@ -224,4 +225,26 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+.preview-image {
+  width: 200px;
+}
+
+.submit-group {
+  padding-top: 20px;
+}
+
+.certifications-table-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-buttons {
+  display: flex;
+}
+
+.action-buttons .btn {
+  margin-right: 5px;
 }
