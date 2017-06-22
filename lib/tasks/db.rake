@@ -6,7 +6,7 @@ namespace :db do
     end
 
     puts "Create Admin"
-    Admin.create name: "Mat xa 50k"
+    Admin.create name: "admin"
 
     puts "Create Course Category"
     8.times do
@@ -71,7 +71,7 @@ namespace :db do
     Certification.create! name: "Enflish"
 
     puts "Create trainers"
-    quote = "Git Push and Go Home"
+    quote = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
     trainers = ["Pham Van Chien", "Nguyen Van Tran Anh", "Tran Duc Quoc",
       "Do Thi Diem Thao", "Hoang Thi Nhung"]
     trainers.each do |trainer|

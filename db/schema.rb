@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20170621082908) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -84,10 +83,8 @@ ActiveRecord::Schema.define(version: 20170621082908) do
     t.string   "title"
     t.text     "content"
     t.integer  "news_category_id"
-    t.integer  "admin_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["admin_id"], name: "index_news_on_admin_id", using: :btree
     t.index ["news_category_id"], name: "index_news_on_news_category_id", using: :btree
   end
 
@@ -165,7 +162,6 @@ ActiveRecord::Schema.define(version: 20170621082908) do
   add_foreign_key "course_techniques", "courses"
   add_foreign_key "course_techniques", "techniques"
   add_foreign_key "courses", "course_categories"
-  add_foreign_key "news", "admins"
   add_foreign_key "news", "news_categories"
   add_foreign_key "registrations", "courses"
   add_foreign_key "user_certifications", "certifications"
