@@ -14,12 +14,12 @@
         <% courses.each_with_index do |course, _index| %>
           <div class="swiper-slide" data-val="<%= _index %>">
             <div class="tt-cours">
-              <%= link_to "#", class: "tt-cours-img custom-hover" do %>
+              <%= link_to course_path(course), class: "tt-cours-img custom-hover" do %>
                 <%= image_tag course.images.any? ? course.images.first.url : "course_default.jpg", class: "img-responsive" %>
               <% end %>
               <div class="tt-cours-info">
                 <div class="tt-cours-cat"><%= course.course_category_name %></div>
-                <%= link_to "#", class: "tt-cours-title c-h6" do %>
+                <%= link_to course_path(course), class: "tt-cours-title c-h6" do %>
                   <%= course.name %>
                 <% end %>
               </div>

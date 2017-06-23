@@ -1,16 +1,8 @@
 <div class="tt-seachbar-entry">
-  <div class="tt-cours type-2 type-2-custom course-register-hover">
-    <%= link_to new_registration_path(course: course.id), remote: true,
-      class: "tt-cours-img tt-gallery-1" do %>
-      <span class="tt-gallery-1-overlay"></span>
-        <%= load_image course, "image-w100-h100" %>
-      <span class="tt-gallery-1-caption">
-        <span class="tt-gallery-1-caption-table">
-          <span class="tt-gallery-1-caption-inner">
-            <span class="tt-gallery-1-search"><i class="stroke-icon icon-Pencil"></i></span>
-            <span class="tt-gallery-1-name"><%= t ".register" %></span>
-          </span>
-        </span>
+  <div class="tt-cours type-2 type-2-custom">
+    <%= link_to course_path(course), class: "tt-cours-img custom-hover" do %>
+      <span class="tt-cours-pic background-block">
+        <%= load_image course %>
       </span>
     <% end %>
     <div class="tt-cours-info">
