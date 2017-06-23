@@ -13,6 +13,7 @@ vi:
       logout: "Logout"
     sidebar:
       dashboard: "Dashboard"
+      news_categories: "Danh mục tin tức"
       charts: "Charts"
       tables: "Tables"
       forms: "Forms"
@@ -32,3 +33,11 @@ vi:
       delete: "Xóa"
       save: "Lưu"
     errors: "Lỗi"
+    news_categories:
+      category: "Danh mục tin tức"
+      new: "Thêm danh mục"
+      name: "Tên"
+      description: "Mô tả"
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+

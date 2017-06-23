@@ -20,10 +20,10 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li>
-            <a href="charts.html">
-              <i className="fa fa-fw fa-bar-chart-o" />
-              {formatMessage(defaultMessages.adminSidebarCharts)}
-              </a>
+            <Link to="/admin/news_categories">
+              <i className="fa fa-fw fa-dashboard" />
+              {formatMessage(defaultMessages.adminSidebarNewsCategories)}
+            </Link>
           </li>
           <li>
             <a href="tables.html">
