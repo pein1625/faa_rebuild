@@ -1,6 +1,9 @@
 import React from 'react';
 import PageHeader from './PageHeader.jsx';
 import CertificationList from './certifications/CertificationList';
+import CourseList from './courses/CourseList';
+import EditCourse from './courses/EditCourse';
+import NewCourse from './courses/NewCourse';
 import EditCertification from './certifications/EditCertification';
 import NewCertification from './certifications/NewCertification';
 import NewsCategoryIndex from './news_categories/NewsCategoryIndex';
@@ -27,6 +30,9 @@ export default class PageWrapper extends React.Component {
             <Route exact path="/admin/news_categories/:id/edit" component={NewsCategoryEdit}/>
             <Route exact path="/admin/news_categories/new" component={NewsCategoryNew}/>
             <Route exact path="/admin/feedbacks" component={FeedbacksList}/>
+            <Route exact path="/admin/courses" component={CourseList}/>
+            <Route exact path="/admin/courses/:id/edit" component={EditCourse}/>
+            <Route exact path="/admin/courses/new" component={NewCourse}/>
           </Switch>
         </div>
       </div>

@@ -5,7 +5,7 @@ import ReactOnRails from 'react-on-rails';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
-export default class Certification extends React.Component {
+export default class Course extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.onDeleteHandle = this.onDeleteHandle.bind(this);
@@ -13,7 +13,7 @@ export default class Certification extends React.Component {
 
   onDeleteHandle(e) {
     let {id} = this.props;
-    axios.delete(`/v1/certifications/${id}.json`, null,
+    axios.delete(`/v1/courses/${id}.json`, null,
       {
         headers: {'X-CSRF-Token': csrfToken},
         responseType: 'json'
@@ -36,12 +36,15 @@ export default class Certification extends React.Component {
         <td className="col-md-4">{name}</td>
         <td className="col-md-5">{description}</td>
         <td>
-          <Link to={`/admin/certifications/${id}/edit`}>
-            <button className="btn btn-warning"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <Link to={`/admin/courses/${id}/edit`}>
+            <button className="btn btn-warning"><i className="fa fa-pencil-square-o"
+              aria-hidden="true"></i></button>
           </Link>
         </td>
         <td>
-          <a className="btn btn-danger" onClick={this.onDeleteHandle}><i className="fa fa-times" aria-hidden="true"></i></a>
+          <a className="btn btn-danger" onClick={this.onDeleteHandle.bind(this)}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </a>
         </td>
       </tr>
     );

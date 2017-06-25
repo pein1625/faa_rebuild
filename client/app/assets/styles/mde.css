@@ -1,0 +1,15 @@
+.fa-bold:before {
+  content: 'B' !important;
+}
+
+.fa-italic:before {
+  content: 'I' !important;
+}
+
+.fa-header:before {
+  content: 'H' !important;
+}
+
+.fa-quote-left:before {
+  content: '❝' !important;
+}
