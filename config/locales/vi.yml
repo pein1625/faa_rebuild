@@ -22,7 +22,7 @@ vi:
       courses: "Lịch khai giảng"
       news: "Tin tức - Thông báo"
       contact: "Liên hệ"
-      trainers: "Đội ngủ giảng viên"
+      trainers: "Đội ngũ của chúng tôi"
       contact_us: "Liên hệ với chúng tôi"
       framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
       faa: "Framgia Awesome Academy"
@@ -53,7 +53,7 @@ vi:
       lastest_courses: "Những khóa học mới nhất"
       enrolled_count: "Tổng số người đã đăng ký"
     trainers:
-      trainers: "Đội ngủ giảng viên"
+      trainers: "Đội ngũ của chúng tôi"
       more: "Xem tất cả"
     client_say:
       about_us: "Giới thiệu ngắn về chúng tôi"
