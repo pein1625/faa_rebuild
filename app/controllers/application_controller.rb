@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :list_course_categories
 
   def popular_courses
     @popular_courses = Course.popular
@@ -11,5 +12,11 @@ class ApplicationController < ActionController::Base
 
   def popular_tags
     @popular_tags = News.popular_tags
+  end
+
+  private
+
+  def list_course_categories
+    @course_categories = CourseCategory.all
   end
 end
