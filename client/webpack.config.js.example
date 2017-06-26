@@ -32,7 +32,7 @@ const config = {
     // publicPath: `/${webpackPublicOutputDir}`,
     // path: webpackOutputPath,
     filename: 'webpack-bundle.js',
-    path: '/home/framgia/project/faa_rebuild/app/assets/javascripts',
+    path: '/home/lqc/Framgia-Internship/faa_rebuild/app/assets/javascripts',
   },
 
   resolve: {

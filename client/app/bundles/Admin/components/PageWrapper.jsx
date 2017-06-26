@@ -10,6 +10,9 @@ import NewsCategoryIndex from './news_categories/NewsCategoryIndex';
 import NewsCategoryEdit from './news_categories/NewsCategoryEdit';
 import NewsCategoryNew from './news_categories/NewsCategoryNew';
 import FeedbacksList from './feedbacks/FeedbacksList'
+import CourseCategoriesList from './course_categories/CourseCategoriesList';
+import EditCourseCategory from './course_categories/EditCourseCategory';
+import NewCourseCategory from './course_categories/NewCourseCategory';
 import {Route, Switch} from 'react-router-dom';
 
 export default class PageWrapper extends React.Component {
@@ -33,6 +36,9 @@ export default class PageWrapper extends React.Component {
             <Route exact path="/admin/courses" component={CourseList}/>
             <Route exact path="/admin/courses/:id/edit" component={EditCourse}/>
             <Route exact path="/admin/courses/new" component={NewCourse}/>
+            <Route exact path="/admin/course_categories" component={CourseCategoriesList}/>
+            <Route exact path="/admin/course_categories/:id/edit" component={EditCourseCategory}/>
+            <Route exact path="/admin/course_categories/new" component={NewCourseCategory}/>
           </Switch>
         </div>
       </div>

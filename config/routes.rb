@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :news_categories
     resources :feedbacks, only: [:index, :destroy]
     resources :courses
+    resources :course_categories
   end
 
   namespace :admin do
