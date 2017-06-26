@@ -8,9 +8,9 @@
   <% popular_courses.each do |course| %>
     <li>
       <div class="tt-scours clearfix">
-        <a class="tt-scours-img custom-hover" href="#">
+        <%= link_to course_path(course), class: "tt-scours-img custom-hover" do %>
           <%= load_image course, "image-popular-course"%>
-        </a>
+        <% end %>
         <div class="tt-scours-info">
           <%= link_to course.name, course_path(course),
             class: "tt-scours-title" %>

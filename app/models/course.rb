@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   delegate :name, to: :course_category, prefix: true, allow_nil: true
 
   scope :newest, ->{order created_at: :desc}
-  scope :by_words, -> words{where("name LIKE ?", "%#{words}%")}
+  scope :by_words, -> words{where("LOWER(name) LIKE ?", "%#{words.downcase}%")}
   scope :popular, ->{left_joins(:registrations).group(:id)
     .order("COUNT(registrations.id) DESC").first(Settings.courses.popular)}
 

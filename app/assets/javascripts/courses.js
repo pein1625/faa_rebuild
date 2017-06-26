@@ -37,7 +37,7 @@ function scaleCourseItem() {
 function searchCourse() {
   $('#search-input').keyup(function(){
     var textSearch = $(this).val();
-    if(textSearch.length > 3 && textSearch.length < 255) {
+    if(textSearch.length > 0 && textSearch.length < 255) {
       $.ajax({
         url: '/courses',
         type:'GET',
@@ -49,19 +49,6 @@ function searchCourse() {
           resetCourseCss();
         }
       });  
-    } else {
-      if(textSearch.length == 3){
-        $.ajax({
-          url: '/courses',
-          type:'GET',
-          dataType:'json',
-          complete: function(xhr){
-            var html_text = xhr.responseText;
-            $('.contain-courses').html(html_text);
-            resetCourseCss();
-          }
-        });        
-      }
     }
   });
 }
