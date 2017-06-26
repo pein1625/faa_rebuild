@@ -1,0 +1,9 @@
+<% if @status == Settings.course_registrations.reject %>
+  <h2><%= t ".heading_reject", course_name: @registration.course_name %></h2>
+<% else %>
+  <h2><%= t ".heading_accept", course_name: @registration.course_name %></h2>
+<% end %>
+<br>
+<p>
+  <%= @email_content %>
+</p>
