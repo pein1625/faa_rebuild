@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   api_version(module: "V1", path: {value: "v1"}, default: true) do
     resources :certifications
     resources :news_categories
+    resources :feedbacks, only: [:index, :destroy]
   end
 
   namespace :admin do
