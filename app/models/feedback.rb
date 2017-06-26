@@ -12,4 +12,6 @@ class Feedback < ApplicationRecord
     length: {maximum: Settings.feedbacks.max_content_length}
   validates :phone, allow_blank: true, format: {with: VALID_PHONE_NUMBER_REGEX},
     length: {maximum: Settings.feedbacks.max_phone_length}
+
+  scope :newest, ->{order created_at: :desc}
 end

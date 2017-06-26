@@ -40,4 +40,14 @@ vi:
       description: "Mô tả"
       edit: "Chỉnh sửa"
       delete: "Xóa"
-
+    feedbacks:
+      title: "Danh sách phản hồi"
+      name: "Tên"
+      email: "Email"
+      phone: "SĐT"
+      subject: "Chủ đề"
+      content: "Nội dung"
+      delete: "Xóa"
+      delete_success: "Đã xóa phản hồi"
+      not_found: "Không tìm thấy phản hồi"
+      delete_failed: "Không thể xóa phản hồi"
