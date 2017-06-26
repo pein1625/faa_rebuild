@@ -4,7 +4,7 @@ import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
-import Errors from '../Errors'
+import Errors from '../Errors';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
@@ -20,8 +20,9 @@ class NewCertification extends React.Component {
       description: "",
       url: "",
       submitSuccess: false,
-      errors: []
-    }
+      errors: [],
+      status:""
+    };
   }
 
   handleFileChange(e) {
@@ -31,7 +32,7 @@ class NewCertification extends React.Component {
 
     reader.onloadend = function() {
       that.setState({url: reader.result});
-    }
+    };
 
     if (file) {
       reader.readAsDataURL(file);

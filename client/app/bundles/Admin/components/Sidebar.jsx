@@ -13,7 +13,7 @@ class Sidebar extends React.Component {
     return (
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav side-nav">
-          <li className="active">
+          <li>
             <Link to="/admin/certifications">
               <i className="fa fa-fw fa-dashboard" />
               {formatMessage(defaultMessages.adminSidebarDashboard)}
@@ -21,21 +21,21 @@ class Sidebar extends React.Component {
           </li>
           <li>
             <Link to="/admin/news_categories">
-              <i className="fa fa-fw fa-dashboard" />
+              <i className="fa fa-fw fa-newspaper-o" />
               {formatMessage(defaultMessages.adminSidebarNewsCategories)}
             </Link>
           </li>
           <li>
-            <a href="tables.html">
-              <i className="fa fa-fw fa-table" />
-              {formatMessage(defaultMessages.adminSidebarTables)}
-            </a>
+            <Link to="/admin/courses">
+              <i className="fa fa-fw fa-calendar" />
+              {formatMessage(defaultMessages.adminSidebarCourses)}
+            </Link>
           </li>
           <li>
-            <a href="forms.html">
-              <i className="fa fa-fw fa-edit" />
-              {formatMessage(defaultMessages.adminSidebarForms)}
-            </a>
+            <Link to="/admin/feedbacks">
+              <i className="fa fa-fw fa-envelope-o" />
+              {formatMessage(defaultMessages.adminSidebarFeedbacks)}
+            </Link>
           </li>
           <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#demo">
