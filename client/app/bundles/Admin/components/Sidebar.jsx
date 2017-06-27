@@ -56,6 +56,12 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li>
+            <Link to="/admin/newses">
+              <i className="fa fa-fw fa-pencil" />
+              {formatMessage(defaultMessages.adminSidebarNewses)}
+            </Link>
+          </li>
+          <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#demo">
               <i className="fa fa-fw fa-arrows-v" />
               {formatMessage(defaultMessages.adminSidebarDropdown)}

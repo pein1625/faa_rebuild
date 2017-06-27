@@ -18,6 +18,10 @@ import UserList from './users/UserList';
 import EditUser from './users/EditUser';
 import NewUser from './users/NewUser';
 import User from './users/User';
+import FeedbacksList from './feedbacks/FeedbacksList';
+import NewsList from './newses/NewsList';
+import EditNews from './newses/EditNews';
+import NewNews from './newses/NewNews';
 import {Route, Switch} from 'react-router-dom';
 
 export default class PageWrapper extends React.Component {
@@ -44,10 +48,12 @@ export default class PageWrapper extends React.Component {
             <Route exact path="/admin/course_categories" component={CourseCategoriesList}/>
             <Route exact path="/admin/course_categories/:id/edit" component={EditCourseCategory}/>
             <Route exact path="/admin/course_categories/new" component={NewCourseCategory}/>
-
             <Route exact path="/admin/users" component={UserList}/>
             <Route exact path="/admin/users/new" component={NewUser}/>
             <Route path="/admin/users/:id/edit" component={EditUser}/>
+            <Route exact path="/admin/newses" component={NewsList}/>
+            <Route exact path="/admin/newses/:id/edit" component={EditNews}/>
+            <Route exact path="/admin/newses/new" component={NewNews}/>
           </Switch>
         </div>
       </div>

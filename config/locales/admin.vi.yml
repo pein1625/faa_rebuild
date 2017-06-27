@@ -23,6 +23,7 @@ vi:
       dropdown_item: "Dropdown Item"
       blank_page: "Blank Page"
       courses: "Courses"
+      newses: "Tin tức"
     page_header:
       dashboard: "Dashboard"
     certifications:
@@ -103,3 +104,12 @@ vi:
       delete_success: "Xóa chủ đề thành công"
       delete_failed: "Xóa chủ đề thất bại"
       not_found: "Không tìm thấy chủ đề này"
+    newses:
+      news: "Tin tức"
+      title: "Tiêu đề"
+      add: "Thêm bài viết"
+      edit: "Chỉnh sửa"
+      delete: "Xóa"
+      tags: "Thẻ"
+      category: "Thể loại"
+      content: "Nội dung"
