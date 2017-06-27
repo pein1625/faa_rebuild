@@ -1,9 +1,7 @@
 <div class="tt-seachbar-entry">
   <div class="tt-cours type-2 type-2-custom">
     <%= link_to course_path(course), class: "tt-cours-img custom-hover" do %>
-      <span class="tt-cours-pic background-block">
-        <%= load_image course %>
-      </span>
+      <%= load_image course %>
     <% end %>
     <div class="tt-cours-info">
       <div class="tt-cours-cat"><%= course.course_category_name %></div>
