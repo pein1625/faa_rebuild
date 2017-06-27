@@ -4,7 +4,7 @@
       <div class="col-sm-6 col-md-3">
         <div class="tt-teacher-2 trainers-trainer-detail">
           <%= link_to trainer_path(trainer), class: "tt-teacher-2-img custom-hover" do %>
-            <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg", class: "img-responsive" %>
+            <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg", class: "img-responsive trainers-avatar" %>
           <% end %>
           <div class="tt-teacher-2-info">
             <%= link_to trainer_path(trainer), class: "tt-teacher-2-title trainer-name" do %>
