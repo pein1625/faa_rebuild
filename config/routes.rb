@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "home#index"
   get "tags/:tag", to: "news#index", as: :tag
 
-  api_version(module: "V1", path: {value: "v1"}, default: true) do
+  namespace :v1 do
     resources :certifications
     resources :news_categories
     resources :feedbacks, only: [:index, :destroy]

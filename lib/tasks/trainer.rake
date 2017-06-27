@@ -7,19 +7,40 @@ namespace :db do
     Certification.create! name: "Tốt nghiệp đại học Công Nghệ, Đại Học Quốc Gia HN"
 
     puts "Create trainers"
-    trainers = {
-      "Phan Lạc Phúc": "Đầu tư cho học tập nâng cao kỹ năng là sự đầu tư đúng đắn nhất.",
-      "Mai Tuấn Việt": "",
-      "Nguyễn Bỉnh Diệu": "I am a Ruby trainer and have many years of experience
-        in working for training and developing web programming. With continuous
-        learning ability, effective problem solving and communication skills,
-        I have been always trying to create better technical background
-        knowledge and experiences in order to train many people in
-        Vietnamese IT community",
-      "Hoàng Nhạc Trung": ""
-    }
-    trainers.each do |name, quote|
-      User.create! name: name, role: 1, quote: quote
+    trainers = [
+      {
+        name: "Phan Lạc Phúc",
+        quote: "Đầu tư cho học tập nâng cao kỹ năng là sự đầu tư đúng đắn nhất.",
+        email: "phan.lac.phuc@framgia.com",
+        phone: "0969696969"
+      },
+      {
+        name: "Mai Tuấn Việt",
+        quote: "",
+        email: "mai.tuan.viet@framgia.com",
+        phone: "0969696969"
+      },
+      {
+        name: "Nguyễn Bỉnh Diệu",
+        quote: "I am a Ruby trainer and have many years of experience
+          in working for training and developing web programming. With continuous
+          learning ability, effective problem solving and communication skills,
+          I have been always trying to create better technical background
+          knowledge and experiences in order to train many people in
+          Vietnamese IT community",
+        email: "nguyen.binh.dieu@framgia.com",
+        phone: "0969696969"
+      },
+      {
+        name: "Hoàng Nhạc Trung",
+        quote: "",
+        email: "hoang.nhac.trung@framgia.com",
+        phone: "0969696969"
+      }
+    ]
+    trainers.each do |trainer|
+      User.create! name: trainer[:name], role: 1, quote: trainer[:quote],
+        email: trainer[:email], phone: trainer[:phone]
     end
 
     UserCertification.create! user_id: 1, certification_id: 1
