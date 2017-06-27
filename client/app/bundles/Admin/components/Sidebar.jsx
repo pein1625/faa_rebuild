@@ -38,6 +38,12 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li>
+            <Link to="/admin/users">
+              <i className="fa fa-fw fa-user" />
+              {formatMessage(defaultMessages.adminSidebarDashboard)}
+            </Link>
+          </li>
+          <li>
             <a href="tables.html">
               <i className="fa fa-fw fa-table" />
               {formatMessage(defaultMessages.adminSidebarTables)}

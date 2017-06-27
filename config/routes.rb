@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:index, :destroy]
     resources :courses
     resources :course_categories
+    resources :users
   end
 
   namespace :admin do
