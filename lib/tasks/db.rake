@@ -66,18 +66,6 @@ namespace :db do
       end
     end
 
-    puts "Create Certification"
-    Certification.create! name: "Agile"
-    Certification.create! name: "Enflish"
-
-    puts "Create trainers"
-    quote = "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla"
-    trainers = ["Pham Van Chien", "Nguyen Van Tran Anh", "Tran Duc Quoc",
-      "Do Thi Diem Thao", "Hoang Thi Nhung"]
-    trainers.each do |trainer|
-      User.create! name: trainer, role: 1, quote: quote
-    end
-
     puts "Create News Category"
     8.times do
       NewsCategory.create! name: Faker::Pokemon.name
@@ -127,5 +115,7 @@ namespace :db do
         temp.save
       end
     end
+
+    Rake::Task["db:trainer"].invoke
   end
 end

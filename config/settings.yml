@@ -25,7 +25,7 @@ trainers:
   per_page: 20
 certifications:
   min_name_length: 2
-  max_name_length: 30
+  max_name_length: 255
   max_description_length: 500
 registrations:
   max_name_length: 127

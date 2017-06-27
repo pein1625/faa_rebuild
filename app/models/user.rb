@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :user_certifications, autosave: true, dependent: :destroy
   has_many :certifications, through: :user_certifications
+  has_many :user_positions, dependent: :destroy
   has_one :image, as: :imageable, dependent: :destroy
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :user_certifications
