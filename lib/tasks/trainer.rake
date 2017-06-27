@@ -12,13 +12,13 @@ namespace :db do
         name: "Phan Lạc Phúc",
         quote: "Đầu tư cho học tập nâng cao kỹ năng là sự đầu tư đúng đắn nhất.",
         email: "phan.lac.phuc@framgia.com",
-        phone: "0969696969"
+        phone: "0686868634"
       },
       {
         name: "Mai Tuấn Việt",
         quote: "",
         email: "mai.tuan.viet@framgia.com",
-        phone: "0969696969"
+        phone: "0686868634"
       },
       {
         name: "Nguyễn Bỉnh Diệu",
@@ -29,13 +29,13 @@ namespace :db do
           knowledge and experiences in order to train many people in
           Vietnamese IT community",
         email: "nguyen.binh.dieu@framgia.com",
-        phone: "0969696969"
+        phone: "0686868634"
       },
       {
         name: "Hoàng Nhạc Trung",
         quote: "",
         email: "hoang.nhac.trung@framgia.com",
-        phone: "0969696969"
+        phone: "0686868634"
       }
     ]
     trainers.each do |trainer|
