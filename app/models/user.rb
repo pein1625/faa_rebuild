@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :user_certifications, dependent: :destroy
   has_many :certifications, through: :user_certifications
+  has_many :user_positions, dependent: :destroy
   has_one :image, as: :imageable, dependent: :destroy
 
   enum role: {trainer: 1, user: 2}

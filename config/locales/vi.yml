@@ -173,6 +173,9 @@ vi:
       office: "Cơ quan"
       certification: "Chứng chỉ"
       quote: "Câu trích dẫn"
+    position:
+      position: "Các vị trí đã trải qua"
+      now: "hiện nay"
   registrations:
     form:
       heading: "Đăng ký khóa học"
@@ -206,4 +209,7 @@ vi:
       news: "Tin tức-Thông báo"
   time:
     formats:
-      date_month_year_concise: '%d-%m-%Y'
+      date_month_year_concise: "%d-%m-%Y"
+  date:
+    formats:
+      month_year_concise: "%m/%Y"

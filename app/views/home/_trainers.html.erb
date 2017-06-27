@@ -35,7 +35,7 @@
                     <ul class="list-inline">
                       <% trainer.certifications.each do |certification| %>
                         <li>
-                          <%= image_tag certification.image.url,
+                          <%= image_tag certification.image.present? ? certification.image.url : "introduction/certificate.png",
                             class: "icon-certification-index",
                             data: {toggle: "tooltip"}, title: certification.name %>
                         </li>
