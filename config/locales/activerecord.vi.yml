@@ -37,4 +37,4 @@ vi:
               blank: "không được để trống"
             address:
               blank: "không được để trống"
-              too_long: "quá dài (tối đa 1023 ký tự)"
+              too_long: "quá dài (tối đa 255 ký tự)"

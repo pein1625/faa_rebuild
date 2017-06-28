@@ -42,6 +42,7 @@ class CoursesController < ApplicationController
   end
 
   def load_by_search_word
-    Course.by_words(params[:words]) if params[:words]
+    Course.by_words(params[:words]).page(params[:page])
+      .per Settings.courses.per_page if params[:words]
   end
 end
