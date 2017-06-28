@@ -9,7 +9,6 @@ import NewCertification from './certifications/NewCertification';
 import NewsCategoryIndex from './news_categories/NewsCategoryIndex';
 import NewsCategoryEdit from './news_categories/NewsCategoryEdit';
 import NewsCategoryNew from './news_categories/NewsCategoryNew';
-import FeedbacksList from './feedbacks/FeedbacksList'
 import CourseCategoriesList from './course_categories/CourseCategoriesList';
 import EditCourseCategory from './course_categories/EditCourseCategory';
 import NewCourseCategory from './course_categories/NewCourseCategory';
