@@ -71,7 +71,7 @@ namespace :db do
       NewsCategory.create! name: Faker::Pokemon.name
     end
 
-    tags_list = ["Ruby", "PHP", "Android", ".NET"]
+    tags_list = ["Ruby", "PHP", "Android", "JAVA"]
     puts "Create News"
     admin = Admin.first
     NewsCategory.all.each do |cate|
