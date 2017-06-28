@@ -38,3 +38,78 @@ vi:
             address:
               blank: "không được để trống"
               too_long: "quá dài (tối đa 255 ký tự)"
+        certification:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"
+              too_short: "quá ngắn (tối thiểu 2 ký tự)"
+            description:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 500 ký tự)"
+        course:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"
+              too_short: "quá ngắn (tối thiểu 3 ký tự)"
+            description:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 1000 ký tự)"
+              too_short: "quá ngắn (tối thiểu 10 ký tự)"
+            start_date:
+              blank: "không được để trống"
+            end_date:
+              blank: "không được để trống"
+            registration_deadline:
+              blank: "không được để trống"
+            course_category_id:
+              blank: "không được để trống"
+            content:
+              blank: "không được để trống"
+            cost:
+              blank: "không được để trống"
+              not_a_number: "không phải là số"
+              greater_than_or_equal_to: "phải lớn hơn hoặc bằng 0"
+        course_category:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"
+        news:
+          attributes:
+            title:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"
+            content:
+              blank: "không được để trống"
+            news_category_id:
+              blank: "không được để trống"
+            admin_id:
+              blank: "không được để trống"
+        news_category:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 30 ký tự)"
+              too_short: "quá ngắn (tối thiểu 2 ký tự)"
+            description:
+              too_long: "quá dài (tối đa 500 ký tự)"
+        user:
+          attributes:
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 30 ký tự)"
+              too_short: "quá ngắn (tối thiểu 2 ký tự)"
+            quote:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 500 ký tự)"
+            email:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              taken: "Email này đã tồn tại"
+            phone:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 15 ký tự)"
+              too_short: "quá ngắn (tối thiểu 10 ký tự)"
+              not_a_number: "không phải là số"

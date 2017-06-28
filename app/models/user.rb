@@ -17,9 +17,9 @@ class User < ApplicationRecord
   validates :quote, length: {
     maximum: Settings.users.max_quote_length}
   validates :email, presence: true,
-    format: { with: VALID_EMAIL_REGEX },
-    uniqueness: { case_sensitive: false }
-  validates :phone, presence: true,
-    numericality: true,
-    length: { minimum: 10, maximum: 15 }
+    format: {with: VALID_EMAIL_REGEX},
+    uniqueness: {case_sensitive: false}
+  validates :phone, presence: true, numericality: true, length: {
+    minimum: Settings.users.min_phone_length,
+    maximum: Settings.users.max_phone_length}
 end

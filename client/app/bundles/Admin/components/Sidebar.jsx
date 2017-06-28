@@ -40,18 +40,12 @@ class Sidebar extends React.Component {
           <li>
             <Link to="/admin/users">
               <i className="fa fa-fw fa-user" />
-              {formatMessage(defaultMessages.adminSidebarDashboard)}
+              {formatMessage(defaultMessages.adminSidebarUsers)}
             </Link>
           </li>
           <li>
-            <a href="tables.html">
-              <i className="fa fa-fw fa-table" />
-              {formatMessage(defaultMessages.adminSidebarTables)}
-            </a>
-          </li>
-          <li>
             <Link to="/admin/feedbacks">
-              <i className="fa fa-fw fa-envelope-o" />
+              <i className="fa fa-fw fa-envelope-o"/>
               {formatMessage(defaultMessages.adminSidebarFeedbacks)}
             </Link>
           </li>
@@ -60,27 +54,6 @@ class Sidebar extends React.Component {
               <i className="fa fa-fw fa-pencil" />
               {formatMessage(defaultMessages.adminSidebarNewses)}
             </Link>
-          </li>
-          <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#demo">
-              <i className="fa fa-fw fa-arrows-v" />
-              {formatMessage(defaultMessages.adminSidebarDropdown)}
-              <i className="fa fa-fw fa-caret-down" />
-            </a>
-            <ul id="demo" className="collapse">
-              <li>
-                <a href="#">{formatMessage(defaultMessages.adminSidebarDropdownItem)}</a>
-              </li>
-              <li>
-                <a href="#">{formatMessage(defaultMessages.adminSidebarDropdownItem)}</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="blank-page.html">
-              <i className="fa fa-fw fa-file" />
-              {formatMessage(defaultMessages.adminSidebarBlankPage)}
-            </a>
           </li>
         </ul>
       </div>

@@ -32,7 +32,6 @@ export default class PageWrapper extends React.Component {
     return (
       <div id="page-wrapper">
         <div className="container-fluid">
-          <PageHeader/>
           <Switch>
             <Route exact path="/admin/certifications" component={CertificationList}/>
             <Route path="/admin/certifications/:id/edit" component={EditCertification}/>
@@ -53,6 +52,7 @@ export default class PageWrapper extends React.Component {
             <Route exact path="/admin/newses" component={NewsList}/>
             <Route exact path="/admin/newses/:id/edit" component={EditNews}/>
             <Route exact path="/admin/newses/new" component={NewNews}/>
+            <Route exact path="/admin" component={CourseList}/>
           </Switch>
         </div>
       </div>

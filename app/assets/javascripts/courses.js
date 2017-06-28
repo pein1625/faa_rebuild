@@ -20,7 +20,7 @@ function filterByCategory() {
         $('.contain-courses').html(html_text);
         scaleCourseItem();
       }
-    });    
+    });
   });
 }
 
@@ -37,7 +37,7 @@ function scaleCourseItem() {
 function searchCourse() {
   $('#search-input').keyup(function(){
     var textSearch = $(this).val();
-    if(textSearch.length > 0 && textSearch.length < 255) {
+    if(textSearch.length < 255) {
       $.ajax({
         url: '/courses',
         type:'GET',
@@ -48,7 +48,7 @@ function searchCourse() {
           $('.contain-courses').html(html_text);
           resetCourseCss();
         }
-      });  
+      });
     }
   });
 }
