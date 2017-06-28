@@ -20,20 +20,22 @@
   <div class="tt-author-avacell">
     <div class="tt-author-ava">
       <div class="tt-author-imgcell">
-        <a class="custom-hover round" href="single_course.html#">
-          <img src="/img/author/author.jpg" class="image-author" alt="">
-        </a>
+        <div class="round">
+          <img src="/assets/introduction/teaching.png" class="image-author" alt="">
+        </div>
       </div>
       <div class="tt-author-infocell">
         <div class="tt-author-position"><%= t ".teacher" %></div>
-        <a class="tt-author-name" href="#"><%= t ".framgia_vietnam" %></a>
+        <p class="tt-author-name"><%= t ".framgia_vietnam" %></p>
       </div>
     </div>
   </div>
   <div class="tt-author-catcell">
     <div class="tt-author-label"><%= t ".category" %></div>
     <div class="tt-author-tags">
-      <a href="#"><%= course.course_category_name %></a>
+      <%= link_to courses_path(course_category: course.course_category_name) do %>
+        <%= course.course_category_name %>
+      <% end %>
     </div>
   </div>
   <div class="tt-author-pricecell tt-author-ratecell">
