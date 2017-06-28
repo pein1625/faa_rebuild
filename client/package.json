@@ -39,6 +39,7 @@
     "react-redux-form": "^1.12.1",
     "react-router-dom": "^4.1.1",
     "react-simplemde-editor": "^3.6.11",
+    "react-tag-autocomplete": "^5.4.0",
     "redux": "^3.7.0",
     "simplemde": "^1.11.2",
     "style-loader": "^0.18.2",

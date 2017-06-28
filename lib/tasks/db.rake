@@ -6,7 +6,7 @@ namespace :db do
     end
 
     puts "Create Admin"
-    Admin.create name: "admin"
+    Admin.create name: "admin", email: "admin@framgia.com", password: "123456"
 
     puts "Create Course Category"
     8.times do

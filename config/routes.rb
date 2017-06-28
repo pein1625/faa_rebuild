@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins, controllers: {sessions: "sessions"}
   root "home#index"
   get "tags/:tag", to: "news#index", as: :tag
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
     resources :courses
     resources :course_categories
     resources :users
+    resources :newses
   end
 
   namespace :admin do
@@ -20,4 +22,8 @@ Rails.application.routes.draw do
   resources :trainers, only: [:show, :index]
   resources :registrations, only: [:new, :create]
   resources :news, only: [:index, :show]
+
+  devise_scope :admin do
+    get "/sign_up" => "devise/registrations#new", as: "new_user_registration"
+  end
 end

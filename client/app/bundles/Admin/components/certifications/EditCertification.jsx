@@ -21,7 +21,7 @@ class EditCertification extends React.Component {
       url: "",
       submitSuccess: false,
       errors: []
-    }
+    };
   }
 
   handleFileChange(e) {
@@ -31,7 +31,7 @@ class EditCertification extends React.Component {
 
     reader.onloadend = function() {
       that.setState({url: reader.result});
-    }
+    };
 
     if (file) {
       reader.readAsDataURL(file);

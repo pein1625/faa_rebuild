@@ -28,6 +28,8 @@ vi:
       faa: "Framgia Awesome Academy"
       copyright: "© 2017 Framgia Awesome Academy - All rights reserved."
       created_by: "Created by: Framgia Education"
+    application_devise:
+      login: "Login"
   home:
     index:
       index_title: "Trang chủ"
@@ -213,3 +215,8 @@ vi:
   date:
     formats:
       month_year_concise: "%m/%Y"
+      date_month_year_concise: '%d-%m-%Y'
+  devise:
+    sessions:
+      new:
+        login: "Login"

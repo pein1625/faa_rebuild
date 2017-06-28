@@ -1,10 +1,34 @@
 import React from 'react';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../libs/i18n/default';
+import axios from 'axios';
+import ReactOnRails from 'react-on-rails';
+
+const csrfToken = ReactOnRails.authenticityToken();
+axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
 
 class NavbarRight extends React.Component {
   constructor(props, _railsContext) {
     super(props);
+  }
+
+  logoutHandle(){
+    $.ajax({
+      url: '/admins/sign_out',
+      method: 'DELETE',
+      headers: {
+        'X-CSRF-Token': csrfToken
+      },
+      dataType: 'JSON',
+      success: function(data) {
+        if(data.status === 200) {
+          window.location.href = '/';
+        }
+      },
+      error: function(error) {
+        $.growl.error({message: error});
+      }
+    });
   }
 
   render() {
@@ -28,7 +52,7 @@ class NavbarRight extends React.Component {
             </li>
             <li className="divider"/>
             <li>
-              <a href="#"><i className="fa fa-fw fa-power-off"/>{formatMessage(defaultMessages.adminNavbarRightLogout)}</a>
+              <a onClick={this.logoutHandle.bind(this)}><i className="fa fa-fw fa-power-off"/>{formatMessage(defaultMessages.adminNavbarRightLogout)}</a>
             </li>
           </ul>
         </li>
