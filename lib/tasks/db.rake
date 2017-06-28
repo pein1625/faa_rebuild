@@ -6,7 +6,7 @@ namespace :db do
     end
 
     puts "Create Admin"
-    Admin.create name: "admin", email: "admin@gm.com", password: "123456"
+    Admin.create name: "admin", email: "admin@gmail.com", password: "123456"
 
     puts "Create Course Category"
     8.times do
