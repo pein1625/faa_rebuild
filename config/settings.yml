@@ -41,7 +41,7 @@ news:
   length_content: 320
   latest_news: 4
   popular_tags: 10
-image_default: "/assets/course.jpg"
+image_default: "/assets/course_default.jpg"
 news_category:
   min_name_length: 2
   max_name_length: 30

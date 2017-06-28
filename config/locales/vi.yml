@@ -204,10 +204,10 @@ vi:
     right_sidebar_news:
       news_category: "Danh mục"
     index:
-      all_news: "Tin tức - Thông báo >"
+      all_news: "Tin tức - Thông báo"
       news: "Tin tức-Thông báo"
     show:
-      all_news: "Tin tức - Thông báo >"
+      all_news: "Tin tức - Thông báo"
       news: "Tin tức-Thông báo"
   time:
     formats:
