@@ -2,28 +2,23 @@ vi:
   admin:
     layouts:
       application:
-        title: "Management"
+        title: "FAA Admin"
     navbar_header:
       brand: "FAA Admin"
     navbar_right:
-      user: "Tran Xuan Nam"
-      profile: "Profile"
-      settings: "Settings"
-      inbox: "Inbox"
-      logout: "Logout"
+      user: "Admin"
+      profile: "Hồ sơ"
+      settings: "Cài đặt"
+      inbox: "Tin nhắn"
+      logout: "Đăng xuất"
     sidebar:
-      dashboard: "Dashboard"
+      dashboard: "Chứng chỉ"
       news_categories: "Danh mục tin tức"
       feedbacks: "Phản hồi"
       course_categories: "Chủ đề khóa học"
-      charts: "Charts"
-      tables: "Tables"
-      forms: "Forms"
-      dropdown: "Dropdown"
-      dropdown_item: "Dropdown Item"
-      blank_page: "Blank Page"
-      courses: "Courses"
+      courses: "Khóa học"
       newses: "Tin tức"
+      users: "Người dùng"
     page_header:
       dashboard: "Dashboard"
     certifications:

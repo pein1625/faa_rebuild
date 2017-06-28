@@ -39,7 +39,7 @@ class NewCourse extends React.Component {
       registration_deadline: "",
       schedule: "",
       status: "opening",
-      course_category_id: "",
+      course_category_id: "1",
       statuses: []
     };
   }

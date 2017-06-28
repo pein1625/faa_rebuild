@@ -41,6 +41,7 @@ news:
   length_content: 320
   latest_news: 4
   popular_tags: 10
+  max_title_length: 255
 image_default: "/assets/course_default.jpg"
 news_category:
   min_name_length: 2
@@ -50,3 +51,7 @@ users:
   min_name_length: 2
   max_name_length: 30
   max_quote_length: 500
+  min_phone_length: 10
+  max_phone_length: 15
+course_category:
+  max_name_length: 255

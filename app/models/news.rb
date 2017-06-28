@@ -8,6 +8,12 @@ class News < ApplicationRecord
   delegate :name, to: :admin, prefix: true, allow_nil: true
   accepts_nested_attributes_for :image
 
+  validates :title, presence: true,
+    length: {maximum: Settings.news.max_title_length}
+  validates :content, presence: true
+  validates :news_category_id, presence: true
+  validates :admin_id, presence: true
+
   scope :newest, ->{order created_at: :desc}
   scope :popular_tags, ->{tag_counts.order(taggings_count: :desc)
     .first(Settings.news.popular_tags)}
