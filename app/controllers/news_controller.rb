@@ -27,18 +27,18 @@ class NewsController < ApplicationController
   def load_news_by_category
     category = NewsCategory.find_by name: params[:news_category]
     return unless category
-    category.news.includes(:images).page(params[:page])
+    category.news.includes(:image).page(params[:page])
       .per Settings.news.per_page
   end
 
   def load_news_default
-    News.includes(:images).newest.page(params[:page])
+    News.includes(:image).newest.page(params[:page])
       .per Settings.news.per_page
   end
 
   def load_news_by_tags
     if params[:tag]
-      News.includes(:images).tagged_with(params[:tag]).page(params[:page])
+      News.includes(:image).tagged_with(params[:tag]).page(params[:page])
         .per Settings.news.per_page
     else
       load_news_default

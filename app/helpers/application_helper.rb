@@ -14,12 +14,12 @@ module ApplicationHelper
     class_name.constantize.new(self)
   end
 
-  def load_image object, css_class = ""
-    image = object.images || object.image
-    if image.any?
-      image_tag image.first.url, class: "img wth-100 #{css_class}"
+  def load_image object, css_class = "", image = nil
+    images = object.try(:images) || [object.try(:image)]
+    if images.any?
+      image_tag images.first.url, class: "img wth-100 #{css_class}"
     else
-      image_tag Settings.image_default, class: "img wth-100 #{css_class}"
+      image_tag (image || Settings.image_default), class: "img wth-100 #{css_class}"
     end
   end
 
