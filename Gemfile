@@ -30,6 +30,10 @@ gem "redcarpet"
 gem "acts-as-taggable-on"
 gem "faker"
 gem "devise"
+gem "figaro"
+gem "delayed_job_active_record"
+gem "rails_select_on_includes"
+gem "active_model_serializers"
 
 group :development, :test do
   gem "byebug", platform: :mri

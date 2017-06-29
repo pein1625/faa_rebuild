@@ -67,3 +67,13 @@ vi:
         not_found: "Không tìm thấy tin tức"
         save_success: "Cập nhật tin tức thành công"
         save_failed: "Cập nhật tin tức thất bại"
+    registration_courses:
+      update:
+        save_success: "Cập nhật thành công"
+        save_failed: "Cập nhật thất bại"
+        status_error: "Cập nhật trạng thái thất bại"
+        not_found: "Không tìm thấy bản đăng kí"
+      destroy:
+        delete_success: "Xóa thành công"
+        delete_failed: "Xóa thất bại"
+        not_found: "Không tìm thấy bản đăng kí"

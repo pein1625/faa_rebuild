@@ -220,3 +220,8 @@ vi:
     sessions:
       new:
         login: "Login"
+  registration_courses_mailer:
+    send_result_register_course:
+      heading_accept: "Chúc mừng bạn! Đơn đăng kí của bạn cho khóa học: %{course_name} đã được chấp nhận."
+      heading_reject: "Xin lỗi bạn! Đơn đăng kí của bạn cho khóa học: %{course_name} đã không được chấp nhận."
+      mail_subject: "Framgia Awesome Academy"
