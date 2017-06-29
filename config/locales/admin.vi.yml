@@ -46,6 +46,7 @@ vi:
       phone: "phone"
       office: "office"
       certifications: "Chứng chỉ"
+      introduction: "Giới thiệu bản thân"
     errors: "Lỗi"
     courses:
       course: "Khóa học"
