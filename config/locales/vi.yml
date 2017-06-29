@@ -175,8 +175,8 @@ vi:
       office: "Cơ quan"
       certification: "Chứng chỉ"
       quote: "Câu trích dẫn"
-    position:
-      position: "Các vị trí đã trải qua"
+    introduction:
+      introduction: "Giới thiệu bản thân"
       now: "hiện nay"
   registrations:
     form:

@@ -1,8 +1,8 @@
 <div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
 
 <div class="tt-post">
-  <%= render "news_header", news: news %>
   <%= link_to news.title, news_path(news), class: "tt-post-title c-h5" %>
+  <%= render "news_header", news: news %>
   <div class="simple-text size-5 color-3">
     <p><%= truncate strip_tags(markdown(news.content)),
       length: Settings.news.length_content %>

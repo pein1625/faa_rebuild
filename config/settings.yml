@@ -37,7 +37,7 @@ registrations:
   max_phone_length: 15
   max_address_length: 255
 news:
-  per_page: 6
+  per_page: 20
   length_content: 320
   latest_news: 4
   popular_tags: 10

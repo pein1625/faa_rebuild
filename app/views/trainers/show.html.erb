@@ -7,6 +7,6 @@
     <div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
     <%= render "trainer_info", trainer: @trainer %>
     <div class="empty-space marg-lg-b100 marg-sm-b50 marg-xs-b30"></div>
-    <%= render "position", trainer: @trainer %>
+    <%= render "introduction", trainer: @trainer if @trainer.introduction.present? %>
   </div>
 </div>
