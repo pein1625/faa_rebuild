@@ -7,10 +7,11 @@ import {defaultMessages} from '../../../../libs/i18n/default';
 import Errors from '../Errors';
 import {handleInput} from '../../utils/InputHandle';
 import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
+import SimpleMDE from 'react-simplemde-editor';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
-class NewUser extends React.Component {
+class EditUser extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -28,8 +29,13 @@ class NewUser extends React.Component {
       errors: [],
       roles: [],
       certifications: [],
-      userCertifications: []
+      userCertifications: [],
+      introduction: ""
     }
+  }
+
+  introductionChangeHandle(value) {
+    this.setState({introduction: value});
   }
 
   handleFileChange(e) {
@@ -59,7 +65,7 @@ class NewUser extends React.Component {
 
     e.preventDefault();
     let id = this.props.match.params.id;
-    const {name, role, quote, email, phone, office, url, userCertifications} = this.state;
+    const {name, role, quote, email, phone, office, url, userCertifications, introduction} = this.state;
     let formData = new FormData();
     formData.append("name", name);
     formData.append("role", role);
@@ -67,6 +73,7 @@ class NewUser extends React.Component {
     formData.append("email", email);
     formData.append("phone", phone);
     formData.append("office", office);
+    formData.append("introduction", introduction);
 
     formData.append("image_attributes[url]", url);
 
@@ -98,9 +105,9 @@ class NewUser extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/users/${id}/edit.json`)
       .then(response => {
-        const {name, role, quote, email, phone, office} = response.data.content.user;
+        const {name, role, quote, email, phone, office, introduction} = response.data.content.user;
         const {url} = response.data.content.image || "";
-        this.setState({name, role, quote, email, phone, office, url});
+        this.setState({name, role, quote, email, phone, office, url, introduction});
         this.setState({userCertifications: response.data.content.user_certifications});
       })
       .catch(error => {
@@ -211,8 +218,15 @@ class NewUser extends React.Component {
                   {formatMessage(defaultMessages.adminUsersOffice)}
                 </label>
                 <input ref="office" name="office" type="text" className="form-control"
-                  value={this.state.office || ""} onChange={handleInput.bind(this)}
-                  required="required"/>
+                  value={this.state.office || ""} onChange={handleInput.bind(this)}/>
+              </div>
+
+              <div className="form-group">
+                <label className="control-label">
+                  {formatMessage(defaultMessages.adminUsersIntroduction)}
+                </label>
+                <SimpleMDE value={this.state.introduction} options={{spellChecker: false}}
+                  onChange={this.introductionChangeHandle.bind(this)}/>
               </div>
 
               <input type="hidden" ref="authenticity_token" value={csrfToken}/>
@@ -229,4 +243,4 @@ class NewUser extends React.Component {
   }
 }
 
-export default injectIntl(NewUser);
+export default injectIntl(EditUser);
