@@ -6,6 +6,7 @@ class News < ApplicationRecord
   belongs_to :admin
 
   delegate :name, to: :admin, prefix: true, allow_nil: true
+  delegate :name, to: :news_category, prefix: :category, allow_nil: true
   accepts_nested_attributes_for :image
 
   validates :title, presence: true,

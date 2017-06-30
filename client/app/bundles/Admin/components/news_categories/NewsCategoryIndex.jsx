@@ -35,7 +35,7 @@ class NewsCategoryIndex extends React.Component {
     const {formatMessage} = this.props.intl;
     return (
       <div className="row">
-        <div className="col-md-9 col-md-offset-2">
+        <div className="col-md-12">
           <div className="certifications-table-header">
             <h2>{formatMessage(defaultMessages.adminNewsCategoriesCategory)}</h2>
             <Link to="/admin/news_categories/new">

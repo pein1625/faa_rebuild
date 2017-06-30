@@ -4,7 +4,7 @@ vi:
       application:
         title: "FAA Admin"
     navbar_header:
-      brand: "FAA Admin"
+      brand: "Trang chủ"
     navbar_right:
       user: "Admin"
       profile: "Hồ sơ"

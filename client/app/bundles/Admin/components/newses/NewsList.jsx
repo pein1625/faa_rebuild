@@ -36,7 +36,7 @@ class NewsList extends React.Component {
 
     return (
       <div className="row">
-        <div className="col-md-9 col-md-offset-2">
+        <div className="col-md-12">
           <div className="certifications-table-header">
             <h2>{formatMessage(defaultMessages.adminNewsesNews)}</h2>
             <Link to="/admin/newses/new">
