@@ -5,7 +5,7 @@ class CreateRegistrations < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :phone
       t.text :address
-      t.references :course, index: true, foreign_key: true
+      t.references :course_schedule, index: true, foreign_key: true
 
       t.timestamps
     end

@@ -31,17 +31,6 @@
                   <%= link_to trainer_path(trainer), class: "tt-teacher-title" do %>
                     <%= trainer.name %>
                   <% end %>
-                  <div class="index-certifications-trainer">
-                    <ul class="list-inline">
-                      <% trainer.certifications.each do |certification| %>
-                        <li>
-                          <%= image_tag certification.image.present? ? certification.image.url : "introduction/certificate.png",
-                            class: "icon-certification-index",
-                            data: {toggle: "tooltip"}, title: certification.name %>
-                        </li>
-                      <% end %>
-                    </ul>
-                  </div>
                   <div class="simple-text size-3 color-4">
                     <p data-toggle="tooltip" title="<%= trainer.quote %>">
                       <%= truncate trainer.quote, length: Settings.home.trainer_quote_limit %>

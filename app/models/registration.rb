@@ -1,5 +1,5 @@
 class Registration < ApplicationRecord
-  belongs_to :course
+  belongs_to :course_schedule
 
   enum status: {pending: 0, contacted: 1, rejected: 2}, _prefix: true
 
@@ -16,6 +16,4 @@ class Registration < ApplicationRecord
   validates :address, length:
     {maximum: Settings.registrations.max_address_length}, allow_blank: true
   validates :course_id, presence: true
-
-  delegate :name, to: :course, prefix: true, allow_nil: true
 end

@@ -11,16 +11,19 @@
   <div class="tt-swiper-separated tt-custom-arrow">
     <div class="swiper-container" data-autoplay="0" data-loop="1" data-speed="500" data-center="0" data-slides-per-view="responsive" data-xs-slides="1" data-sm-slides="3" data-md-slides="4" data-lg-slides="4" data-add-slides="4">
       <div class="swiper-wrapper clearfix">
-        <% courses.each_with_index do |course, _index| %>
+        <% course_schedules.each_with_index do |course_schedule, _index| %>
           <div class="swiper-slide index-detail-course" data-val="<%= _index %>">
             <div class="tt-cours">
-              <%= link_to course_path(course), class: "tt-cours-img custom-hover" do %>
-                <%= image_tag course.images.any? ? course.images.first.url : "course_default.jpg", class: "img-responsive" %>
+              <%= link_to course_path(course_schedule.course),
+                class: "tt-cours-img custom-hover" do %>
+                <%= image_tag course_schedule.course.images.any? ?
+                  course_schedule.course.images.first.url : "course_default.jpg",
+                  class: "img-responsive" %>
               <% end %>
               <div class="tt-cours-info">
-                <div class="tt-cours-cat"><%= course.course_category_name %></div>
-                <%= link_to course_path(course), class: "tt-cours-title c-h6" do %>
-                  <%= course.name %>
+                <%= link_to course_path(course_schedule.course),
+                  class: "tt-cours-title c-h6" do %>
+                  <%= course_schedule.course.name %>
                 <% end %>
               </div>
               <div class="tt-cours-bottom clearfix">
@@ -28,12 +31,12 @@
                   title="<%= t ".enrolled_count" %>">
                   <span class="tt-cours-count">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <%= course.enrolled_count %>
+                    <%= course_schedule.enrolled_count %>
                   </span>
                 </div>
                 <div class="tt-cours-right">
                   <div class="tt-cours-price">
-                    <%= number_to_currency(course.cost, unit: "VND",
+                    <%= number_to_currency(course_schedule.course.cost, unit: "VND",
                       precision: 0, delimiter: ".", format: "%n %u") %>
                   </div>
                 </div>
