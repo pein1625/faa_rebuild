@@ -52,7 +52,7 @@ class NavbarRight extends React.Component {
             </li>
             <li className="divider"/>
             <li>
-              <a onClick={this.logoutHandle.bind(this)}><i className="fa fa-fw fa-power-off"/>{formatMessage(defaultMessages.adminNavbarRightLogout)}</a>
+              <a href="#" onClick={this.logoutHandle.bind(this)}><i className="fa fa-fw fa-power-off"/>{formatMessage(defaultMessages.adminNavbarRightLogout)}</a>
             </li>
           </ul>
         </li>

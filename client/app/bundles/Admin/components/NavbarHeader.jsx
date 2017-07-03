@@ -22,7 +22,7 @@ class NavbarHeader extends React.Component {
           <span className="icon-bar" />
           <span className="icon-bar" />
         </button>
-        <a className="navbar-brand" href="index.html">{formatMessage(defaultMessages.adminNavbarHeaderBrand)}</a>
+        <a className="navbar-brand" href="/" target="_blank">{formatMessage(defaultMessages.adminNavbarHeaderBrand)}</a>
       </div>
     );
   }

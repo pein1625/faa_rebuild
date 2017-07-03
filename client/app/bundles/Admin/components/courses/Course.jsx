@@ -34,7 +34,7 @@ export default class Course extends React.Component {
     return (
       <tr className="active">
         <td className="col-md-4">{name}</td>
-        <td className="col-md-5">{description}</td>
+        <td className="col-md-5">{description.substring(0, 100)} ....</td>
         <td>
           <Link to={`/admin/courses/${id}/edit`}>
             <button className="btn btn-warning"><i className="fa fa-pencil-square-o"

@@ -5,11 +5,17 @@
     <a><%= news.admin_name %></a>
   </span>
   <span>
-    <i class="fa fa-tags" aria-hidden="true"></i>
-    <%= raw news.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %>
+    <i class="fa fa-folder-open" aria-hidden="true"></i>
+    <%= link_to news_index_path(news_category: news.category_name) do %>
+      <%= news.category_name %>
+    <% end %>
   </span>
   <span>
     <i class="fa fa-calendar" aria-hidden="true"></i>
     <%= l news.created_at, format: :date_month_year_concise %>
+  </span>
+  <span>
+    <i class="fa fa-tags" aria-hidden="true"></i>
+    <%= raw news.tag_list.map{|t| link_to t, tag_path(t)}.join(', ') %>
   </span>
 </div>
