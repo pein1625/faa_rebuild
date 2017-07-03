@@ -1,9 +1,6 @@
 class Course < ApplicationRecord
   has_many :images, as: :imageable, dependent: :destroy
   has_many :registrations, dependent: :destroy
-  has_many :course_techniques, dependent: :destroy
-  has_many :techniques, through: :course_techniques
-  belongs_to :course_category
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -22,11 +19,7 @@ class Course < ApplicationRecord
   validates :description, presence: true, length: {
     maximum: Settings.courses.max_description_length,
     minimum: Settings.courses.min_description_length}
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  validates :registration_deadline, presence: true
   validates :cost, presence: true, numericality: {greater_than_or_equal_to: 0}
-  validates :course_category_id, presence: true
   validates :content, presence: true
 
   def enrolled_count
