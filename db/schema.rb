@@ -33,6 +33,25 @@ ActiveRecord::Schema.define(version: 20170629013342) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "course_schedules", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.date     "deadline_date"
+    t.integer  "day1"
+    t.time     "start_time1"
+    t.time     "end_time1"
+    t.integer  "day2"
+    t.time     "start_time2"
+    t.time     "end_time2"
+    t.integer  "day3"
+    t.time     "start_time3"
+    t.time     "end_time3"
+    t.integer  "course_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["course_id"], name: "index_course_schedules_on_course_id", using: :btree
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -91,10 +110,10 @@ ActiveRecord::Schema.define(version: 20170629013342) do
     t.string   "email"
     t.string   "phone"
     t.text     "address"
-    t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_registrations_on_course_id", using: :btree
+    t.integer  "course_schedule_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["course_schedule_id"], name: "index_registrations_on_course_schedule_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,6 +125,7 @@ ActiveRecord::Schema.define(version: 20170629013342) do
     t.text     "introduction"
   end
 
+  add_foreign_key "course_schedules", "courses"
   add_foreign_key "news", "admins"
-  add_foreign_key "registrations", "courses"
+  add_foreign_key "registrations", "course_schedules"
 end

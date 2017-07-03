@@ -10,8 +10,11 @@ namespace :db do
 
 
     puts "Create Course"
-    8.times do
-      Course.create! name: Faker::Educator.course,
+    courses = ["Lập trình Java tiêu chuẩn Framgia", "Lập trình Android tiêu chuẩn Framgia",
+      "Lập trình iOS tiêu chuẩn Framgia", "Lập trình PHP tiêu chuẩn Framgia",
+      "Lập trình Ruby tiêu chuẩn Framgia"]
+    courses.each do |course|
+      Course.create! name: course,
         description: "Tự hào là đơn vị đứng thứ 11 trong bản đồ xếp hạng các" \
         "công ty phát triển mạnh về ngôn ngữ Ruby trên thế giới, với .... " \
         "chuyên gia về Ruby có chứng chỉ Ruby Silver được cấp bởi Ruby Association," \
@@ -53,6 +56,15 @@ namespace :db do
           "Sinh viên đang theo học ngành Công nghệ thông tin (từ năm 2 trở lên)," \
           "hoặc người đã và đang làm việc trong lĩnh vực công nghệ thông tin có quan tâm" \
           "và mong muốn học thêm ngôn ngữ lập trình mới. "
+    end
+
+    puts "Create course schedule"
+    Course.all.each do |course|
+      course.course_schedules.create! start_date: Date.today.next_month,
+        end_date: (Date.today + 7.months), deadline_date: Date.today.next_week,
+        day1: 2, start_time1: "8:30".to_time, end_time1: "11:30".to_time,
+        day2: 4, start_time2: "8:30".to_time, end_time2: "11:30".to_time,
+        day3: 6, start_time3: "8:30".to_time, end_time3: "11:30".to_time
     end
 
     puts "Create News"

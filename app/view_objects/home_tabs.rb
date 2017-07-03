@@ -7,7 +7,9 @@ class HomeTabs < ViewObject
 
   def tabs
     [home_tab,
+    about_tab,
     courses_tab,
+    schedule_tab,
     news_tab,
     contacts_tab].compact
   end
@@ -17,9 +19,19 @@ class HomeTabs < ViewObject
       root_path, :home
   end
 
+  def about_tab
+    build_tab t("layouts.header.about"),
+      root_path, :home
+  end
+
   def courses_tab
     build_tab t("layouts.header.courses"),
       courses_path, :courses
+  end
+
+  def schedule_tab
+    build_tab t("layouts.header.schedule"),
+      root_path, :home
   end
 
   def news_tab

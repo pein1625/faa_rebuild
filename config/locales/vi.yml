@@ -6,7 +6,9 @@ vi:
     header:
       logo_alt: "Logo Framgia Awesome Academy"
       home: "Trang chủ"
-      courses: "Lịch khai giảng"
+      course: "Các khóa học"
+      about: "Về chúng tôi"
+      schedule: "Lịch khai giảng"
       news: "Tin tức - Thông báo"
       contact: "Liên hệ"
       more_tool: "Các công cụ khác"
@@ -27,7 +29,6 @@ vi:
       framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
       faa: "Framgia Awesome Academy"
       copyright: "© 2017 Framgia Awesome Academy - All rights reserved."
-      created_by: "Created by: Framgia Education"
     application_devise:
       login: "Login"
   home:

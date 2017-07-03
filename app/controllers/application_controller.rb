@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
-  before_action :list_course_categories
   layout :layout_by_resource
+  before_action :load_courses
 
   def popular_courses
-    @popular_courses = Course.popular
+    @popular_courses = CourseSchedule.popular
   end
 
   def latest_news
@@ -15,11 +15,11 @@ class ApplicationController < ActionController::Base
     @popular_tags = News.popular_tags
   end
 
-  private
-
-  def list_course_categories
-    @course_categories = CourseCategory.all
+  def load_courses
+    @courses = Course.all
   end
+
+  private
 
   def layout_by_resource
     if devise_controller?
