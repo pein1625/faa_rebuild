@@ -20,6 +20,7 @@ vi:
       newses: "Tin tức"
       users: "Người dùng"
       registration_course: "Đăng ký khóa học"
+      course_schedule: "Lớp học"
     page_header:
       dashboard: "Dashboard"
     certifications:
@@ -130,3 +131,14 @@ vi:
       rejected: "Đã từ chối"
       contact: "Đồng ý"
       reject: "Từ chối"
+    schedule:
+      start_date: "Ngày bắt đầu"
+      end_date: "Ngày kết thúc"
+      deadline_date: "Hạn đăng kí"
+      code: "Mã lớp học"
+      schedule: "Lịch học"
+      time_start: "Giờ bắt đầu"
+      time_end: "Giờ kết thúc"
+      add: "Thêm lớp học"
+      day: "Ngày học"
+      category: "Khóa học"
