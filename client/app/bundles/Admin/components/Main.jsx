@@ -10,21 +10,21 @@ export default class Main extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.state = {
-      certifications: []
+      courses: []
     };
   }
 
   componentDidMount() {
-    $.getJSON('/v1/certifications.json', (response) => { this.setState({ certifications: response }) });
+    $.getJSON('/v1/courses.json', (response) => { this.setState({ courses: response }) });
   }
 
   render() {
-    const {certifications} = this.state;
+    const {courses} = this.state;
     return (
       <IntlProvider locale="vi" messages={translations} defaultLocale="vi">
         <div id="wrapper">
           <Navbar/>
-          <PageWrapper certifications={certifications}/>
+          <PageWrapper courses={courses}/>
         </div>
       </IntlProvider>
     )

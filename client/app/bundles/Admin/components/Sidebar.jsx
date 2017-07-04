@@ -14,12 +14,6 @@ class Sidebar extends React.Component {
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav side-nav">
           <li>
-            <Link to="/admin/course_categories">
-              <i className="fa fa-fw fa-folder-open" />
-              &nbsp;{formatMessage(defaultMessages.adminSidebarCourseCategories)}
-            </Link>
-          </li>
-          <li>
             <Link to="/admin/courses">
               <i className="fa fa-fw fa-codepen" />
               &nbsp;{formatMessage(defaultMessages.adminSidebarCourses)}
@@ -32,21 +26,9 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/admin/certifications">
-              <i className="fa fa-fw fa-certificate" />
-              &nbsp;{formatMessage(defaultMessages.adminSidebarDashboard)}
-            </Link>
-          </li>
-          <li>
             <Link to="/admin/users">
               <i className="fa fa-fw fa-user" />
               &nbsp;{formatMessage(defaultMessages.adminSidebarUsers)}
-            </Link>
-          </li>
-          <li>
-            <Link to="/admin/news_categories">
-              <i className="fa fa-fw fa-folder-open" />
-              &nbsp;{formatMessage(defaultMessages.adminSidebarNewsCategories)}
             </Link>
           </li>
           <li>

@@ -9,8 +9,6 @@ import Upload from '../uploads/Upload';
 import ReactBoostrap from 'react-bootstrap';
 import DatePicker from 'react-bootstrap-date-picker';
 import morrisCss from '../../../../assets/styles/mde.css';
-import CourseCategory from './CourseCategory';
-import CourseStatus from './CourseStatus';
 import {handleInputChange} from '../../utils/InputHandler';
 import SimpleMDE from 'react-simplemde-editor';
 
@@ -23,23 +21,14 @@ class EditCourse extends React.Component {
     this.fileChangeHandle = this.fileChangeHandle.bind(this);
     this.addImageHandle = this.addImageHandle.bind(this);
     this.handleDeleteImage = this.handleDeleteImage.bind(this);
-    this.categoryInputChange = this.categoryInputChange.bind(this);
 
     this.state = {
       name: "",
       description: "",
+      content: "",
       submitSuccess: false,
       errors: [],
-      urls: [],
-      categories: [],
-      category: null,
-      start_date: "",
-      end_date: "",
-      registration_deadline: "",
-      schedule: "",
-      status: "",
-      course_category_id: "",
-      statuses: []
+      urls: []
     };
   }
 
@@ -53,14 +42,6 @@ class EditCourse extends React.Component {
         ...this.state.urls, null
       ]
     });
-  }
-
-  categoryInputChange(newValue) {
-    this.setState({course_category_id: newValue});
-  }
-
-  statusInputChange(newValue) {
-    this.setState({status: newValue});
   }
 
   handleDeleteImage(index) {
@@ -90,13 +71,7 @@ class EditCourse extends React.Component {
     let formData = new FormData();
     formData.append("name", this.state.name);
     formData.append("description", this.state.description);
-    formData.append("start_date", this.state.start_date);
-    formData.append("end_date", this.state.end_date);
-    formData.append("registration_deadline", this.state.registration_deadline);
     formData.append("cost", this.state.cost);
-    formData.append("status", this.state.status);
-    formData.append("course_category_id", this.state.course_category_id);
-    formData.append("place", this.state.place);
     formData.append("content", this.state.content);
     this.state.urls.forEach(url => {
       formData.append("images_attributes[][url]", url);
@@ -127,43 +102,18 @@ class EditCourse extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/courses/${id}/edit.json`)
       .then(response => {
-        const {
-          name, description, start_date, end_date,
-          content, registration_deadline, cost, place, status = 'opening', course_category_id
-        } = response.data.content.course;
-        const {categories} = response.data.content;
-        const {statuses} = response.data.content;
+        const {name, description, cost, content} = response.data.content.course;
         const {images} = response.data.content;
         const urls = images.map(image => (
           image.url
         ));
         this.setState({
-          name, description, start_date, end_date,
-          content, registration_deadline, cost, place, status,
-          course_category_id, categories, statuses, urls
+          name, description, cost, content, urls
         });
       })
       .catch(error => {
         console.log(error);
       });
-  }
-
-  handleStartDateChange(value, formattedValue) {
-    this.setState({
-      start_date: value
-    });
-  }
-
-  handleEndDateChange(value, formattedValue) {
-    this.setState({
-      end_date: value
-    });
-  }
-
-  handleRegistrationDeadline(value, formattedValue) {
-    this.setState({
-      registration_deadline: value
-    });
   }
 
   render() {
@@ -202,35 +152,6 @@ class EditCourse extends React.Component {
               <div className="row">
                 <div className="col-md-4">
                   <label className="control-label">
-                    {formatMessage(defaultMessages.adminCoursesStartDate)}
-                  </label>
-                  <div className="form-group">
-                    <DatePicker name="start_date" value={this.state.start_date}
-                      onChange={this.handleStartDateChange.bind(this)}/>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <label className="control-label">
-                    {formatMessage(defaultMessages.adminCoursesEndDate)}
-                  </label>
-                  <div className="form-group">
-                    <DatePicker value={this.state.end_date}
-                      onChange={this.handleEndDateChange.bind(this)}/>
-                  </div>
-                </div>
-                <div className="col-md-4">
-                  <label className="control-label">
-                    {formatMessage(defaultMessages.adminCoursesDeadline)}
-                  </label>
-                  <div className="form-group">
-                    <DatePicker value={this.state.registration_deadline}
-                      onChange={this.handleRegistrationDeadline.bind(this)}/>
-                  </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-4">
-                  <label className="control-label">
                     {formatMessage(defaultMessages.adminCoursesCost)}
                   </label>
                   <div className="form-group">
@@ -238,27 +159,6 @@ class EditCourse extends React.Component {
                       value={this.state.cost} onChange={handleInputChange.bind(this)}/>
                   </div>
                 </div>
-                <div className="col-md-4">
-                  <label className="control-label">
-                    {formatMessage(defaultMessages.adminCoursesStatus)}
-                  </label>
-                  <CourseStatus statuses={this.state.statuses}
-                    handleChange={this.statusInputChange.bind(this)} selected={this.state.status}/>
-                </div>
-                <div className="col-md-4">
-                  <label className="control-label">
-                    {formatMessage(defaultMessages.adminCoursesCategory)}
-                  </label>
-                  <CourseCategory categories={this.state.categories}
-                    handleChange={this.categoryInputChange} selected={this.state.course_category_id}/>
-                </div>
-              </div>
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminCoursesPlace)}
-                </label>
-                <input name="place" type="text" className="form-control"
-                  value={this.state.place} onChange={handleInputChange.bind(this)}/>
               </div>
               <div className="row">
                 <div className="col-md-12">

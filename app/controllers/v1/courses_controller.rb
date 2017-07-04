@@ -14,14 +14,9 @@ class V1::CoursesController < V1::ApiController
     end
   end
 
-  def new
-    response_success nil, {categories: CourseCategory.all,
-      statuses: Course.statuses.keys}
-  end
-
   def edit
-    response_success nil, {course: @course, categories: CourseCategory.all,
-      statuses: Course.statuses.keys, images: @course.images}
+    response_success nil, {course: @course, statuses: Course.statuses.keys,
+      images: @course.images}
   end
 
   def update
