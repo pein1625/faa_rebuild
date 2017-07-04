@@ -5,7 +5,6 @@ class CreateCourses < ActiveRecord::Migration[5.0]
       t.text :description
       t.text :content
       t.float :cost
-      t.integer :status
 
       t.timestamps
     end

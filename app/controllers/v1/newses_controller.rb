@@ -13,11 +13,6 @@ class V1::NewsesController < V1::ApiController
     end
   end
 
-  def new
-    response_success nil, {all_tags: ActsAsTaggableOn::Tag.all,
-      categories: NewsCategory.all}
-  end
-
   def create
     @news = current_admin.news.build news_params
     if @news.save
@@ -28,8 +23,7 @@ class V1::NewsesController < V1::ApiController
   end
 
   def edit
-    response_success nil, {news: @news, image: @news.image, tags: @news.tags,
-    all_tags: ActsAsTaggableOn::Tag.all, categories: NewsCategory.all}
+    response_success nil, {news: @news}
   end
 
   def update

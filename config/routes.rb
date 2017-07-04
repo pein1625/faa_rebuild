@@ -4,18 +4,16 @@ Rails.application.routes.draw do
   get "tags/:tag", to: "news#index", as: :tag
 
   namespace :v1 do
-    resources :certifications
     resources :news_categories
     resources :feedbacks, only: [:index, :destroy]
     resources :courses
-    resources :course_categories
     resources :users
     resources :newses
     resources :registration_courses
   end
 
   namespace :admin do
-    get "(*all)", to: "certifications#index"
+    get "(*all)", to: "courses#index"
   end
 
   resources :courses, only: [:index, :show]
