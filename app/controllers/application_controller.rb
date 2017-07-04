@@ -4,15 +4,11 @@ class ApplicationController < ActionController::Base
   before_action :load_courses
 
   def popular_courses
-    @popular_courses = CourseSchedule.popular
+    @popular_courses = CourseSchedule.includes(:course).popular
   end
 
   def latest_news
     @latest_news = News.newest.first Settings.news.latest_news
-  end
-
-  def popular_tags
-    @popular_tags = News.popular_tags
   end
 
   def load_courses
