@@ -10,15 +10,6 @@
             <%= link_to trainer_path(trainer), class: "tt-teacher-2-title trainer-name" do %>
               <%= trainer.name %>
             <% end %>
-            <ul class="list-inline">
-              <% trainer.certifications.each do |certification| %>
-                <li>
-                  <%= image_tag certification.image.present? ? certification.image.url : "introduction/certificate.png",
-                    class: "icon-certification-index",
-                    data: {toggle: "tooltip"}, title: certification.name %>
-                </li>
-              <% end %>
-            </ul>
             <div class="simple-text size-3 color-3">
               <p data-toggle="tooltip" title="<%= trainer.quote %>">
                 <%= truncate trainer.quote, length: Settings.home.trainer_quote_limit %>

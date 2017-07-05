@@ -27,9 +27,12 @@
   }
 }
 
-.trainer-avatar img {
-  height: 492px;
-  width: 370px;
+.trainer-avatar {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
 }
 
 .trainers-trainer-cer {
@@ -48,7 +51,36 @@
   font-size: 18px;
   font-style: italic;
   font-weight: 400;
-  margin-left: 30px;
-  margin-right: 20px;
   word-break: break-word;
+}
+
+.details-trainer-name {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.details-trainer-quote:before {
+  content: "\201C";
+  font-size: 60px;
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+}
+
+.details-trainer-quote {
+  display:block;
+  background: $white;
+  padding: 15px 20px 15px 45px;
+  margin-top: 20px;
+  position: relative;
+  border-left: 15px solid $yellow63p;
+  border-right: 2px solid $yellow63p;
+  font-size: 16px;
+  line-height: 1.2;
+  font-style: italic;
+  text-align: justify;
+  -moz-box-shadow: 2px 2px 15px;
+  -webkit-box-shadow: 2px 2px 15px;
+  box-shadow: 2px 2px 15px;
 }
