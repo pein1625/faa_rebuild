@@ -12,6 +12,7 @@ class CourseSchedule < ApplicationRecord
   scope :newest, ->{order start_date: :desc}
 
   delegate :name, to: :course, prefix: true, allow_nil: true
+  delegate :cost, to: :course, prefix: true, allow_nil: true
 
   def is_opening?
     self.start_date >= Date.today

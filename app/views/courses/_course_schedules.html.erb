@@ -4,27 +4,28 @@
   </h3>
 </div>
 <% course.course_schedules.each do |schedule| %>
-  <div class="tt-author course-schedule-container">
+  <div class="tt-author course-schedule-container
+    <%= set_class_active course_schedule, schedule %>">
     <div class="tt-author-avacell">
       <div class="tt-author-label"><%= t ".duration" %></div>
       <div class="tt-author-tags">
         <div class="schedule-time">
-          <div>
+          <p>
             <%= load_schedule_time schedule.day1, schedule.start_time1, schedule.end_time1 %>
-          </div>
-          <div>
+          </p>
+          <p>
             <%= load_schedule_time schedule.day2, schedule.start_time2, schedule.end_time2 %>
-          </div>
-          <div>
+          </p>
+          <p>
             <%= load_schedule_time schedule.day3, schedule.start_time3, schedule.end_time3 %>
-          </div>
-        </div>
-        <div class="schedule-duration">
-          <%= load_register_time schedule %>
+          </p>
         </div>
       </div>
     </div>
-    <div class="tt-author-avacell">
+    <div class="tt-author-catcell schedule-duration">
+      <%= load_register_time schedule %>
+    </div>
+    <div class="tt-author-pricecell tt-author-ratecell">
       <div class="tt-author-label"><%= t ".deadline" %></div>
       <div class="tt-author-tags">
         <%= l schedule.deadline_date, format: :day_month_year %>

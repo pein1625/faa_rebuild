@@ -1,0 +1,35 @@
+<%= provide :title, t(".course_schedules") %>
+<div id="content-wrapper">
+  <%= render "shared/top_heading", title: t(".all_course_schedules"),
+    page_name: t(".course_schedules") %>
+  <div class="bg-1 tt-sidebar-right tt-overflow">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="tt-two-colors pright20">
+            <div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
+            <div class="tt-seachbar-content clearfix" data-view="grid">
+              <table class="table table-bordered table-hover table-responsive">
+                <thead>
+                  <tr>
+                    <th><%= t ".course_name" %></th>
+                    <th><%= t ".duration" %></th>
+                    <th><%= t ".schedule_time" %></th>
+                    <th><%= t ".fee" %></th>
+                    <th><%= t ".view" %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render "course_schedule", course_schedules: @course_schedules %>
+                </tbody>
+              </table>
+              <%= paginate @course_schedules %>
+            </div>
+          </div>
+        </div>
+        <%= render "courses/right_sidebar_course" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="render-form-registration"></div>

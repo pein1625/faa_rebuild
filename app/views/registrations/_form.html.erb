@@ -11,28 +11,17 @@
         <div class="col_full registration-info">
           <p><strong><%= t ".duration" %></strong></p>
           <p>
-            <%= convert_day_of_week_to_string registration.course_schedule.day1 %>
-            <span>: </span>
-            <%= l registration.course_schedule.start_time1, format: :hour_minute %>
-            <span> - </registration.course_schedulespan>
-            <%= l registration.course_schedule.end_time1, format: :hour_minute %>
+            <%= load_schedule_time registration.course_schedule.day1,
+              registration.course_schedule.start_time1, registration.course_schedule.end_time1 %>
             <span>, </span>
-            <%= convert_day_of_week_to_string registration.course_schedule.day2 %>
-            <span>: </span>
-            <%= l registration.course_schedule.start_time2, format: :hour_minute %>
-            <span> - </span>
-            <%= l registration.course_schedule.end_time2, format: :hour_minute %>
+            <%= load_schedule_time registration.course_schedule.day2,
+              registration.course_schedule.start_time2, registration.course_schedule.end_time2 %>
             <span>, </span>
-            <%= convert_day_of_week_to_string registration.course_schedule.day3 %>
-            <span>: </span>
-            <%= l registration.course_schedule.start_time3, format: :hour_minute %>
-            <span> - </span>
-            <%= l registration.course_schedule.end_time3, format: :hour_minute %>
+            <%= load_schedule_time registration.course_schedule.day3,
+              registration.course_schedule.start_time3, registration.course_schedule.end_time3 %>
           </p>
           <p>
-            <%= l registration.course_schedule.start_date, format: :day_month_year %>
-            <span> - </span>
-            <%= l registration.course_schedule.end_date, format: :day_month_year %>
+            <%= load_register_time registration.course_schedule %>
           </p>
         </div>
         <%= f.input :course_schedule_id, as: :hidden,
