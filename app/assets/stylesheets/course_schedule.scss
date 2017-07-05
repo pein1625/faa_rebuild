@@ -1,0 +1,24 @@
+@import 'variables/color';
+
+.btn-detail-course-schedule {
+  .c-btn {
+    margin-bottom: 5px;
+    min-width: 132px;
+    text-align: center;
+  }
+  .c-btn.type-1 span {
+    padding-bottom: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 5px !important;
+  }
+}
+
+.schedule-active {
+  background-color: $light-blue;
+  border: 2px solid $black73percent !important;
+
+  .schedule-time, .tt-author-label, .tt-author-tags {
+    color: $black !important;
+  }
+}

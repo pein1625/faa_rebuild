@@ -21,4 +21,8 @@ module CourseHelper
     l(start_time, format: :hour_minute) + " - " +
     l(end_time, format: :hour_minute)
   end
+
+  def set_class_active course_schedule, schedule
+    "schedule-active" if course_schedule && (course_schedule == schedule)
+  end
 end

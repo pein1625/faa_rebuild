@@ -37,6 +37,7 @@
 </div>
 <div class="empty-space marg-lg-b30"></div>
 
-<%= render "course_schedules", course: course if course.course_schedules.any? %>
+<%= render "courses/course_schedules", course: course,
+  course_schedule: (course_schedule ||= nil) if course.course_schedules.any? %>
 
 <div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>

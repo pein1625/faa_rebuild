@@ -57,3 +57,5 @@ course_category:
   max_name_length: 255
 course_registrations:
   reject: "reject"
+course_schedules:
+  per_page: 10

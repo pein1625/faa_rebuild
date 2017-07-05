@@ -40,4 +40,17 @@
 .course-schedule-container {
   margin-bottom: 10px;
   margin-top: 10px;
+
+  .schedule-duration {
+    text-align: center;
+    font-weight: bold;
+  }
+
+  p {
+    margin-bottom: 0 !important;
+  }
+
+  .schedule-time, .tt-author-label, .tt-author-tags {
+    color: $black !important;
+  }
 }

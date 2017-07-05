@@ -245,3 +245,19 @@ vi:
     friday: "Thứ sáu"
     saturday: "Thứ bảy"
     sunday: "Chủ nhật"
+  course_schedules:
+    index:
+      all_course_schedules: "Tất cả lịch học"
+      course_schedules: "Lịch khai giảng"
+      course_name: "Khóa học"
+      duration: "Thời gian học"
+      schedule_time: "Lịch học"
+      fee: "Học phí"
+      view: "Chi tiết"
+    course_schedule:
+      detail: "Xem chi tiết"
+      register_now: "Đăng ký ngay"
+      coming_soon: "Đã hết hạn đăng ký"
+    show:
+      not_found: "Không tìm thấy lịch học"
+      course_schedules: "Lịch khai giảng"

@@ -31,7 +31,7 @@ class HomeTabs < ViewObject
 
   def schedule_tab
     build_tab t("layouts.header.schedule"),
-      root_path, :schedule
+      course_schedules_path, :course_schedules
   end
 
   def news_tab
