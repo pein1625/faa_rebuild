@@ -27,6 +27,7 @@
     "imports-loader": "^0.7.1",
     "intl": "^1.2.5",
     "js-yaml": "^3.8.2",
+    "rc-time-picker": "^2.4.1",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-date-picker": "^5.0.1",

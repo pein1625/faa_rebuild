@@ -26,6 +26,12 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li>
+            <Link to="/admin/course_schedules">
+              <i className="fa fa-fw fa-registered" />
+              &nbsp;{formatMessage(defaultMessages.adminSidebarCourseSchedule)}
+            </Link>
+          </li>
+          <li>
             <Link to="/admin/users">
               <i className="fa fa-fw fa-user" />
               &nbsp;{formatMessage(defaultMessages.adminSidebarUsers)}
