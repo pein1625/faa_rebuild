@@ -10,9 +10,8 @@ namespace :db do
 
 
     puts "Create Course"
-    courses = ["Lập trình Java tiêu chuẩn Framgia", "Lập trình Android tiêu chuẩn Framgia",
-      "Lập trình iOS tiêu chuẩn Framgia", "Lập trình PHP tiêu chuẩn Framgia",
-      "Lập trình Ruby tiêu chuẩn Framgia"]
+    courses = ["Lập trình Java", "Lập trình Android", "Lập trình iOS",
+      "Lập trình PHP", "Lập trình Ruby"]
     courses.each do |course|
       Course.create! name: course,
         description: "Tự hào là đơn vị đứng thứ 11 trong bản đồ xếp hạng các" \
@@ -62,9 +61,9 @@ namespace :db do
     Course.all.each do |course|
       course.course_schedules.create! start_date: Date.today.next_month,
         end_date: (Date.today + 7.months), deadline_date: Date.today.next_week,
-        day1: 2, start_time1: "8:30".to_time, end_time1: "11:30".to_time,
-        day2: 4, start_time2: "8:30".to_time, end_time2: "11:30".to_time,
-        day3: 6, start_time3: "8:30".to_time, end_time3: "11:30".to_time
+        day1: 0, start_time1: "8:30", end_time1: "11:30",
+        day2: 2, start_time2: "8:30", end_time2: "11:30",
+        day3: 4, start_time3: "8:30", end_time3: "11:30"
     end
 
     puts "Create News"

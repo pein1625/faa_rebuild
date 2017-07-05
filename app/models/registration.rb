@@ -15,5 +15,9 @@ class Registration < ApplicationRecord
     format: {with: VALID_PHONE_NUMBER_REGEX}
   validates :address, length:
     {maximum: Settings.registrations.max_address_length}, allow_blank: true
-  validates :course_id, presence: true
+  validates :course_schedule_id, presence: true
+
+  def course_name
+    self.course_schedule.course_name
+  end
 end

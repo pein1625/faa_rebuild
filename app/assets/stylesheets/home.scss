@@ -123,3 +123,20 @@
   height: 176px;
   width: 263px;
 }
+
+.lastest-courses-container {
+  .tt-cours-cat:before {
+    content: none !important;
+    margin-bottom: 0 !important;
+    margin-top: 14px;
+  }
+
+  .tt-cours-cat {
+    margin-bottom: 0 !important;
+    margin-top: 14px;
+  }
+
+  .tt-cours-info {
+    text-align: center;
+  }
+}

@@ -6,7 +6,7 @@ vi:
     header:
       logo_alt: "Logo Framgia Awesome Academy"
       home: "Trang chủ"
-      course: "Các khóa học"
+      courses: "Các khóa học"
       about: "Về chúng tôi"
       schedule: "Lịch khai giảng"
       news: "Tin tức - Thông báo"
@@ -55,6 +55,8 @@ vi:
     lastest_courses:
       lastest_courses: "Những khóa học mới nhất"
       enrolled_count: "Tổng số người đã đăng ký"
+      coming_soon: "Sẽ mở lớp trong thời gian tới"
+      more: "Xem tất cả"
     trainers:
       trainers: "Đội ngũ của chúng tôi"
       more: "Xem tất cả"
@@ -122,10 +124,14 @@ vi:
       course_category: "Chuyên ngành"
     course_header:
       category: "Chuyên ngành"
-      teacher: "Giảng dạy"
+      place: "Địa điểm"
       framgia_vietnam: "Framgia Việt Nam"
       number_of_member: "Số lương học viên"
+    course_schedules:
       register_now: "Đăng ký ngay"
+      schedules: "Các lớp học có thể đăng ký"
+      duration: "Thời gian học"
+      deadline: "Hạn cuối đăng ký"
     index:
       all_course: "Danh mục các khóa học"
       course: "Khóa học"
@@ -188,6 +194,7 @@ vi:
       phone: "Số điện thoại"
       address: "Địa chỉ"
       submit: "Đăng ký"
+      duration: "Thời gian học"
     create:
       success: "Đăng ký khóa học thành công"
       fail: "Đăng ký khóa học thất bại"
@@ -196,6 +203,8 @@ vi:
       contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
       more_course: "Xem các khóa học khác"
       this_course: "Xem khóa học vừa đăng ký"
+    new:
+      not_found: "Không tìm thấy khóa học"
   news:
     news_header:
       by: "Đăng bởi: "
@@ -213,10 +222,12 @@ vi:
   time:
     formats:
       date_month_year_concise: "%d-%m-%Y"
+      hour_minute: "%H:%M"
   date:
     formats:
       month_year_concise: "%m/%Y"
       date_month_year_concise: '%d-%m-%Y'
+      day_month_year: "%d/%m/%Y"
   devise:
     sessions:
       new:
@@ -226,3 +237,11 @@ vi:
       heading_accept: "Chúc mừng bạn! Đơn đăng kí của bạn cho khóa học: %{course_name} đã được chấp nhận."
       heading_reject: "Xin lỗi bạn! Đơn đăng kí của bạn cho khóa học: %{course_name} đã không được chấp nhận."
       mail_subject: "Framgia Awesome Academy"
+  day_of_week:
+    monday: "Thứ hai"
+    tuesday: "Thứ ba"
+    wednesday: "Thứ tư"
+    thursday: "Thứ năm"
+    friday: "Thứ sáu"
+    saturday: "Thứ bảy"
+    sunday: "Chủ nhật"
