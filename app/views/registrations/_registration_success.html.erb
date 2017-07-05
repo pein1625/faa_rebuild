@@ -15,7 +15,8 @@
         <% end %>
       </div>
       <div class="col-md-6 this-course">
-        <%= link_to course_path(@registration.course), class: "c-btn type-1 color-5" do %>
+        <%= link_to course_path(@registration.course_schedule.course),
+          class: "c-btn type-1 color-5" do %>
           <%= t(".this_course") %>
         <% end %>
       </div>

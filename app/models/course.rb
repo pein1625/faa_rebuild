@@ -4,7 +4,10 @@ class Course < ApplicationRecord
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  scope :newest, ->{order created_at: :desc}
+  scope :newest, -> do
+    includes(:course_schedules)
+      .order("course_schedules.start_date desc nulls last")
+  end
   scope :by_words, -> words{where("LOWER(name) LIKE ?", "%#{words.downcase}%")}
 
   enum status: {opening: 0, closed: 1}

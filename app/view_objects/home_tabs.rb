@@ -21,7 +21,7 @@ class HomeTabs < ViewObject
 
   def about_tab
     build_tab t("layouts.header.about"),
-      root_path, :home
+      root_path, :about
   end
 
   def courses_tab
@@ -31,7 +31,7 @@ class HomeTabs < ViewObject
 
   def schedule_tab
     build_tab t("layouts.header.schedule"),
-      root_path, :home
+      root_path, :schedule
   end
 
   def news_tab

@@ -1,6 +1,8 @@
 class RegistrationsController < ApplicationController
+  before_action :find_course_schedule, only: :new
+
   def new
-    @registration = Registration.new
+    @registration = @course_schedule.registrations.build
     respond_to do |format|
       format.js
     end
@@ -21,6 +23,13 @@ class RegistrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(:registration).permit :course_id, :name, :email, :address, :phone
+    params.require(:registration).permit :course_schedule_id, :name, :email,
+      :address, :phone
+  end
+
+  def find_course_schedule
+    return if @course_schedule = CourseSchedule.find_by(id: params[:schedule])
+    flash[:danger] = t ".not_found"
+    redirect_to root_path
   end
 end

@@ -2,13 +2,18 @@ class CourseSchedule < ApplicationRecord
   has_many :registrations, dependent: :destroy
   belongs_to :course
 
+  DAY_OF_WEEK = [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
+
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+
   scope :popular, ->{left_joins(:registrations).group(:id)
     .order("COUNT(registrations.id) DESC").first(Settings.courses.popular)}
-  scope :newest, ->{order created_at: :desc}
+  scope :newest, ->{order start_date: :desc}
 
   delegate :name, to: :course, prefix: true, allow_nil: true
 
-  def enrolled_count
-    self.registrations.count
+  def is_opening?
+    self.start_date >= Date.today
   end
 end

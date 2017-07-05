@@ -1,0 +1,40 @@
+<div class="tt-heding type-2">
+  <h3 class="tt-heding-title c-h4 txt-uppercase">
+    <span><%= t ".schedules" %></span>
+  </h3>
+</div>
+<% course.course_schedules.each do |schedule| %>
+  <div class="tt-author course-schedule-container">
+    <div class="tt-author-avacell">
+      <div class="tt-author-label"><%= t ".duration" %></div>
+      <div class="tt-author-tags">
+        <div class="schedule-time">
+          <div>
+            <%= load_schedule_time schedule.day1, schedule.start_time1, schedule.end_time1 %>
+          </div>
+          <div>
+            <%= load_schedule_time schedule.day2, schedule.start_time2, schedule.end_time2 %>
+          </div>
+          <div>
+            <%= load_schedule_time schedule.day3, schedule.start_time3, schedule.end_time3 %>
+          </div>
+        </div>
+        <div class="schedule-duration">
+          <%= load_register_time schedule %>
+        </div>
+      </div>
+    </div>
+    <div class="tt-author-avacell">
+      <div class="tt-author-label"><%= t ".deadline" %></div>
+      <div class="tt-author-tags">
+        <%= l schedule.deadline_date, format: :day_month_year %>
+      </div>
+      <div class="tt-author-tags">
+        <%= link_to new_registration_path(schedule: schedule.id),
+          class: "c-btn type-1 size-2 color-2", remote: true do %>
+          <span><%= t ".register_now" %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -25,17 +25,9 @@
         </div>
       </div>
       <div class="tt-author-infocell">
-        <div class="tt-author-position"><%= t ".teacher" %></div>
+        <div class="tt-author-position"><%= t ".place" %></div>
         <p class="tt-author-name"><%= t ".framgia_vietnam" %></p>
       </div>
-    </div>
-  </div>
-  <div class="tt-author-catcell">
-    <div class="tt-author-label"><%= t ".category" %></div>
-    <div class="tt-author-tags">
-      <%= link_to courses_path(course_category: course.course_category_name) do %>
-        <%= course.course_category_name %>
-      <% end %>
     </div>
   </div>
   <div class="tt-author-pricecell tt-author-ratecell">
@@ -45,10 +37,6 @@
 </div>
 <div class="empty-space marg-lg-b30"></div>
 
-<%= link_to new_registration_path(course: course.id), class: "c-btn type-1 size-3 color-2", remote: true do %>
-  <span>
-    <%= t ".register_now" %>
-    <i class="fa fa-arrow-right" aria-hidden="true"></i>
-  </span>
-<% end %>
+<%= render "course_schedules", course: course if course.course_schedules.any? %>
+
 <div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
