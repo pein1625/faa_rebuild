@@ -2,7 +2,8 @@ class V1::CoursesController < V1::ApiController
   before_action :load_course, only: [:edit, :update, :destroy]
 
   def index
-    response_success nil, Course.all
+    courses = Course.page(page).per Settings.admin_page.per_page
+    response_success nil, {courses: courses, page: page, pages: courses.total_pages}
   end
 
   def create

@@ -2,7 +2,9 @@ class V1::FeedbacksController < V1::ApiController
   before_action :find_feedback, only: :destroy
 
   def index
-    response_success nil, Feedback.newest
+    feedbacks = Feedback.newest.page(page).per Settings.admin_page.per_page
+    response_success nil, {feedbacks: feedbacks, page: page,
+      pages: feedbacks.total_pages}
   end
 
   def destroy

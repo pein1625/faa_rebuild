@@ -21,15 +21,10 @@ class EditUser extends React.Component {
       name: "",
       role: "",
       quote: "",
-      email: "",
-      phone: "",
-      office: "",
       submitSuccess: false,
       url: "",
       errors: [],
       roles: [],
-      certifications: [],
-      userCertifications: [],
       introduction: ""
     }
   }
@@ -54,12 +49,6 @@ class EditUser extends React.Component {
     }
   }
 
-  userCertificationsChanged = (newCertifications) => {
-    this.setState({
-      userCertifications: newCertifications
-    });
-  }
-
   handleFormSubmit(e) {
     const {formatMessage} = this.props.intl;
 
@@ -70,16 +59,9 @@ class EditUser extends React.Component {
     formData.append("name", name);
     formData.append("role", role);
     formData.append("quote", quote);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("office", office);
     formData.append("introduction", introduction);
 
     formData.append("image_attributes[url]", url);
-
-    userCertifications.map((certification, index) => {
-      formData.append('user_certifications_attributes['+ index +'][certification_id]', certification );
-    })
 
     axios.patch(`/v1/users/${id}.json`,
       formData,
@@ -105,16 +87,15 @@ class EditUser extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/users/${id}/edit.json`)
       .then(response => {
-        const {name, role, quote, email, phone, office, introduction} = response.data.content.user;
+        const {name, role, quote, introduction} = response.data.content.user;
         const {url} = response.data.content.image || "";
-        this.setState({name, role, quote, email, phone, office, url, introduction});
-        this.setState({userCertifications: response.data.content.user_certifications});
+        this.setState({name, role, quote, url, introduction});
       })
       .catch(error => {
         console.log(error);
       });
     $.getJSON('/v1/users/new.json', (response) => {
-      this.setState({ roles: response.content.roles, certifications: response.content.certifications });
+      this.setState({roles: response.content.roles});
     });
   }
 
@@ -147,21 +128,6 @@ class EditUser extends React.Component {
                 <input type="file" ref="image_attributes_url" name="image_attributes_url"
                   onChange={this.handleFileChange}></input>
               </div>
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersCertifications)}
-                </label>
-                <CheckboxGroup
-                  name="userCertifications"
-                  value={this.state.userCertifications}
-                  onChange={this.userCertificationsChanged}>
-                  {
-                    this.state.certifications.map(function(certification) {
-                      return <label className="mg-rg-10" key={certification.id} ><Checkbox className="mg-custom mg-rg-5" value={certification.id}/>{certification.name}</label>
-                    })
-                  }
-                </CheckboxGroup>
-              </div>
               <input type="hidden" ref="authenticity_token" value={csrfToken}/>
               <div className="form-group">
                 <label className="control-label">
@@ -193,32 +159,6 @@ class EditUser extends React.Component {
                 <textarea form="edit-user-form" rows="5" ref="quote"
                   name="quote" type="text" className="form-control"
                   value={this.state.quote || ""} onChange={handleInput.bind(this)}/>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersEmail)}
-                </label>
-                <input ref="email" name="email" type="text" className="form-control"
-                  value={this.state.email || ""} onChange={handleInput.bind(this)}
-                  required="required"/>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersPhone)}
-                </label>
-                <input ref="phone" name="phone" type="text" className="form-control"
-                  value={this.state.phone || ""} onChange={handleInput.bind(this)}
-                  required="required"/>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersOffice)}
-                </label>
-                <input ref="office" name="office" type="text" className="form-control"
-                  value={this.state.office || ""} onChange={handleInput.bind(this)}/>
               </div>
 
               <div className="form-group">

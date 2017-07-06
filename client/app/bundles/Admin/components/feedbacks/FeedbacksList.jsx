@@ -3,14 +3,43 @@ import Feedback from './Feedback';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
+import Pagination from '../../utils/Pagination';
+import axios from 'axios';
 
 class FeedbacksList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      feedbacks: []
+      feedbacks: [],
+      page: 1,
+      pages: 0
     };
     this.handleDeleted = this.handleDeleted.bind(this);
+    this.getDataFromApi = this.getDataFromApi.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
+  }
+
+  componentDidMount() {
+    this.getDataFromApi(this.state.page);
+  }
+
+  getDataFromApi(page) {
+    axios.get('/v1/feedbacks.json', {
+      params: {
+        page: page
+      }
+    })
+    .then(response => {
+      const {feedbacks, page, pages} = response.data.content;
+      this.setState({feedbacks, page, pages});
+    })
+    .catch(error => {
+      console.log(error);
+    });    
+  }
+
+  handleChangePage(page) {
+    this.getDataFromApi(page);
   }
 
   handleDeleted(id) {
@@ -22,12 +51,6 @@ class FeedbacksList extends React.Component {
       })
     });
     $.growl.notice({message: formatMessage(defaultMessages.adminFeedbacksDeleteSuccess)});
-  }
-
-  componentDidMount() {
-    $.getJSON('/v1/feedbacks.json', (response) => {
-      this.setState({ feedbacks: response.content });
-    });
   }
 
   render() {
@@ -60,6 +83,9 @@ class FeedbacksList extends React.Component {
               </tbody>
             </table>
           </div>
+          <Pagination page={this.state.page}
+            pages={this.state.pages}
+            handleChangePage={this.handleChangePage} />
         </div>
       </div>
     );

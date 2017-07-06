@@ -59,3 +59,6 @@ course_registrations:
   reject: "reject"
 course_schedules:
   per_page: 10
+admin_page:
+  per_page: 10
+  page_default: 1

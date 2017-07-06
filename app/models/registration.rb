@@ -1,5 +1,6 @@
 class Registration < ApplicationRecord
   belongs_to :course_schedule
+  has_one :course, through: :course_schedule
 
   enum status: {pending: 0, contacted: 1, rejected: 2}, _prefix: true
 

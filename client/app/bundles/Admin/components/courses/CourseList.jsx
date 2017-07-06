@@ -3,6 +3,8 @@ import Course from './Course';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
+import Pagination from '../../utils/Pagination';
+import axios from 'axios';
 
 class CourseList extends React.Component {
 
@@ -10,8 +12,12 @@ class CourseList extends React.Component {
     super(props);
     this.state = {
       courses: [],
+      page: 1,
+      pages: 0
     };
     this.handleDeleted = this.handleDeleted.bind(this);
+    this.getDataFromApi = this.getDataFromApi.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
   }
 
   handleDeleted(id) {
@@ -26,9 +32,26 @@ class CourseList extends React.Component {
   }
 
   componentDidMount() {
-    $.getJSON('/v1/courses.json', (response) => {
-      this.setState({courses: response.content});
-    });
+    this.getDataFromApi(this.state.page);
+  }
+
+  getDataFromApi(page) {
+    axios.get('/v1/courses.json', {
+      params: {
+        page: page
+      }
+    })
+    .then(response => {
+      const {courses, page, pages} = response.data.content;
+      this.setState({courses, page, pages});
+    })
+    .catch(error => {
+      console.log(error);
+    });    
+  }
+
+  handleChangePage(page) {
+    this.getDataFromApi(page);
   }
 
   render() {
@@ -64,6 +87,9 @@ class CourseList extends React.Component {
               </tbody>
             </table>
           </div>
+          <Pagination page={this.state.page}
+            pages={this.state.pages}
+            handleChangePage={this.handleChangePage} />
         </div>
       </div>
     );
