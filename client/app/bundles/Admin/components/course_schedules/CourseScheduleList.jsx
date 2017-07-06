@@ -3,6 +3,8 @@ import CourseSchedule from './CourseSchedule';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
+import Pagination from '../../utils/Pagination';
+import axios from 'axios';
 
 class CourseScheduleList extends React.Component {
 
@@ -10,8 +12,35 @@ class CourseScheduleList extends React.Component {
     super(props);
     this.state = {
       course_schedules: [],
+      page: 1,
+      pages: 0
     };
     this.handleDeleted = this.handleDeleted.bind(this);
+    this.getDataFromApi = this.getDataFromApi.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
+  }
+
+  componentDidMount() {
+    this.getDataFromApi(this.state.page);
+  }
+
+  getDataFromApi(page) {
+    axios.get('/v1/course_schedules.json', {
+      params: {
+        page: page
+      }
+    })
+    .then(response => {
+      const {course_schedules, page, pages} = response.data.content;
+      this.setState({course_schedules, page, pages});
+    })
+    .catch(error => {
+      console.log(error);
+    });    
+  }
+
+  handleChangePage(page) {
+    this.getDataFromApi(page);
   }
 
   handleDeleted(id) {
@@ -23,12 +52,6 @@ class CourseScheduleList extends React.Component {
       })
     });
     $.growl.notice({message: formatMessage(defaultMessages.adminCoursesDeleteSuccess)});
-  }
-
-  componentDidMount() {
-    $.getJSON('/v1/course_schedules.json', (response) => {
-      this.setState({course_schedules: response.content});
-    });
   }
 
   render() {
@@ -67,6 +90,9 @@ class CourseScheduleList extends React.Component {
               </tbody>
             </table>
           </div>
+          <Pagination page={this.state.page}
+            pages={this.state.pages}
+            handleChangePage={this.handleChangePage} />
         </div>
       </div>
     );

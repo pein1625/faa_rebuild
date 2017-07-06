@@ -2,7 +2,8 @@ class V1::NewsesController < V1::ApiController
   before_action :load_news, only: [:edit, :update, :destroy]
 
   def index
-    response_success nil, News.all
+    newses = News.page(page).per Settings.admin_page.per_page
+    response_success nil, {newses: newses, page: page, pages: newses.total_pages}
   end
 
   def destroy

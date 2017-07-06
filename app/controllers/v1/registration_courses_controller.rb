@@ -3,9 +3,11 @@ class V1::RegistrationCoursesController < V1::ApiController
   before_action :peding_registration_filter, only: :update
 
   def index
-    response_success nil,
-      ActiveModel::SerializableResource
-        .new(Registration.all, each_serializer: RegistrationSerializer)
+    registration_courses = Registration.page(page).per Settings.admin_page.per_page
+    registration_serialize = ActiveModel::SerializableResource
+      .new(registration_courses, each_serializer: RegistrationSerializer)
+    response_success nil, {registration_courses: registration_serialize,
+      page: page, pages: registration_courses.total_pages}
   end
 
   def update

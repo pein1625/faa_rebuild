@@ -3,9 +3,8 @@ import RegistrationCourse from './RegistrationCourse';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
-import Button from 'react-bootstrap/lib/Button';
-import Modal from 'react-bootstrap/lib/Modal';
 import axios from 'axios';
+import Pagination from '../../utils/Pagination';
 
 class RegistrationCourseIndex extends React.Component {
 
@@ -13,13 +12,14 @@ class RegistrationCourseIndex extends React.Component {
     super(props);
     this.state = {
       registration_courses: [],
-      showModal: false,
-      email_content: ""
+      email_content: "",
+      page: 1,
+      pages: 0
     };
     this.handleDeleted = this.handleDeleted.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.getDataFromApi = this.getDataFromApi.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
   }
 
   handleDeleted(id, message) {
@@ -31,54 +31,33 @@ class RegistrationCourseIndex extends React.Component {
     $.growl.notice({message: message});
   }
 
-  changeStatusHandle(dataFromChild) {
-    this.setState({ showModal: dataFromChild.showModal, id_register: dataFromChild.id_register,
-      status: dataFromChild.status });
-  }
-
-  closeModal() {
-    this.setState({showModal: false});
-  }
-
-  handleFormSubmit(e) {
-    e.preventDefault();
-    let {id_register} = this.state;
-    axios.patch(`/v1/registration_courses/${id_register}.json`,
-      {
-        status: this.state.status,
-        email_content: this.state.email_content
-      },
-      {
-        responseType: 'json'
-      })
-      .then((response) => {
-        const {status, message, content} = response.data;
-        if(status === 200) {
-          this.setState({status: content.status, showModal: false,
-            registration_courses: this.state.registration_courses.map((registration) => {
-              return (registration.id === content.id) ? content : registration;
-            })
-          });
-          $.growl.notice({message: message});
-        } else {
-          this.setState({errors: content});
-          $.growl.error({message: message});
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
   handleInputChange(e) {
     this.setState({email_content: e.target.value});
   }
 
   componentDidMount() {
-    $.getJSON('/v1/registration_courses.json', (response) => {
-      this.setState({ registration_courses: response.content});
-    });
+    this.getDataFromApi(this.state.page);
   }
+
+  getDataFromApi(page) {
+    axios.get('/v1/registration_courses.json', {
+      params: {
+        page: page
+      }
+    })
+    .then(response => {
+      const {registration_courses, page, pages} = response.data.content;
+      this.setState({registration_courses, page, pages});
+    })
+    .catch(error => {
+      console.log(error);
+    });    
+  }
+
+  handleChangePage(page) {
+    this.getDataFromApi(page);
+  }
+
   render() {
     const {formatMessage} = this.props.intl;
     return (
@@ -96,7 +75,6 @@ class RegistrationCourseIndex extends React.Component {
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesPhone)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesAddress)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesCourse)}</th>
-                  <th>{formatMessage(defaultMessages.adminRegistrationCoursesStatus)}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -105,39 +83,16 @@ class RegistrationCourseIndex extends React.Component {
                   this.state.registration_courses.map(registration_course => (
                     <RegistrationCourse {...registration_course}
                       key={registration_course.id}
-                      handleDeleted={this.handleDeleted}
-                      changeStatusHandle={this.changeStatusHandle.bind(this)}/>
+                      handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>
             </table>
           </div>
+          <Pagination page={this.state.page}
+            pages={this.state.pages}
+            handleChangePage={this.handleChangePage} />
         </div>
-        <Modal show={this.state.showModal} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>{formatMessage(defaultMessages.adminRegistrationCoursesResponse)}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <form role="form" onSubmit={this.handleFormSubmit} id="edit-certification-form">
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminRegistrationCoursesResponseContent)}
-                </label>
-                <textarea form="edit-certification-form" rows="5" ref="email_content"
-                  name="email_content" type="text" className="form-control"
-                  value={this.state.email_content} onChange={this.handleInputChange}/>
-              </div>
-              <div className="form-group submit-group">
-                <button type="submit" className="btn btn-primary">
-                  {formatMessage(defaultMessages.adminRegistrationCoursesSend)}
-                </button>
-              </div>
-            </form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.closeModal}>{formatMessage(defaultMessages.adminRegistrationCoursesClose)}</Button>
-          </Modal.Footer>
-        </Modal>
       </div>
     );
   }

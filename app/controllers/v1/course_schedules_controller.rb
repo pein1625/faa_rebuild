@@ -2,7 +2,9 @@ class V1::CourseSchedulesController < V1::ApiController
   before_action :load_course_schedule, only: [:destroy, :edit, :update]
 
   def index
-    response_success nil, CourseSchedule.all
+    course_schedules = CourseSchedule.page(page).per Settings.admin_page.per_page
+    response_success nil, {course_schedules: course_schedules, page: page,
+      pages: course_schedules.total_pages}
   end
 
   def destroy

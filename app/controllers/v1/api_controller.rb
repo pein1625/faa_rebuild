@@ -7,4 +7,8 @@ class V1::ApiController < ApplicationController
       render json: JsonResponse.send(status, message, content)
     end
   end
+
+  def page
+    params[:page] || Settings.admin_page.page_default
+  end
 end

@@ -6,7 +6,7 @@ class V1::UsersController < V1::ApiController
   end
 
   def new
-    response_success nil, {roles: User.roles.keys, certifications: Certification.all}
+    response_success nil, {roles: User.roles.keys}
   end
 
   def create
@@ -19,11 +19,10 @@ class V1::UsersController < V1::ApiController
   end
 
   def edit
-    response_success nil, {user: @user, image: @user.image, user_certifications: @user.certifications.map(&:id)}
+    response_success nil, {user: @user, image: @user.image}
   end
 
   def update
-    @user.certifications.destroy_all
     if @user.update_attributes(user_params)
       response_success t(".save_success"), @user
     else
@@ -43,8 +42,7 @@ class V1::UsersController < V1::ApiController
 
   def user_params
     params.permit :name, :role, :quote, :email, :phone, :office, :introduction,
-      image_attributes: [:id, :url],
-      user_certifications_attributes: [:id, :certification_id]
+      image_attributes: [:id, :url]
   end
 
   def load_user
