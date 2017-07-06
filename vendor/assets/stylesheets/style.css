@@ -5,7 +5,7 @@
 /* Version: 1.0 Initial Release*/
 /* Build Date: 22-04-2015*/
 /* Author: Unbranded*/
-/* Website: http://moonart.net.ua/site/ 
+/* Website: http://moonart.net.ua/site/
 /* Copyright: (C) 2015 */
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -1635,7 +1635,7 @@ a:hover, a:focus {
 .tt-header-margin {
 	height: 149px;
 }
-@media (min-width:992px) {
+@media (min-width:1206px) {
 	.tt-header {
 		position: absolute;
 		top: 0;
@@ -1849,7 +1849,7 @@ a:hover, a:focus {
 		display: none;
 	}
 }
-@media (min-width:992px) and (max-width:1199px) {
+@media (min-width:1206px) and (max-width:1199px) {
 	.tt-header .logo {
 		width: 180px;
 	}
@@ -1863,7 +1863,7 @@ a:hover, a:focus {
 		left: -60px;
 	}
 }
-@media (max-width:991px) {
+@media (max-width:1205px) {
 	.tt-header .logo {
 		height: 46px;
 		line-height: 52px;
