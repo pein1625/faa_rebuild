@@ -1,7 +1,7 @@
 <div class="tt-teacher-wrapper trainers-trainer-wrapper">
   <div class="row">
     <% trainers.each do |trainer| %>
-      <div class="col-sm-6 col-md-3">
+      <div class="col-xs-12 col-sm-6 col-md-3">
         <div class="tt-teacher-2 trainers-trainer-detail">
           <%= link_to trainer_path(trainer), class: "tt-teacher-2-img custom-hover" do %>
             <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg", class: "img-responsive trainers-avatar" %>

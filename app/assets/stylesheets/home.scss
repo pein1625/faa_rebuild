@@ -57,43 +57,10 @@
 }
 
 .client-logo {
-  margin-bottom: 30px;
-
   img {
-    height: 100%;
+    height: 120px;
     object-fit: scale-down;
-    width: 100%;
-  }
-
-  ul {
-    display: table;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  li {
-    list-style: none;
-    height: 100px;
-    width: 150px;
-  }
-
-  .suga-container {
-    padding: .2em;
-    max-width: 570px;
-    margin: 5em auto;
-    border-radius: 5px;
-  }
-
-  .suga-slider-wrap {
-    overflow: hidden;
-    margin: 1em;
-  }
-
-  .suga-slide {
-    float: left;
-    position: relative;
-    margin-left: 0;
-    padding-right: 8px;
+    width: 160px;
   }
 }
 
@@ -103,6 +70,12 @@
 
 .index-more-trainer-btn {
   float: right;
+}
+
+@media (max-width: 532px) {
+  .index-more-trainer-btn {
+    float: none;
+  }
 }
 
 .index-trainer-avatar {
