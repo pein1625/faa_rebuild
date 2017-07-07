@@ -1,5 +1,6 @@
 vi:
   admin:
+    search_holder: "Nhập thông tin tìm kiếm"
     layouts:
       application:
         title: "FAA Admin"

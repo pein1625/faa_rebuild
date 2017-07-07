@@ -3,7 +3,13 @@ class V1::RegistrationCoursesController < V1::ApiController
   before_action :peding_registration_filter, only: :update
 
   def index
-    registration_courses = Registration.page(page).per Settings.admin_page.per_page
+    if search_word = params[:query]
+      registration_courses = Registration.search(search_word.downcase)
+        .page(page).per Settings.admin_page.per_page
+    else
+      registration_courses = Registration.page(page).per Settings.admin_page.per_page
+    end
+
     registration_serialize = ActiveModel::SerializableResource
       .new(registration_courses, each_serializer: RegistrationSerializer)
     response_success nil, {registration_courses: registration_serialize,
