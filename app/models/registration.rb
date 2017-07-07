@@ -18,6 +18,11 @@ class Registration < ApplicationRecord
     {maximum: Settings.registrations.max_address_length}, allow_blank: true
   validates :course_schedule_id, presence: true
 
+  scope :search, -> word{
+    joins(:course).where("LOWER(courses.name) LIKE ? OR LOWER(registrations.name) LIKE ?" \
+      "OR registrations.phone LIKE ?",
+      "%#{word}%", "%#{word}%", "%#{word}%")
+  }
   def course_name
     self.course_schedule.course_name
   end

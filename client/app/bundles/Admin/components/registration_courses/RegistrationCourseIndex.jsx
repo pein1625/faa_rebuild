@@ -5,6 +5,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
 import axios from 'axios';
 import Pagination from '../../utils/Pagination';
+import SearchForm from '../../utils/SearchForm';
 
 class RegistrationCourseIndex extends React.Component {
 
@@ -14,12 +15,14 @@ class RegistrationCourseIndex extends React.Component {
       registration_courses: [],
       email_content: "",
       page: 1,
-      pages: 0
+      pages: 0,
+      search_word: ""
     };
     this.handleDeleted = this.handleDeleted.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getDataFromApi = this.getDataFromApi.bind(this);
     this.handleChangePage = this.handleChangePage.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleDeleted(id, message) {
@@ -42,7 +45,8 @@ class RegistrationCourseIndex extends React.Component {
   getDataFromApi(page) {
     axios.get('/v1/registration_courses.json', {
       params: {
-        page: page
+        page: page,
+        query: this.state.search_word
       }
     })
     .then(response => {
@@ -58,6 +62,11 @@ class RegistrationCourseIndex extends React.Component {
     this.getDataFromApi(page);
   }
 
+  handleSearch(data, search_word) {
+    const {registration_courses, page, pages} = data;
+    this.setState({registration_courses, page, pages, search_word});
+  }
+
   render() {
     const {formatMessage} = this.props.intl;
     return (
@@ -66,6 +75,12 @@ class RegistrationCourseIndex extends React.Component {
           <div className="certifications-table-header">
             <h2>{formatMessage(defaultMessages.adminRegistrationCoursesRegistration)}</h2>
           </div>
+          <div className="clearfix">
+            <div className="col-md-4">
+              <SearchForm handleSearch={this.handleSearch} />
+            </div>
+          </div>
+          <div className="empty-space marg-lg-b20"></div>
           <div className="table-responsive col-md-12">
             <table className="table table-bordered table-hover table-striped">
               <thead>

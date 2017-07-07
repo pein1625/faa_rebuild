@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: {sessions: "sessions"}
+  devise_for :admins, controllers: {sessions: "sessions"}, skip: :registrations
   root "home#index"
   get "tags/:tag", to: "news#index", as: :tag
 
