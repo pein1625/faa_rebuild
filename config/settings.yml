@@ -10,7 +10,7 @@ framgia:
 home:
   courses_limit: 10
   trainers_limit: 10
-  trainer_quote_limit: 50
+  trainer_quote_limit: 150
 courses:
   length_description: 200
   per_page: 12

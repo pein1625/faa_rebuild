@@ -1,7 +1,7 @@
 module CourseHelper
   def load_link course
-    if course.course_schedules.any? && course.course_schedules.first.is_opening?
-      course_schedule_path course.course_schedules.first
+    if course.newest_schedule
+      course_schedule_path course.newest_schedule
     else
       course_path course
     end

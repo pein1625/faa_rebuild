@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
   layout :layout_by_resource
   before_action :load_courses
+  before_action :latest_news
 
   def popular_courses
     @popular_courses = CourseSchedule.includes(:course).popular

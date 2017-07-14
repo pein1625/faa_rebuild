@@ -1,7 +1,6 @@
 class CoursesController < ApplicationController
   before_action :load_course, only: :show
   before_action :popular_courses
-  before_action :latest_news
 
   def index
     @courses = load_by_search_word || load_course_default
