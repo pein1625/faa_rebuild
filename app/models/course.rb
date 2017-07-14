@@ -1,11 +1,14 @@
 class Course < ApplicationRecord
   has_many :images, as: :imageable, dependent: :destroy
   has_many :course_schedules, dependent: :destroy
+  has_one :newest_schedule,
+    -> {where("start_date >= ?", Date.today).order(start_date: :desc)},
+    class_name: CourseSchedule.name, foreign_key: :course_id
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
   scope :newest, -> do
-    includes(:course_schedules)
+    includes(:newest_schedule, :images)
       .order("course_schedules.start_date desc nulls last")
   end
   scope :by_words, -> words{where("LOWER(name) LIKE ?", "%#{words.downcase}%")}
