@@ -17,8 +17,7 @@
               </h3>
               <p class="date">
                 <%= load_register_time course.newest_schedule %></p>
-              <p class="price"><%= number_to_currency(course.cost, unit: "VND",
-                precision: 0, delimiter: ".", format: "%n %u") %></p>
+              <%= appear_cost course.cost %>
               <span class="language"><%= course.technique %></span>
             </div>
           </div>
