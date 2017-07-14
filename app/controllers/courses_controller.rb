@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.js {render @courses, layout: false}
+      format.js
     end
   end
 
@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
   end
 
   def load_course_default
-    Course.includes(:images).newest.page(params[:page])
+    Kaminari.paginate_array(Course.newest.to_a).page(params[:page])
       .per Settings.courses.per_page
   end
 

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :latest_news
 
   def popular_courses
-    @popular_courses = CourseSchedule.includes(:course).popular
+    @popular_courses = Course.popular
   end
 
   def latest_news

@@ -152,9 +152,12 @@ vi:
       duration: "Thời gian học"
       deadline: "Hạn cuối đăng ký"
     index:
-      all_course: "Danh mục các khóa học"
+      all_course: "Khóa học"
       course: "Khóa học"
       search_course: "Tìm kiếm khóa học"
+      load_more: "Xem thêm"
+      comming_soon: "Comming Soon"
+      search: "Tìm kiếm"
     show:
       detail_course: "Chi tiết khóa học"
       course: "Khóa học"
