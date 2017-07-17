@@ -2,8 +2,16 @@ class V1::CoursesController < V1::ApiController
   before_action :load_course, only: [:edit, :update, :destroy]
 
   def index
+    if course_id = params[:on_slider_index]
+      Course.transaction do
+        Course.update on_slider_index: false
+        Course.update course_id, on_slider_index: true
+      end
+    end
+    on_slider_index = Course.find_by(on_slider_index: true).id
     courses = Course.page(page).per Settings.admin_page.per_page
-    response_success nil, {courses: courses, page: page, pages: courses.total_pages}
+    response_success nil, {courses: courses, page: page,
+      on_slider_index: on_slider_index, pages: courses.total_pages}
   end
 
   def create
@@ -39,9 +47,8 @@ class V1::CoursesController < V1::ApiController
   private
 
   def course_params
-    params.permit :name, :description, :start_date, :end_date, :status,
-      :registration_deadline, :cost, :place, :content, :course_category_id,
-      images_attributes: [:id, :url]
+    params.permit :name, :description, :status, :technique, :cost, :content,
+      :on_slider_index, images_attributes: [:id, :url]
   end
 
   def load_course

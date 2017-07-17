@@ -41,7 +41,7 @@ class V1::UsersController < V1::ApiController
   private
 
   def user_params
-    params.permit :name, :role, :quote, :email, :phone, :office, :introduction,
+    params.permit :name, :role, :quote, :position, :introduction,
       image_attributes: [:id, :url]
   end
 

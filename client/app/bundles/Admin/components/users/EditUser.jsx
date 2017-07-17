@@ -25,7 +25,8 @@ class EditUser extends React.Component {
       url: "",
       errors: [],
       roles: [],
-      introduction: ""
+      introduction: "",
+      position: "",
     }
   }
 
@@ -54,12 +55,13 @@ class EditUser extends React.Component {
 
     e.preventDefault();
     let id = this.props.match.params.id;
-    const {name, role, quote, email, phone, office, url, userCertifications, introduction} = this.state;
+    const {name, role, quote, position, url, introduction} = this.state;
     let formData = new FormData();
     formData.append("name", name);
     formData.append("role", role);
     formData.append("quote", quote);
     formData.append("introduction", introduction);
+    formData.append("position", position);
 
     formData.append("image_attributes[url]", url);
 
@@ -87,9 +89,9 @@ class EditUser extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/users/${id}/edit.json`)
       .then(response => {
-        const {name, role, quote, introduction} = response.data.content.user;
+        const {name, role, quote, introduction, position} = response.data.content.user;
         const {url} = response.data.content.image || "";
-        this.setState({name, role, quote, url, introduction});
+        this.setState({name, role, quote, url, introduction, position});
       })
       .catch(error => {
         console.log(error);
@@ -159,6 +161,14 @@ class EditUser extends React.Component {
                 <textarea form="edit-user-form" rows="5" ref="quote"
                   name="quote" type="text" className="form-control"
                   value={this.state.quote || ""} onChange={handleInput.bind(this)}/>
+              </div>
+
+              <div className="form-group">
+                <label className="control-label">
+                  {formatMessage(defaultMessages.adminUsersPosition)}
+                </label>
+                <input ref="position" name="position" type="text" className="form-control"
+                  value={this.state.position} onChange={handleInput.bind(this)} />
               </div>
 
               <div className="form-group">
