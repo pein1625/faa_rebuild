@@ -13,7 +13,7 @@ body *{
 
 a {
   color: $color-base;
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
   }
 }
@@ -26,6 +26,17 @@ ul {
 input {
   outline: none;
 }
+
+em {
+  color: $color-red;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+}
+
+/************/
 
 #wrapper {
   position: relative;
