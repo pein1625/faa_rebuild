@@ -21,16 +21,12 @@ class NewUser extends React.Component {
       name: "",
       role: "",
       quote: "",
-      email: "",
-      phone: "",
-      office: "",
       submitSuccess: false,
       url: "",
       errors: [],
       roles: [],
-      certifications: [],
-      userCertifications: [],
-      introduction: ""
+      introduction: "",
+      position: ""
     }
   }
 
@@ -56,13 +52,7 @@ class NewUser extends React.Component {
 
   componentDidMount() {
     $.getJSON('/v1/users/new.json', (response) => {
-      this.setState({ roles: response.content.roles, certifications: response.content.certifications});
-    });
-  }
-
-  userCertificationsChanged = (newCertifications) => {
-    this.setState({
-      userCertifications: newCertifications
+      this.setState({roles: response.content.roles});
     });
   }
 
@@ -71,21 +61,15 @@ class NewUser extends React.Component {
 
     e.preventDefault();
     let id = this.props.match.params.id;
-    const {name, role, quote, email, phone, office, url, userCertifications, introduction} = this.state;
+    const {name, role, quote, url, introduction, position} = this.state;
     let formData = new FormData();
     formData.append("name", name);
     formData.append("role", role);
     formData.append("quote", quote);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("office", office);
     formData.append("introduction", introduction);
+    formData.append("position", position);
 
     formData.append("image_attributes[url]", url);
-
-    userCertifications.map((certification, index) => {
-      formData.append('user_certifications_attributes['+ index +'][certification_id]', certification );
-    })
 
     axios.post(`/v1/users.json`,
       formData,
@@ -139,21 +123,6 @@ class NewUser extends React.Component {
               </div>
               <div className="form-group">
                 <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersCertifications)}
-                </label>
-                <CheckboxGroup
-                  name="userCertifications"
-                  value={this.state.userCertifications}
-                  onChange={this.userCertificationsChanged}>
-                  {
-                    this.state.certifications.map(function(certification) {
-                      return <label className="mg-rg-10" key={certification.id} ><Checkbox className="mg-custom mg-rg-5" value={certification.id}/>{certification.name}</label>
-                    })
-                  }
-                </CheckboxGroup>
-              </div>
-              <div className="form-group">
-                <label className="control-label">
                   {formatMessage(defaultMessages.adminUsersName)}
                 </label>
                 <input ref="name" name="name" type="text" className="form-control"
@@ -186,28 +155,11 @@ class NewUser extends React.Component {
 
               <div className="form-group">
                 <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersEmail)}
+                  {formatMessage(defaultMessages.adminUsersPosition)}
                 </label>
-                <input ref="email" name="email" type="text" className="form-control"
-                  value={this.state.email} onChange={handleInput.bind(this)}
+                <input ref="position" name="position" type="text" className="form-control"
+                  value={this.state.position} onChange={handleInput.bind(this)}
                   required="required"/>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersPhone)}
-                </label>
-                <input ref="phone" name="phone" type="text" className="form-control"
-                  value={this.state.phone} onChange={handleInput.bind(this)}
-                  required="required"/>
-              </div>
-
-              <div className="form-group">
-                <label className="control-label">
-                  {formatMessage(defaultMessages.adminUsersOffice)}
-                </label>
-                <input ref="office" name="office" type="text" className="form-control"
-                  value={this.state.office} onChange={handleInput.bind(this)}/>
               </div>
 
               <div className="form-group">

@@ -30,7 +30,8 @@ class NewCourse extends React.Component {
       description: "",
       submitSuccess: false,
       errors: [],
-      urls: []
+      urls: [],
+      technique: "",
     };
   }
 
@@ -75,6 +76,7 @@ class NewCourse extends React.Component {
     formData.append("description", this.state.description);
     formData.append("cost", this.state.cost);
     formData.append("content", this.state.content);
+    formData.append("technique", this.state.technique);
     this.state.urls.forEach(url => {
       formData.append("images_attributes[][url]", url);
     });
@@ -131,6 +133,15 @@ class NewCourse extends React.Component {
                 <textarea form="edit-certification-form" rows="5" name="description"
                   type="text" className="form-control"
                   value={this.state.description} onChange={handleInputChange.bind(this)}/>
+              </div>
+
+              <div className="form-group">
+                <label className="control-label">
+                  {formatMessage(defaultMessages.adminCoursesTechnique)}
+                </label>
+                <input name="technique" type="text" className="form-control"
+                  value={this.state.technique} onChange={handleInputChange.bind(this)}
+                  required="required"/>
               </div>
 
               <div className="row">

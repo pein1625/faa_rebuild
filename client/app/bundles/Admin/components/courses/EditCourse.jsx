@@ -28,7 +28,8 @@ class EditCourse extends React.Component {
       content: "",
       submitSuccess: false,
       errors: [],
-      urls: []
+      urls: [],
+      technique: ""
     };
   }
 
@@ -73,6 +74,7 @@ class EditCourse extends React.Component {
     formData.append("description", this.state.description);
     formData.append("cost", this.state.cost);
     formData.append("content", this.state.content);
+    formData.append("technique", this.state.technique);
     this.state.urls.forEach(url => {
       formData.append("images_attributes[][url]", url);
     });
@@ -102,13 +104,13 @@ class EditCourse extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/courses/${id}/edit.json`)
       .then(response => {
-        const {name, description, cost, content} = response.data.content.course;
+        const {name, description, cost, content, technique} = response.data.content.course;
         const {images} = response.data.content;
         const urls = images.map(image => (
           image.url
         ));
         this.setState({
-          name, description, cost, content, urls
+          name, description, cost, content, urls, technique
         });
       })
       .catch(error => {
@@ -147,6 +149,15 @@ class EditCourse extends React.Component {
                 <textarea form="edit-certification-form" rows="5" name="description"
                   type="text" className="form-control"
                   value={this.state.description} onChange={handleInputChange.bind(this)}/>
+              </div>
+
+              <div className="form-group">
+                <label className="control-label">
+                  {formatMessage(defaultMessages.adminCoursesTechnique)}
+                </label>
+                <input name="technique" type="text" className="form-control"
+                  value={this.state.technique} onChange={handleInputChange.bind(this)}
+                  required="required"/>
               </div>
 
               <div className="row">
