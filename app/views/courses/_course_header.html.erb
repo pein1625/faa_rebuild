@@ -1,43 +1,58 @@
-<div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
-<div class="tt-heding type-2">
-  <h2 class="tt-heding-title c-h4 txt-uppercase">
-    <span><%= course.name %></span>
-  </h2>
-</div>
-<div class="empty-space marg-lg-b25"></div>
-
-<div class="simple-text size-4 color-3">
-  <p><%= course.description %></p>
-</div>
-<div class="empty-space marg-lg-b50"></div>
-
-<div class="tt-simple-image-2">
-  <%= load_image course, "image-course" %>
-</div>
-
-<div class="empty-space marg-lg-b10"></div>
-<div class="tt-author">
-  <div class="tt-author-avacell">
-    <div class="tt-author-ava">
-      <div class="tt-author-imgcell">
-        <div class="round">
-          <img src="/assets/introduction/teaching.png" class="image-author" alt="">
-        </div>
-      </div>
-      <div class="tt-author-infocell">
-        <div class="tt-author-position"><%= t ".place" %></div>
-        <p class="tt-author-name"><%= t ".framgia_vietnam" %></p>
-      </div>
+<h2 class="name-class"><%= course.name.upcase %></h2>
+<div class="full-info">
+  <div class="left-col col-md-8 col-sm-8">
+    <div>
+      <span class="label-time"><%= t ".time_learn" %></span>
+      <%= link_to course_schedules_path(course_id: course.id), class: "pull-right" do%>
+        <span class="badge"><%= t ".see_more" %></span>
+      <% end %>
+    </div>
+    <div class="datetime">
+      <p class="fulltime">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <%= load_register_time newest_schedule %>
+      </p>
+      <ul class="detail-time">
+        <li>
+          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day1]}" %>
+          </label>
+          <span class="time">
+            <%= load_schedule_time_without_day newest_schedule.start_time1, newest_schedule.end_time1 %>
+          </span>
+        </li>
+        <li>
+          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day2]}" %>
+          </label>
+          <span class="time">
+            <%= load_schedule_time_without_day newest_schedule.start_time2, newest_schedule.end_time2 %>
+          </span>
+        </li>
+        <li>
+          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day3]}" %>
+          </label>
+          <span class="time">
+            <%= load_schedule_time_without_day newest_schedule.start_time3, newest_schedule.end_time3 %>
+          </span>
+        </li>
+      </ul>
+      <p class="address">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <%= newest_schedule.place %>
+      </p>
     </div>
   </div>
-  <div class="tt-author-pricecell tt-author-ratecell">
-    <%= number_to_currency course.cost, unit: "đ", precision: 0,
-    delimiter: ".", format: "%n %u" %>
+  <div class="right-col col-md-4 col-sm-4">
+    <%= appear_cost course.cost %>
+    <p class="deadline">
+      <%= t ".deadline" %>
+      <%= l newest_schedule.deadline_date, format: :day_month_year %>
+    </p>
+    <%= link_to new_registration_path(schedule: newest_schedule.id),
+      class: "btn-registration btn-blue", remote: true do %>
+      <%= t ".register_now" %>
+    <% end %>
   </div>
 </div>
-<div class="empty-space marg-lg-b30"></div>
-
-<%= render "courses/course_schedules", course: course,
-  course_schedule: (course_schedule ||= nil) if course.course_schedules.any? %>
-
-<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>

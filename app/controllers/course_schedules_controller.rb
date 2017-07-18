@@ -3,8 +3,13 @@ class CourseSchedulesController < ApplicationController
   before_action :find_schedule, only: :show
 
   def index
-    @course_schedules = CourseSchedule.newest.page(params[:page])
-      .per Settings.course_schedules.per_page
+    if course_id = params[:course_id]
+      @course_schedules = CourseSchedule.load_by_course(course_id)
+        .page(params[:page]).per Settings.course_schedules.per_page
+    else
+      @course_schedules = CourseSchedule.newest.page(params[:page])
+        .per Settings.course_schedules.per_page
+    end
   end
 
   def show

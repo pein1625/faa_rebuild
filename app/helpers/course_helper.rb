@@ -41,4 +41,8 @@ module CourseHelper
       concat content_tag :span, Settings.courses.money_unit, class: "currency"
     end
   end
+
+  def load_schedule_time_without_day start_time, end_time
+    l(start_time, format: :hour_minute) + " - " + l(end_time, format: :hour_minute)
+  end
 end

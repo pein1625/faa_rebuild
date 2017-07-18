@@ -146,11 +146,13 @@ vi:
       place: "Địa điểm"
       framgia_vietnam: "Framgia Việt Nam"
       number_of_member: "Số lương học viên"
-    course_schedules:
       register_now: "Đăng ký ngay"
+      deadline: "Hạn cuối đăng ký"
+      time_learn: "Thời gian học"
+      see_more: "Xem thêm các lớp cùng khóa"
+    course_schedules:
       schedules: "Các lớp học có thể đăng ký"
       duration: "Thời gian học"
-      deadline: "Hạn cuối đăng ký"
     index:
       all_course: "Khóa học"
       course: "Khóa học"
@@ -161,6 +163,7 @@ vi:
     show:
       detail_course: "Chi tiết khóa học"
       course: "Khóa học"
+      home: "Trang chủ"
     course:
       readmore: "Xem thêm"
   feedbacks:

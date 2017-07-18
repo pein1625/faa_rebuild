@@ -8,6 +8,7 @@ class CourseSchedule < ApplicationRecord
   validates :end_date, presence: true
 
   scope :newest, ->{order start_date: :desc}
+  scope :load_by_course, -> course_id{newest.where course_id: course_id}
 
   delegate :name, to: :course, prefix: true, allow_nil: true
   delegate :cost, to: :course, prefix: true, allow_nil: true
