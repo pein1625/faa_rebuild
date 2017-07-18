@@ -3,23 +3,26 @@
     <td><%= schedule.course_name %></td>
     <td><%= load_register_time schedule %></td>
     <td>
-      <p><%= load_schedule_time schedule.day1, schedule.start_time1, schedule.end_time1 %></p>
-      <p><%= load_schedule_time schedule.day2, schedule.start_time2, schedule.end_time2 %></p>
-      <p><%= load_schedule_time schedule.day3, schedule.start_time3, schedule.end_time3 %></p>
+      <ul>
+        <%= load_schedule_time_in_list schedule.day1, schedule.start_time1, schedule.end_time1 %>
+        <%= load_schedule_time_in_list schedule.day2, schedule.start_time2, schedule.end_time2 %>
+        <%= load_schedule_time_in_list schedule.day3, schedule.start_time3, schedule.end_time3 %>
+      </ul>
     </td>
-    <td><%= number_to_currency schedule.course_cost, unit: "VND", precision: 0,
-      delimiter: ".", format: "%n %u" %></td>
-    <td class="btn-detail-course-schedule">
-      <%= link_to course_schedule_path(schedule),
-        class: "c-btn type-1 color-1" do %>
-        <span><%= t ".detail" %></span>
-      <% end %>
-      <br/>
+    <td>
+      <span><%= number_to_currency schedule.course_cost, unit: "VND", precision: 0,
+        delimiter: ".", format: "%n %u" %></span>
+    </td>
+    <td>
       <% if schedule.is_opening? %>
         <%= link_to new_registration_path(schedule: schedule.id),
-          class: "c-btn type-1 color-2", remote: true do %>
+          class: "btn-reg", remote: true do %>
           <span><%= t ".register_now" %></span>
         <% end %>
+      <% end %>
+      <%= link_to course_schedule_path(schedule),
+        class: "detail-link" do %>
+        <span><%= t ".detail" %></span>
       <% end %>
     </td>
   </tr>

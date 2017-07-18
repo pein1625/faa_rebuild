@@ -1,56 +1,47 @@
-<div class="modal-dialog modal-md">
-  <%= simple_form_for registration, remote: true do |f| %>
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">
-          <%= t ".heading" %>: <%= registration.course_schedule.course.name %>
-        </h4>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span type="button" class="close" data-dismiss="modal" aria-label="Close"></span>
+      <h2 class="modal-title"><%= t ".heading" %></h2>
+    </div>
+    <div class="modal-body">
+      <div class="intro-box">
+        <h3><%= registration.course_schedule.course.name %></h3>
+        <label><%= t ".duration" %></label>
+        <p>
+          <%= load_schedule_time_inline registration.course_schedule.day1,
+            registration.course_schedule.start_time1, registration.course_schedule.end_time1 %>,
+          <%= load_schedule_time_inline registration.course_schedule.day2,
+            registration.course_schedule.start_time2, registration.course_schedule.end_time2 %>,
+          <%= load_schedule_time_inline registration.course_schedule.day3,
+            registration.course_schedule.start_time3, registration.course_schedule.end_time3 %>
+        </p>
+        <span><%= load_register_time registration.course_schedule %></span>
       </div>
-      <div class="modal-body">
-        <div class="col_full registration-info">
-          <p><%= t ".duration" %></p>
-          <p><strong>
-            <%= load_schedule_time registration.course_schedule.day1,
-              registration.course_schedule.start_time1, registration.course_schedule.end_time1 %>
-            <span>, </span>
-            <%= load_schedule_time registration.course_schedule.day2,
-              registration.course_schedule.start_time2, registration.course_schedule.end_time2 %>
-            <span>, </span>
-            <%= load_schedule_time registration.course_schedule.day3,
-              registration.course_schedule.start_time3, registration.course_schedule.end_time3 %>
-          </strong></p>
-          <p><strong>
-            <%= load_register_time registration.course_schedule %>
-          </strong></p>
-        </div>
-        <%= f.input :course_schedule_id, as: :hidden,
-          input_html: {value: registration.course_schedule.id} %>
-        <div class="col_half">
-          <%= f.input :name, label: t(".name"), required: true,
-            input_html: {class: "sm-form-control"} %>
-        </div>
-        <div class="col_half col_last">
-          <%= f.input :email, label: t(".email"), required: true,
-            input_html: {class: "sm-form-control"} %>
-        </div>
-        <div class="clear"></div>
-        <div class="col_half">
-          <%= f.input :phone, label: t(".phone"), required: true,
-            input_html: {class: "sm-form-control"} %>
-        </div>
-        <div class="col_half col_last">
-          <%= f.input :address, as: :string, label: t(".address"),
-            input_html: {class: "sm-form-control"} %>
-        </div>
-        <div class="clear"></div>
-      </div>
-      <div class="modal-footer">
-        <div class="c-btn type-1 color-1">
-          <%= f.submit t(".submit") %>
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
-        </div>
+
+      <div class="registration-form">
+        <%= simple_form_for registration, remote: true do |f| %>
+          <%= f.input :course_schedule_id, as: :hidden,
+            input_html: {value: registration.course_schedule.id} %>
+          <div class="group-fields">
+            <%= f.input :name, label: t(".name"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :email, label: t(".email"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :phone, label: t(".phone"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :address, as: :text, label: t(".address"),
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <%= f.submit t(".submit"), class: "btn-submit" %>
+        <% end %>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
