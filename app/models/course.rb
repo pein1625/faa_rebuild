@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   has_many :images, as: :imageable, dependent: :destroy
   has_many :course_schedules, dependent: :destroy
   has_many :registrations, through: :course_schedules
+  has_many :temporary_registrations, dependent: :destroy
 
   has_one :newest_schedule,
     -> {where("start_date >= ?", Date.today).order(start_date: :desc)},

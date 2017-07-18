@@ -1,0 +1,25 @@
+<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
+<div id="content-wrapper">
+  <div class="container">
+    <div class="registration-success-img" align="center">
+      <%= image_tag "registration_success.png" %>
+    </div>
+    <div class="registration-success-message">
+      <h1><%= t ".thank" %> <strong><%= @temporary_registration.course_name %></strong></h1>
+      <p><%= t ".contact" %></p>
+    </div>
+    <div class="registration-success-button row">
+      <div class="col-md-6 more-course">
+        <%= link_to courses_path, class: "c-btn type-1 color-1" do %>
+          <%= t(".more_course") %>
+        <% end %>
+      </div>
+      <div class="col-md-6 this-course">
+        <%= link_to course_path(@temporary_registration.course),
+          class: "c-btn type-1 color-5" do %>
+          <%= t(".this_course") %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

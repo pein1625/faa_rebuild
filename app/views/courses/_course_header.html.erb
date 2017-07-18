@@ -1,58 +1,80 @@
 <h2 class="name-class"><%= course.name.upcase %></h2>
-<div class="full-info">
-  <div class="left-col col-md-8 col-sm-8">
-    <div>
-      <span class="label-time"><%= t ".time_learn" %></span>
-      <%= link_to course_schedules_path(course_id: course.id), class: "pull-right" do%>
-        <span class="badge"><%= t ".see_more" %></span>
+  <div class="full-info">
+    <div class="left-col col-md-8 col-sm-8">
+      <% if newest_schedule %>
+        <div>
+          <span class="label-time"><%= t ".time_learn" %></span>
+          <%= link_to course_schedules_path(course_id: course.id), class: "pull-right" do %>
+            <span class="badge"><%= t ".see_more" %></span>
+          <% end %>
+        </div>
+        <div class="datetime">
+          <p class="fulltime">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            <%= load_register_time newest_schedule %>
+          </p>
+          <ul class="detail-time">
+            <li>
+              <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day1]}" %>
+              </label>
+              <span class="time">
+                <%= load_schedule_time_without_day newest_schedule.start_time1, newest_schedule.end_time1 %>
+              </span>
+            </li>
+            <li>
+              <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day2]}" %>
+              </label>
+              <span class="time">
+                <%= load_schedule_time_without_day newest_schedule.start_time2, newest_schedule.end_time2 %>
+              </span>
+            </li>
+            <li>
+              <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
+                <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day3]}" %>
+              </label>
+              <span class="time">
+                <%= load_schedule_time_without_day newest_schedule.start_time3, newest_schedule.end_time3 %>
+              </span>
+            </li>
+          </ul>
+          <p class="address">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= newest_schedule.place %>
+          </p>
+        </div>
+      <% else %>
+        <span class="label-time"><%= t ".time_learn" %></span>
+        <div class="datetime">
+          <div class="comming-soon">
+            <h3><%= t ".comming_soon" %></h3>
+            <p><%= t ".condition" %></p>
+          </div>
+        </div>
       <% end %>
     </div>
-    <div class="datetime">
-      <p class="fulltime">
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-        <%= load_register_time newest_schedule %>
-      </p>
-      <ul class="detail-time">
-        <li>
-          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
-            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day1]}" %>
-          </label>
-          <span class="time">
-            <%= load_schedule_time_without_day newest_schedule.start_time1, newest_schedule.end_time1 %>
-          </span>
-        </li>
-        <li>
-          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
-            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day2]}" %>
-          </label>
-          <span class="time">
-            <%= load_schedule_time_without_day newest_schedule.start_time2, newest_schedule.end_time2 %>
-          </span>
-        </li>
-        <li>
-          <label class="date"><i class="fa fa-clock-o" aria-hidden="true"></i>
-            <%= t "day_of_week.#{CourseSchedule::DAY_OF_WEEK[newest_schedule.day3]}" %>
-          </label>
-          <span class="time">
-            <%= load_schedule_time_without_day newest_schedule.start_time3, newest_schedule.end_time3 %>
-          </span>
-        </li>
-      </ul>
-      <p class="address">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <%= newest_schedule.place %>
-      </p>
+    <div class="right-col col-md-4 col-sm-4">
+      <%= appear_cost course.cost %>
+      <%if newest_schedule %>
+        <p class="deadline">
+          <%= t ".deadline" %>
+          <%= l newest_schedule.deadline_date, format: :day_month_year %>
+        </p>
+        <%= link_to new_registration_path(schedule: course.newest_schedule.id),
+          class: "btn-registration btn-blue", remote: true do %>
+          <%= t ".register_now" %>
+        <% end %>
+      <% else %>
+        <p class="deadline">
+          <b><%= number_of_temporary_registration course %></b>
+          <%= t ".registed" %>
+        </p>
+        <%= link_to new_temporary_registration_path(course: course.id),
+          class: "btn-registration btn-blue", remote: true do %>
+          <%= t ".register_now" %>
+        <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="right-col col-md-4 col-sm-4">
-    <%= appear_cost course.cost %>
-    <p class="deadline">
-      <%= t ".deadline" %>
-      <%= l newest_schedule.deadline_date, format: :day_month_year %>
-    </p>
-    <%= link_to new_registration_path(schedule: newest_schedule.id),
-      class: "btn-registration btn-blue", remote: true do %>
-      <%= t ".register_now" %>
-    <% end %>
-  </div>
-</div>
+

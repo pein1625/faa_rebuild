@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:new, :create]
   resources :news, only: [:index, :show]
   resources :course_schedules, only: [:index, :show]
+  resources :temporary_registrations, only: [:new, :create]
 
   devise_scope :admin do
     get "/sign_up" => "devise/registrations#new", as: "new_user_registration"

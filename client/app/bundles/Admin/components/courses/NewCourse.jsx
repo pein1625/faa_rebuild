@@ -12,8 +12,10 @@ import morrisCss from '../../../../assets/styles/mde.css';
 import CourseCategory from './CourseCategory';
 import CourseStatus from './CourseStatus';
 import {handleInputChange} from '../../utils/InputHandler';
-import SimpleMDE from 'react-simplemde-editor';
-
+import {ReactMde, ReactMdeCommands} from 'react-mde';
+import 'react-mde/lib/styles/react-mde.css';
+import 'react-mde/lib/styles/react-mde-command-styles.css';
+import 'react-mde/lib/styles/markdown-default-theme.css';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
@@ -32,6 +34,7 @@ class NewCourse extends React.Component {
       errors: [],
       urls: [],
       technique: "",
+      content: {text: "", selection: null}
     };
   }
 
@@ -75,7 +78,7 @@ class NewCourse extends React.Component {
     formData.append("name", this.state.name);
     formData.append("description", this.state.description);
     formData.append("cost", this.state.cost);
-    formData.append("content", this.state.content);
+    formData.append("content", this.state.content.text);
     formData.append("technique", this.state.technique);
     this.state.urls.forEach(url => {
       formData.append("images_attributes[][url]", url);
@@ -104,7 +107,7 @@ class NewCourse extends React.Component {
 
   render() {
     const {formatMessage} = this.props.intl;
-
+    let commands = ReactMdeCommands.getDefaultCommands();
     if(this.state.submitSuccess) {
       return (
         <Redirect to="/admin/courses/">
@@ -161,8 +164,10 @@ class NewCourse extends React.Component {
                     <label className="control-label">
                       {formatMessage(defaultMessages.adminCoursesContent)}
                     </label>
-                    <SimpleMDE value={this.state.content} options={{spellChecker: false}}
-                      onChange={this.contentChangeHandle.bind(this)}/>
+                    <ReactMde
+                      value={this.state.content}
+                      onChange={this.contentChangeHandle.bind(this)} 
+                      commands={commands} />
                   </div>
                 </div>
               </div>

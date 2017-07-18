@@ -1,0 +1,43 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span type="button" class="close" data-dismiss="modal" aria-label="Close"></span>
+      <h2 class="modal-title"><%= t ".heading" %></h2>
+    </div>
+    <div class="modal-body">
+      <div class="intro-box">
+        <h3><%= temporary_registration.course.name %></h3>
+        <label><%= t ".duration" %></label>
+        <p>
+          <%= t "courses.course_header.condition" %>
+        </p>
+        <b><%= number_of_temporary_registration @course %></b>
+        <%= t "courses.course_header.registed" %>
+      </div>
+
+      <div class="registration-form">
+        <%= simple_form_for temporary_registration, remote: true do |f| %>
+          <%= f.input :course_id, as: :hidden,
+            input_html: {value: temporary_registration.course_id} %>
+          <div class="group-fields">
+            <%= f.input :name, label: t(".name"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :email, label: t(".email"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :phone, label: t(".phone"), required: true,
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <div class="group-fields">
+            <%= f.input :address, as: :text, label: t(".address"),
+              input_html: {class: "input-text long-input"} %>
+          </div>
+          <%= f.submit t(".submit"), class: "btn-submit" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

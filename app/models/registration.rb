@@ -23,6 +23,7 @@ class Registration < ApplicationRecord
       "OR registrations.phone LIKE ?",
       "%#{word}%", "%#{word}%", "%#{word}%")
   }
+
   def course_name
     self.course_schedule.course_name
   end
