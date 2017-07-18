@@ -12,45 +12,27 @@
   }
 }
 
-.type-2-custom {
-  img {
-    height: 100%;
-    width: 100%;
-  }
-
-  height: 100%;
+.image-w880-h337 {
+  height: 337px;
+  width: 880px;
 }
 
-.image-course {
-  max-height: 400px;
-  height: 100%;
-  width: 100%;
+.image-w278-h203 {
+  height: 203px;
+  width: 278px;
 }
 
-.image_author {
-  height: 62;
-  width: 62;
+.image-h210 {
+  height: 210px;
 }
 
-.image-w100-h100 {
-  height: 100%;
-  width: 100%;
-}
-
-.course-schedule-container {
-  margin-bottom: 10px;
-  margin-top: 10px;
-
-  .schedule-duration {
-    text-align: center;
-    font-weight: bold;
-  }
-
-  p {
-    margin-bottom: 0 !important;
-  }
-
-  .schedule-time, .tt-author-label, .tt-author-tags {
-    color: $black !important;
-  }
+.detail-class .full-info .badge {
+  display: inline-block;
+  padding: 0 15px 0 20px;
+  height: 28px;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 15px;
+  background-color: #294696;
+  border-radius: 0px;
 }

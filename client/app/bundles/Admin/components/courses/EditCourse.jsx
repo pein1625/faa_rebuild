@@ -177,8 +177,11 @@ class EditCourse extends React.Component {
                     <label className="control-label">
                       {formatMessage(defaultMessages.adminCoursesContent)}
                     </label>
-                    <SimpleMDE value={this.state.content} options={{spellChecker: false}}
-                      onChange={this.contentChangeHandle.bind(this)}/>
+                    <SimpleMDE value={this.state.content}
+                      onChange={this.contentChangeHandle.bind(this)}
+                      options={{
+                        spellChecker: false
+                      }} />
                   </div>
                 </div>
               </div>
