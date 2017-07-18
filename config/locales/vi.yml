@@ -288,3 +288,7 @@ vi:
     show:
       not_found: "Không tìm thấy lịch học"
       course_schedules: "Lịch khai giảng"
+      detail_course: "Chi tiết khóa học"
+      home: "Trang chủ"
+      schedule: "Lịch khai giảng"
+      detail: "Chi tiết"
