@@ -211,7 +211,7 @@ vi:
     form:
       heading: "Đăng ký khóa học"
       course: "Khóa học"
-      name: "Tên"
+      name: "Họ tên"
       email: "Thư điện tử"
       phone: "Số điện thoại"
       address: "Địa chỉ"
@@ -276,6 +276,8 @@ vi:
       schedule_time: "Lịch học"
       fee: "Học phí"
       view: "Chi tiết"
+      home: "Trang chủ"
+      coming_soon: "Đã hết hạn đăng ký"
     course_schedule:
       detail: "Xem chi tiết"
       register_now: "Đăng ký ngay"

@@ -12,14 +12,23 @@ module CourseHelper
       l(schedule.start_date, format: :day_month_year) + " - " +
       l(schedule.end_date, format: :day_month_year)
     else
-      t "courses.index.coming_soon"
+      t "course_schedules.index.coming_soon"
     end
   end
 
-  def load_schedule_time day, start_time, end_time
+  def load_schedule_time_inline day, start_time, end_time
     t("day_of_week.#{CourseSchedule::DAY_OF_WEEK[day]}") + ": " +
     l(start_time, format: :hour_minute) + " - " +
     l(end_time, format: :hour_minute)
+  end
+
+  def load_schedule_time_in_list day, start_time, end_time
+    day_tag = content_tag :label, t("day_of_week.#{CourseSchedule::DAY_OF_WEEK[day]}")
+    time_tag = content_tag :span do
+                  l(start_time, format: :hour_minute) + " - " +
+                  l(end_time, format: :hour_minute)
+                end
+    content_tag :li, day_tag + time_tag
   end
 
   def set_class_active course_schedule, schedule

@@ -14,6 +14,22 @@
 * Ver 2017/07/12
 * Gutter
 */
+/**
+* Ver 2017/07/12
+* Color
+*/
+/**
+* Ver 2017/07/12
+* Background
+*/
+/**
+* Ver 2017/07/12
+* Border
+*/
+/**
+* Ver 2017/07/12
+* Gutter
+*/
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +45,7 @@ a {
   color: #333333;
 }
 
-a:hover {
+a:hover, a:focus {
   text-decoration: none;
 }
 
@@ -42,6 +58,16 @@ input {
   outline: none;
 }
 
+em {
+  color: #ff0000;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+}
+
+/************/
 #wrapper {
   position: relative;
   width: 100%;
@@ -889,8 +915,7 @@ input {
 
 .full-breadcrumb .title-page h2 {
   margin: 0;
-  font-family: 'Roboto';
-  font-weight: 900;
+  font-weight: 600;
   font-size: 24px;
   color: #ffffff;
   text-transform: uppercase;
@@ -912,11 +937,16 @@ input {
 .full-breadcrumb .breadcrumbs ul li a {
   color: #ffffff;
   font-size: 15px;
+  transition: color 0.25s;
 }
 
 .full-breadcrumb .breadcrumbs ul li span {
   color: #cccccc;
   font-size: 15px;
+}
+
+.full-breadcrumb .breadcrumbs ul li:hover a {
+  color: #3ab991;
 }
 
 .full-breadcrumb .breadcrumbs ul li:after {
@@ -927,6 +957,10 @@ input {
   position: absolute;
   right: -4px;
   top: 0px;
+}
+
+.full-breadcrumb .breadcrumbs ul li.active {
+  padding-right: 0;
 }
 
 .full-breadcrumb .breadcrumbs ul li.active:after {
@@ -1156,8 +1190,7 @@ input {
 
 /** Rightbar **/
 .rightbar h3 {
-  font-family: 'Roboto';
-  font-weight: 700;
+  font-weight: 600;
   font-size: 16px;
   text-transform: uppercase;
   color: #ffffff;
@@ -1242,4 +1275,456 @@ input {
 
 .rightbar ul li:hover .price {
   color: #3ab991;
+}
+
+/**Detail Class**/
+.detail-class {
+  padding: 0 15px 30px;
+  z-index: 10;
+  position: relative;
+}
+
+.detail-class .name-class {
+  font-family: 'Roboto';
+  font-weight: 700;
+  margin: -70px 0 0px;
+  background-color: #6d6d6d;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0 15px;
+  height: 70px;
+  line-height: 70px;
+  box-shadow: 0 9px 0px 0px white, 0 -9px 0px 0px transparent, 6px 0 12px -4px rgba(0, 0, 0, 0.15), -6px 0 12px -4px rgba(0, 0, 0, 0.15);
+}
+
+.detail-class .full-info {
+  overflow: hidden;
+  box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+}
+
+.detail-class .full-info .left-col {
+  padding-left: 0;
+  border-right: 1px dashed #bbb;
+}
+
+.detail-class .full-info .label-time {
+  display: inline-block;
+  padding: 0 15px 0 20px;
+  height: 28px;
+  line-height: 28px;
+  color: #ffffff;
+  font-size: 15px;
+  border-radius: 0 10px 10px 0;
+  background-color: #3ab991;
+}
+
+.detail-class .full-info .datetime {
+  padding: 10px 20px;
+}
+
+.detail-class .full-info .datetime i {
+  color: #b6b6b6;
+  min-width: 25px;
+  font-size: 16px;
+}
+
+.detail-class .full-info .datetime .fulltime {
+  font-size: 16px;
+  color: #333333;
+}
+
+.detail-class .full-info .datetime .detail-time {
+  margin-bottom: 5px;
+}
+
+.detail-class .full-info .datetime .detail-time li label {
+  min-width: 95px;
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.detail-class .full-info .datetime .detail-time li label i {
+  font-size: 18px;
+  min-width: 22px;
+}
+
+.detail-class .full-info .datetime .detail-time li span {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.detail-class .full-info .datetime .address {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.detail-class .full-info .datetime .address i {
+  font-size: 22px;
+}
+
+.detail-class .full-info .right-col {
+  text-align: center;
+}
+
+.detail-class .full-info .right-col .price {
+  padding: 15px 0;
+  border-bottom: 1px dashed #bbb;
+  font-size: 38px;
+  color: #294696;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.detail-class .full-info .right-col .price .currency {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.detail-class .full-info .right-col .deadline {
+  font-size: 15px;
+  color: #3ab991;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 20px 0 10px;
+}
+
+.detail-class .full-info .right-col .btn-registration {
+  font-size: 25px;
+  height: 58px;
+  line-height: 58px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #294696;
+  padding: 0 25px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.detail-class .full-info .right-col .btn-registration:hover {
+  background-color: #3ab991;
+}
+
+.detail-class .description h4 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  color: #3ab991;
+  font-weight: 500;
+  border-top: 1px dashed #bbb;
+  padding-top: 20px;
+}
+
+.detail-class .description h4:first-child {
+  border-top: 0;
+  padding-top: 10px;
+}
+
+.detail-class .description ul li {
+  position: relative;
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.detail-class .description ul li:before {
+  content: "\f105";
+  font-family: FontAwesome;
+  color: #b2b2b2;
+  position: absolute;
+  left: 0;
+  top: 0px;
+}
+
+.detail-class .description p {
+  position: relative;
+  font-size: 15px;
+}
+
+.detail-class .description p.benefit {
+  padding-left: 36px;
+  margin-bottom: 0;
+}
+
+.detail-class .description p.benefit:before {
+  content: url("../images/ic-check.png");
+  position: absolute;
+  left: 10px;
+  top: 3px;
+}
+
+.detail-class .description .datetime i {
+  color: #b6b6b6;
+  min-width: 25px;
+  font-size: 16px;
+}
+
+.detail-class .description .datetime .fulltime {
+  font-size: 15px;
+  color: #333333;
+  margin-left: 0;
+}
+
+.detail-class .description .datetime .fulltime span {
+  display: block;
+  margin-left: 25px;
+}
+
+.detail-class .description .datetime .detail-time {
+  margin-bottom: 5px;
+}
+
+.detail-class .description .datetime .detail-time li {
+  padding-left: 0;
+}
+
+.detail-class .description .datetime .detail-time li:before {
+  display: none;
+}
+
+.detail-class .description .datetime .detail-time li label {
+  font-weight: 400;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.detail-class .description .datetime .detail-time li label i {
+  font-size: 18px;
+  min-width: 22px;
+}
+
+.detail-class .description .datetime .detail-time li span {
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.detail-class .description .datetime > p {
+  margin-left: 25px;
+}
+
+/**Popup Registration**/
+.registration-modal {
+  top: 10%;
+}
+
+.registration-modal .modal-content {
+  border-radius: 0;
+  border: 0;
+  -webkit-box-shadow: 0 0px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0px 25px rgba(0, 0, 0, 0.6);
+}
+
+.registration-modal .modal-header {
+  background: url("../images/bg-popup.jpg") 0 0 no-repeat;
+  background-size: cover;
+  padding: 10px;
+  position: relative;
+}
+
+.registration-modal .modal-header h2 {
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.registration-modal .modal-header .close {
+  color: #ffffff;
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+  background: url("../images/ic-close.png") center center no-repeat;
+  position: absolute;
+  top: 13px;
+  right: 15px;
+  margin-top: 0;
+}
+
+.registration-modal .modal-body {
+  padding: 0;
+}
+
+.registration-modal .modal-body .intro-box {
+  padding: 15px;
+  text-align: center;
+  background-color: #f7f7f7;
+  border-bottom: 1px dashed #dddddd;
+}
+
+.registration-modal .modal-body .intro-box h3 {
+  margin: 0;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.registration-modal .modal-body .intro-box label {
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 21px;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #3ab991;
+  margin: 10px 0;
+  border-radius: 12px;
+}
+
+.registration-modal .modal-body .intro-box p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.registration-modal .modal-body .intro-box span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.registration-modal .modal-body .registration-form {
+  padding: 20px 30px;
+}
+
+.registration-modal .modal-body .registration-form .group-fields {
+  margin-bottom: 10px;
+}
+
+.registration-modal .modal-body .registration-form .group-fields label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.registration-modal .modal-body .registration-form .group-fields .input-text {
+  width: 100%;
+  padding: 5px 10px;
+  height: 40px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  display: block;
+}
+
+.registration-modal .modal-body .registration-form .group-fields textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #d4d4d4;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.registration-modal .modal-body .registration-form .btn-submit {
+  font-size: 25px;
+  height: 58px;
+  line-height: 58px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #294696;
+  padding: 0 35px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  border: 0;
+  margin: 20px auto 0;
+  display: block;
+  transition: background-color 0.25s;
+}
+
+.registration-modal .modal-body .registration-form .btn-submit:hover {
+  background-color: #3ab991;
+}
+
+/**Khai Giang**/
+.opening-time .table {
+  border-spacing: 0 10px;
+  border-collapse: separate;
+  border: 0;
+  margin-top: -10px;
+}
+
+.opening-time .table thead tr {
+  background: #6d6d6d;
+}
+
+.opening-time .table th {
+  background: #6d6d6d;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 15px;
+  border: 0;
+  padding: 10px 15px;
+}
+
+.opening-time .table td {
+  border: 1px solid #ddd;
+  border-right: 0;
+  border-left: 0;
+  margin: 5px 0;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+  padding: 15px;
+  transition: border-color 0.25s;
+}
+
+.opening-time .table td:first-child {
+  border-left: 1px solid #ddd;
+}
+
+.opening-time .table td:last-child {
+  border-right: 1px solid #ddd;
+}
+
+.opening-time .table td label {
+  font-weight: 400;
+  min-width: 60px;
+  margin-bottom: 2px;
+}
+
+.opening-time .table td .fee {
+  color: #294696;
+}
+
+.opening-time .table td ul {
+  margin-bottom: 0;
+}
+
+.opening-time .table td a {
+  display: block;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.opening-time .table td a.btn-reg {
+  font-size: 15px;
+  height: 35px;
+  line-height: 35px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #294696;
+  padding: 0 15px;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.opening-time .table td a.btn-reg:hover {
+  background-color: #3ab991;
+}
+
+.opening-time .table td a.detail-link {
+  font-size: 14px;
+  color: #3ab991;
+  margin-top: 10px;
+}
+
+.opening-time .table td a.detail-link:hover {
+  color: #294696;
+}
+
+.opening-time .table tr:hover td {
+  border-color: #3ab991;
 }
