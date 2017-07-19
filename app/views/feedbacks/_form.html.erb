@@ -1,12 +1,26 @@
 <%= simple_form_for feedback, id: "contact-form", remote: true do |f| %>
-  <%= f.input :name, label: t(".name"), required: true %>
-  <%= f.input :email, label: t(".email"), required: true %>
-  <%= f.input :phone, label: t(".phone") %>
-  <%= f.input :subject, label: t(".subject"), required: true %>
-  <%= f.input :content, label: t(".content"), as: :text, required: true,
-    input_html: {rows: 5} %>
-  <div class="c-btn type-1 color-3">
-    <%= f.submit t(".submit") %>
-    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+  <div class="group-fields row">
+    <div class="odd col-md-6 col-sm-6">
+      <%= f.input :name, label: t(".name"), required: true,
+        class: "input-text long-input" %>
+    </div>
+    <div class="even col-md-6 col-sm-6">
+      <%= f.input :subject, label: t(".subject"), required: true,
+        class: "input-text long-input" %>
+    </div>
   </div>
+  <div class="group-fields row">
+    <div class="odd col-md-6 col-sm-6">
+      <%= f.input :email, label: t(".email"), required: true,
+        class: "input-text long-input" %>
+    </div>
+    <div class="even col-md-6 col-sm-6">
+      <%= f.input :phone, label: t(".phone"), class: "input-text long-input" %>
+    </div>
+  </div>
+  <div class="group-fields">
+    <%= f.input :content, label: t(".content"), as: :text, required: true,
+      input_html: {rows: 5} %>
+  </div>
+  <%= f.submit t(".submit"), class: "btn-submit" %>
 <% end %>

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   /** Slider Image **/
   $('.js-slide').slick({
     autoplay: true,
