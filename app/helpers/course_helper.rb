@@ -45,4 +45,8 @@ module CourseHelper
   def load_schedule_time_without_day start_time, end_time
     l(start_time, format: :hour_minute) + " - " + l(end_time, format: :hour_minute)
   end
+
+  def number_of_temporary_registration course
+    course.temporary_registrations.count
+  end
 end

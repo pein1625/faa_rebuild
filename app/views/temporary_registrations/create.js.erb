@@ -1,0 +1,10 @@
+<% if flash[:success].present? %>
+  $.growl.notice({title: '', message: '<%= flash[:success] %>'});
+  $('.registration-modal').modal('hide');
+  $('#mainbody').html('<%= j render partial: "registration_success" %>')
+  $('html,body').scrollTop(0);
+<% elsif flash[:danger].present? %>
+  $.growl.error({title: '', message: '<%= flash[:danger] %>'});
+  $('.registration-modal').html('<%= j render partial: "form", locals: {temporary_registration: @temporary_registration} %>');
+  $('.registration-modal').modal('show');
+<% end %>

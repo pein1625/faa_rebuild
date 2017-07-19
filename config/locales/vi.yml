@@ -150,6 +150,9 @@ vi:
       deadline: "Hạn cuối đăng ký"
       time_learn: "Thời gian học"
       see_more: "Xem thêm các lớp cùng khóa"
+      comming_soon: "Sẽ mở lớp trong thời gian tới"
+      condition: "Mở lớp nếu đủ 12 học viên đăng ký"
+      registed: " học viên đã ghi danh"
     course_schedules:
       schedules: "Các lớp học có thể đăng ký"
       duration: "Thời gian học"
@@ -230,6 +233,26 @@ vi:
       this_course: "Xem khóa học vừa đăng ký"
     new:
       not_found: "Không tìm thấy khóa học"
+  temporary_registrations:
+    form:
+      heading: "Đăng ký khóa học"
+      course: "Khóa học"
+      name: "Họ tên"
+      email: "Thư điện tử"
+      phone: "Số điện thoại"
+      address: "Địa chỉ"
+      submit: "Đăng ký"
+      duration: "Thời gian học"
+    create:
+      success: "Đăng ký khóa học thành công"
+      fail: "Đăng ký khóa học thất bại"
+    registration_success:
+      thank: "Cảm ơn bạn đã đăng ký khóa học"
+      contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
+      more_course: "Xem các khóa học khác"
+      this_course: "Xem khóa học vừa đăng ký"
+    new:
+      not_found: "Không tìm thấy khóa học"
   news:
     news_header:
       by: "Đăng bởi: "
@@ -280,11 +303,11 @@ vi:
       fee: "Học phí"
       view: "Chi tiết"
       home: "Trang chủ"
-      coming_soon: "Đã hết hạn đăng ký"
+      coming_soon: "Sẽ mở lớp trong thời gian tới"
     course_schedule:
       detail: "Xem chi tiết"
       register_now: "Đăng ký ngay"
-      coming_soon: "Đã hết hạn đăng ký"
+      coming_soon: "Sẽ mở lớp trong thời gian tới"
     show:
       not_found: "Không tìm thấy lịch học"
       course_schedules: "Lịch khai giảng"
