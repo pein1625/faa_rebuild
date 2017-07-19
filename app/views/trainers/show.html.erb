@@ -1,11 +1,25 @@
 <%= provide :title, @trainer.name %>
-<div id="content-wrapper">
-  <%= render "shared/top_heading", title: t(".title_heading"),
-    page_name: t(".title") %>
-
+<div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
-    <div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
-    <%= render "trainer_info", trainer: @trainer %>
-    <div class="empty-space marg-lg-b100 marg-sm-b50 marg-xs-b30"></div>
+    <div class="header-page row">
+      <div class="title-page col-md-3 col-sm-3">
+        <h2><%= t ".title" %></h2>
+      </div>
+      <div class="breadcrumbs col-md-9 col-sm-9">
+        <ul>
+          <li><%= link_to t(".home"), root_path %></li>
+          <li><%= link_to t(".title_heading"), trainers_path %></li>
+          <li class="active"><span><%= t ".title" %></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="full-content">
+  <div class="container">
+    <div class="detail-member row">
+      <%= render "trainer_info", trainer: @trainer %>
+    </div>
   </div>
 </div>

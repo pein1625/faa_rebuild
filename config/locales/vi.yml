@@ -194,14 +194,13 @@ vi:
     index:
       title: "Giảng viên"
       title_heading: "Đội ngủ giảng viên"
-    heading:
-      our_trainer: "Đội ngủ giảng viên của chúng tôi"
       description: "Đội ngũ giảng viên của chúng tôi là những chuyên gia có
         nhiều năm kinh nghiệm trong lĩnh vực công nghệ thông tin."
     show:
+      home: "Trang chủ"
       not_found: "Không tìm thấy giảng viên này"
-      title_heading: "Thông tin giảng viên"
-      title: "Giảng viên"
+      title_heading: "Đội ngũ giảng viên"
+      title: "Thông tin Giảng viên"
     trainer_info:
       about_me: "Giới thiệu về tôi"
       name: "Tên"

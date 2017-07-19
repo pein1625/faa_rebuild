@@ -25,3 +25,10 @@
 .mg-rg-5{
   margin-right: 5px !important;
 }
+
+.mde {
+  padding: 8px;
+  margin: 10px auto;
+  width: 600px;
+  border: 1px solid rgba(0,0,0,.125);
+}

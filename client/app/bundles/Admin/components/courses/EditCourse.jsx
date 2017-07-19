@@ -182,10 +182,12 @@ class EditCourse extends React.Component {
                     <label className="control-label">
                       {formatMessage(defaultMessages.adminCoursesContent)}
                     </label>
-                    <ReactMde
-                      value={this.state.content}
-                      onChange={this.contentChangeHandle.bind(this)} 
-                      commands={commands} />
+                    <div className="mde">
+                      <ReactMde
+                        value={this.state.content}
+                        onChange={this.contentChangeHandle.bind(this)} 
+                        commands={commands} />
+                    </div>
                   </div>
                 </div>
               </div>

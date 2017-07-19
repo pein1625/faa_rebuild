@@ -19,7 +19,9 @@ module ApplicationHelper
     if images.any?
       image_tag images.first.url, class: "img wth-100 #{css_class}"
     else
-      image_tag (image || Settings.image_default), class: "img wth-100 #{css_class}"
+      object_image_default = Settings.image_default["#{object.class.name.downcase}"]
+      image_tag (image || object_image_default || Settings.image_default.default),
+        class: "img wth-100 #{css_class}"
     end
   end
 

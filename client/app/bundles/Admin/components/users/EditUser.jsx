@@ -8,6 +8,7 @@ import Errors from '../Errors';
 import {handleInput} from '../../utils/InputHandle';
 import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
 import SimpleMDE from 'react-simplemde-editor';
+import 'react-simplemde-editor/dist/simplemde.min.css';
 
 const csrfToken = ReactOnRails.authenticityToken();
 

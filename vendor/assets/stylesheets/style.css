@@ -1656,7 +1656,7 @@ textarea {
   text-transform: uppercase;
   font-size: 15px;
   border: 0;
-  padding: 10px 15px;
+  padding: 10px 5px;
 }
 
 .opening-time .table td {
@@ -1667,16 +1667,43 @@ textarea {
   font-size: 14px;
   color: #000000;
   font-weight: 400;
-  padding: 15px;
+  padding: 10px 5px;
   transition: border-color 0.25s;
 }
 
 .opening-time .table td:first-child {
   border-left: 1px solid #ddd;
+  min-width: 230px;
 }
 
 .opening-time .table td:last-child {
   border-right: 1px solid #ddd;
+}
+
+.opening-time .table td .first-info {
+  position: relative;
+}
+
+.opening-time .table td .first-info img {
+  height: 60px;
+  display: block;
+  margin-right: 5px;
+  float: left;
+}
+
+.opening-time .table td .first-info .name {
+  display: block;
+}
+
+.opening-time .table td .first-info .label {
+  display: block;
+  position: absolute;
+  padding: 2px 5px;
+  background-color: #3ab991;
+  font-size: 12px;
+  font-weight: 400;
+  top: -6px;
+  left: -13px;
 }
 
 .opening-time .table td label {
@@ -1706,7 +1733,7 @@ textarea {
   color: #ffffff;
   border-radius: 5px;
   background-color: #294696;
-  padding: 0 15px;
+  padding: 0 5px;
   font-weight: 500;
   border-radius: 3px;
 }
@@ -1727,4 +1754,264 @@ textarea {
 
 .opening-time .table tr:hover td {
   border-color: #3ab991;
+}
+
+/**Contact Us**/
+.contact-page .full-address {
+  padding: 30px 0;
+  overflow: hidden;
+  background: url("../images/bg-map.jpg") 0 0 no-repeat;
+}
+
+.contact-page .full-address .address-box {
+  width: 320px;
+  height: 350px;
+  box-sizing: border-box;
+  padding: 30px;
+  float: right;
+  background-color: #3ab991;
+}
+
+.contact-page .full-address .address-box img {
+  margin-bottom: 20px;
+}
+
+.contact-page .full-address .address-box p {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.contact-page .full-address .address-box p.tel {
+  border-top: 1px dashed rgba(255, 255, 255, 0.3);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+  padding: 10px 0;
+}
+
+.contact-page .full-address .address-box a {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 400;
+  display: block;
+}
+
+.contact-page .contact-form {
+  padding: 30px 0;
+}
+
+.contact-page .contact-form .notice {
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.contact-page .contact-form .group-fields {
+  margin-bottom: 10px;
+}
+
+.contact-page .contact-form .group-fields label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.contact-page .contact-form .group-fields .input-text {
+  width: 100%;
+  padding: 5px 10px;
+  height: 40px;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  display: block;
+}
+
+.contact-page .contact-form .group-fields textarea {
+  display: block;
+  width: 100%;
+  border: 1px solid #d4d4d4;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.contact-page .contact-form .btn-submit {
+  font-size: 25px;
+  height: 58px;
+  line-height: 58px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #294696;
+  padding: 0 55px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  border: 0;
+  margin: 30px 0 20px;
+  display: block;
+  transition: background-color 0.25s;
+}
+
+.contact-page .contact-form .btn-submit:hover {
+  background-color: #3ab991;
+}
+
+/**Giang vien**/
+.member-page {
+  padding-bottom: 40px;
+  overflow: hidden;
+}
+
+.member-page .desc-page {
+  margin-bottom: 20px;
+}
+
+.member-page .member {
+  position: relative;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.member-page .member .inbox {
+  border: 1px solid #e2e2e2;
+  position: relative;
+  height: 390px;
+}
+
+.member-page .member .unhover-info {
+  text-align: center;
+  padding: 20px 0;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.member-page .member .unhover-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #294696;
+  margin: 30px 0 20px;
+}
+
+.member-page .member .unhover-info h3 span {
+  font-size: 14px;
+  color: #999999;
+  display: block;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+.member-page .member .unhover-info .avatar {
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  margin: 40px auto;
+  border-radius: 100%;
+}
+
+.member-page .member .unhover-info .avatar img {
+  width: 100px;
+}
+
+.member-page .member .unhover-info .intro {
+  font-size: 14px;
+  padding: 0 10px;
+}
+
+.member-page .member .hover-info {
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s, visibility 0.25s;
+  height: 100%;
+}
+
+.member-page .member .hover-info .full-avatar {
+  height: 300px;
+  overflow: hidden;
+}
+
+.member-page .member .hover-info .full-avatar a {
+  display: block;
+}
+
+.member-page .member .hover-info .full-avatar img {
+  width: 100%;
+}
+
+.member-page .member .hover-info .name {
+  background: url("../images/bg-symbol-small.png") 190px -55px no-repeat #329d7b;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  height: 90px;
+  color: #ffffff;
+}
+
+.member-page .member .hover-info .name a {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.member-page .member .hover-info .name span {
+  font-size: 14px;
+  display: block;
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+.member-page .member:hover .unhover-info {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+.member-page .member:hover .hover-info {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s, visibility 0.25s;
+}
+
+/**Detail member**/
+.detail-member {
+  padding-top: 10px;
+}
+
+.detail-member h3.name {
+  font-weight: 500;
+  font-size: 25px;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 12px 0px;
+  background-color: #329d7b;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  top: -56px;
+}
+
+.detail-member h3.name span {
+  display: block;
+  font-size: 15px;
+  text-transform: none;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.detail-member .full-info {
+  padding-left: 30px;
+}
+
+.detail-member .full-info p {
+  font-size: 15px;
+  margin-bottom: 25px;
+}
+
+.detail-member .full-info ul {
+  border-top: 1px dashed #999999;
+  padding-top: 25px;
+}
+
+.detail-member .full-info ul li {
+  font-size: 15px;
+  line-height: 28px;
 }
