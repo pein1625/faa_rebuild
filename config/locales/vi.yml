@@ -172,7 +172,7 @@ vi:
   feedbacks:
     new:
       title: "Liên hệ"
-    heading:
+      home: "Trang chủ"
       title_contact: "Liên hệ với chúng tôi"
       title_text1: "Nếu bạn quan tâm đến việc tìm hiểu thêm về cách chúng tôi có
         thể giúp bạn, vui lòng điền vào mẫu dưới đây."
@@ -181,7 +181,7 @@ vi:
       framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6,
         Pham Hung Road, Nam Tu Liem Dist."
     form:
-      name: "Tên"
+      name: "Họ tên"
       email: "Thư điện tử"
       phone: "Số điện thoại"
       subject: "Chủ đề"

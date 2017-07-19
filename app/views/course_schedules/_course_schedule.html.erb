@@ -1,6 +1,12 @@
 <% course_schedules.each do |schedule| %>
   <tr>
-    <td><%= schedule.course_name %></td>
+    <td>
+      <div class="first-info">
+        <%= load_image schedule.course, "image-w67-h60" %>
+        <span class="name"><%= schedule.course_name %></span>
+        <span class="label"><%= schedule.course_technique %></span>
+      </div>
+    </td>
     <td><%= load_register_time schedule %></td>
     <td>
       <ul>

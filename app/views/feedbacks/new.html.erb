@@ -1,23 +1,39 @@
 <%= provide :title, t(".title") %>
-<%= render "shared/top_heading", title: t(".title"), page_name: t(".title") %>
-<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
-<div id="content-wrapper">
+
+<div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
-    <%= render "heading" %>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="tt-contact-form contact-form">
-          <%= render "form", feedback: @feedback %>
-        </div>
-        <div class="simple-text tt-request-success">
-          <p></p>
-        </div>
-        <div class="empty-space marg-xs-b30"></div>
+    <div class="header-page row">
+      <div class="title-page col-md-3 col-sm-3">
+        <h2><%= t ".title" %></h2>
       </div>
-      <div class="col-sm-6">
-        <%= render "map" %>
+      <div class="breadcrumbs col-md-9 col-sm-9">
+        <ul>
+          <li><%= link_to t(".home"), root_path %></li>
+          <li class="active"><span><%= t ".title" %></span></li>
+        </ul>
       </div>
     </div>
-    <div class="empty-space marg-lg-b135 marg-md-b120 marg-sm-b100 marg-xs-b60"></div>
+  </div>
+</div>
+
+<div id="main-content" class="full-content">
+  <div class="container">
+    <div class="contact-page">
+      <div class="full-address">
+        <div class="address-box">
+          <img src="/images/logo-contact.png">
+          <p><%= t ".framgia_address" %></p>
+          <p class="tel"><a href="tel:<%= Settings.framgia.phone_number %>">
+            <%= Settings.framgia.phone_text %></a></p>
+          <a class="email" href="mailto:<%= Settings.framgia.email %>">
+            <%= Settings.framgia.email %></a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <p class="notice"><%= t ".title_text1" %><br/><%= t ".title_text2" %></p>
+        <%= render "form", feedback: @feedback %>
+      </div>
+    </div>
   </div>
 </div>
