@@ -7,8 +7,7 @@
           <div class="i-class">
             <div class="media">
               <%= link_to load_link(course) do %>
-                <%= image_tag course.images.any? ?
-                  course.images.first.url : "course_default.jpg" %>
+                <%= load_image course, "image-w278-h203" %>
               <% end %>
             </div>
             <div class="info">

@@ -43,7 +43,9 @@ news:
   latest_news: 4
   popular_tags: 10
   max_title_length: 255
-image_default: "/assets/course_default.jpg"
+image_default: 
+  default: "/assets/default.jpg"
+  user: "/assets/trainer_default.jpg"
 news_category:
   min_name_length: 2
   max_name_length: 30

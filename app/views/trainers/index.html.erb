@@ -1,12 +1,17 @@
 <%= provide :title, t(".title") %>
-<div id="content-wrapper">
-  <%= render "shared/top_heading", title: t(".title_heading"),
-    page_name: t(".title") %>
-  <div class="container">
-    <%= render "heading" %>
-    <%= render "trainers", trainers: @trainers %>
-    <%= paginate @trainers %>
-    <div class="empty-space marg-lg-b135 marg-md-b120 marg-sm-b100 marg-xs-b60"></div>
-  </div>
+<%= render "shared/top_heading", title: t(".title_heading"),
+  page_name: t(".title") %>
 
+<div id="main-content" class="full-content">
+  <div class="container">
+    <div class="member-page">
+      <p class="desc-page">
+        <p><%= t ".description" %></p>
+      </p>
+      <div class="all-member row">
+        <%= render "trainers", trainers: @trainers %>
+        <%= paginate @trainers %>
+      </div>
+    </div>
+  </div>
 </div>

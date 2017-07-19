@@ -1,21 +1,13 @@
-<div class="row trainer-details">
-  <div class="col-md-4 col-xs-6">
-    <div class="tt-simple-image trainer-avatar">
-      <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg",
-        class: "img-responsive" %>
-    </div>
-    <div class="empty-space marg-sm-b40"></div>
-    <% if trainer.quote.present? %>
-      <div class="details-trainer-quote"><%= trainer.quote %></div>
-    <% end %>
+<div class="full-avatar col-md-5 col-sm-5">
+  <div class="avatar">
+    <%= load_image @trainer, "image-w480-h546" %>
   </div>
-  <div class="col-md-8 col-xs-12">
-    <div class="tt-heding type-2 details-trainer-name">
-      <h2 class="tt-heding-title c-h4 txt-uppercase"><span><%= trainer.name %></span></h2>
-    </div>
-    <div class="trainer-introuction">
-      <%= markdown @trainer.introduction %>
-    </div>
-    <div class="empty-space marg-lg-b45 marg-sm-b30"></div>
-  </div>
+  <h3 class="name col-md-8 col-md-offset-2">
+    <%= @trainer.name %>
+    <span><%= @trainer.position %></span>
+  </h3>
+</div>
+
+<div class="full-info col-md-7 col-sm-7">
+  <%= markdown @trainer.introduction %>
 </div>
