@@ -1430,7 +1430,7 @@
       text-transform: uppercase;
       font-size: 15px;
       border: 0;
-      padding: 10px 15px;
+      padding: 10px 5px;
     }
     td {
       border: 1px solid #ddd;
@@ -1440,13 +1440,36 @@
       font-size: 14px;
       color: $color-black;
       font-weight: 400;
-      padding: 15px;
+      padding: 10px 5px;
       transition: border-color 0.25s;
       &:first-child {
         border-left: 1px solid #ddd;
+        min-width: 230px;
       }
       &:last-child {
         border-right: 1px solid #ddd;
+      }
+      .first-info {
+        position: relative;
+        img {
+          height: 60px;
+          display: block;
+          margin-right: 5px;
+          float: left;
+        }
+        .name {
+          display: block;
+        }
+        .label {
+          display: block;
+          position: absolute;
+          padding: 2px 5px;
+          background-color: $color-light-green;
+          font-size: 12px;
+          font-weight: 400;
+          top: -6px;
+          left: -13px;
+        }
       }
       label {
         font-weight: 400;
@@ -1464,7 +1487,7 @@
         text-align: center;
         transition: all 0.25s;
         &.btn-reg {
-          @include btn-blue(15px, 35px, 0 15px);
+          @include btn-blue(15px, 35px, 0 5px);
           font-weight: 500;
           border-radius: 3px;
           &:hover {
@@ -1486,6 +1509,240 @@
         td {
           border-color: $color-light-green;
         }
+      }
+    }
+  }
+}
+
+/**Contact Us**/
+
+.contact-page {
+  .full-address {
+    padding: 30px 0;
+    overflow: hidden;
+    background: url("../images/bg-map.jpg") 0 0 no-repeat;
+    .address-box {
+      width: 320px;
+      height: 350px;
+      box-sizing: border-box;
+      padding: 30px;
+      float: right;
+      background-color: $color-light-green;
+      img {
+        margin-bottom: 20px;
+      }
+      p {
+        color: $color-white;
+        font-size: 15px;
+        font-weight: 400;
+        &.tel {
+          border-top: 1px dashed rgba(255, 255, 255, 0.3);
+          border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+          padding: 10px 0;
+        }
+      }
+
+      a {
+        color: $color-white;
+        font-size: 15px;
+        font-weight: 400;
+        display: block;
+      }
+    }
+  }
+
+  .contact-form {
+    padding: 30px 0;
+    .notice {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .group-fields {
+      margin-bottom: 10px;
+      label {
+        display: block;
+        font-size: 15px;
+        font-weight: 400;
+      }
+      .input-text {
+        width: 100%;
+        padding: 5px 10px;
+        height: 40px;
+        border: 1px solid #d4d4d4;
+        border-radius: 4px;
+        display: block;
+        
+      }
+
+      textarea {
+        display: block;
+        width: 100%;
+        border: 1px solid #d4d4d4;
+        padding: 5px 10px;
+        border-radius: 4px;
+      }
+    }
+    .btn-submit {
+      @include btn-blue(25px, 58px, 0 55px);
+      @include font-bold;
+      border: 0;
+      margin: 30px 0 20px;
+      display: block;
+      transition: background-color 0.25s;
+      &:hover {
+        background-color: $color-light-green;
+      }
+    }
+  }
+}
+
+/**Giang vien**/
+
+.member-page {
+  padding-bottom: 40px;
+  overflow: hidden;
+  .desc-page {
+    margin-bottom: 20px;
+  }
+  .member {
+    position: relative;
+    overflow: hidden;
+    margin: 15px 0;
+    .inbox {
+      border: 1px solid $border-color-grey;
+      position: relative;
+      height: 390px;
+    }
+    .unhover-info {
+      text-align: center;
+      padding: 20px 0;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s, visibility 0.25s;
+      h3 {
+        font-size: 18px;
+        font-weight: bold;
+        color: $color-blue;
+        margin: 30px 0 20px;
+        span {
+          font-size: 14px;
+          color: #999999;
+          display: block;
+          font-weight: normal;
+          margin-top: 5px;
+        }
+      }
+
+      .avatar {
+        width: 96px;
+        height: 96px;
+        overflow: hidden;
+        margin: 40px auto;
+        border-radius: 100%;
+        img {
+          width: 100px;
+        }
+      }
+
+      .intro {
+        font-size: 14px;
+        padding: 0 10px;
+      }
+    }
+
+    .hover-info {
+      opacity: 0;
+      visibility: hidden;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 0.25s, visibility 0.25s;
+      height: 100%;
+      .full-avatar {
+        height: 300px;
+        overflow: hidden;
+        a  {
+          display: block;
+        }
+        img {
+          width: 100%;
+        }
+      }
+
+      .name {
+        background: url("../images/bg-symbol-small.png") 190px -55px no-repeat $color-green;
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        height: 90px;
+        color: $color-white;
+        a {
+          color: $color-white;
+          font-size: 18px;
+          font-weight: bold;
+        }
+        span {
+          font-size: 14px;
+          display: block;
+          margin-top: 5px;
+          font-weight: normal;
+        }
+      }
+    }
+    &:hover {
+      .unhover-info {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s, visibility 0.25s;
+      }
+
+      .hover-info {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.25s, visibility 0.25s;
+      }
+    }
+  }
+}
+
+/**Detail member**/
+
+.detail-member {
+  padding-top: 10px;
+  h3.name {
+    font-weight: 500;
+    font-size: 25px;
+    color: $color-white;
+    text-transform: uppercase;
+    padding: 12px 0px;
+    background-color: $color-green;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    top: -56px;
+    span {
+      display: block;
+      font-size: 15px;
+      text-transform: none;
+      margin-top: 5px;
+      font-weight: 400;
+    }
+  }
+
+  .full-info {
+    padding-left: 30px;
+    p {
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+    ul {
+      border-top: 1px dashed #999999;
+      padding-top: 25px;
+      li {
+        font-size: 15px;
+        line-height: 28px;
       }
     }
   }
