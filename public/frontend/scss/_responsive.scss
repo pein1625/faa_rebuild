@@ -1,0 +1,153 @@
+@media (max-width: 767px) {
+
+  .navbar-header {
+    height: 90px;
+    .navbar-toggle {
+      border: 2px solid $color-blue;
+      top: 18px;
+      margin-right: 0;
+       .icon-bar {
+        background-color: $color-blue;
+       }
+    }
+  }
+  #navbar {
+    float: none !important;
+    background-color: $color-white;
+    border-top: 1px solid $color-blue;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    .navbar-nav {
+      li {
+        padding: 5px 15px;
+        &:before {
+          display: none;
+        }
+        a {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .full-showcase {
+    .left-box {
+      padding-right: 15px;
+      margin-bottom: 20px;
+    }
+    .right-box {
+      padding-left: 15px;
+    }
+  }
+
+  .full-top-a {
+    .item {
+      min-height: inherit; 
+      margin-bottom: 40px;
+    }
+  }
+  
+  .full-top-b {
+    .new-class {
+      .view-all {
+        position: relative;
+        margin: 0 auto;
+        max-width: 120px;
+        text-align: center;
+      }
+    }
+  }
+
+  .full-midde {
+    .our-team {
+      .member {
+        border: 1px solid #e2e2e2;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .full-bottom-a {
+    .about-us {
+      padding-bottom: 0;
+    }
+    .all-about {
+      background: none;
+      .nav-tabs {
+        li {
+          a {
+            padding: 15px 12px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  .full-bottom-b {
+    .partner {
+      .partner-item {
+        padding-bottom: 10px;
+      }
+    }
+  }
+
+  .full-footer {
+    .btn-ontop {
+      top: auto;
+      bottom: 50px;
+    }
+  }
+
+  .full-breadcrumb {
+    .breadcrumbs {
+      ul {
+        text-align: left;
+        margin-left: -15px;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .category-view {
+    .search-bar {
+      .search-form {
+        width: calc(100% - 105px);
+      }
+    }
+    .list-view {
+      .view-class {
+        height: auto;
+      }
+    }
+  }
+
+  .banner {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .detail-class {
+    padding: 0 0 30px;
+    .name-class {
+      margin-top: 0;
+    }
+  }
+
+  .detail-member {
+    .full-avatar {
+      .avatar {
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+
+    h3.name {
+      width: 85%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
