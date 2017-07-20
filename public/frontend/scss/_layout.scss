@@ -43,8 +43,10 @@ textarea {
   width: 100%;
 }
 
-.container {
-  width: 1210px;
+@media (min-width: 1200px) {
+  .container {
+    width: 1210px;
+  }
 }
 
 /**Header**/

@@ -1,15 +1,13 @@
-.navbar-header {
-  a {
-    display: block;
-    padding: 12px 0;
-  }
-}
 
 /**Header**/
 
 .full-header {
   .navbar-header {
     padding: 0 15px;
+    a {
+      display: block;
+      padding: 12px 0;
+    }
   }
   
   .navbar-nav {
@@ -1461,14 +1459,12 @@
           display: block;
         }
         .label {
-          display: block;
-          position: absolute;
+          display: inline-block;
+          // position: absolute;
           padding: 2px 5px;
           background-color: $color-light-green;
           font-size: 12px;
           font-weight: 400;
-          top: -6px;
-          left: -13px;
         }
       }
       label {
