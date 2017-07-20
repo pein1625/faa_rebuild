@@ -49,6 +49,12 @@ class Sidebar extends React.Component {
               &nbsp;{formatMessage(defaultMessages.adminSidebarFeedbacks)}
             </Link>
           </li>
+          <li>
+            <Link to="/admin/temporary_registrations">
+              <i className="fa fa-fw fa-commenting-o"/>
+              &nbsp;{formatMessage(defaultMessages.adminSidebarTemporaryRegistration)}
+            </Link>
+          </li>
         </ul>
       </div>
     );

@@ -15,6 +15,7 @@ import RegistrationCourseIndex from './registration_courses/RegistrationCourseIn
 import CourseScheduleList from './course_schedules/CourseScheduleList';
 import CourseScheduleEdit from './course_schedules/CourseScheduleEdit';
 import CourseScheduleNew from './course_schedules/CourseScheduleNew';
+import TemporaryRegistrationIndex from './temporary_registrations/TemporaryRegistrationIndex';
 import {Route, Switch} from 'react-router-dom';
 
 export default class PageWrapper extends React.Component {
@@ -42,6 +43,7 @@ export default class PageWrapper extends React.Component {
             <Route exact path="/admin/course_schedules" component={CourseScheduleList}/>
             <Route exact path="/admin/course_schedules/:id/edit" component={CourseScheduleEdit}/>
             <Route exact path="/admin/course_schedules/new" component={CourseScheduleNew}/>
+            <Route exact path="/admin/temporary_registrations" component={TemporaryRegistrationIndex}/>
           </Switch>
         </div>
       </div>

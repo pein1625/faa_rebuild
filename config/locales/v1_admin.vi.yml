@@ -77,3 +77,8 @@ vi:
         delete_success: "Xóa thành công"
         delete_failed: "Xóa thất bại"
         not_found: "Không tìm thấy bản đăng kí"
+    temporary_registrations:
+      destroy:
+        delete_success: "Xóa thành công"
+        delete_failed: "Xóa thất bại"
+        not_found: "Không tìm thấy bản đăng kí"

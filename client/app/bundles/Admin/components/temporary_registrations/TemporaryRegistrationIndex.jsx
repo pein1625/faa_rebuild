@@ -1,5 +1,5 @@
 import React from 'react';
-import RegistrationCourse from './RegistrationCourse';
+import TemporaryRegistration from './TemporaryRegistration';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
@@ -7,7 +7,7 @@ import axios from 'axios';
 import Pagination from '../../utils/Pagination';
 import SearchForm from '../../utils/SearchForm';
 
-class RegistrationCourseIndex extends React.Component {
+class TemporaryRegistrationIndex extends React.Component {
 
   constructor(props, _railsContext) {
     super(props);
@@ -43,7 +43,7 @@ class RegistrationCourseIndex extends React.Component {
   }
 
   getDataFromApi(page) {
-    axios.get('/v1/registration_courses.json', {
+    axios.get('/v1/temporary_registrations.json', {
       params: {
         page: page,
         query: this.state.search_word
@@ -73,12 +73,12 @@ class RegistrationCourseIndex extends React.Component {
       <div className="row">
         <div className="col-md-12">
           <div className="certifications-table-header">
-            <h2>{formatMessage(defaultMessages.adminRegistrationCoursesRegistration)}</h2>
+            <h2>{formatMessage(defaultMessages.adminTemporaryRegistrationsTitle)}</h2>
           </div>
           <div className="clearfix">
             <div className="col-md-4">
-              <SearchForm handleSearch={this.handleSearch} 
-                search_url='/v1/registration_courses.json' />
+              <SearchForm handleSearch={this.handleSearch}
+                search_url='/v1/temporary_registrations.json'/>
             </div>
           </div>
           <div className="empty-space marg-lg-b20"></div>
@@ -97,7 +97,7 @@ class RegistrationCourseIndex extends React.Component {
               <tbody>
                 {
                   this.state.registration_courses.map(registration_course => (
-                    <RegistrationCourse {...registration_course}
+                    <TemporaryRegistration {...registration_course}
                       key={registration_course.id}
                       handleDeleted={this.handleDeleted}/>
                   ))
@@ -114,4 +114,4 @@ class RegistrationCourseIndex extends React.Component {
   }
 }
 
-export default injectIntl(RegistrationCourseIndex);
+export default injectIntl(TemporaryRegistrationIndex);
