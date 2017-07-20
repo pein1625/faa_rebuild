@@ -13,7 +13,7 @@ class SearchForm extends React.Component {
     var query = ReactDOM.findDOMNode(this.refs.query).value;
     var self = this;
     $.ajax({
-      url: '/v1/registration_courses.json',
+      url: self.props.search_url,
       data: { query: query },
       success: function(data) {
         self.props.handleSearch(data.content, query);

@@ -22,6 +22,7 @@ vi:
       users: "Người dùng"
       registration_course: "Đăng ký khóa học"
       course_schedule: "Lớp học"
+      temporary_registration: "Đăng ký lớp chưa mở"
     page_header:
       dashboard: "Dashboard"
     certifications:
@@ -143,3 +144,5 @@ vi:
       add: "Thêm lớp học"
       day: "Ngày học"
       category: "Khóa học"
+    temporary_registrations:
+      title: "Quản lý đăng kí các lớp chưa mở"
