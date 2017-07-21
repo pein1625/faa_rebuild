@@ -3,13 +3,14 @@ class Course < ApplicationRecord
   has_many :course_schedules, dependent: :destroy
   has_many :registrations, through: :course_schedules
   has_many :temporary_registrations, dependent: :destroy
-
+  has_one :avatar, class_name: Image.name, foreign_key: :id, primary_key: :avatar_id
+  has_one :cover, class_name: Image.name, foreign_key: :id, primary_key: :cover_id
   has_one :newest_schedule,
     -> {where("start_date >= ?", Date.today).order(start_date: :desc)},
     class_name: CourseSchedule.name, foreign_key: :course_id
 
   accepts_nested_attributes_for :images, allow_destroy: true
-  
+
   scope :popular, -> do
     left_joins(:registrations).group(:id)
       .order("COUNT(registrations.id) DESC").first Settings.courses.popular

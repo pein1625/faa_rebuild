@@ -26,7 +26,7 @@
     <div class="row">
       <div id="component" class="col-md-9">
         <div class="banner">
-          <%= load_image @course_schedule.course, "image-w880-h337" %>
+          <%= load_course_image @course_schedule.course, :cover, "image-w880-h337" %>
         </div>
         <div class="detail-class">
           <%= render "courses/course_header", course: @course_schedule.course,

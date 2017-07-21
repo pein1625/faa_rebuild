@@ -17,6 +17,12 @@ class V1::CoursesController < V1::ApiController
   def create
     @course = Course.new course_params
     if @course.save
+      if params[:avatar].present?
+        create_image :avatar
+      end
+      if params[:cover].present?
+        create_image :cover
+      end
       response_success t(".save_success"), @course
     else
       response_error t(".save_failed"), @course.errors.full_messages
@@ -25,11 +31,17 @@ class V1::CoursesController < V1::ApiController
 
   def edit
     response_success nil, {course: @course, statuses: Course.statuses.keys,
-      images: @course.images}
+      avatar: @course.avatar, cover: @course.cover}
   end
 
   def update
-    if @course.update_attributes(course_params)
+    if params[:avatar].present?
+      change_image :avatar
+    end
+    if params[:cover].present?
+      change_image :cover
+    end
+    if @course.update_attributes course_params
       response_success t(".save_success"), @course
     else
       response_error t(".save_failed"), @course.errors.full_messages
@@ -48,11 +60,34 @@ class V1::CoursesController < V1::ApiController
 
   def course_params
     params.permit :name, :description, :status, :technique, :cost, :content,
-      :on_slider_index, images_attributes: [:id, :url]
+      :on_slider_index
   end
 
   def load_course
     return if @course = Course.find_by(id: params[:id])
     response_not_found t(".not_found"), nil
+  end
+
+  def change_image attribute
+    if @course.send attribute
+      update_image attribute
+    else
+      create_image attribute
+    end
+  end
+
+  def update_image attribute
+    @course.send(attribute).update_attributes url: params[attribute]
+  end
+
+  def create_image attribute
+    Image.transaction do
+      img = @course.images.create!(url: params[attribute])
+      if attribute == :avatar
+        @course.update_attributes! avatar_id: img.id
+      else
+        @course.update_attributes! cover_id: img.id
+      end
+    end
   end
 end

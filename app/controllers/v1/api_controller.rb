@@ -1,4 +1,6 @@
 class V1::ApiController < ApplicationController
+  skip_before_action :load_courses
+  skip_before_action :latest_news
   protect_from_forgery with: :null_session
   respond_to :json
 

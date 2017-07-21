@@ -49,4 +49,12 @@ module CourseHelper
   def number_of_temporary_registration course
     course.temporary_registrations.count
   end
+
+  def load_course_image course, attribute, css_class = ""
+    if course.send(attribute)
+      image_tag course.send(attribute).url, class: "img wth-100 #{css_class}"
+    else
+      image_tag Settings.image_default.default, class: "img wth-100 #{css_class}"
+    end
+  end
 end

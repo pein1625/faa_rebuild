@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170719025243) do
+ActiveRecord::Schema.define(version: 20170721073423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20170719025243) do
     t.datetime "updated_at",                      null: false
     t.string   "technique"
     t.boolean  "on_slider_index", default: false
+    t.integer  "avatar_id"
+    t.integer  "cover_id"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
