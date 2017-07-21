@@ -3,10 +3,10 @@
 <div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
     <div class="header-page row">
-      <div class="title-page col-md-3 col-sm-3">
+      <div class="title-page col-md-6 col-sm-6">
         <h2><%= t ".detail_course" %></h2>
       </div>
-      <div class="breadcrumbs col-md-9 col-sm-9">
+      <div class="breadcrumbs col-md-6 col-sm-6">
         <ul>
           <li>
             <%= link_to t(".home"), root_path %>
@@ -24,7 +24,7 @@
 <div id="main-content" class="full-content">
   <div class="container">
     <div class="row">
-      <div id="component" class="col-md-9 col-sm-9">
+      <div id="component" class="col-md-9">
         <div class="banner">
           <%= load_image @course_schedule.course, "image-w880-h337" %>
         </div>

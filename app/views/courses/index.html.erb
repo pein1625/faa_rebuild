@@ -3,12 +3,12 @@
 <div id="main-content" class="full-content">
   <div class="container">
     <div class="row">
-      <div id="component" class="col-md-9 col-sm-9">
+      <div id="component" class="col-md-9">
         <div class="category-view">
           <div class="search-bar">
             <%= form_tag courses_path, method: "get", multipart: true,
               class: "search-form col-md-9 col-sm-9" do %>
-              <div class="search">                
+              <div class="search">
                 <%= text_field_tag :words, nil, class: "input-text",
                   placeholder: t(".search_course") %>
                 <%= submit_tag t(".search"), class: "btn-submit btn-blue" %>
@@ -28,7 +28,7 @@
                   <%= render "course_grid", course: course %>
                 <% end %>
               </div>
-              
+
             <%= link_to_next_page @courses, t(".load_more"),
               class: "load-more", remote: true %>
             </div>
@@ -48,5 +48,3 @@
     </div>
   </div>
 </div>
-
-<%= javascript_include_tag "courses" %>

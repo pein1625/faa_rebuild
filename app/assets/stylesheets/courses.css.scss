@@ -1,17 +1,5 @@
 @import 'variables/color';
 
-.tt-two-colors {
-  .contain-courses {
-    display: flex;
-    flex-wrap: wrap;
-
-    [class*='item-course'] {
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
-
 .image-w880-h337 {
   height: 337px;
   width: 880px;
