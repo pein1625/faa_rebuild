@@ -1,3 +1,90 @@
+/** Tablet **/
+
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .navbar-brand {
+    img {
+      width: 150px;
+    }
+  }
+
+  .full-showcase {
+    .box-info {
+      .top-banner {
+        height: auto;
+      }
+
+      .top-info {
+        h2 {
+          font-size: 18px;
+        }
+
+        p {
+          margin-bottom: 5px;
+        }
+
+        .price {
+          font-size: 20px;
+        }
+
+        .registration {
+          height: 36px;
+          line-height: 38px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .list-class {
+    .i-class {
+      height: auto;
+      .media {
+        height: auto;
+      }
+    }
+  }
+
+  .full-top-b {
+    .slide-class {
+      .slick-arrow{
+        z-index: 200;
+        &.slick-next {
+          right: 0px;
+        }
+        &.slick-prev {
+          left: 0px;
+        }
+      }
+    }
+  }
+
+  .banner {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .rightbar {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .full-midde {
+    .our-team {
+      .member {
+        &:nth-child(2) {
+          border-right: 1px solid #e2e2e2;
+        }
+      }
+    }
+  }
+}
+
+/** Mobile **/
 @media (max-width: 767px) {
 
   .navbar-header {
