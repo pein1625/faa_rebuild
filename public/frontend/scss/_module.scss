@@ -1047,6 +1047,7 @@
     li {
       border-bottom: 1px solid #efefef;
       padding: 10px 0;
+      overflow: hidden;
       .img-class {
         width: 55px;
         float: left;
@@ -1724,6 +1725,12 @@
       text-transform: none;
       margin-top: 5px;
       font-weight: 400;
+    }
+  }
+
+  .avatar {
+    img {
+      max-width: 100%;
     }
   }
 

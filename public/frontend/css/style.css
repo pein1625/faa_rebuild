@@ -1221,6 +1221,7 @@ textarea {
 .rightbar ul li {
   border-bottom: 1px solid #efefef;
   padding: 10px 0;
+  overflow: hidden;
 }
 
 .rightbar ul li .img-class {
@@ -1996,6 +1997,10 @@ textarea {
   font-weight: 400;
 }
 
+.detail-member .avatar img {
+  max-width: 100%;
+}
+
 .detail-member .full-info {
   padding-left: 30px;
 }
@@ -2015,6 +2020,61 @@ textarea {
   line-height: 28px;
 }
 
+/** Tablet **/
+@media (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+  .navbar-brand img {
+    width: 150px;
+  }
+  .full-showcase .box-info .top-banner {
+    height: auto;
+  }
+  .full-showcase .box-info .top-info h2 {
+    font-size: 18px;
+  }
+  .full-showcase .box-info .top-info p {
+    margin-bottom: 5px;
+  }
+  .full-showcase .box-info .top-info .price {
+    font-size: 20px;
+  }
+  .full-showcase .box-info .top-info .registration {
+    height: 36px;
+    line-height: 38px;
+    font-size: 20px;
+  }
+  .list-class .i-class {
+    height: auto;
+  }
+  .list-class .i-class .media {
+    height: auto;
+  }
+  .full-top-b .slide-class .slick-arrow {
+    z-index: 200;
+  }
+  .full-top-b .slide-class .slick-arrow.slick-next {
+    right: 0px;
+  }
+  .full-top-b .slide-class .slick-arrow.slick-prev {
+    left: 0px;
+  }
+  .banner img {
+    max-width: 100%;
+  }
+  .rightbar {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .full-midde .our-team .member:nth-child(2) {
+    border-right: 1px solid #e2e2e2;
+  }
+}
+
+/** Mobile **/
 @media (max-width: 767px) {
   .navbar-header {
     height: 90px;
