@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   /** Slider Image **/
   $('.js-slide').slick({
     autoplay: true,
@@ -69,7 +69,7 @@ $(document).ready(function() {
           slidesToShow: 4,
           slidesToScroll: 4,
           infinite: true,
-          dots: true
+          dots: false,
         }
       },
       {
@@ -90,7 +90,7 @@ $(document).ready(function() {
   });
 
   $('.js-ontop').click(function(){
-  	$('html, body').animate({scrollTop:0}, '2000');
-  	return false;
+    $('html, body').animate({scrollTop:0}, '2000');
+    return false;
   });
 });
