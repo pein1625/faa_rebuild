@@ -71,6 +71,8 @@ vi:
       delete_success: "Xóa thành công"
       technique: "Công nghệ"
       slider: "Chọn khóa học hiển thị trên slide"
+      avatar: "Chọn ảnh đại diện"
+      cover: "Chọn ảnh bìa"
     news_categories:
       category: "Danh mục tin tức"
       new: "Thêm danh mục"

@@ -21,9 +21,8 @@ class EditCourse extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.fileChangeHandle = this.fileChangeHandle.bind(this);
-    this.addImageHandle = this.addImageHandle.bind(this);
-    this.handleDeleteImage = this.handleDeleteImage.bind(this);
+    this.avatarChangeHandle = this.avatarChangeHandle.bind(this);
+    this.coverChangeHandle = this.coverChangeHandle.bind(this);
 
     this.state = {
       name: "",
@@ -31,37 +30,43 @@ class EditCourse extends React.Component {
       content: {text: "", selection: null},
       submitSuccess: false,
       errors: [],
-      urls: [],
+      avatar: "",
+      cover: "",
+      cost: "",
       technique: "",
     };
   }
 
-  addImageHandle(e) {
-    if(this.state.urls.indexOf(null) !== -1) {
-      return;
+  avatarChangeHandle(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    const that = this;
+
+    reader.onloadend = function() {
+      that.setState({avatar: reader.result});
     }
 
-    this.setState({
-      urls: [
-        ...this.state.urls, null
-      ]
-    });
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({avatar: ""});
+    }
   }
 
-  handleDeleteImage(index) {
-    this.setState({
-      urls: this.state.urls.filter((url, i) => {
-        return i !== index;
-      })
-    });
-  }
+  coverChangeHandle(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    const that = this;
 
-  fileChangeHandle(newUrl, index) {
-    this.setState({
-      urls: this.state.urls.map((url, i) => {
-        return (index === i) ? newUrl : url;
-      })
-    });
+    reader.onloadend = function() {
+      that.setState({cover: reader.result});
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({cover: ""});
+    }
   }
 
   contentChangeHandle(value) {
@@ -78,9 +83,8 @@ class EditCourse extends React.Component {
     formData.append("cost", this.state.cost);
     formData.append("content", this.state.content.text);
     formData.append("technique", this.state.technique);
-    this.state.urls.forEach(url => {
-      formData.append("images_attributes[][url]", url);
-    });
+    formData.append("avatar", this.state.avatar);
+    formData.append("cover", this.state.cover);
 
     axios.patch(`/v1/courses/${id}.json`,
       formData,
@@ -109,13 +113,17 @@ class EditCourse extends React.Component {
       .then(response => {
         const {name, description, cost, technique} = response.data.content.course;
         const text = response.data.content.course.content;
-        const content = {text: text, selection: null}
-        const {images} = response.data.content;
-        const urls = images.map(image => (
-          image.url
-        ));
+        const content = {text: text, selection: null};
+        let avatar = "";
+        let cover = "";
+        if(response.data.content.avatar != null){
+          avatar = response.data.content.avatar.url
+        }
+        if(response.data.content.cover != null){
+          cover = response.data.content.cover.url
+        }
         this.setState({
-          name, description, cost, content, urls, technique
+          name, description, cost, content, avatar, cover, technique
         });
       })
       .catch(error => {
@@ -185,29 +193,46 @@ class EditCourse extends React.Component {
                     <div className="mde">
                       <ReactMde
                         value={this.state.content}
-                        onChange={this.contentChangeHandle.bind(this)} 
+                        onChange={this.contentChangeHandle.bind(this)}
                         commands={commands} />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12">
+                <div className="form-group col-md-4 col-sm-6">
+                  <label className="control-label">
+                    {formatMessage(defaultMessages.adminCoursesAvatar)}
+                  </label>
+                  <input type="file" ref="image_attributes_url" name="image_attributes_url"
+                    onChange={this.avatarChangeHandle}></input>
+                </div>
+                <div className="form-group col-md-8 col-sm-6">
                   {
-                    this.state.urls.map((url, index) => (
-                      <Upload url={url} key={index} fileChangeHandle={this.fileChangeHandle}
-                        index={index} handleDeleteImage={this.handleDeleteImage}/>
-                    ))
+                    this.state.avatar && (
+                      <div className="col-md-1">
+                        <img className="preview-image" src={this.state.avatar}/>
+                      </div>
+                    )
                   }
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12">
-                  <div className="form-group">
-                    <a className="btn btn-success" onClick={this.addImageHandle}>
-                      {formatMessage(defaultMessages.adminCoursesAddImage)}
-                    </a>
-                  </div>
+                <div className="form-group col-md-4 col-sm-6">
+                  <label className="control-label">
+                    {formatMessage(defaultMessages.adminCoursesCover)}
+                  </label>
+                  <input type="file" ref="image_attributes_url" name="image_attributes_url"
+                    onChange={this.coverChangeHandle}></input>
+                </div>
+                <div className="form-group col-md-8 col-sm-6">
+                  {
+                    this.state.cover && (
+                      <div className="col-md-1">
+                        <img className="preview-image" src={this.state.cover}/>
+                      </div>
+                    )
+                  }
                 </div>
               </div>
               <div className="form-group submit-group">

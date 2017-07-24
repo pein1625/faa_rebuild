@@ -161,12 +161,13 @@ vi:
       course: "Khóa học"
       search_course: "Tìm kiếm khóa học"
       load_more: "Xem thêm"
-      comming_soon: "Comming Soon"
+      comming_soon: "Sẽ mở lớp trong thời gian tới"
       search: "Tìm kiếm"
     show:
       detail_course: "Chi tiết khóa học"
       course: "Khóa học"
       home: "Trang chủ"
+      not_found: "Không tìm thấy khóa học"
     course:
       readmore: "Xem thêm"
   feedbacks:
