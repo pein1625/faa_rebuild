@@ -30,10 +30,10 @@ export default class CourseSchedule extends React.Component {
   }
 
   render() {
-    const {start_date, end_date, deadline_date, id} = this.props;
+    const {start_date, end_date, deadline_date, course, id} = this.props;
     return (
       <tr className="active">
-        <td>{id}</td>
+        <td>{course.name}</td>
         <td>{start_date}</td>
         <td>{end_date}</td>
         <td>{deadline_date}</td>
@@ -42,8 +42,7 @@ export default class CourseSchedule extends React.Component {
             <button className="btn btn-warning"><i className="fa fa-pencil-square-o"
               aria-hidden="true"></i></button>
           </Link>
-        </td>
-        <td>
+          <span>&nbsp;</span>
           <a className="btn btn-danger" onClick={this.onDeleteHandle.bind(this)}>
             <i className="fa fa-times" aria-hidden="true"></i>
           </a>

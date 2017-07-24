@@ -3,7 +3,9 @@ class V1::CourseSchedulesController < V1::ApiController
 
   def index
     course_schedules = CourseSchedule.page(page).per Settings.admin_page.per_page
-    response_success nil, {course_schedules: course_schedules, page: page,
+    schedule_serialize = ActiveModel::SerializableResource
+      .new(course_schedules, each_serializer: CourseScheduleSerializer)
+    response_success nil, {course_schedules: schedule_serialize, page: page,
       pages: course_schedules.total_pages}
   end
 
@@ -25,7 +27,7 @@ class V1::CourseSchedulesController < V1::ApiController
       response_success t(".save_success"), @course_schedule
     else
       response_error t(".save_failed"), @course_schedule.errors.full_messages
-    end    
+    end
   end
 
   def new
@@ -55,7 +57,7 @@ class V1::CourseSchedulesController < V1::ApiController
   end
 
   def day_of_week
-    CourseSchedule::DAY_OF_WEEK.map.with_index do |x, i| 
+    CourseSchedule::DAY_OF_WEEK.map.with_index do |x, i|
       [i, I18n.t("day_of_week.#{x}")]
     end.to_h
   end
