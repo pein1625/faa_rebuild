@@ -55,7 +55,7 @@ class RegistrationCourseIndex extends React.Component {
     })
     .catch(error => {
       console.log(error);
-    });    
+    });
   }
 
   handleChangePage(page) {
@@ -77,7 +77,7 @@ class RegistrationCourseIndex extends React.Component {
           </div>
           <div className="clearfix">
             <div className="col-md-4">
-              <SearchForm handleSearch={this.handleSearch} 
+              <SearchForm handleSearch={this.handleSearch}
                 search_url='/v1/registration_courses.json' />
             </div>
           </div>

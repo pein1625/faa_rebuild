@@ -15,20 +15,20 @@
           </div>
         </div>
 
-        <div class="news col-md-5 col-sm-4">
-          <h3><%= t ".news" %></h3>
-          <ul class="menu">
-            <% @latest_news.each do |news| %>
-              <li><%= link_to news.title, news_path(news) %></li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="all-classes col-md-2 col-sm-4">
+        <div class="all-classes col-md-2 col-sm-3">
           <h3><%= t ".our_courses" %></h3>
           <ul class="menu">
             <% @courses.each do |course| %>
               <li><%= link_to course.name, course_path(course) %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="news col-md-5 col-sm-5">
+          <h3><%= t ".news" %></h3>
+          <ul class="menu">
+            <% @latest_news.each do |news| %>
+              <li><%= link_to news.title, news_path(news) %></li>
             <% end %>
           </ul>
         </div>

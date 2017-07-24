@@ -146,5 +146,6 @@ vi:
       add: "Thêm lớp học"
       day: "Ngày học"
       category: "Khóa học"
+      settings: "Thiết lập"
     temporary_registrations:
       title: "Quản lý đăng kí các lớp chưa mở"
