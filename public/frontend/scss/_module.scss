@@ -1750,3 +1750,53 @@
     }
   }
 }
+
+/** Registration Successfully **/
+
+.regis-successfully {
+  padding: 40px 0;
+  text-align: center;
+  background: url("../images/bg-registration.png") 0 0 no-repeat;
+  background-size: cover;
+  .ic-success {
+    display: block;
+  }
+
+  h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 50px;
+    line-height: 32px;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .group-links {
+    a {
+      display: block;
+      color: $color-blue;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 10px 0;
+      position: relative;
+      transition: color 0.25s;
+      &:first-child {
+        &:after {
+          content: "";
+          width: 130px;
+          height: 1px;
+          border-bottom: 1px dashed #999999;
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+      &:hover {
+        color: $color-light-green;
+      }
+    }
+  }
+}
