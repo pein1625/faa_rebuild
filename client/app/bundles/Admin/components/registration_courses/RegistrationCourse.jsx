@@ -32,9 +32,10 @@ class RegistrationCourse extends React.Component {
 
   render() {
     const {formatMessage} = this.props.intl;
-    const {name, email, phone, address, course, id} = this.props;
+    const {name, email, phone, address, course, id, course_schedule} = this.props;
     return (
       <tr className="active">
+        <td>{course_schedule.code}</td>
         <td>{name}</td>
         <td>{email}</td>
         <td>{phone}</td>

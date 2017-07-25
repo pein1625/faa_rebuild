@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Courses extends React.Component {
+class SelectedCourse extends React.Component {
   constructor(props) {
     super(props);
     this.onChangeHandle = this.onChangeHandle.bind(this);
@@ -20,10 +20,11 @@ class Courses extends React.Component {
               <option key={course.id} value={course.id}>{course.name}</option>
             ))
           }
+          <option key={0} value={0}>{"--All"}</option>
         </select>
       </div>
     );
   }
 }
 
-export default Courses;
+export default SelectedCourse;
