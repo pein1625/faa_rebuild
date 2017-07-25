@@ -227,6 +227,9 @@ vi:
       success: "Đăng ký khóa học thành công"
       fail: "Đăng ký khóa học thất bại"
     registration_success:
+      course_register: "Đăng ký khóa học"
+      home: "Trang chủ"
+      courses: "Khóa học"
       thank: "Cảm ơn bạn đã đăng ký khóa học"
       contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
       more_course: "Xem các khóa học khác"
@@ -247,6 +250,9 @@ vi:
       success: "Đăng ký khóa học thành công"
       fail: "Đăng ký khóa học thất bại"
     registration_success:
+      course_register: "Đăng ký khóa học"
+      home: "Trang chủ"
+      courses: "Khóa học"
       thank: "Cảm ơn bạn đã đăng ký khóa học"
       contact: "Chúng tôi sẽ liên hệ với bạn để xác nhận thông tin trong thời gian sớm nhất"
       more_course: "Xem các khóa học khác"
