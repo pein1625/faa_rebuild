@@ -113,3 +113,21 @@ vi:
               too_long: "quá dài (tối đa 15 ký tự)"
               too_short: "quá ngắn (tối thiểu 10 ký tự)"
               not_a_number: "không phải là số"
+        temporary_registration:
+          attributes:
+            email:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            phone:
+              blank: "không được để trống"
+              invalid: "không đúng định dạng"
+              too_long: "quá dài (tối đa 15 ký tự)"
+            name:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 127 ký tự)"
+            course_id:
+              blank: "không được để trống"
+            address:
+              blank: "không được để trống"
+              too_long: "quá dài (tối đa 255 ký tự)"

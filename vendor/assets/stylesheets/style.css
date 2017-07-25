@@ -2020,6 +2020,54 @@ textarea {
   line-height: 28px;
 }
 
+/** Registration Successfully **/
+.regis-successfully {
+  padding: 40px 0;
+  text-align: center;
+  background: url("../images/bg-registration.png") 0 0 no-repeat;
+  background-size: cover;
+}
+
+.regis-successfully .ic-success {
+  display: block;
+}
+
+.regis-successfully h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 50px;
+  line-height: 32px;
+}
+
+.regis-successfully p {
+  font-size: 15px;
+}
+
+.regis-successfully .group-links a {
+  display: block;
+  color: #294696;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 10px 0;
+  position: relative;
+  transition: color 0.25s;
+}
+
+.regis-successfully .group-links a:first-child:after {
+  content: "";
+  width: 130px;
+  height: 1px;
+  border-bottom: 1px dashed #999999;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.regis-successfully .group-links a:hover {
+  color: #3ab991;
+}
+
 /** Tablet **/
 @media (max-width: 1024px) {
   .container {

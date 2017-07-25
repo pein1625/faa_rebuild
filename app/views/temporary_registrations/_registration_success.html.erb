@@ -1,24 +1,29 @@
-<div class="empty-space marg-lg-b85 marg-sm-b50 marg-xs-b30"></div>
-<div id="content-wrapper">
+<div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
-    <div class="registration-success-img" align="center">
-      <%= image_tag "registration_success.png" %>
-    </div>
-    <div class="registration-success-message">
-      <h1><%= t ".thank" %> <strong><%= @temporary_registration.course_name %></strong></h1>
-      <p><%= t ".contact" %></p>
-    </div>
-    <div class="registration-success-button row">
-      <div class="col-md-6 more-course">
-        <%= link_to courses_path, class: "c-btn type-1 color-1" do %>
-          <%= t(".more_course") %>
-        <% end %>
+    <div class="header-page row">
+      <div class="title-page col-md-6 col-sm-6">
+        <h2><%= t ".course_register" %></h2>
       </div>
-      <div class="col-md-6 this-course">
-        <%= link_to course_path(@temporary_registration.course),
-          class: "c-btn type-1 color-5" do %>
-          <%= t(".this_course") %>
-        <% end %>
+      <div class="breadcrumbs col-md-6 col-sm-6">
+        <ul>
+          <li><%= link_to t(".home"), root_path %></li>
+          <li><%= link_to t(".courses"), courses_path %></li>
+          <li class="active"><span><%= t ".course_register" %></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="main-content" class="full-content">
+  <div class="container">
+    <div class="regis-successfully">
+      <span class="ic-success"><img alt="" src="/images/ic-bigcheck.png"></span>
+      <h3><%= t ".thank" %> <%= @temporary_registration.course_name %></h3>
+      <p><%= t ".contact" %></p>
+      <div class="group-links">
+        <%= link_to t(".this_course"), course_path(@temporary_registration.course) %>
+        <%= link_to t(".more_course"), courses_path %>
       </div>
     </div>
   </div>
