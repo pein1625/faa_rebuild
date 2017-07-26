@@ -311,6 +311,7 @@ vi:
       view: "Chi tiết"
       home: "Trang chủ"
       coming_soon: "Sẽ mở lớp trong thời gian tới"
+      not_found: "Không tìm thấy khóa học"
     course_schedule:
       detail: "Xem chi tiết"
       register_now: "Đăng ký ngay"

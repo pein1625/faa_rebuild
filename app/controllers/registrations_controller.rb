@@ -28,8 +28,8 @@ class RegistrationsController < ApplicationController
   end
 
   def find_course_schedule
-    return if @course_schedule = CourseSchedule.find_by(id: params[:schedule])
-    flash[:danger] = t ".not_found"
-    redirect_to root_path
+    @course_schedule = CourseSchedule.find params[:schedule]
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 end

@@ -3,13 +3,9 @@ class CourseSchedulesController < ApplicationController
   before_action :find_schedule, only: :show
 
   def index
-    if course_id = params[:course_id]
-      @course_schedules = CourseSchedule.load_by_course(course_id)
-        .page(params[:page]).per Settings.course_schedules.per_page
-    else
-      @course_schedules = CourseSchedule.newest.page(params[:page])
-        .per Settings.course_schedules.per_page
-    end
+    find_course && return if params[:course]
+    @course_schedules = CourseSchedule.newest.page(params[:page])
+      .per Settings.course_schedules.per_page
   end
 
   def show
@@ -18,8 +14,16 @@ class CourseSchedulesController < ApplicationController
   private
 
   def find_schedule
-    return if @course_schedule = CourseSchedule.includes(:course).find_by(id: params[:id])
-    flash[:danger] = t ".not_found"
-    redirect_to root_path
+    @course_schedule = CourseSchedule.includes(:course).friendly.find params[:id]
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
+  end
+
+  def find_course
+    course = Course.friendly.find params[:course]
+    @course_schedules = CourseSchedule.load_by_course(course.id)
+      .page(params[:page]).per Settings.course_schedules.per_page
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 end

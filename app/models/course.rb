@@ -9,6 +9,17 @@ class Course < ApplicationRecord
     -> {where("start_date >= ?", Date.today).order(start_date: :desc)},
     class_name: CourseSchedule.name, foreign_key: :course_id
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  def slug_candidates
+    [:name]
+  end
+
+  def should_generate_new_friendly_id?
+    name_changed?
+  end
+
   accepts_nested_attributes_for :images, allow_destroy: true
 
   scope :popular, -> do

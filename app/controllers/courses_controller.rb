@@ -16,10 +16,9 @@ class CoursesController < ApplicationController
   private
 
   def load_course
-    @course = Course.includes(:images).find_by id: params[:id]
-    return if @course
-    flash[:error] = t ".not_found"
-    redirect_to courses_path
+    @course = Course.includes(:images).friendly.find params[:id]
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 
   def load_course_default

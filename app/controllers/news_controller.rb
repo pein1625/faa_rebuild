@@ -12,9 +12,8 @@ class NewsController < ApplicationController
   private
 
   def load_news
-    @news = News.find_by id: params[:id]
-    return if @news
-    flash[:error] = t ".not_found"
-    redirect_to news_index_path
+    @news = News.friendly.find params[:id]
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 end

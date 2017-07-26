@@ -4,7 +4,7 @@
       <% if newest_schedule %>
         <div>
           <span class="label-time"><%= t ".time_learn" %></span>
-          <%= link_to course_schedules_path(course_id: course.id), class: "pull-right" do %>
+          <%= link_to course_schedules_path(course: course.slug), class: "pull-right" do %>
             <span class="badge"><%= t ".see_more" %></span>
           <% end %>
         </div>
@@ -61,7 +61,7 @@
           <%= t ".deadline" %>
           <%= l newest_schedule.deadline_date, format: :day_month_year %>
         </p>
-        <%= link_to new_registration_path(schedule: course.newest_schedule.id),
+        <%= link_to new_registration_path(schedule: course.newest_schedule.slug),
           class: "btn-registration btn-blue", remote: true do %>
           <%= t ".register_now" %>
         <% end %>
@@ -70,7 +70,7 @@
           <b><%= number_of_temporary_registration course %></b>
           <%= t ".registed" %>
         </p>
-        <%= link_to new_temporary_registration_path(course: course.id),
+        <%= link_to new_temporary_registration_path(course: course.slug),
           class: "btn-registration btn-blue", remote: true do %>
           <%= t ".register_now" %>
         <% end %>

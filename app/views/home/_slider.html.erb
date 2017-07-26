@@ -28,7 +28,7 @@
                 <%= load_register_time course.newest_schedule %></p>
               <%= appear_cost course.cost %>
               <% if course.newest_schedule %>
-                <%= link_to new_registration_path(schedule: course.newest_schedule.id),
+                <%= link_to new_registration_path(schedule: course.newest_schedule.slug),
                   class: "registration", remote: true do %>
                   <%= t ".register" %>
                 <% end %>
