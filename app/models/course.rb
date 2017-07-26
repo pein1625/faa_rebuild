@@ -29,7 +29,7 @@ class Course < ApplicationRecord
   validates :description, presence: true, length: {
     maximum: Settings.courses.max_description_length,
     minimum: Settings.courses.min_description_length}
-  validates :cost, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :cost, allow_nil: true, numericality: {greater_than_or_equal_to: 0}
   validates :content, presence: true
 
   def images_attributes= attributes

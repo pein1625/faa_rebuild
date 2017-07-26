@@ -36,9 +36,15 @@ module CourseHelper
   end
 
   def appear_cost cost
-    content_tag :p, class: "price" do
-      concat number_to_currency cost, precision: 0, delimiter: ".", format: "%n "
-      concat content_tag :span, Settings.courses.money_unit, class: "currency"
+    if cost
+      content_tag :p, class: "price" do
+        concat number_to_currency cost, precision: 0, delimiter: ".", format: "%n "
+        concat content_tag :span, Settings.courses.money_unit, class: "currency"
+      end
+    else
+      content_tag :p, class: "price" do
+        t "courses.not_cost"
+      end
     end
   end
 

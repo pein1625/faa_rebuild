@@ -122,7 +122,6 @@ GEM
       kaminari-core (= 1.0.1)
     kaminari-core (1.0.1)
     libv8 (5.3.332.38.5)
-    libv8 (5.3.332.38.5-x86_64-linux)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
