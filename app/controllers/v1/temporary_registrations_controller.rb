@@ -3,7 +3,7 @@ class V1::TemporaryRegistrationsController < V1::ApiController
 
   def index
     if search_word = params[:query]
-      registration_courses = TemporaryRegistration.search(search_word.downcase)
+      registration_courses = TemporaryRegistration.search_by_course_name_phone(search_word.downcase)
         .page(page).per Settings.admin_page.per_page
     else
       registration_courses = TemporaryRegistration.page(page)

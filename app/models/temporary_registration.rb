@@ -15,7 +15,7 @@ class TemporaryRegistration < ApplicationRecord
     {maximum: Settings.registrations.max_address_length}, allow_blank: true
   validates :course_id, presence: true
 
-  scope :search, -> word{
+  scope :search_by_course_name_phone, -> word{
     joins(:course).where("LOWER(courses.name) LIKE ? OR LOWER(temporary_registrations.name) LIKE ?" \
       "OR temporary_registrations.phone LIKE ?",
       "%#{word}%", "%#{word}%", "%#{word}%")
