@@ -157,7 +157,7 @@ class NewCourse extends React.Component {
                     {formatMessage(defaultMessages.adminCoursesCost)}
                   </label>
                   <div className="form-group">
-                    <input name="cost" type="number" min="0.0" step="1000" className="form-control"
+                    <input name="cost" type="number" className="form-control"
                       value={this.state.cost} onChange={handleInputChange.bind(this)}/>
                   </div>
                 </div>
