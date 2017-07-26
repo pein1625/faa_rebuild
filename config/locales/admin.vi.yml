@@ -147,5 +147,6 @@ vi:
       day: "Ngày học"
       category: "Khóa học"
       settings: "Thiết lập"
+      code: "Mã lớp"
     temporary_registrations:
       title: "Quản lý đăng kí các lớp chưa mở"

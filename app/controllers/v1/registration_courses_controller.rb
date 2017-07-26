@@ -3,17 +3,21 @@ class V1::RegistrationCoursesController < V1::ApiController
   before_action :peding_registration_filter, only: :update
 
   def index
-    if search_word = params[:query]
-      registration_courses = Registration.search(search_word.downcase)
-        .page(page).per Settings.admin_page.per_page
-    else
-      registration_courses = Registration.page(page).per Settings.admin_page.per_page
-    end
+    search_word = params[:query] || ""
+    courses = Course.all
+    course_id = params[:course_id].to_i
+    course_schedules = CourseSchedule.where(course_id: course_id)
+    course_schedule_id = params[:course_schedule_id].to_i
+
+    q_ransack = Registration.ransack set_params_q search_word, course_id, course_schedule_id
+    registration_courses = q_ransack.result.includes(:course, :course_schedule)
+      .page(page).per Settings.admin_page.per_page
 
     registration_serialize = ActiveModel::SerializableResource
       .new(registration_courses, each_serializer: RegistrationSerializer)
     response_success nil, {registration_courses: registration_serialize,
-      page: page, pages: registration_courses.total_pages}
+      page: page, pages: registration_courses.total_pages, courses: Course.all,
+      course_schedules: course_schedules}
   end
 
   def update
@@ -47,5 +51,13 @@ class V1::RegistrationCoursesController < V1::ApiController
     unless @registration_course.status_pending?
       response_error t(".status_error"), nil
     end
+  end
+
+  def set_params_q search_word, course_id, course_schedule_id
+    params[:q] = {
+      name_or_phone_or_email_cont: search_word,
+      course_id_eq: course_id.zero? ? nil : course_id,
+      course_schedule_id_eq: course_schedule_id.zero? ? nil : course_schedule_id
+    }
   end
 end

@@ -6,12 +6,18 @@ import {defaultMessages} from '../../../../libs/i18n/default';
 import axios from 'axios';
 import Pagination from '../../utils/Pagination';
 import SearchForm from '../../utils/SearchForm';
+import SelectedCourse from './SelectedCourse';
+import SelectedCourseSchedule from './SelectedCourseSchedule';
 
 class RegistrationCourseIndex extends React.Component {
 
   constructor(props, _railsContext) {
     super(props);
     this.state = {
+      courses: [],
+      course_id: 0,
+      course_schedules: [],
+      course_schedule_id: 0,
       registration_courses: [],
       email_content: "",
       page: 1,
@@ -22,6 +28,9 @@ class RegistrationCourseIndex extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getDataFromApi = this.getDataFromApi.bind(this);
     this.handleChangePage = this.handleChangePage.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.courseInputChange = this.courseInputChange.bind(this);
+    this.scheduleInputChange = this.scheduleInputChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -46,12 +55,14 @@ class RegistrationCourseIndex extends React.Component {
     axios.get('/v1/registration_courses.json', {
       params: {
         page: page,
-        query: this.state.search_word
+        query: this.state.search_word,
+        course_id: this.state.course_id,
+        course_schedule_id: this.state.course_schedule_id
       }
     })
     .then(response => {
-      const {registration_courses, page, pages} = response.data.content;
-      this.setState({registration_courses, page, pages});
+      const {registration_courses, page, pages, courses, course_schedules} = response.data.content;
+      this.setState({registration_courses, page, pages, courses, course_schedules});
     })
     .catch(error => {
       console.log(error);
@@ -62,9 +73,18 @@ class RegistrationCourseIndex extends React.Component {
     this.getDataFromApi(page);
   }
 
-  handleSearch(data, search_word) {
-    const {registration_courses, page, pages} = data;
-    this.setState({registration_courses, page, pages, search_word});
+  handleSearch(event) {
+    this.setState({search_word: event.target.value, page: 1}, () => this.getDataFromApi(1));
+  }
+
+  courseInputChange(newValue) {
+    this.setState({course_id: newValue, page: 1, course_schedule_id: 0, search_word: ""},
+      () => this.getDataFromApi(1));
+  }
+
+  scheduleInputChange(newValue) {
+    this.setState({course_schedule_id: newValue, page: 1, search_word: ""},
+      () => this.getDataFromApi(1));
   }
 
   render() {
@@ -77,8 +97,20 @@ class RegistrationCourseIndex extends React.Component {
           </div>
           <div className="clearfix">
             <div className="col-md-4">
-              <SearchForm handleSearch={this.handleSearch}
-                search_url='/v1/registration_courses.json' />
+              <input onChange={this.handleSearch}
+                type="text"
+                value={this.state.search_word}
+                className="form-control"
+                placeholder={formatMessage(defaultMessages.adminSearchHolder)}
+                ref="query" />
+            </div>
+            <div className="col-md-4">
+              <SelectedCourse courses={this.state.courses}
+                handleChange={this.courseInputChange} selected={this.state.course_id} />
+            </div>
+            <div className="col-md-4">
+              <SelectedCourseSchedule course_schedules={this.state.course_schedules}
+                handleChange={this.scheduleInputChange} selected={this.state.course_schedule_id} />
             </div>
           </div>
           <div className="empty-space marg-lg-b20"></div>
@@ -86,6 +118,7 @@ class RegistrationCourseIndex extends React.Component {
             <table className="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
+                  <th>{formatMessage(defaultMessages.adminScheduleCode)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesName)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesEmail)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesPhone)}</th>

@@ -72,6 +72,7 @@ class CourseScheduleList extends React.Component {
             <table className="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
+                    <th>{formatMessage(defaultMessages.adminScheduleCode)}</th>
                     <th>{formatMessage(defaultMessages.adminScheduleCategory)}</th>
                     <th>{formatMessage(defaultMessages.adminScheduleStartDate)}</th>
                     <th>{formatMessage(defaultMessages.adminScheduleEndDate)}</th>

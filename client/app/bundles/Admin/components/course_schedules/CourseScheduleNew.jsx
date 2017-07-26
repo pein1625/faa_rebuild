@@ -113,8 +113,9 @@ class CourseScheduleNew extends React.Component {
       .then(response => {
         const {courses} = response.data.content;
         const {day_of_week} = response.data.content;
+        const course_id = courses[0].id
         this.setState({
-          courses, day_of_week
+          courses, day_of_week, course_id
         });
       })
       .catch(error => {

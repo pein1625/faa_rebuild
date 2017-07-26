@@ -30,9 +30,10 @@ export default class CourseSchedule extends React.Component {
   }
 
   render() {
-    const {start_date, end_date, deadline_date, course, id} = this.props;
+    const {start_date, end_date, deadline_date, course, id, code} = this.props;
     return (
       <tr className="active">
+        <td>{code}</td>
         <td>{course.name}</td>
         <td>{start_date}</td>
         <td>{end_date}</td>

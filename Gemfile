@@ -33,6 +33,7 @@ gem "figaro"
 gem "delayed_job_active_record"
 gem "rails_select_on_includes"
 gem "active_model_serializers"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platform: :mri
