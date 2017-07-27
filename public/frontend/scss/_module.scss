@@ -415,7 +415,7 @@
       transition: background 0.2s;
       h3 {
         margin: 10px 0 5px;
-        font-size: 17px;
+        font-size: 18px;
       }
       .date {
         font-size: 14px;
@@ -936,7 +936,7 @@
         .name-class {
           margin: 20px 0 5px;
           a {
-            font-size: 17px;
+            font-size: 20px;
             font-weight: 500;
             display: block;
             transition: all 0.25s;
@@ -1461,7 +1461,6 @@
         }
         .label {
           display: inline-block;
-          // position: absolute;
           padding: 2px 5px;
           background-color: $color-light-green;
           font-size: 12px;
@@ -1740,6 +1739,20 @@
       font-size: 15px;
       margin-bottom: 25px;
     }
+
+    blockquote {
+      border-left: 0;
+      font-size: 15px;
+      padding-left: 60px;
+      position: relative;
+      padding-top: 0;
+      &:before {
+        content: url("../images/open-quote.png");
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+    }
     ul {
       border-top: 1px dashed #999999;
       padding-top: 25px;
@@ -1797,6 +1810,115 @@
       &:hover {
         color: $color-light-green;
       }
+    }
+  }
+}
+
+/*** Tin tuc ***/
+
+.list-article {
+  .article-item {
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid #e2e2e2;
+    transition: border 0.25s;
+    .article-media {
+      padding: 0;
+      overflow: hidden;
+      a {
+        display: block;
+      }
+      img {
+        width: 100%;
+        transition: all 0.25s;
+      }
+    }
+    .article-content {
+      padding: 15px;
+    }
+    .article-name {
+      font-size: 20px;
+      margin: 0 0 10px;
+      line-height: 26px;
+      a {
+        transition: color 0.25s;
+      }
+    }
+    .date {
+      color: #666666;
+      font-size: 14px;
+    }
+    .short-content {
+      font-size: 15px;
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      border: 1px solid $color-light-green;
+      .article-media {
+        img {
+          transform: scale(1.05);
+        }
+      }
+
+      h3 {
+        a {
+          color: $color-light-green;
+        }
+      }
+    }
+  }
+
+  .load-more {
+    clear: both;
+    @include btn-blue(20px, 48px, 0);
+    @include font-bold;
+    display: block;
+    margin: 60px auto;
+    width: 150px;
+    text-align: center;
+    transition: background-color 0.25s;
+    &:hover {
+      background-color: $color-light-green;
+    }
+  }
+}
+
+.detail-article {
+  article {
+    padding: 0px 0 40px;
+  }
+  h2 {
+    margin: 0;
+    line-height: 38px;
+  }
+  .top-article {
+    overflow: hidden;
+    padding: 15px 0;
+  }
+  .create-date {
+    display: block;
+    color: #666666;
+    font-size: 14px;
+    float: left;
+    line-height: 28px;
+  }
+
+  .social {
+    float: right;
+    a {
+      margin-left: 15px;
+      transition: opacity 0.25s;
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+  }
+
+  .content {
+    img {
+      margin: 15px 0;
+      max-width: 100%;
     }
   }
 }
