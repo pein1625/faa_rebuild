@@ -1,17 +1,18 @@
-<div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
-
-<div class="tt-post">
-  <%= link_to news.title, news_path(news), class: "tt-post-title c-h5" %>
-  <%= render "news_header", news: news %>
-  <div class="simple-text size-5 color-3">
-    <p><%= truncate strip_tags(markdown(news.content)),
-      length: Settings.news.length_content %>
-    </p>
+<% newses.each do |news| %>
+  <div class="article-item">
+    <div class="article-media col-md-4 col-sm-4">
+      <%= link_to news_path(news) do %>
+        <%= load_image news, "", "/media/new-1.jpg" %>
+      <% end %>
+    </div>
+    <div class="article-content col-md-8 col-sm-8">
+      <h3 class="article-name">
+        <%= link_to news.title, news_path(news) %>
+      </h3>
+      <p class="date"><%= l news.created_at, format: :date_month_year_concise %></p>
+      <p class="short-content">
+        <%= markdown(truncate news.content, length: Settings.news.short_content) %>
+      </p>
+    </div>
   </div>
-  <%= link_to news_path(news), class: "c-btn type-1 color-4" do %>
-    <span>
-      <%= t ".readmore" %>
-      <i class="fa fa-arrow-right" aria-hidden="true"></i>
-    </span>
-  <% end %>
-</div>
+<% end %>

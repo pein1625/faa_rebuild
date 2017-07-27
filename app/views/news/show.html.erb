@@ -1,23 +1,26 @@
-<%= render "shared/top_heading", title: t(".all_news"), page_name: t(".news") %>
-<div class="bg-1 tt-sidebar-right tt-overflow">
+<%= provide :title, @news.title %>
+<div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
-    <div class="row">
-      <div class="col-md-9">
-        <div class="tt-two-colors pright20">
-          <div class="empty-space marg-lg-b90 marg-sm-b50 marg-xs-b30"></div>
-          <h1 class="nomargin news-titles"><%= @news.title %></h1>
-          <div class="empty-space marg-lg-b25 marg-sm-b30"></div>
-
-          <%= render "news_header", news: @news %>
-
-          <div class="simple-text size-5 color-9">
-            <%= markdown @news.content %>
-          </div>
-          <div class="empty-space marg-lg-b45 marg-sm-b30"></div>
-        </div>
+    <div class="header-page row">
+      <div class="title-page col-md-6 col-sm-6">
+        <h2><%= t ".news_details" %></h2>
       </div>
-      <%= render "right_sidebar_news" %>
+      <div class="breadcrumbs col-md-6 col-sm-6">
+        <ul>
+          <li><%= link_to t(".home"), root_path %></li>
+          <li><%= link_to t(".news"), news_index_path %></li>
+          <li class="active"><span><%= t ".news_details" %></span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 
+<div id="main-content" class="full-content">
+  <div class="container">
+    <div class="row">
+      <%= render "news_detail", news: @news %>
+      <%= render "courses/right_sidebar_course" %>
+    </div>
+  </div>
+</div>

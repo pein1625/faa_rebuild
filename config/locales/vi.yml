@@ -270,10 +270,13 @@ vi:
       news_category: "Danh mục"
     index:
       all_news: "Tin tức - Thông báo"
-      news: "Tin tức-Thông báo"
+      news: "Tin tức - Thông báo"
+      home: "Trang chủ"
     show:
       all_news: "Tin tức - Thông báo"
       news: "Tin tức-Thông báo"
+      news_details: "Chi tiết tin tức"
+      home: "Trang chủ"
   time:
     formats:
       date_month_year_concise: "%d-%m-%Y"
