@@ -17,6 +17,8 @@ class User < ApplicationRecord
   enum role: {trainer: 1, user: 2}
 
   scope :trainers, ->{where role: 1}
+  scope :order_to_display, ->{where("display_order > 0").order(display_order: :asc)}
+  scope :not_display, ->{where(display_order: 0).order(created_at: :desc)}
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: {

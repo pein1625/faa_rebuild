@@ -7,8 +7,10 @@ import {defaultMessages} from '../../../../libs/i18n/default';
 import Errors from '../Errors';
 import {handleInput} from '../../utils/InputHandle';
 import {Checkbox, CheckboxGroup} from 'react-checkbox-group';
-import SimpleMDE from 'react-simplemde-editor';
-import 'react-simplemde-editor/dist/simplemde.min.css';
+import {ReactMde, ReactMdeCommands} from 'react-mde';
+import 'react-mde/lib/styles/react-mde.css';
+import 'react-mde/lib/styles/react-mde-command-styles.css';
+import 'react-mde/lib/styles/markdown-default-theme.css';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
@@ -26,8 +28,9 @@ class EditUser extends React.Component {
       url: "",
       errors: [],
       roles: [],
-      introduction: "",
+      introduction: {text: "", selection: null},
       position: "",
+      display_order: 0,
     }
   }
 
@@ -56,15 +59,17 @@ class EditUser extends React.Component {
 
     e.preventDefault();
     let id = this.props.match.params.id;
-    const {name, role, quote, position, url, introduction} = this.state;
+    const {name, role, quote, position, url, introduction, display_order} = this.state;
     let formData = new FormData();
     formData.append("name", name);
     formData.append("role", role);
     formData.append("quote", quote);
-    formData.append("introduction", introduction);
+    formData.append("introduction", introduction.text);
     formData.append("position", position);
-
-    formData.append("image_attributes[url]", url);
+    formData.append("display_order", display_order);
+    if(this.state.url != ""){
+      formData.append("image_attributes[url]", url);
+    }
 
     axios.patch(`/v1/users/${id}.json`,
       formData,
@@ -90,9 +95,14 @@ class EditUser extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/users/${id}/edit.json`)
       .then(response => {
-        const {name, role, quote, introduction, position} = response.data.content.user;
-        const {url} = response.data.content.image || "";
-        this.setState({name, role, quote, url, introduction, position});
+        const {name, role, quote, position, display_order} = response.data.content.user;
+        let url = "";
+        if(response.data.content.image != null) {
+          url = response.data.content.image.url;
+        }
+        const text = response.data.content.user.introduction;
+        const introduction = {text: text, selection: null};
+        this.setState({name, role, quote, url, introduction, position, display_order});
       })
       .catch(error => {
         console.log(error);
@@ -104,6 +114,7 @@ class EditUser extends React.Component {
 
   render() {
     const {formatMessage} = this.props.intl;
+    let commands = ReactMdeCommands.getDefaultCommands();
 
     if(this.state.submitSuccess) {
       return (
@@ -174,10 +185,22 @@ class EditUser extends React.Component {
 
               <div className="form-group">
                 <label className="control-label">
+                  {formatMessage(defaultMessages.adminUsersDisplayOrder)}
+                </label>
+                <input ref="display_order" name="display_order" type="number" className="form-control"
+                  value={this.state.display_order} onChange={handleInput.bind(this)} />
+              </div>
+
+              <div className="form-group">
+                <label className="control-label">
                   {formatMessage(defaultMessages.adminUsersIntroduction)}
                 </label>
-                <SimpleMDE value={this.state.introduction} options={{spellChecker: false}}
-                  onChange={this.introductionChangeHandle.bind(this)}/>
+                <div className="mde">
+                  <ReactMde
+                    value={this.state.introduction}
+                    onChange={this.introductionChangeHandle.bind(this)}
+                    commands={commands} />
+                </div>
               </div>
 
               <input type="hidden" ref="authenticity_token" value={csrfToken}/>

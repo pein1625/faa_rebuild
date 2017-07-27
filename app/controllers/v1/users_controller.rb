@@ -2,7 +2,8 @@ class V1::UsersController < V1::ApiController
   before_action :load_user, only: [:edit, :update, :destroy]
 
   def index
-    response_success nil, User.all
+    users = User.order_to_display + User.not_display
+    response_success nil, users
   end
 
   def new
@@ -41,7 +42,7 @@ class V1::UsersController < V1::ApiController
   private
 
   def user_params
-    params.permit :name, :role, :quote, :position, :introduction,
+    params.permit :name, :role, :quote, :position, :introduction, :display_order,
       image_attributes: [:id, :url]
   end
 

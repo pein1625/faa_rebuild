@@ -16,8 +16,13 @@
       </ul>
     </td>
     <td>
-      <span><%= number_to_currency schedule.course_cost, unit: "VND", precision: 0,
-        delimiter: ".", format: "%n %u" %></span>
+      <% if schedule.course_cost %>
+        <span><%= number_to_currency schedule.course_cost, precision: 0,
+          delimiter: ".", format: "%n" %></span>
+        <span><%= Settings.courses.money_unit %></span>
+      <% else %>
+        <%= t "courses.not_cost" %>
+      <% end %>
     </td>
     <td>
       <% if schedule.is_opening? %>

@@ -51,6 +51,8 @@ class UserList extends React.Component {
                 <tr>
                     <th>{formatMessage(defaultMessages.adminUsersName)}</th>
                     <th>{formatMessage(defaultMessages.adminUsersRole)}</th>
+                    <th>{formatMessage(defaultMessages.adminUsersPosition)}</th>
+                    <th>{formatMessage(defaultMessages.adminUsersDisplayOrder)}</th>
                     <th>{formatMessage(defaultMessages.adminUsersEdit)}</th>
                     <th>{formatMessage(defaultMessages.adminUsersDelete)}</th>
                 </tr>

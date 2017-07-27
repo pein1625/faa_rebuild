@@ -24,7 +24,7 @@ class V1::NewsesController < V1::ApiController
   end
 
   def edit
-    response_success nil, {news: @news}
+    response_success nil, {news: @news, image: @news.image}
   end
 
   def update
@@ -43,7 +43,6 @@ class V1::NewsesController < V1::ApiController
   end
 
   def news_params
-    params.permit :title, :content, :tag_list, :news_category_id,
-      image_attributes: [:id, :url]
+    params.permit :title, :content, image_attributes: [:id, :url]
   end
 end
