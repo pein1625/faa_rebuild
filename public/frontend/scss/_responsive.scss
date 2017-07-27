@@ -82,6 +82,19 @@
       }
     }
   }
+
+  .contact-page {
+    .full-address {
+      .maps {
+        position: relative;
+      }
+      .address-box {
+        float: none;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
 }
 
 /** Mobile **/
