@@ -550,7 +550,7 @@ textarea {
 
 .list-class .i-class .info h3 {
   margin: 10px 0 5px;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .list-class .i-class .info .date {
@@ -1109,7 +1109,7 @@ textarea {
 }
 
 .category-view .list-view .view-class .info .name-class a {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
   display: block;
   transition: all 0.25s;
@@ -2010,6 +2010,21 @@ textarea {
   margin-bottom: 25px;
 }
 
+.detail-member .full-info blockquote {
+  border-left: 0;
+  font-size: 15px;
+  padding-left: 60px;
+  position: relative;
+  padding-top: 0;
+}
+
+.detail-member .full-info blockquote:before {
+  content: url("../images/open-quote.png");
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+
 .detail-member .full-info ul {
   border-top: 1px dashed #999999;
   padding-top: 25px;
@@ -2066,6 +2081,126 @@ textarea {
 
 .regis-successfully .group-links a:hover {
   color: #3ab991;
+}
+
+/*** Tin tuc ***/
+.list-article .article-item {
+  overflow: hidden;
+  margin-bottom: 25px;
+  border: 1px solid #e2e2e2;
+  transition: border 0.25s;
+}
+
+.list-article .article-item .article-media {
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-article .article-item .article-media a {
+  display: block;
+}
+
+.list-article .article-item .article-media img {
+  width: 100%;
+  transition: all 0.25s;
+}
+
+.list-article .article-item .article-content {
+  padding: 15px;
+}
+
+.list-article .article-item .article-name {
+  font-size: 20px;
+  margin: 0 0 10px;
+  line-height: 26px;
+}
+
+.list-article .article-item .article-name a {
+  transition: color 0.25s;
+}
+
+.list-article .article-item .date {
+  color: #666666;
+  font-size: 14px;
+}
+
+.list-article .article-item .short-content {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.list-article .article-item:hover {
+  border: 1px solid #3ab991;
+}
+
+.list-article .article-item:hover .article-media img {
+  transform: scale(1.05);
+}
+
+.list-article .article-item:hover h3 a {
+  color: #3ab991;
+}
+
+.list-article .load-more {
+  clear: both;
+  font-size: 20px;
+  height: 48px;
+  line-height: 48px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #294696;
+  padding: 0;
+  font-family: 'Roboto';
+  font-weight: 700;
+  display: block;
+  margin: 60px auto;
+  width: 150px;
+  text-align: center;
+  transition: background-color 0.25s;
+}
+
+.list-article .load-more:hover {
+  background-color: #3ab991;
+}
+
+.detail-article article {
+  padding: 0px 0 40px;
+}
+
+.detail-article h2 {
+  margin: 0;
+  line-height: 38px;
+}
+
+.detail-article .top-article {
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.detail-article .create-date {
+  display: block;
+  color: #666666;
+  font-size: 14px;
+  float: left;
+  line-height: 28px;
+}
+
+.detail-article .social {
+  float: right;
+}
+
+.detail-article .social a {
+  margin-left: 15px;
+  transition: opacity 0.25s;
+}
+
+.detail-article .social a:hover {
+  opacity: 0.85;
+}
+
+.detail-article .content img {
+  margin: 15px 0;
+  max-width: 100%;
 }
 
 /** Tablet **/
