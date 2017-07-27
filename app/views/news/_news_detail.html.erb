@@ -1,0 +1,15 @@
+<div id="component" class="col-md-9">
+  <div class="detail-article">
+    <article>
+      <h2><%= news.title %></h2>
+      <div class="top-article">
+        <span class="create-date">
+          <%= l news.created_at, format: :date_month_year_concise %>
+        </span>
+      </div>
+      <div class="content">
+        <%= markdown news.content %>
+      </div>
+    </article>
+  </div>
+</div>
