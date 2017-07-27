@@ -14,8 +14,11 @@ class CreateCourseSchedules < ActiveRecord::Migration[5.0]
       t.time :start_time3
       t.time :end_time3
       t.references :course, foreign_key: true
+      t.string :slug, null: false
 
       t.timestamps
     end
+
+    add_index :course_schedules, :slug, unique: true
   end
 end

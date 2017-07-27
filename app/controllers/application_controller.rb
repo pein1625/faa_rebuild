@@ -16,6 +16,11 @@ class ApplicationController < ActionController::Base
     @courses = Course.all
   end
 
+  def handle_record_not_found
+    flash[:danger] = t ".not_found"
+    redirect_to root_path
+  end
+
   private
 
   def layout_by_resource

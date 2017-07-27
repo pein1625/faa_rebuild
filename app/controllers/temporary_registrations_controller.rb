@@ -23,13 +23,13 @@ class TemporaryRegistrationsController < ApplicationController
   private
 
   def registration_params
-    params.require(:temporary_registration).permit :course_id, :name, 
+    params.require(:temporary_registration).permit :course_id, :name,
       :email, :address, :phone
   end
 
   def find_course
-    return if @course = Course.find_by(id: params[:course])
-    flash[:danger] = t ".not_found"
-    redirect_to root_path
+    @course = Course.find params[:course]
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 end

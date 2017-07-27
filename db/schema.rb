@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725022658) do
+ActiveRecord::Schema.define(version: 20170726040705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,13 @@ ActiveRecord::Schema.define(version: 20170725022658) do
     t.time     "start_time3"
     t.time     "end_time3"
     t.integer  "course_id"
+    t.string   "slug",          null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.text     "place"
     t.string   "code"
     t.index ["course_id"], name: "index_course_schedules_on_course_id", using: :btree
+    t.index ["slug"], name: "index_course_schedules_on_slug", unique: true, using: :btree
   end
 
   create_table "courses", force: :cascade do |t|
@@ -59,12 +61,14 @@ ActiveRecord::Schema.define(version: 20170725022658) do
     t.text     "description"
     t.text     "content"
     t.float    "cost"
+    t.string   "slug",                            null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "technique"
     t.boolean  "on_slider_index", default: false
     t.integer  "avatar_id"
     t.integer  "cover_id"
+    t.index ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
@@ -92,6 +96,18 @@ ActiveRecord::Schema.define(version: 20170725022658) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
   create_table "images", force: :cascade do |t|
     t.string   "url"
     t.integer  "imageable_id"
@@ -105,9 +121,11 @@ ActiveRecord::Schema.define(version: 20170725022658) do
     t.string   "title"
     t.text     "content"
     t.integer  "admin_id"
+    t.string   "slug",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_news_on_admin_id", using: :btree
+    t.index ["slug"], name: "index_news_on_slug", unique: true, using: :btree
   end
 
   create_table "registrations", force: :cascade do |t|
@@ -136,10 +154,12 @@ ActiveRecord::Schema.define(version: 20170725022658) do
     t.string   "name"
     t.integer  "role"
     t.text     "quote"
+    t.string   "slug",         null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.text     "introduction"
     t.string   "position"
+    t.index ["slug"], name: "index_users_on_slug", unique: true, using: :btree
   end
 
   add_foreign_key "course_schedules", "courses"

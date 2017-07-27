@@ -55,6 +55,6 @@ namespace :db do
       User.create! name: trainer[:name], role: 1, quote: trainer[:quote],
         introduction: trainer[:introduction]
     end
-    User.update_all position: "Giang vien Ruby"
+    User.update_all position: "Giảng viên Ruby"
   end
 end

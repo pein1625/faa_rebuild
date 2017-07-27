@@ -18,13 +18,16 @@ Rails.application.routes.draw do
     get "(*all)", to: "courses#index"
   end
 
-  resources :courses, only: [:index, :show]
-  resources :feedbacks, only: [:new, :create]
-  resources :trainers, only: [:show, :index]
-  resources :registrations, only: [:new, :create]
-  resources :news, only: [:index, :show]
-  resources :course_schedules, only: [:index, :show]
-  resources :temporary_registrations, only: [:new, :create]
+  resources :courses, only: [:index, :show], path: "khoa-hoc"
+  resources :feedbacks, only: :create
+  get "lien-he", to: "feedbacks#new", as: :new_feedback
+  resources :trainers, only: [:show, :index], path: "giang-vien"
+  resources :registrations, only: :create
+  get "dang-ky-lop-hoc", to: "registrations#new", as: :new_registration
+  resources :news, only: [:index, :show], path: "tin-tuc"
+  resources :course_schedules, only: [:index, :show], path: "lich-khai-giang"
+  resources :temporary_registrations, only: :create
+  get "dang-ky-khoa-hoc", to: "temporary_registrations#new", as: :new_temporary_registration
 
   devise_scope :admin do
     get "/sign_up" => "devise/registrations#new", as: "new_user_registration"

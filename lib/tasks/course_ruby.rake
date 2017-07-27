@@ -2,15 +2,15 @@ namespace :db do
   desc "Seeding course ruby"
   task course_ruby: :environment do
     Course.create! name: "Lập trình Ruby",
-      description: "Tự hào là đơn vị đứng thứ 11 trong bản đồ xếp hạng các" \
+      description: "Tự hào là đơn vị đứng thứ 11 trong bản đồ xếp hạng các " \
       "công ty phát triển mạnh về ngôn ngữ Ruby trên thế giới, với .... " \
-      "chuyên gia về Ruby có chứng chỉ Ruby Silver được cấp bởi Ruby Association," \
-      "Framgia Viet Nam đang ngày càng khẳng định được vị thế của mình trong cộng đồng Ruby" \
-      "tại Việt Nam nói riêng và quốc tế nói chung. Đến với khóa học này," \
-      "các học viên sẽ được chính những chuyên gia về lập trình Ruby với hơn 05 kinh nghiệm," \
-      "đã nhận được chứng chỉ coach Agile của tổ chức IC Agile trực tiếp giảng dạy" \
+      "chuyên gia về Ruby có chứng chỉ Ruby Silver được cấp bởi Ruby Association, " \
+      "Framgia Viet Nam đang ngày càng khẳng định được vị thế của mình trong cộng đồng Ruby " \
+      "tại Việt Nam nói riêng và quốc tế nói chung. Đến với khóa học này, " \
+      "các học viên sẽ được chính những chuyên gia về lập trình Ruby với hơn 05 kinh nghiệm, " \
+      "đã nhận được chứng chỉ coach Agile của tổ chức IC Agile trực tiếp giảng dạy " \
       "và chia sẻ những bài học bổ ích và thú vị",
-      cost: Faker::Number.number(8),
+      cost: 10730000,
       technique: "Ruby",
       content: "#### Nội dung khóa học\n" \
         "* Lập trình hướng đối tượng với Ruby\n" \
@@ -38,7 +38,7 @@ namespace :db do
         "Một tuần 03 buổi, mỗi buổi 3 tiếng. \n\n" \
         "* Ca 1: 08:30 ~ 11:30;\n" \
         "* Ca 2: 14:00 ~ 17:00;\n" \
-        "* Ca 3: 18:00 – 21:00;\n" \
+        "* Ca 3: 18:00 – 21:00;\n\n" \
         "Thời gian học tập linh hoạt, phù hợp với từng đối tượng học\n\n" \
         "#### Ai có thể  tham gia khóa học? \n" \
         "Sinh viên đang theo học ngành Công nghệ thông tin (từ năm 2 trở lên)," \

@@ -12,8 +12,8 @@ class TrainersController < ApplicationController
   private
 
   def find_trainer
-    return if @trainer = User.trainers.find_by(id: params[:id])
-    flash[:danger] = t ".not_found"
-    redirect_to root_path
+    @trainer = User.trainers.friendly.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    handle_record_not_found
   end
 end

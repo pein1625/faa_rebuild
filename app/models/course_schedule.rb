@@ -4,6 +4,22 @@ class CourseSchedule < ApplicationRecord
   has_many :registrations, dependent: :destroy
   belongs_to :course
 
+  extend FriendlyId
+  friendly_id :slug_candidates, use: [:slugged, :finders]
+
+  def slug_candidates
+    [:set_slug_string]
+  end
+
+  def should_generate_new_friendly_id?
+    start_date_changed? || end_date_changed?
+  end
+
+  def set_slug_string
+    course_name + "-" + I18n.l(start_date, format: :date_month_year_concise) +
+      "-" + I18n.l(end_date, format: :date_month_year_concise)
+  end
+
   DAY_OF_WEEK = [:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
 
   validates :start_date, presence: true
@@ -29,6 +45,6 @@ class CourseSchedule < ApplicationRecord
     else
       new_code_number = 1
     end
-    self.code = "#{self.course_technique}" + "_" + "#{sprintf("%03d", new_code_number)}"
+    self.code = "#{self.course_technique.downcase}" + "_" + "#{sprintf("%03d", new_code_number)}"
   end
 end

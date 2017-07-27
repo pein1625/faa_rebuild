@@ -4,8 +4,11 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :role
       t.text :quote
+      t.string :slug, null: false
 
       t.timestamps
     end
+
+    add_index :users, :slug, unique: true
   end
 end

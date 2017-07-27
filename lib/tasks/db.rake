@@ -13,13 +13,15 @@ namespace :db do
     Rake::Task["db:course_ruby"].invoke
     Rake::Task["db:course_android"].invoke
     Rake::Task["db:course_php"].invoke
+    Rake::Task["db:course_ios"].invoke
+    Rake::Task["db:course_java"].invoke
 
     Course.first.update on_slider_index: true
 
     puts "Create course schedule"
     Course.all.each do |course|
       2.times do
-        course.course_schedules.create! start_date: Date.today.next_month,
+        course.course_schedules.create start_date: Date.today.next_month,
           end_date: (Date.today + 7.months), deadline_date: Date.today.next_week,
           day1: 0, start_time1: "8:30", end_time1: "11:30",
           day2: 2, start_time2: "8:30", end_time2: "11:30",
@@ -30,7 +32,7 @@ namespace :db do
 
     puts "Create News"
     admin = Admin.first
-    8.times do
+    2.times do
       temp = News.create title: Faker::Lorem.sentence,
         admin_id: admin.id,
         content: "Nội dung khóa học\n" \
