@@ -9,6 +9,8 @@
 </div>
 
 <div class="full-info col-md-7 col-sm-7">
-  <blockquote><%= @trainer.quote %></blockquote>
+  <% if @trainer.quote.present? %>
+    <blockquote><%= @trainer.quote %></blockquote>
+  <% end %>
   <%= markdown @trainer.introduction %>
 </div>
