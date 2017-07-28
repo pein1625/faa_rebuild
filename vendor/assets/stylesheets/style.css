@@ -1760,7 +1760,12 @@ textarea {
 .contact-page .full-address {
   padding: 30px 0;
   overflow: hidden;
-  background: url("../images/bg-map.jpg") 0 0 no-repeat;
+  position: relative;
+}
+
+.contact-page .full-address .maps {
+  position: absolute;
+  top: 0;
 }
 
 .contact-page .full-address .address-box {
@@ -1770,6 +1775,8 @@ textarea {
   padding: 30px;
   float: right;
   background-color: #3ab991;
+  position: relative;
+  z-index: 10;
 }
 
 .contact-page .full-address .address-box img {
@@ -2254,6 +2261,14 @@ textarea {
 @media (max-width: 991px) {
   .full-midde .our-team .member:nth-child(2) {
     border-right: 1px solid #e2e2e2;
+  }
+  .contact-page .full-address .maps {
+    position: relative;
+  }
+  .contact-page .full-address .address-box {
+    float: none;
+    width: 100%;
+    height: auto;
   }
 }
 

@@ -49,6 +49,7 @@ vi:
       position: "Vị trí"
       certifications: "Chứng chỉ"
       introduction: "Giới thiệu bản thân"
+      display_order: "Thứ tự hiển thị"
     errors: "Lỗi"
     courses:
       course: "Khóa học"
@@ -62,7 +63,7 @@ vi:
       start_date: "Ngày bắt đầu"
       end_date: "Ngày kết thúc"
       deadline: "Hết hạn đăng kí"
-      cost: "Giá"
+      cost: "Giá/tháng"
       status: "Trạng thái"
       category: "Loại"
       place: "Địa điểm"
@@ -115,6 +116,7 @@ vi:
       tags: "Thẻ"
       category: "Thể loại"
       content: "Nội dung"
+      avatar: "Ảnh đại diện"
     registration_courses:
       registration: "Quản lý đăng ký khóa học"
       name: "Tên"
@@ -148,5 +150,6 @@ vi:
       category: "Khóa học"
       settings: "Thiết lập"
       code: "Mã lớp"
+      place: "Địa điểm học"
     temporary_registrations:
       title: "Quản lý đăng kí các lớp chưa mở"

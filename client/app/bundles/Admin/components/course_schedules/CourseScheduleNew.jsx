@@ -47,7 +47,8 @@ class CourseScheduleNew extends React.Component {
       end_time2: moment(),
       day3: 0,
       start_time3: moment(),
-      end_time3: moment()
+      end_time3: moment(),
+      place: "",
     };
   }
 
@@ -62,7 +63,7 @@ class CourseScheduleNew extends React.Component {
   day2InputChange(newValue) {
     this.setState({day2: newValue});
   }
-  
+
   day3InputChange(newValue) {
     this.setState({day3: newValue});
   }
@@ -85,6 +86,7 @@ class CourseScheduleNew extends React.Component {
     formData.append("day3", this.state.day3);
     formData.append("start_time3", this.state.start_time3);
     formData.append("end_time3", this.state.end_time3);
+    formData.append("place", this.state.place);
 
     axios.post(`/v1/course_schedules/`,
       formData,
@@ -316,6 +318,13 @@ class CourseScheduleNew extends React.Component {
                   </label>
                   <Courses courses={this.state.courses}
                     handleChange={this.courseInputChange} selected={this.state.course_id}/>
+                </div>
+                <div className="col-md-8">
+                  <label className="control-label">
+                    {formatMessage(defaultMessages.adminSchedulePlace)}
+                  </label>
+                  <input name="place" type="text" className="form-control"
+                    value={this.state.place} onChange={handleInputChange.bind(this)} />
                 </div>
               </div>
               <div className="form-group submit-group">

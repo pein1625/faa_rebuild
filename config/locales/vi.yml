@@ -26,7 +26,7 @@ vi:
       contact: "Liên hệ"
       trainers: "Đội ngũ của chúng tôi"
       contact_us: "Liên hệ với chúng tôi"
-      framgia_address: "Framgia Awesome Academy, 13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
+      framgia_address: "Awesome Academy, Tầng 11 Handico Tower khu đô thị mới Mễ Trì Hạ, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
       faa: "Framgia Awesome Academy"
       copyright: "© 2017 Framgia Awesome Academy - All rights reserved."
     application_devise:
@@ -180,8 +180,7 @@ vi:
         thể giúp bạn, vui lòng điền vào mẫu dưới đây."
       title_text2: "Bạn có thể gọi cho chúng tôi bất cứ lúc nào giữa
         7h45 đến 16h45"
-      framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6,
-        Pham Hung Road, Nam Tu Liem Dist."
+      framgia_address: "Awesome Academy, Tầng 11 Handico Tower khu đô thị mới Mễ Trì Hạ, đường Phạm Hùng, quận Nam Từ Liêm, Hà Nội"
     form:
       name: "Họ tên"
       email: "Thư điện tử"

@@ -9,7 +9,7 @@ framgia:
   facebook: "https://facebook.com/FramgiaVietnam/"
 home:
   courses_limit: 10
-  trainers_limit: 10
+  trainers_limit: 8
   trainer_quote_limit: 150
 courses:
   length_description: 200
@@ -19,7 +19,7 @@ courses:
   min_name_length: 3
   max_description_length: 1000
   min_description_length: 10
-  money_unit: "VNĐ"
+  money_unit: "VNĐ/tháng"
 feedbacks:
   max_name_length: 127
   max_email_length: 127

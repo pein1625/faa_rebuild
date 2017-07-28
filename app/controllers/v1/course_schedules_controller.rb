@@ -48,7 +48,7 @@ class V1::CourseSchedulesController < V1::ApiController
   def course_schedule_params
     params.permit :start_date, :end_date, :deadline_date, :course_id, :start_time1,
       :end_time1, :day1, :start_time2, :end_time2, :day2, :start_time3, :end_time3,
-      :day3
+      :day3, :place
   end
 
   def load_course_schedule

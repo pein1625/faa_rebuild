@@ -47,7 +47,8 @@ class CourseScheduleEdit extends React.Component {
       end_time2: "",
       day3: "",
       start_time3: "",
-      end_time3: ""
+      end_time3: "",
+      place: "",
     };
   }
 
@@ -62,7 +63,7 @@ class CourseScheduleEdit extends React.Component {
   day2InputChange(newValue) {
     this.setState({day2: newValue});
   }
-  
+
   day3InputChange(newValue) {
     this.setState({day3: newValue});
   }
@@ -85,6 +86,7 @@ class CourseScheduleEdit extends React.Component {
     formData.append("day3", this.state.day3);
     formData.append("start_time3", this.state.start_time3);
     formData.append("end_time3", this.state.end_time3);
+    formData.append("place", this.state.place);
 
     axios.patch(`/v1/course_schedules/${id}.json`,
       formData,
@@ -113,14 +115,14 @@ class CourseScheduleEdit extends React.Component {
       .then(response => {
         const {
           start_date, end_date, deadline_date, course_id, start_time1, end_time1,
-          day1, start_time2, end_time2, day2, start_time3, end_time3, day3
+          day1, start_time2, end_time2, day2, start_time3, end_time3, day3, place
         } = response.data.content.course_schedule;
         const {courses} = response.data.content;
         const {day_of_week} = response.data.content;
         this.setState({
           start_date, end_date, deadline_date, course_id, courses, start_time1,
           end_time1, day_of_week, day1, start_time2, end_time2, day2, start_time3,
-          end_time3, day3
+          end_time3, day3, place
         });
       })
       .catch(error => {
@@ -321,6 +323,13 @@ class CourseScheduleEdit extends React.Component {
                   </label>
                   <Courses courses={this.state.courses}
                     handleChange={this.courseInputChange} selected={this.state.course_id}/>
+                </div>
+                <div className="col-md-8">
+                  <label className="control-label">
+                    {formatMessage(defaultMessages.adminSchedulePlace)}
+                  </label>
+                  <input name="place" type="text" className="form-control"
+                    value={this.state.place} onChange={handleInputChange.bind(this)} />
                 </div>
               </div>
               <div className="form-group submit-group">

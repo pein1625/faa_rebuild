@@ -6,9 +6,12 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
 import Errors from '../Errors';
 import {handleInputChange} from '../../utils/InputHandler';
-import SimpleMDE from 'react-simplemde-editor';
 import ReactTags from 'react-tag-autocomplete';
 import TagsCss from '../../../../assets/styles/tags.css';
+import {ReactMde, ReactMdeCommands} from 'react-mde';
+import 'react-mde/lib/styles/react-mde.css';
+import 'react-mde/lib/styles/react-mde-command-styles.css';
+import 'react-mde/lib/styles/markdown-default-theme.css';
 
 const csrfToken = ReactOnRails.authenticityToken();
 
@@ -16,12 +19,14 @@ class EditNews extends React.Component {
   constructor(props, _railsContext) {
     super(props);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
 
     this.state = {
       title: "",
-      content: "",
+      content: {text: "", selection: null},
       submitSuccess: false,
-      errors: []
+      errors: [],
+      url: "",
     };
   }
 
@@ -30,7 +35,10 @@ class EditNews extends React.Component {
     let id = this.props.match.params.id;
     let formData = new FormData();
     formData.append("title", this.state.title);
-    formData.append("content", this.state.content);
+    formData.append("content", this.state.content.text);
+    if(this.state.url != ""){
+      formData.append("image_attributes[url]", this.state.url);
+    }
     axios.patch(`/v1/newses/${id}.json`,
       formData,
       {
@@ -44,7 +52,7 @@ class EditNews extends React.Component {
           $.growl.notice({message: message});
         } else {
           this.setState({errors: content});
-          $.growl.notice({message: message});
+          $.growl.error({message: message});
         }
       })
       .catch(error => {
@@ -56,12 +64,34 @@ class EditNews extends React.Component {
     this.setState({content: value});
   }
 
+  handleFileChange(e) {
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    const that = this;
+
+    reader.onloadend = function() {
+      that.setState({url: reader.result});
+    }
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({url: ""});
+    }
+  }
+
   componentDidMount() {
     let id = this.props.match.params.id;
     axios.get(`/v1/newses/${id}/edit.json`)
       .then(response => {
-        const {title, content} = response.data.content.news;
-        this.setState({title, content});
+        const {title} = response.data.content.news;
+        let url = "";
+        if(response.data.content.image != null) {
+          url = response.data.content.image.url;
+        }
+        const text = response.data.content.news.content;
+        const content = {text: text, selection: null};
+        this.setState({title, content, url});
       })
       .catch(error => {
         console.log(error);
@@ -70,6 +100,7 @@ class EditNews extends React.Component {
 
   render() {
     const {formatMessage} = this.props.intl;
+    let commands = ReactMdeCommands.getDefaultCommands();
 
     if(this.state.submitSuccess) {
       return (
@@ -92,14 +123,36 @@ class EditNews extends React.Component {
                   value={this.state.title} onChange={handleInputChange.bind(this)}
                   required="required"/>
               </div>
+              <div className="form-group row">
+                <div className="col-md-4">
+                  <label className="control-label">
+                    {formatMessage(defaultMessages.adminNewsesAvatar)}
+                  </label>
+                  <input type="file" ref="image_attributes_url" name="image_attributes_url"
+                    onChange={this.handleFileChange}></input>
+                </div>
+                <div className="col-md-8">
+                  {
+                    this.state.url && (
+                      <div className="col-md-1">
+                        <img className="preview-image" src={this.state.url}/>
+                      </div>
+                    )
+                  }
+                </div>
+              </div>
               <div className="row">
                 <div className="col-md-12">
                   <div className="form-group">
                     <label className="control-label">
                       {formatMessage(defaultMessages.adminNewsesContent)}
                     </label>
-                    <SimpleMDE value={this.state.content} options={{spellChecker: false}}
-                      onChange={this.contentChangeHandle.bind(this)}/>
+                    <div className="mde">
+                      <ReactMde
+                        value={this.state.content}
+                        onChange={this.contentChangeHandle.bind(this)}
+                        commands={commands} />
+                    </div>
                   </div>
                 </div>
               </div>

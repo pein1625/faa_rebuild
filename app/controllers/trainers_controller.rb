@@ -2,7 +2,8 @@ class TrainersController < ApplicationController
   before_action :find_trainer, only: :show
 
   def index
-    @trainers = User.trainers.page(params[:page])
+    trainers = User.order_to_display.includes(:image) + User.not_display.includes(:image)
+    @trainers = Kaminari.paginate_array(trainers).page(params[:page])
       .per Settings.trainers.per_page
   end
 

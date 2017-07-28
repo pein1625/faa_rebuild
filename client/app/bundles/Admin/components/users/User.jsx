@@ -30,11 +30,13 @@ export default class User extends React.Component {
   }
 
   render() {
-    const {name, role, id} = this.props;
+    const {name, role, id, display_order, position} = this.props;
     return (
       <tr className="active">
         <td className="col-md-4">{name}</td>
-        <td className="col-md-5">{role}</td>
+        <td className="col-md-1">{role}</td>
+        <td className="col-md-3">{position}</td>
+        <td className="col-md-2">{display_order}</td>
         <td>
           <Link to={`/admin/users/${id}/edit`}>
             <button className="btn btn-warning"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>

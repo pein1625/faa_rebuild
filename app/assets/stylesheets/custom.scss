@@ -1,0 +1,29 @@
+.maps {
+  width: 100%;
+
+  .maps-frame {
+    height: 450px;
+    width: 100%;
+  }
+}
+
+.view-all-trainers {
+  text-align: center;
+
+  a{
+    height: 36px;
+    line-height: 36px;
+    color: #ffffff;
+    background-color: #294696;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: opacity 0.2s;
+  }
+
+  a:hover {
+    opacity: 0.9;
+    color: #ffffff;
+  }
+}
