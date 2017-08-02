@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   before_action :load_courses
   before_action :latest_news
 
+  before_action :set_locale
+
+  def set_locale
+    I18n.locale = params[:locale] || session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
+  end
+
   def popular_courses
     @popular_courses = Course.popular
   end

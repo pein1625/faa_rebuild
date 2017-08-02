@@ -1,0 +1,133 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        feedback:
+          attributes:
+            email:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大127文字）"
+            phone:
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大15文字））"
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大127文字）"
+            subject:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+            content:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大1023文字）"
+        registration:
+          attributes:
+            email:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大127文字）"
+            phone:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大15文字）"
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大127文字）"
+            course_id:
+              blank: "空白にすることはできません"
+            address:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+        certification:
+          attributes:
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+              too_short: "短すぎる（最小2文字）"
+            description:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大500文字）"
+        course:
+          attributes:
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+              too_short: "短すぎる（最小2文字）"
+            description:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大1000文字）"
+              too_short: "短すぎる（最小2文字）"
+            start_date:
+              blank: "空白にすることはできません"
+            end_date:
+              blank: "空白にすることはできません"
+            registration_deadline:
+              blank: "空白にすることはできません"
+            course_category_id:
+              blank: "空白にすることはできません"
+            content:
+              blank: "空白にすることはできません"
+            cost:
+              blank: "空白にすることはできません"
+              not_a_number: "それは数字ではない"
+              greater_than_or_equal_to: "0以上でなければならない"
+        course_category:
+          attributes:
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+        news:
+          attributes:
+            title:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"
+            content:
+              blank: "空白にすることはできません"
+            news_category_id:
+              blank: "空白にすることはできません"
+            admin_id:
+              blank: "空白にすることはできません"
+        news_category:
+          attributes:
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大30文字）"
+              too_short: "短すぎる（最小2文字）"
+            description:
+              too_long: "長すぎる（最大500文字）"
+        user:
+          attributes:
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大30文字）"
+              too_short: "短すぎる（最小2文字）"
+            quote:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大500文字）"
+            email:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              taken: "この電子メールアドレスが既に使用されている"
+            phone:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大15文字）"
+              too_short: "短すぎる（最小10文字）"
+              not_a_number: "それは数字ではない"
+        temporary_registration:
+          attributes:
+            email:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大127文字）"
+            phone:
+              blank: "空白にすることはできません"
+              invalid: "無効な形式"
+              too_long: "長すぎる（最大15文字）"
+            name:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大127文字）"
+            course_id:
+              blank: "空白にすることはできません"
+            address:
+              blank: "空白にすることはできません"
+              too_long: "長すぎる（最大255文字）"

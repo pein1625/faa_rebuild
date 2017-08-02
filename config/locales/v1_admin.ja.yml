@@ -1,0 +1,84 @@
+ja:
+  v1:
+    news_categories:
+      create:
+        add_success: "新しいものを正常に追加する"
+        add_failed: "新しいものを正常に追加することができません"
+      update:
+        save_success: "正常に更新されました"
+        save_failed: "それは更新に失敗しました"
+        not_found: "ニュースカテゴリが見つかりません"
+      destroy:
+        delete_success: "削除されました"
+        delete_failed: "削除に失敗しました"
+        not_found: "ニュースカテゴリが見つかりません"
+      edit:
+        not_found: "ニュースカテゴリが見つかりません"
+    certifications:
+      create:
+        save_success: "Đã thêm mới chứng chỉ"
+        save_failed: "Không thể thêm mới chứng chỉ"
+      edit:
+        not_found: "Không tìm thấy chứng chỉ"
+      update:
+        not_found: "Không tìm thấy chứng chỉ"
+        save_success: "Cập nhật chứng chỉ thành công"
+        save_failed: "Cập nhật chứng chỉ thất bại"
+      destroy:
+        not_found: "Không tìm thấy chứng chỉ"
+        delete_failed: "Không thể xóa chứng chỉ"
+    users:
+      create:
+        save_success: "Thêm người dùng thành công"
+        save_failed: "Thêm người dùng thất bại"
+      edit:
+        not_found: "Không tìm thấy người dùng"
+      update:
+        not_found: "Không tìm thấy người dùng"
+        save_success: "Cập nhật người dùng thành công"
+        save_failed: "Cập nhật người dùng thất bại"
+      destroy:
+        not_found: "Không tìm thấy người dùng"
+        delete_failed: "Xóa người dùng thất bại"
+    courses:
+      create:
+        save_success: "Thêm khóa học thành công"
+        save_failed: "Thêm khóa học thất bại"
+      edit:
+        not_found: "Không tìm thấy khóa học"
+      update:
+        not_found: "Không tìm thấy khóa học"
+        save_success: "Cập nhật khóa học thành công"
+        save_failed: "Cập nhật khóa học thất bại"
+      destroy:
+        not_found: "Không tìm thấy khóa học"
+        delete_failed: "Không xóa được khóa học"
+    newses:
+      destroy:
+        not_found: "Không tìm thấy tin tức"
+        delete_success: "Xóa tin tức thành công"
+        delete_failed: "Xóa tin tức thất bại"
+      create:
+        add_success: "Thêm tin tức thành công"
+        add_failed: "Thêm tin tức thất bại"
+      edit:
+        not_found: "Không tìm thấy tin tức"
+      update:
+        not_found: "Không tìm thấy tin tức"
+        save_success: "Cập nhật tin tức thành công"
+        save_failed: "Cập nhật tin tức thất bại"
+    registration_courses:
+      update:
+        save_success: "Cập nhật thành công"
+        save_failed: "Cập nhật thất bại"
+        status_error: "Cập nhật trạng thái thất bại"
+        not_found: "Không tìm thấy bản đăng kí"
+      destroy:
+        delete_success: "削除されました"
+        delete_failed: "削除に失敗しました"
+        not_found: "Không tìm thấy bản đăng kí"
+    temporary_registrations:
+      destroy:
+        delete_success: "削除されました"
+        delete_failed: "削除に失敗しました"
+        not_found: "Không tìm thấy bản đăng kí"

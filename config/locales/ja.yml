@@ -1,0 +1,295 @@
+ja:
+  layouts:
+    application:
+      title: "Framgia Awesome Academy"
+      loading: "Đang tải"
+    header:
+      logo_alt: "Logo Framgia Awesome Academy"
+      home: "ホームページ"
+      courses: "プログラミング・コース"
+      about: "Awesome Academyについて"
+      schedule: "スケジュール"
+      news: "イベント"
+      contact: "問い合わせ"
+      more_tool: "その他のツール"
+    footer:
+      our_courses: "プログラミング・コース"
+      ruby: "Ruby"
+      php: "PHP"
+      java: "Java"
+      android: "Android"
+      ios: "IOS"
+      quick_links: "Liên kết nhanh"
+      home: "ホームページ"
+      courses: "スケジュール"
+      news: "イベント"
+      contact: "問い合わせ"
+      trainers: "私たちのチーム"
+      contact_us: "お問い合わせください"
+      framgia_address: "Framgia Awesome Academy, 13F Keangnam Hanoi Landmark 72 Tower, Plot E6, Pham Hung Road, Nam Tu Liem Dist."
+      faa: "Framgia Awesome Academy"
+      copyright: "© 2017 Framgia Awesome Academy - All rights reserved."
+    application_devise:
+      login: "Login"
+  home:
+    index:
+      index_title: "ホームページ"
+    slider:
+      welcome: "ようこそ"
+      faa: "Framgia Awesome Academy"
+      ruby_course: "Rubyプログラミングコース"
+      ruby_dev: "Ruby Development"
+      register: "登録"
+      coming_soon: "Comming Soon"
+    who_we_are:
+      who_we_are: "私たちは誰ですか"
+      text: "Framgia Awesome Academyは、Framgia Vietnamのトレーニングセンターで、標準Framgiaによって作成された継承と共通モデルモデルで形成されています。Awesome Academyは、すべてのプログラマーの将来の発展のためのトレーニングとサポートの発祥地になることを楽しみにしています。"
+      agile_title: "良いカリキュラム"
+      agile: "Agileモデルに基づいたプログラム"
+      network_title: "プロジェクトを肌で感じる"
+      network: "プロジェクトに参加し、バーチャルコンパニーとして活動する"
+      certificate_title: "トレーニングシステム"
+      certificate: "IC AgileとRuby Associationに認定される国際標準訓練プログラム"
+      teaching_title: "学習環境"
+      teaching: "近代的な設備を備えた若くダイナミックな学習環境。"
+      expert_title: "監督"
+      expert: "監督はIT技術の分野での豊富な経験を持つ専門家です。"
+      job_title: "就職にサポートします"
+      job: "研修後の就労に関する研修生をサポートすることを約束します"
+      sort_skill_title: "ソフトスキル"
+      sort_skill: "研修生は、総合的な方法でソフトスキルを養成するように訓練されています。"
+      activities_title: "課外活動"
+      activities: "面白いと有益な課外活動を参加する。"
+    lastest_courses:
+      lastest_courses: "最新のコース"
+      enrolled_count: "登録された人の総数"
+      coming_soon: "近くの将来に授業を開きます"
+      more: "すべて見る"
+    trainers:
+      trainers: "私たちのチーム"
+      introduce: "Framgia Awesome Academyは、Framgia Vietnamのトレーニングセンターで、標準Framgiaによって作成された継承と共通モデルモデルで形成されています。Awesome Academyは、すべてのプログラマーの将来の発展のためのトレーニングとサポートの発祥地になることを楽しみにしています。"
+      more: "すべて見る"
+    about_us:
+      about_us: "私たちについての簡単な紹介"
+      our_mission: "我々の使命"
+      mission_text1: "パートナシステムでの学習や学習に参加する実践的な経験は、卒業後の学生にとって堅実な資産となります。"
+      mission_text2: "すべてのレッスンは、学生が達成する新しい成功です"
+      mission_text3: "私たちはソフトスキルコースの経験が最大の成果であると信じています。"
+      our_vision: "ビジョン"
+      vision_text1: "パートナシステムでの学習や学習に参加する実践的な経験は、卒業後の学生にとって堅実な資産となります。"
+      vision_text2: "すべてのレッスンは、学生が達成する新しい成功です"
+      core_value: "基本的価値観"
+      core_value_text1: "すべてのレッスンは、学生が達成する新しい成功です"
+      core_value_text2: "私たちはソフトスキルコースの経験が最大の成果であると信じています。"
+      client_said: "顧客からのコメント"
+      client1_name: "TEAMLAB"
+      client1_said: "私たちはFramgia Awesome Academyで幸せになれませんでした。知識と実践的なトレーニングプログラムです。プロと思慮深い訓練サービス。"
+      client2_name: "ハノイ工科大学"
+      client2_said: "Framgia Awesome Academy、ありがとうございました！ 私たちの学生はFramgia Awesome Academyで素晴らしい経験をしています。 技術と知識が得られれば、IT業界の実際の作業環境にもっと安全に侵入することができます。"
+      client3_name: "Lê Đình Đoan"
+      client3_said: "コースは本当に素晴らしいです。 私は、学んだ知識とスキルが非常に実用的であり、日々進歩するのを助けることが分かった。 私はかつて私が夢見てきた会社のプログラマーです。 Framgia Awesome Academyで学んだ教訓を、私のキャリアをさらに発展させるために適用することは自信があります。"
+      client4_name: "東亜大学"
+      client4_said: "Framgia Awesome Academy、ありがとうございました！ 私たちの学生はFramgia Awesome Academyで素晴らしい経験をしています。 技術と知識が得られれば、IT業界の実際の作業環境にもっと安全に侵入することができます。"
+    our_clients:
+      our_clients: "私たちのパートナー"
+  shared:
+    top_heading:
+      home: "ホームページ"
+    loading:
+      loading: "読み込み中"
+    popular_course:
+      popular_course: "人気のコース"
+    latest_news:
+      latest_news: "ニュース"
+    tags:
+      tag_cloud: "タグクラウド"
+  number:
+    currency:
+      format:
+        unit: "VND"
+  views:
+    pagination:
+      truncate: "..."
+  courses:
+    not_cost: "更新中"
+    course:
+      register: 登録"
+    right_sidebar_course:
+      course_category: "スペシャライズド"
+    course_header:
+      category: "スペシャライズド"
+      place: "場所"
+      framgia_vietnam: "Framgia Việt Nam"
+      number_of_member: "研修生の人数"
+      register_now: "今すぐ登録"
+      deadline: "登録締切日"
+      time_learn: "勉強の時間"
+      see_more: "同じロックのクラスを見る"
+      comming_soon: "間も無く開催します。"
+      condition: "十分な12人の学生が登録すればオープンクラス"
+      registed: "登録された開業医"
+    course_schedules:
+      schedules: "クラスは登録できます"
+      duration: "勉強の時間"
+    index:
+      all_course: "コース"
+      course: "コース"
+      search_course: "コース検索"
+      load_more: "続きを見る"
+      comming_soon: "間も無く開催します。"
+      search: "検索"
+    show:
+      detail_course: "コースの詳細"
+      course: "コース"
+      home: "ホームページ"
+      not_found: "コースが見つかりません"
+    course:
+      readmore: "続きを見る"
+  feedbacks:
+    new:
+      title: "問い合わせ"
+      home: "ホームページ"
+      title_contact: "お問い合わせください"
+      title_text1: "私たちがあなたのお手伝いをもっと学ぶことに興味がある場合は、下記のフォームにご記入ください。"
+      title_text2: "7時間45分から16時間45分の間にいつでもご連絡ください。"
+      framgia_address: "13F Keangnam Hanoi Landmark 72 Tower, Plot E6,
+        Pham Hung Road, Nam Tu Liem Dist."
+    form:
+      name: "フルネーム"
+      email: "メール"
+      phone: "電話番号"
+      subject: "トピック"
+      content: "内容"
+      submit: "フィードバックを送信する"
+    create:
+      success: "ご意見ありがとうございます"
+      fail: "フィードバックを送信できませんでした"
+  trainers:
+    index:
+      title: "監督"
+      title_heading: "監督チーム"
+      description: "監督はIT技術の分野での豊富な経験を持つ専門家です。"
+    show:
+      home: "ホームページ"
+      not_found: "監督チーム"
+      title: "講師のプロフィール"
+    trainer_info:
+      about_me: "私について"
+      name: "名前"
+      email: "メール"
+      phone: "電話番号"
+      office: "Cơ quan"
+      certification: "証明書"
+      quote: "見積もり"
+    introduction:
+      introduction: "自己紹介"
+      now: "今"
+  registrations:
+    form:
+      heading: "コースを登録する"
+      course: "コース"
+      name: "フルネーム"
+      email: "メール"
+      phone: "電話番号"
+      address: "アドレス"
+      submit: "登録"
+      duration: "勉強の時間"
+    create:
+      success: "コース登録に成功"
+      fail: "コース登録に失敗しました"
+    registration_success:
+      course_register: "コースを登録する"
+      home: "ホームページ"
+      courses: "コース"
+      thank: "このコースに登録していただきありがとうございます"
+      contact: "最短時間で情報を確認するためにご連絡させていただきます"
+      more_course: "他のコースを見る"
+      this_course: "今登録したコースを見る"
+    new:
+      not_found: "コースが見つかりません"
+  temporary_registrations:
+    form:
+      heading: "コースを登録する"
+      course: "コース"
+      name: "フルネーム"
+      email: "メール"
+      phone: "電話番号"
+      address: "アドレス"
+      submit: "登録"
+      duration: "勉強の時間"
+    create:
+      success: "コース登録に成功"
+      fail: "コース登録に失敗しました"
+    registration_success:
+      course_register: "コースを登録する"
+      home: "ホームページ"
+      courses: "コース"
+      thank: "このコースに登録していただきありがとうございます"
+      contact: "最短時間で情報を確認するためにご連絡させていただきます"
+      more_course: "他のコースを見る"
+      this_course: "今登録したコースを見る"
+    new:
+      not_found: "コースが見つかりません"
+  news:
+    news_header:
+      by: "Đăng bởi: "
+      comments: "Nhận xét: "
+    news:
+      readmore: "続きを見る"
+    right_sidebar_news:
+      news_category: "Danh mục"
+    index:
+      all_news: "Tin tức - Thông báo"
+      news: "Tin tức-Thông báo"
+    show:
+      all_news: "Tin tức - Thông báo"
+      news: "Tin tức-Thông báo"
+  time:
+    formats:
+      date_month_year_concise: "%d-%m-%Y"
+      hour_minute: "%H:%M"
+  date:
+    formats:
+      month_year_concise: "%m/%Y"
+      date_month_year_concise: '%d-%m-%Y'
+      day_month_year: "%d/%m/%Y"
+  devise:
+    sessions:
+      new:
+        login: "Login"
+  registration_courses_mailer:
+    send_result_register_course:
+      heading_accept: "おめでとう！ コースの申請：%{course_name}が承認されました。"
+      heading_reject: "ごめんなさい！ コースの申請：%{course_name}は受け入れられていません。"
+      mail_subject: "Framgia Awesome Academy"
+  day_of_week:
+    monday: "月曜日"
+    tuesday: "火曜日"
+    wednesday: "水曜日"
+    thursday: "木曜日"
+    friday: "金曜日"
+    saturday: "土曜日"
+    sunday: "日曜日"
+  course_schedules:
+    index:
+      all_course_schedules: "Tất cả lịch học"
+      course_schedules: "スケジュール"
+      course_name: "コース"
+      duration: "勉強の時間"
+      schedule_time: "Lịch học"
+      fee: "Học phí"
+      view: "Chi tiết"
+      home: "ホームページ"
+      coming_soon: "間も無く開催します。"
+      not_found: "コースが見つかりません"
+    course_schedule:
+      detail: "Xem chi tiết"
+      register_now: "Đăng ký ngay"
+      coming_soon: "間も無く開催します。"
+    show:
+      not_found: "Không tìm thấy lịch học"
+      course_schedules: "スケジュール"
+      detail_course: "コースの詳細"
+      home: "ホームページ"
+      schedule: "スケジュール"
+      detail: "Chi tiết"
