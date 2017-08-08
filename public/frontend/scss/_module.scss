@@ -485,13 +485,17 @@
     padding-bottom: 40px;
     overflow: hidden;
     .member {
-      border: 1px solid $border-color-grey;
+      margin-bottom: 30px;
       border-right: 0;
       position: relative;
-      height: 390px;
+      
       overflow: hidden;
-      &:last-child {
-        border-right: 1px solid $border-color-grey;
+      .inbox {
+        border: 1px solid $border-color-grey;
+        height: 390px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: relative;
       }
       .unhover-info {
         text-align: center;
@@ -514,13 +518,13 @@
         }
 
         .avatar {
-          width: 96px;
-          height: 96px;
+          width: 135px;
+          height: 135px;
           overflow: hidden;
           margin: 40px auto;
           border-radius: 100%;
           img {
-            width: 100px;
+            width: 135px;
           }
         }
 
@@ -548,13 +552,15 @@
 
         .name {
           background: url("../images/bg-symbol-small.png") 215px -55px no-repeat $color-green;
-          color: $color-white;
-          font-size: 18px;
-          font-weight: bold;
           text-align: center;
           margin: 0;
-          padding: 26px 0;
+          padding: 20px 0;
           height: 90px;
+          a {
+            color: $color-white;
+            font-size: 18px;
+            font-weight: bold;
+          }
           span {
             font-size: 14px;
             display: block;
@@ -1637,13 +1643,13 @@
       }
 
       .avatar {
-        width: 96px;
-        height: 96px;
+        width: 135px;
+        height: 135px;
         overflow: hidden;
         margin: 40px auto;
         border-radius: 100%;
         img {
-          width: 100px;
+          width: 135px;
         }
       }
 
