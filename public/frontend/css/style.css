@@ -624,15 +624,18 @@ textarea {
 }
 
 .full-midde .our-team .member {
-  border: 1px solid #e2e2e2;
+  margin-bottom: 30px;
   border-right: 0;
   position: relative;
-  height: 390px;
   overflow: hidden;
 }
 
-.full-midde .our-team .member:last-child {
-  border-right: 1px solid #e2e2e2;
+.full-midde .our-team .member .inbox {
+  border: 1px solid #e2e2e2;
+  height: 390px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .full-midde .our-team .member .unhover-info {
@@ -659,15 +662,15 @@ textarea {
 }
 
 .full-midde .our-team .member .unhover-info .avatar {
-  width: 96px;
-  height: 96px;
+  width: 135px;
+  height: 135px;
   overflow: hidden;
   margin: 40px auto;
   border-radius: 100%;
 }
 
 .full-midde .our-team .member .unhover-info .avatar img {
-  width: 100px;
+  width: 135px;
 }
 
 .full-midde .our-team .member .unhover-info .intro {
@@ -696,13 +699,16 @@ textarea {
 
 .full-midde .our-team .member .hover-info .name {
   background: url("../images/bg-symbol-small.png") 215px -55px no-repeat #329d7b;
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  height: 90px;
+}
+
+.full-midde .our-team .member .hover-info .name a {
   color: #ffffff;
   font-size: 18px;
   font-weight: bold;
-  text-align: center;
-  margin: 0;
-  padding: 26px 0;
-  height: 90px;
 }
 
 .full-midde .our-team .member .hover-info .name span {
@@ -1904,15 +1910,15 @@ textarea {
 }
 
 .member-page .member .unhover-info .avatar {
-  width: 96px;
-  height: 96px;
+  width: 135px;
+  height: 135px;
   overflow: hidden;
   margin: 40px auto;
   border-radius: 100%;
 }
 
 .member-page .member .unhover-info .avatar img {
-  width: 100px;
+  width: 135px;
 }
 
 .member-page .member .unhover-info .intro {
@@ -2316,10 +2322,6 @@ textarea {
     margin: 0 auto;
     max-width: 120px;
     text-align: center;
-  }
-  .full-midde .our-team .member {
-    border: 1px solid #e2e2e2;
-    margin-bottom: 15px;
   }
   .full-bottom-a .about-us {
     padding-bottom: 0;
