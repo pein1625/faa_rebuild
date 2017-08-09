@@ -85,14 +85,21 @@
 
   .contact-page {
     .full-address {
+      padding: 0;
+      text-align: center;
       .maps {
         position: relative;
+        margin: 20px 0;
       }
       .address-box {
         float: none;
         width: 100%;
         height: auto;
+        text-align: left;
       }
+    }
+    .contact-form {
+      padding-top: 0;
     }
   }
 }

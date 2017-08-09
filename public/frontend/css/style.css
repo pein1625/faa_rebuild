@@ -1772,6 +1772,8 @@ textarea {
 .contact-page .full-address .maps {
   position: absolute;
   top: 0;
+  overflow: auto;
+  padding: 0;
 }
 
 .contact-page .full-address .address-box {
@@ -1806,6 +1808,21 @@ textarea {
   font-size: 15px;
   font-weight: 400;
   display: block;
+}
+
+.contact-page .full-address .navbar-toggle {
+  float: none;
+  background-color: #294696;
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 15px 30px;
+  margin: 20px auto;
+}
+
+.contact-page .full-address .navbar-toggle img, .contact-page .full-address .navbar-toggle span {
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .contact-page .contact-form {
@@ -2268,13 +2285,22 @@ textarea {
   .full-midde .our-team .member:nth-child(2) {
     border-right: 1px solid #e2e2e2;
   }
+  .contact-page .full-address {
+    padding: 0;
+    text-align: center;
+  }
   .contact-page .full-address .maps {
     position: relative;
+    margin: 20px 0;
   }
   .contact-page .full-address .address-box {
     float: none;
     width: 100%;
     height: auto;
+    text-align: left;
+  }
+  .contact-page .contact-form {
+    padding-top: 0;
   }
 }
 
