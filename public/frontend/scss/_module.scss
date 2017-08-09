@@ -1520,6 +1520,8 @@
     .maps {
       position: absolute;
       top: 0;
+      overflow: auto;
+      padding: 0;
     }
     .address-box {
       width: 320px;
@@ -1549,6 +1551,20 @@
         font-size: 15px;
         font-weight: 400;
         display: block;
+      }
+    }
+
+    .navbar-toggle {
+      float: none;
+      background-color: $color-blue;
+      color: $color-white;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 15px 30px;
+      margin: 20px auto;
+      img, span {
+        vertical-align: middle;
+        display: inline-block;;
       }
     }
   }
