@@ -6,24 +6,21 @@
       <div class="all-member">
         <% trainers.each do |trainer| %>
           <%= link_to trainer_path(trainer) do %>
-            <div class="member col-md-3 col-sm-6">
-              <div class="unhover-info">
-                <h3 class="name-member">
-                  <%= trainer.name %> <span class="job"><%= trainer.position %></span>
-                </h3>
-                <div class="avatar">
-                  <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg" %>
+            <div class="member col-md-4 col-sm-6">
+              <div class="inbox">
+                <div class="unhover-info">
+                  <h3 class="name-member"> <%= trainer.name %> <span class="job"><%= trainer.position %> </span></h3>
+                  <div class="avatar">
+                    <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg" %>
+                  </div>
+                  <p class="intro"> <%= truncate trainer.quote, length: Settings.home.trainer_quote_limit %></p>
                 </div>
-                <p class="intro">
-                  <%= truncate trainer.quote, length: Settings.home.trainer_quote_limit %></p>
-              </div>
-              <div class="hover-info">
-                <div class="full-avatar">
-                  <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg" %>
+                <div class="hover-info">
+                  <div class="full-avatar">
+                    <%= image_tag trainer.image.present? ? trainer.image.url : "user_default.jpg" %>
+                  </div>
+                  <h3 class="name"><%= trainer.name %><span class="job"><%= trainer.position %></span></h3>
                 </div>
-                <h3 class="name">
-                  <%= trainer.name %> <span class="job"><%= trainer.position %></span>
-                </h3>
               </div>
             </div>
           <% end %>
