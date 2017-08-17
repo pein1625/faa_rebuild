@@ -36,10 +36,16 @@ gem "active_model_serializers"
 gem "ransack"
 gem "friendly_id"
 
+
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
   gem "pry"
+  gem "capistrano-rails"
+  gem "capistrano-bundler"
+  gem "capistrano-rvm"
+  gem "capistrano-passenger"
 end
 
 group :development do
