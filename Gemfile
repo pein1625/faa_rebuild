@@ -36,16 +36,18 @@ gem "active_model_serializers"
 gem "ransack"
 gem "friendly_id"
 
-
-
 group :development, :test do
   gem "byebug", platform: :mri
   gem "pry-rails"
   gem "pry"
+  gem "sshkit-sudo"
+  gem "capistrano", "~> 3.6"
   gem "capistrano-rails"
   gem "capistrano-bundler"
   gem "capistrano-rvm"
-  gem "capistrano-passenger"
+  gem "capistrano3-puma"
+  gem "capistrano3-nginx"
+  gem "capistrano-upload-config"
 end
 
 group :development do
