@@ -39,16 +39,16 @@ namespace :deploy do
     end
   end
 
- desc "create database"
-  task :create_database do
-    on roles(:db) do |host|
-      within "#{release_path}" do
-        with rails_env: ENV["RAILS_ENV"] do
-          execute :rake, "db:create"
-        end
-      end
-    end
-  end
-  before :migrate, :create_database
+ # desc "create database"
+ #  task :create_database do
+ #    on roles(:db) do |host|
+ #      within "#{release_path}" do
+ #        with rails_env: ENV["RAILS_ENV"] do
+ #          execute :rake, "db:create"
+ #        end
+ #      end
+ #    end
+ #  end
+ #  before :migrate, :create_database
 end
 
