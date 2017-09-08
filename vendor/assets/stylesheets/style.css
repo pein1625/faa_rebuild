@@ -240,7 +240,7 @@ textarea {
 
 .full-showcase .box-info .top-banner {
   overflow: hidden;
-  height: 244px;
+  height: 292px;
   border-radius: 6px 6px 0 0;
 }
 
@@ -743,7 +743,7 @@ textarea {
 .full-bottom-a .all-about {
   margin-top: 48px;
   padding: 20px 0 40px;
-  background: url("../images/about-us.jpg") right center no-repeat;
+  background: url("../images/banner2.png") right center no-repeat;
 }
 
 .full-bottom-a .all-about .nav-tabs {
