@@ -26,7 +26,7 @@
               </h2>
               <p class="time">
                 <%= load_register_time course.newest_schedule %></p>
-              <%= appear_cost course.cost %>
+              <%= appear_cost course %>
               <% if course.newest_schedule %>
                 <%= link_to new_registration_path(schedule: course.newest_schedule.slug),
                   class: "registration", remote: true do %>

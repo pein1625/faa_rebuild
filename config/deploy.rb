@@ -25,7 +25,7 @@ set :puma_conf, "#{shared_path}/config/puma.rb"
 
 namespace :deploy do
   before "check:linked_files", "puma:config"
-  before "check:linked_files", "puma:nginx_config"
+  # before "check:linked_files", "puma:nginx_config"
   # after "puma:smart_restart", "nginx:restart"
 
   desc "Copy files from application to shared directory"

@@ -35,6 +35,7 @@ class V1::CoursesController < V1::ApiController
   end
 
   def update
+    binding.pry
     if params[:avatar].present?
       change_image :avatar
     end
@@ -60,7 +61,7 @@ class V1::CoursesController < V1::ApiController
 
   def course_params
     params.permit :name, :description, :status, :technique, :cost, :content,
-      :on_slider_index
+      :on_slider_index, :display_cost
   end
 
   def load_course

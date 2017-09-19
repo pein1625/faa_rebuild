@@ -35,10 +35,10 @@ module CourseHelper
     "schedule-active" if course_schedule && (course_schedule == schedule)
   end
 
-  def appear_cost cost
-    if cost
+  def appear_cost course
+    if course.cost && course.display_cost
       content_tag :p, class: "price" do
-        concat number_to_currency cost, precision: 0, delimiter: ".", format: "%n "
+        concat number_to_currency course.cost, precision: 0, delimiter: ".", format: "%n "
         concat content_tag :span, Settings.courses.money_unit, class: "currency"
       end
     else
