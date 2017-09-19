@@ -35,7 +35,6 @@ class V1::CoursesController < V1::ApiController
   end
 
   def update
-    binding.pry
     if params[:avatar].present?
       change_image :avatar
     end
