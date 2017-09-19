@@ -194,7 +194,7 @@ vi:
   trainers:
     index:
       title: "Giảng viên"
-      title_heading: "Đội ngủ giảng viên"
+      title_heading: "Đội ngũ giảng viên"
       description: "Đội ngũ giảng viên của chúng tôi là những chuyên gia có
         nhiều năm kinh nghiệm trong lĩnh vực công nghệ thông tin."
     show:
