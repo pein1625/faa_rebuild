@@ -23,6 +23,7 @@ class EditCourse extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.avatarChangeHandle = this.avatarChangeHandle.bind(this);
     this.coverChangeHandle = this.coverChangeHandle.bind(this);
+    this.toggle = this.toggle.bind(this);
 
     this.state = {
       name: "",
@@ -34,6 +35,7 @@ class EditCourse extends React.Component {
       cover: "",
       cost: "",
       technique: "",
+      display_cost: ""
     };
   }
 
@@ -51,6 +53,12 @@ class EditCourse extends React.Component {
     } else {
       this.setState({avatar: ""});
     }
+  }
+
+  toggle(event) {
+    this.setState({
+      display_cost: !this.state.display_cost
+    });
   }
 
   coverChangeHandle(e) {
@@ -85,6 +93,7 @@ class EditCourse extends React.Component {
     formData.append("technique", this.state.technique);
     formData.append("avatar", this.state.avatar);
     formData.append("cover", this.state.cover);
+    formData.append("display_cost", this.state.display_cost);
 
     axios.patch(`/v1/courses/${id}.json`,
       formData,
@@ -111,7 +120,7 @@ class EditCourse extends React.Component {
     let id = this.props.match.params.id;
     axios.get(`/v1/courses/${id}/edit.json`)
       .then(response => {
-        const {name, description, cost, technique} = response.data.content.course;
+        const {name, description, cost, technique, display_cost} = response.data.content.course;
         const text = response.data.content.course.content;
         const content = {text: text, selection: null};
         let avatar = "";
@@ -123,7 +132,7 @@ class EditCourse extends React.Component {
           cover = response.data.content.cover.url
         }
         this.setState({
-          name, description, cost, content, avatar, cover, technique
+          name, description, cost, content, avatar, cover, technique, display_cost
         });
       })
       .catch(error => {
@@ -134,6 +143,16 @@ class EditCourse extends React.Component {
   render() {
     const {formatMessage} = this.props.intl;
     let commands = ReactMdeCommands.getDefaultCommands();
+    const checkbox = (
+      <span>
+        <input
+          name="display_cost"
+          type="checkbox"
+          checked={this.state.display_cost}
+          onClick={this.toggle.bind(this)} />
+        <label className="text-danger"> {formatMessage(defaultMessages.adminCoursesDisplay)}</label>
+      </span>
+    );
     if(this.state.submitSuccess) {
       return (
         <Redirect to="/admin/courses/">
@@ -180,10 +199,15 @@ class EditCourse extends React.Component {
                   </label>
                   <div className="form-group">
                     <input name="cost" type="number" className="form-control"
-                      value={this.state.cost} onChange={handleInputChange.bind(this)}/>
+                      value={this.state.cost || ""} onChange={handleInputChange.bind(this)}/>
                   </div>
                 </div>
               </div>
+
+              <div className="form-group">
+                {checkbox}
+              </div>
+
               <div className="row">
                 <div className="col-md-12">
                   <div className="form-group">

@@ -74,6 +74,7 @@ ja:
       slider: "スライドに表示されているコースを選択します"
       avatar: "アバターを選択"
       cover: "カバー写真を選択"
+      display: "Display Cost"
     news_categories:
       category: "カバー写真を選択"
       new: "カテゴリを追加"
