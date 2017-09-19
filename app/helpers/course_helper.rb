@@ -48,6 +48,19 @@ module CourseHelper
     end
   end
 
+  def appear_cost_schedule course
+    if course.cost && course.display_cost
+      content_tag :p do
+         concat number_to_currency course.cost, precision: 0, delimiter: ".", format: "%n "
+         concat content_tag :span, Settings.courses.money_unit, class: "currency"
+       end
+    else
+      content_tag :p do
+        t "courses.not_cost"
+      end
+    end
+  end
+
   def load_schedule_time_without_day start_time, end_time
     l(start_time, format: :hour_minute) + " - " + l(end_time, format: :hour_minute)
   end

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get "(*all)", to: "courses#index"
   end
 
+  resources :educations, only: :index, path: "quan-ly-dao-tao"
   resources :courses, only: [:index, :show], path: "khoa-hoc"
   resources :feedbacks, only: :create
   get "lien-he", to: "feedbacks#new", as: :new_feedback

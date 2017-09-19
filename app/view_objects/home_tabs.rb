@@ -9,7 +9,8 @@ class HomeTabs < ViewObject
     [home_tab,
     courses_tab,
     schedule_tab,
-    contacts_tab].compact
+    contacts_tab,
+    education_tab].compact
   end
 
   def home_tab
@@ -40,6 +41,11 @@ class HomeTabs < ViewObject
   def contacts_tab
     build_tab t("layouts.header.contact"),
       new_feedback_path, :feedbacks
+  end
+
+  def education_tab
+    build_tab t("layouts.header.education"),
+      educations_path, :educations
   end
 
   def build_tab text, path, tab_name
