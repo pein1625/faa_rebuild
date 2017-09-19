@@ -9,8 +9,7 @@ class HomeTabs < ViewObject
     [home_tab,
     courses_tab,
     schedule_tab,
-    contacts_tab,
-    education_tab].compact
+    contacts_tab].compact
   end
 
   def home_tab
