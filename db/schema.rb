@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170728020332) do
+ActiveRecord::Schema.define(version: 20170918043622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170728020332) do
     t.boolean  "on_slider_index", default: false
     t.integer  "avatar_id"
     t.integer  "cover_id"
+    t.boolean  "display_cost",    default: false
     t.index ["slug"], name: "index_courses_on_slug", unique: true, using: :btree
   end
 
