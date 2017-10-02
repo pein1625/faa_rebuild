@@ -1,4 +1,5 @@
 class CourseSchedule < ApplicationRecord
+  acts_as_paranoid
   before_save :set_unique_code_schedule, if: ->(obj){obj.new_record? || obj.course_id_changed?}
 
   has_many :registrations, dependent: :destroy

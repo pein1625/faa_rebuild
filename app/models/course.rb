@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  acts_as_paranoid
   has_many :images, as: :imageable, dependent: :destroy
   has_many :course_schedules, dependent: :destroy
   has_many :registrations, through: :course_schedules

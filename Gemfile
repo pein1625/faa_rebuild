@@ -35,6 +35,7 @@ gem "rails_select_on_includes"
 gem "active_model_serializers"
 gem "ransack"
 gem "friendly_id"
+gem "paranoia"
 
 group :development, :test do
   gem "byebug", platform: :mri

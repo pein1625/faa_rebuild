@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_paranoid
   has_one :image, as: :imageable, dependent: :destroy
 
   extend FriendlyId
