@@ -14,20 +14,22 @@ class RegistrationCourse extends React.Component {
 
   onDeleteHandle() {
     let {id} = this.props;
-    axios.delete(`/v1/registration_courses/${id}.json`, null,
-      {
-        headers: {'X-CSRF-Token': csrfToken},
-        responseType: 'JSON'
-      }
-    )
-    .then((response) => {
-      const {status, message, content} = response.data;
-      if(status === 200) {
-        this.props.handleDeleted(content.id, message);
-      } else {
-        $.growl.error({message: message});
-      }
-    });
+    if (confirm("Delete the item?") == true) {
+      axios.delete(`/v1/registration_courses/${id}.json`, null,
+        {
+          headers: {'X-CSRF-Token': csrfToken},
+          responseType: 'JSON'
+        }
+      )
+      .then((response) => {
+        const {status, message, content} = response.data;
+        if(status === 200) {
+          this.props.handleDeleted(content.id, message);
+        } else {
+          $.growl.error({message: message});
+        }
+      });
+    }
   }
 
   render() {
