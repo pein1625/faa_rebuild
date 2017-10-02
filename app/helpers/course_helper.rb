@@ -66,7 +66,9 @@ module CourseHelper
   end
 
   def number_of_temporary_registration course
-    course.temporary_registrations.count
+    if course.temporary_registrations.count > 6
+      course.temporary_registrations.count.to_s + t("courses.course_header.registed")
+    end
   end
 
   def load_course_image course, attribute, css_class = ""
