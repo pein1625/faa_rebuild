@@ -68,7 +68,6 @@
       <% else %>
         <p class="deadline">
           <b><%= number_of_temporary_registration course %></b>
-          <%= t ".registed" %>
         </p>
         <%= link_to new_temporary_registration_path(course: course.slug),
           class: "btn-registration btn-blue", remote: true do %>

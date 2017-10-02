@@ -13,20 +13,22 @@ export default class Course extends React.Component {
 
   onDeleteHandle(e) {
     let {id} = this.props;
-    axios.delete(`/v1/courses/${id}.json`, null,
-      {
-        headers: {'X-CSRF-Token': csrfToken},
-        responseType: 'json'
-      }
-    )
-    .then((response) => {
-      const {status, message, content} = response.data;
-      if(status === 200) {
-        this.props.handleDeleted(content.id);
-      } else {
-        $.growl.error({message: message});
-      }
-    });
+    if (confirm("Delete the item?") == true) {
+      axios.delete(`/v1/courses/${id}.json`, null,
+        {
+          headers: {'X-CSRF-Token': csrfToken},
+          responseType: 'json'
+        }
+      )
+      .then((response) => {
+        const {status, message, content} = response.data;
+        if(status === 200) {
+          this.props.handleDeleted(content.id);
+        } else {
+          $.growl.error({message: message});
+        }
+      });
+    }
   }
 
   render() {
