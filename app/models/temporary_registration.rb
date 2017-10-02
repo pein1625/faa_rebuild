@@ -1,4 +1,5 @@
 class TemporaryRegistration < ApplicationRecord
+  acts_as_paranoid
   belongs_to :course
 
   VALID_EMAIL_REGEX = /\A([A-Za-z0-9_.]+)@((?:[-a-z0-9]+\.)+[a-z]{2,4})\Z/

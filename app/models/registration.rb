@@ -1,4 +1,5 @@
 class Registration < ApplicationRecord
+  acts_as_paranoid
   belongs_to :course_schedule
   has_one :course, through: :course_schedule
 
