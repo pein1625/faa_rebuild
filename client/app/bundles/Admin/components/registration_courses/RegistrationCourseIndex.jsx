@@ -61,8 +61,8 @@ class RegistrationCourseIndex extends React.Component {
       }
     })
     .then(response => {
-      const {registration_courses, page, pages, courses, course_schedules} = response.data.content;
-      this.setState({registration_courses, page, pages, courses, course_schedules});
+      const {registration_courses, page, pages, courses, course_schedules, created_at} = response.data.content;
+      this.setState({registration_courses, page, pages, courses, course_schedules, created_at});
     })
     .catch(error => {
       console.log(error);
@@ -124,6 +124,7 @@ class RegistrationCourseIndex extends React.Component {
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesPhone)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesAddress)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesCourse)}</th>
+                  <th>{formatMessage(defaultMessages.adminRegistrationCoursesCreated)}</th>
                   <th></th>
                 </tr>
               </thead>
