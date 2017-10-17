@@ -34,7 +34,17 @@ class TemporaryRegistration extends React.Component {
 
   render() {
     const {formatMessage} = this.props.intl;
-    const {name, email, phone, address, course, id} = this.props;
+    const {name, email, phone, address, course, id, created_at} = this.props;
+    {
+      var localDate = new Date(created_at);
+      var localDateString = localDate.toLocaleString(undefined, {
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+    }
     return (
       <tr className="active">
         <td>{name}</td>
@@ -42,6 +52,7 @@ class TemporaryRegistration extends React.Component {
         <td>{phone}</td>
         <td>{address}</td>
         <td>{course.name}</td>
+        <td>{localDateString}</td>
         <td>
           <button className="btn btn-danger" onClick={this.onDeleteHandle}><i className="fa fa-times" aria-hidden="true"></i></button>
         </td>

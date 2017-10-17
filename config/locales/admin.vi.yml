@@ -138,6 +138,7 @@ vi:
       rejected: "Đã từ chối"
       contact: "Đồng ý"
       reject: "Từ chối"
+      created: "Thời gian đăng ký"
     schedule:
       start_date: "Ngày bắt đầu"
       end_date: "Ngày kết thúc"
