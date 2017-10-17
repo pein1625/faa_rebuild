@@ -61,7 +61,7 @@
           <%= t ".deadline" %>
           <%= l newest_schedule.deadline_date, format: :day_month_year %>
         </p>
-        <%= link_to new_registration_path(schedule: course.newest_schedule.slug),
+        <%= link_to new_registration_path(schedule: newest_schedule.slug),
           class: "btn-registration btn-blue", remote: true do %>
           <%= t ".register_now" %>
         <% end %>
