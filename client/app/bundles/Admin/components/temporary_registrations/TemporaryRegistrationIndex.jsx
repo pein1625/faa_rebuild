@@ -55,7 +55,7 @@ class TemporaryRegistrationIndex extends React.Component {
     })
     .catch(error => {
       console.log(error);
-    });    
+    });
   }
 
   handleChangePage(page) {
@@ -91,6 +91,7 @@ class TemporaryRegistrationIndex extends React.Component {
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesPhone)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesAddress)}</th>
                   <th>{formatMessage(defaultMessages.adminRegistrationCoursesCourse)}</th>
+                  <th>{formatMessage(defaultMessages.adminRegistrationCoursesCreated)}</th>
                   <th></th>
                 </tr>
               </thead>
