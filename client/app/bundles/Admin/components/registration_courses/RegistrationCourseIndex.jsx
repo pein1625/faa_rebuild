@@ -8,6 +8,8 @@ import Pagination from '../../utils/Pagination';
 import SearchForm from '../../utils/SearchForm';
 import SelectedCourse from './SelectedCourse';
 import SelectedCourseSchedule from './SelectedCourseSchedule';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
+const csrfToken = ReactOnRails.authenticityToken();
 
 class RegistrationCourseIndex extends React.Component {
 
@@ -24,7 +26,8 @@ class RegistrationCourseIndex extends React.Component {
       pages: 0,
       search_word: ""
     };
-    this.handleDeleted = this.handleDeleted.bind(this);
+    // this.handleDeleted = this.handleDeleted.bind(this);
+    this.onDeleteHandle = this.onDeleteHandle.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getDataFromApi = this.getDataFromApi.bind(this);
     this.handleChangePage = this.handleChangePage.bind(this);
@@ -34,14 +37,52 @@ class RegistrationCourseIndex extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  handleDeleted(id, message) {
-    this.setState({
-      registration_courses: this.state.registration_courses.filter(registration_course => {
-        return registration_course.id !== id
-      })
-    });
-    $.growl.notice({message: message});
+  // handleDeleted(id, message) {
+  //   this.setState({
+  //     registration_courses: this.state.registration_courses.filter(registration_course => {
+  //       return registration_course.id !== id
+  //     })
+  //   });
+  //   $.growl.notice({message: message});
+  // }
+
+
+  onDeleteHandle(cell) {
+    let {id} = this.props;
+    if (confirm("Delete the item?") == true) {
+      axios.delete(`/v1/registration_courses/${cell}.json`, null,
+        {
+          headers: {'X-CSRF-Token': csrfToken},
+          responseType: 'JSON'
+        }
+      )
+      .then((response) => {
+        const {status, message, content} = response.data;
+        if(status === 200) {
+          this.setState({
+            registration_courses: this.state.registration_courses.filter(registration_course => {
+              return registration_course.id !== content.id
+            })
+          });
+          $.growl.notice({message: message});
+        } else {
+          $.growl.error({message: message});
+        }
+      });
+    }
   }
+
+  cellButton(cell, row, enumObject, rowIndex) {
+      return (
+         <button
+            type="button"
+            className="btn btn-danger"
+            onClick={() =>
+                this.onDeleteHandle(cell)} >
+          <i className="fa fa-times" aria-hidden="true"></i>
+         </button>
+      )
+   }
 
   handleInputChange(e) {
     this.setState({email_content: e.target.value});
@@ -87,6 +128,20 @@ class RegistrationCourseIndex extends React.Component {
       () => this.getDataFromApi(1));
   }
 
+// It's a data format example.
+  timeFormatter(cell, row){
+    var localDate = new Date(cell);
+    var localDateString = localDate.toLocaleString(undefined, {
+          day: 'numeric',
+          month: 'numeric',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        });
+    return localDateString
+  }
+
+
   render() {
     const {formatMessage} = this.props.intl;
     return (
@@ -115,7 +170,7 @@ class RegistrationCourseIndex extends React.Component {
           </div>
           <div className="empty-space marg-lg-b20"></div>
           <div className="table-responsive col-md-12">
-            <table className="table table-bordered table-hover table-striped">
+            {/*<table className="table table-bordered table-hover table-striped">
               <thead>
                 <tr>
                   <th>{formatMessage(defaultMessages.adminScheduleCode)}</th>
@@ -137,7 +192,17 @@ class RegistrationCourseIndex extends React.Component {
                   ))
                 }
               </tbody>
-            </table>
+            </table>*/}
+            <BootstrapTable data={this.state.registration_courses} striped hover condensed exportCSV>
+              <TableHeaderColumn width='14%' dataField="name" isKey={true} dataSort={true} filter={ { type: 'TextFilter'} } >{formatMessage(defaultMessages.adminRegistrationCoursesName)}</TableHeaderColumn>
+              <TableHeaderColumn width='14%' dataField="email" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesEmail)}</TableHeaderColumn>
+              <TableHeaderColumn width='14%' dataField="phone" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesPhone)}</TableHeaderColumn>
+              <TableHeaderColumn width='14%' dataField="address" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesAddress)}</TableHeaderColumn>
+              <TableHeaderColumn width='14%' dataField="course_name" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesCourse)}</TableHeaderColumn>
+              <TableHeaderColumn width='10%' dataField="course_schedule_code" dataSort={true} filter={ { type: 'TextFilter'} }>Mã lớp</TableHeaderColumn>
+              <TableHeaderColumn width='15%' dataField="created_at" dataFormat={this.timeFormatter.bind(this)} dataSort={true} filter={ { type: 'DateFilter' } }>{formatMessage(defaultMessages.adminRegistrationCoursesCreated)}</TableHeaderColumn>
+              <TableHeaderColumn width='7%' dataField='id' dataFormat={this.cellButton.bind(this)}></TableHeaderColumn>
+            </BootstrapTable>
           </div>
           <Pagination page={this.state.page}
             pages={this.state.pages}
