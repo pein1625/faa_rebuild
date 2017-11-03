@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import ReactOnRails from 'react-on-rails';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 const csrfToken = ReactOnRails.authenticityToken();
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
