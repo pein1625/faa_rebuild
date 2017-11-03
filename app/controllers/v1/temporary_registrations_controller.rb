@@ -2,18 +2,20 @@ class V1::TemporaryRegistrationsController < V1::ApiController
   before_action :load_registration_course, only: :destroy
 
   def index
-    if search_word = params[:query]
-      registration_courses = TemporaryRegistration.search_by_course_name_phone(search_word.downcase)
-        .page(page).per Settings.admin_page.per_page
-    else
-      registration_courses = TemporaryRegistration.page(page)
-        .per Settings.admin_page.per_page
-    end
-
+    # if search_word = params[:query]
+    #   registration_courses = TemporaryRegistration.search_by_course_name_phone(search_word.downcase)
+    #     .page(page).per Settings.admin_page.per_page
+    # else
+    #   registration_courses = TemporaryRegistration.page(page)
+    #     .per Settings.admin_page.per_page
+    # end
+    registration_courses = TemporaryRegistration.includes(:course)
     registration_serialize = ActiveModel::SerializableResource
       .new(registration_courses, each_serializer: TemporaryRegistrationsSerializer)
-    response_success nil, {registration_courses: registration_serialize,
-      page: page, pages: registration_courses.total_pages}
+    # response_success nil, {registration_courses: registration_serialize,
+    #   page: page, pages: registration_courses.total_pages}
+
+    response_success nil, {registration_courses: registration_serialize}
   end
 
   def destroy
