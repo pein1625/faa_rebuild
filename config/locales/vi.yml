@@ -68,7 +68,7 @@ vi:
     lastest_courses:
       lastest_courses: "Những khóa học mới nhất"
       enrolled_count: "Tổng số người đã đăng ký"
-      coming_soon: "Sẽ mở lớp trong thời gian tới"
+      coming_soon: "Đang tiếp nhận đơn đăng ký"
       more: "Xem tất cả"
     trainers:
       trainers: "Đội ngũ của chúng tôi"
@@ -152,7 +152,7 @@ vi:
       deadline: "Hạn cuối đăng ký"
       time_learn: "Thời gian học"
       see_more: "Xem thêm các lớp cùng khóa"
-      comming_soon: "Sẽ mở lớp trong thời gian tới"
+      comming_soon: "Đang tiếp nhận đơn đăng ký"
       condition: "Mở lớp nếu đủ 12 học viên đăng ký"
       registed: " học viên đã ghi danh"
     course_schedules:
@@ -163,7 +163,7 @@ vi:
       course: "Khóa học"
       search_course: "Tìm kiếm khóa học"
       load_more: "Xem thêm"
-      comming_soon: "Sẽ mở lớp trong thời gian tới"
+      comming_soon: "Đang tiếp nhận đơn đăng ký"
       search: "Tìm kiếm"
     show:
       detail_course: "Chi tiết khóa học"
@@ -312,12 +312,12 @@ vi:
       fee: "Học phí"
       view: "Chi tiết"
       home: "Trang chủ"
-      coming_soon: "Sẽ mở lớp trong thời gian tới"
+      coming_soon: "Đang tiếp nhận đơn đăng ký"
       not_found: "Không tìm thấy khóa học"
     course_schedule:
       detail: "Xem chi tiết"
       register_now: "Đăng ký ngay"
-      coming_soon: "Sẽ mở lớp trong thời gian tới"
+      coming_soon: "Đang tiếp nhận đơn đăng ký"
     show:
       not_found: "Không tìm thấy lịch học"
       course_schedules: "Lịch khai giảng"
