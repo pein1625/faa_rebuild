@@ -138,7 +138,7 @@ vi:
     pagination:
       truncate: "..."
   courses:
-    not_cost: "Đang cập nhật"
+    not_cost: ""
     course:
       register: "Đăng ký"
     right_sidebar_course:
