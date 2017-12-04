@@ -93,6 +93,7 @@ ja:
       delete_success: "タイトルフィードバックを削除しました"
       not_found: "タイトルフィードバックは見つかりませんでした"
       delete_failed: "タイトルフィードバックを削除することはできません"
+      created: "Ngày tạo"
     course_categories:
       category: "タイトルフィードバックを削除することはできません"
       new: "タイトル新しいトピックを追加する"

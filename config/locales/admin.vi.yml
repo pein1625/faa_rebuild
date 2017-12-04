@@ -93,6 +93,7 @@ vi:
       delete_success: "Đã xóa phản hồi"
       not_found: "Không tìm thấy phản hồi"
       delete_failed: "Không thể xóa phản hồi"
+      created: "Ngày tạo"
     course_categories:
       category: "Chủ đề khóa học"
       new: "Thêm chủ đề"
