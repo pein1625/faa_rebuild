@@ -35,7 +35,7 @@ class FeedbacksList extends React.Component {
     })
     .catch(error => {
       console.log(error);
-    });    
+    });
   }
 
   handleChangePage(page) {
@@ -71,6 +71,7 @@ class FeedbacksList extends React.Component {
                   <th>{formatMessage(defaultMessages.adminFeedbacksPhone)}</th>
                   <th>{formatMessage(defaultMessages.adminFeedbacksSubject)}</th>
                   <th>{formatMessage(defaultMessages.adminFeedbacksContent)}</th>
+                  <th>{formatMessage(defaultMessages.adminFeedbacksCreated)}</th>
                   <th>{formatMessage(defaultMessages.adminFeedbacksDelete)}</th>
                 </tr>
               </thead>
