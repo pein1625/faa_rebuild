@@ -3,6 +3,9 @@ vi:
     application:
       title: "Framgia Awesome Academy"
       loading: "Đang tải"
+      default_keywords: "Học viện, Framgia Awesome Academy"
+      default_description: "Học lập trình web và mobile ở đâu tốt nhất"
+      default_author: "Awesome Academy"
     header:
       logo_alt: "Logo Framgia Awesome Academy"
       home: "Trang chủ"
@@ -35,6 +38,8 @@ vi:
   home:
     index:
       index_title: "Trang chủ"
+      keywords: "đào tạo lập trình ở hà nội, dạy lập trình ở hà nội ,học lập trình ở hà nội ,thực tập lập trình ,học nghề lập trình viên"
+      description: "Trung tâm huấn luyện lập trình Awesome Academy, cung cấp các khoá học lập trình tại Hà Nội"
     slider:
       welcome: "Chào mừng đến với"
       faa: "Framgia Awesome Academy"
@@ -165,7 +170,11 @@ vi:
       load_more: "Xem thêm"
       comming_soon: "Đang tiếp nhận đơn đăng ký"
       search: "Tìm kiếm"
+      keywords: "khoá đào tạo lập trình ở hà nội, khóa học lập trình web, khoá học lập trình, học code web, học lập trình web"
+      description: "Các khoá học lập trình tại Awesome Academy"
     show:
+      description: "Thông tin khoá học lập trình %{category} %{technique}, lịch học, đăng ký"
+      keywords: "%{technique} ở hà nội, %{technique} cơ bản, học lập trình %{category}, khóa học %{technique}, học lập trình %{technique}, đào tạo lập trình %{technique}"
       detail_course: "Chi tiết khóa học"
       course: "Khóa học"
       home: "Trang chủ"
@@ -174,6 +183,8 @@ vi:
       readmore: "Xem thêm"
   feedbacks:
     new:
+      description: "Địa điểm học và số điện thoại liên hệ với tư vấn viên của Awesome Academy"
+      keywords: "địa điểm dạy lập trình, địa điểm học lập trình, địa chỉ awesome academy, học lập trình ở đâu, nơi học lập trình ruby on rails "
       title: "Liên hệ"
       home: "Trang chủ"
       title_contact: "Liên hệ với chúng tôi"
@@ -314,6 +325,8 @@ vi:
       home: "Trang chủ"
       coming_soon: "Đang tiếp nhận đơn đăng ký"
       not_found: "Không tìm thấy khóa học"
+      description: "lịch khai giảng và thời gian học của các khoá học tại Awesome Academy"
+      keywords: "khai giảng khoá học lập trình, khoá học lập trình sắp mở, lịch khai giảng awesome academy, lịch học awesome academy, awesome academy khai giảng "
     course_schedule:
       detail: "Xem chi tiết"
       register_now: "Đăng ký ngay"
@@ -325,3 +338,5 @@ vi:
       home: "Trang chủ"
       schedule: "Lịch khai giảng"
       detail: "Chi tiết"
+      keywords: "%{technique} ở hà nội, %{technique} cơ bản, học lập trình %{category}, khóa học %{technique}, học lập trình %{technique}, đào tạo lập trình %{technique}"
+      description: "Thông tin khoá học lập trình %{category} %{technique}, lịch học, đăng ký"

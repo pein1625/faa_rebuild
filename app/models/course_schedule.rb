@@ -32,6 +32,7 @@ class CourseSchedule < ApplicationRecord
   delegate :name, to: :course, prefix: true, allow_nil: true
   delegate :cost, to: :course, prefix: true, allow_nil: true
   delegate :technique, to: :course, prefix: true, allow_nil: true
+  delegate :category, to: :course, prefix: true, allow_nil: true
 
   def is_opening?
     self.start_date >= Date.today

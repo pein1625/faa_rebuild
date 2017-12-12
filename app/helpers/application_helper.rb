@@ -1,7 +1,25 @@
 module ApplicationHelper
-  def full_title page_title = ""
-    base_title = t ".title"
-    page_title.empty? ? base_title : page_title + " | " + base_title
+  # def full_title page_title = ""
+  #   base_title = t ".title"
+  #   page_title.empty? ? base_title : page_title + " | " + base_title
+  # end
+
+  def meta_title(page_title)
+    base_title = t "layouts.application.title"
+    title = page_title.empty? ? base_title : page_title + " | " + base_title
+    content_for(:title, title)
+  end
+
+  def meta_description(description)
+    content_for(:meta_description, description)
+  end
+
+  def meta_keywords(keywords)
+    content_for(:meta_keywords, keywords)
+  end
+
+  def meta_author(author)
+    content_for(:meta_author, author)
   end
 
   def view_object name

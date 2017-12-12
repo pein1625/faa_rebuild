@@ -36,6 +36,7 @@ gem "active_model_serializers"
 gem "ransack"
 gem "friendly_id"
 gem "paranoia"
+gem "sitemap_generator"
 
 group :development, :test do
   gem "byebug", platform: :mri

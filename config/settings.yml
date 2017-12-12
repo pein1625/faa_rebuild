@@ -1,3 +1,6 @@
+cloudfront_url: "https://awesome-academy.com/"
+local_cloudfront_url: "http://localhost:3000/"
+author: "Framgia"
 messages:
   success: "success"
   notice: "notice"
