@@ -1,5 +1,9 @@
-<%= provide :title, t(".title") %>
-
+<%
+  meta_title t(".title")
+  meta_keywords t(".keywords")
+  meta_description t(".description")
+  meta_author Settings.author
+%>
 <div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
     <div class="header-page row">

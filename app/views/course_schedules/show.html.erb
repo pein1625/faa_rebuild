@@ -1,4 +1,11 @@
-<%= provide :title, @course_schedule.course_name %>
+<%
+  meta_title @course_schedule.course_name
+  meta_keywords t(".keywords", technique: @course_schedule.course_technique,
+    category: @course_schedule.course_category)
+  meta_description t(".description", technique: @course_schedule.course_technique,
+    category: @course_schedule.course_category)
+  meta_author Settings.author
+%>
 
 <div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
