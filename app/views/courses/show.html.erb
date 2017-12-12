@@ -1,3 +1,9 @@
+<%
+  meta_title @course.name
+  meta_keywords t(".keywords", technique: @course.technique, category: @course.category)
+  meta_description t(".description", technique: @course.technique, category: @course.category)
+  meta_author Settings.author
+%>
 <div id="breadcrumb" class="full-breadcrumb">
   <div class="container">
     <div class="header-page row">

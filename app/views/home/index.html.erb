@@ -1,4 +1,9 @@
-<%= provide :title, t(".index_title") %>
+<%
+  meta_title t(".index_title")
+  meta_keywords t(".keywords")
+  meta_description t(".description")
+  meta_author Settings.author
+%>
 
 <%= render "slider", course: @course %>
 <%= render "who_we_are" %>
