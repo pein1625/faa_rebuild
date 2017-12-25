@@ -9,12 +9,11 @@ class V1::TemporaryRegistrationsController < V1::ApiController
     #   registration_courses = TemporaryRegistration.page(page)
     #     .per Settings.admin_page.per_page
     # end
-    registration_courses = TemporaryRegistration.includes(:course)
+    registration_courses = TemporaryRegistration.includes(:course).order(created_at: :desc)
     registration_serialize = ActiveModel::SerializableResource
       .new(registration_courses, each_serializer: TemporaryRegistrationsSerializer)
     # response_success nil, {registration_courses: registration_serialize,
     #   page: page, pages: registration_courses.total_pages}
-
     response_success nil, {registration_courses: registration_serialize}
   end
 
