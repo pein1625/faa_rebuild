@@ -5,6 +5,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
 import Pagination from '../../utils/Pagination';
 import axios from 'axios';
+import ReactOnRails from 'react-on-rails';
 
 class NewsList extends React.Component {
 
@@ -37,6 +38,7 @@ class NewsList extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/newses.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page
       }
@@ -47,7 +49,7 @@ class NewsList extends React.Component {
     })
     .catch(error => {
       console.log(error);
-    });    
+    });
   }
 
   handleChangePage(page) {
@@ -80,7 +82,7 @@ class NewsList extends React.Component {
               <tbody>
                 {
                   this.state.newses.map(news => (
-                    <News {...news} key={news.id} handleDeleted={this.handleDeleted}/>
+                    <News {...news} key={news.id} authenticity_token={this.props.authenticity_token} handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>

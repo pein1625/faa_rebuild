@@ -42,7 +42,7 @@ class EditNews extends React.Component {
     axios.patch(`/v1/newses/${id}.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
@@ -82,7 +82,9 @@ class EditNews extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`/v1/newses/${id}/edit.json`)
+    axios.get(`/v1/newses/${id}/edit.json`, {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
       .then(response => {
         const {title} = response.data.content.news;
         let url = "";

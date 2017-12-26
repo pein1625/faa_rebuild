@@ -4,7 +4,6 @@ class CoursesController < ApplicationController
 
   def index
     @courses = load_by_search_word || load_course_default
-
     respond_to do |format|
       format.html
       format.js

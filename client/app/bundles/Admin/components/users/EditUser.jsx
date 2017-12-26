@@ -74,7 +74,7 @@ class EditUser extends React.Component {
     axios.patch(`/v1/users/${id}.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
@@ -93,8 +93,11 @@ class EditUser extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`/v1/users/${id}/edit.json`)
+    axios.get(`/v1/users/${id}/edit.json`, {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
       .then(response => {
+        console.log(response.data.content.user);
         const {name, role, quote, position, display_order} = response.data.content.user;
         let url = "";
         if(response.data.content.image != null) {
@@ -107,8 +110,14 @@ class EditUser extends React.Component {
       .catch(error => {
         console.log(error);
       });
-    $.getJSON('/v1/users/new.json', (response) => {
-      this.setState({roles: response.content.roles});
+    axios.get('/v1/users/new.json', {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
+    .then(response => {
+      this.setState({ roles: response.data.content.roles});
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 

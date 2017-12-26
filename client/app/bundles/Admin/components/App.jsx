@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Main/>
+        <Main authen={this.props.authenticity_token}/>
       </BrowserRouter>
     );
   }

@@ -5,6 +5,7 @@ import sbAdminCss from '../../../assets/styles/sb-admin.css';
 import morrisCss from '../../../assets/styles/morris.css';
 import {IntlProvider} from 'react-intl';
 import {translations} from '../../../libs/i18n/translations';
+import axios from 'axios';
 
 export default class Main extends React.Component {
   constructor(props, _railsContext) {
@@ -15,7 +16,16 @@ export default class Main extends React.Component {
   }
 
   componentDidMount() {
-    $.getJSON('/v1/courses.json', (response) => { this.setState({ courses: response }) });
+    axios.get('/v1/courses.json', {
+      headers: {'Authorization': this.props.authen}
+    })
+    .then(response => {
+      const {courses} = response.data.content;
+      this.setState({courses});
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
   render() {
@@ -24,7 +34,7 @@ export default class Main extends React.Component {
       <IntlProvider locale="vi" messages={translations} defaultLocale="vi">
         <div id="wrapper">
           <Navbar/>
-          <PageWrapper courses={courses}/>
+          <PageWrapper courses={courses} authenticity_token={this.props.authen}/>
         </div>
       </IntlProvider>
     )

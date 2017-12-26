@@ -7,6 +7,7 @@ import axios from 'axios';
 import Pagination from '../../utils/Pagination';
 import SearchForm from '../../utils/SearchForm';
 import { BootstrapTable, TableHeaderColumn, InsertButton } from 'react-bootstrap-table';
+import ReactOnRails from 'react-on-rails';
 const csrfToken = ReactOnRails.authenticityToken();
 
 
@@ -78,6 +79,7 @@ class TemporaryRegistrationIndex extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/temporary_registrations.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page,
         query: this.state.search_word

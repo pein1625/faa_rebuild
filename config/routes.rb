@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get "tags/:tag", to: "news#index", as: :tag
 
   namespace :v1 do
+    devise_scope :admin do
+      post "sign_up", :to => "registrations#create"
+      post "sign_in", :to => "sessions#create"
+      delete "sign_out", :to => "sessions#destroy"
+    end
     resources :news_categories
     resources :feedbacks, only: [:index, :destroy]
     resources :courses

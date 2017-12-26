@@ -98,7 +98,7 @@ class EditCourse extends React.Component {
     axios.patch(`/v1/courses/${id}.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
@@ -118,7 +118,9 @@ class EditCourse extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`/v1/courses/${id}/edit.json`)
+    axios.get(`/v1/courses/${id}/edit.json`, {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
       .then(response => {
         const {name, description, cost, technique, display_cost} = response.data.content.course;
         const text = response.data.content.course.content;

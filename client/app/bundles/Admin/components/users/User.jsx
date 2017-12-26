@@ -14,9 +14,10 @@ export default class User extends React.Component {
   onDeleteHandle(e) {
     let {id} = this.props;
     if (confirm("Delete the item?") == true) {
-      axios.delete(`/v1/users/${id}.json`, null,
+      axios.delete(`/v1/users/${id}.json`, {
+        headers: {'Authorization': this.props.authenticity_token},
+      },
         {
-          headers: {'X-CSRF-Token': csrfToken},
           responseType: 'json'
         }
       )
