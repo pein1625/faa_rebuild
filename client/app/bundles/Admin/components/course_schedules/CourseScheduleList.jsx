@@ -5,6 +5,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
 import Pagination from '../../utils/Pagination';
 import axios from 'axios';
+import ReactOnRails from 'react-on-rails';
 
 class CourseScheduleList extends React.Component {
 
@@ -26,6 +27,7 @@ class CourseScheduleList extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/course_schedules.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page
       }
@@ -83,7 +85,7 @@ class CourseScheduleList extends React.Component {
               <tbody>
                 {
                   this.state.course_schedules.map(schedule => (
-                    <CourseSchedule {...schedule} key={schedule.id} handleDeleted={this.handleDeleted}/>
+                    <CourseSchedule {...schedule} key={schedule.id} authenticity_token={this.props.authenticity_token} handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>

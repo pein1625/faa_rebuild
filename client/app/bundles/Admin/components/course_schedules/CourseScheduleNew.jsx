@@ -91,7 +91,7 @@ class CourseScheduleNew extends React.Component {
     axios.post(`/v1/course_schedules/`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
@@ -111,7 +111,9 @@ class CourseScheduleNew extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`/v1/course_schedules/new.json`)
+    axios.get(`/v1/course_schedules/new.json`, {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
       .then(response => {
         const {courses} = response.data.content;
         const {day_of_week} = response.data.content;

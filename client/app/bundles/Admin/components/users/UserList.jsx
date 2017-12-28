@@ -1,8 +1,10 @@
 import React from 'react';
 import User from './User';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
+import ReactOnRails from 'react-on-rails';
 
 class UserList extends React.Component {
 
@@ -26,8 +28,14 @@ class UserList extends React.Component {
   }
 
   componentDidMount() {
-    $.getJSON('/v1/users.json', (response) => {
-      this.setState({ users: response.content });
+    axios.get('/v1/users.json', {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
+    .then(response => {
+      this.setState({ users: response.data.content });
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 
@@ -60,7 +68,7 @@ class UserList extends React.Component {
               <tbody>
                 {
                   this.state.users.map(user => (
-                    <User {...user} key={user.id} handleDeleted={this.handleDeleted}/>
+                    <User {...user} key={user.id} authenticity_token={this.props.authenticity_token} handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>

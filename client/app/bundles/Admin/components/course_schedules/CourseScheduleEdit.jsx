@@ -91,7 +91,7 @@ class CourseScheduleEdit extends React.Component {
     axios.patch(`/v1/course_schedules/${id}.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
@@ -111,7 +111,9 @@ class CourseScheduleEdit extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.id;
-    axios.get(`/v1/course_schedules/${id}/edit.json`)
+    axios.get(`/v1/course_schedules/${id}/edit.json`, {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
       .then(response => {
         const {
           start_date, end_date, deadline_date, course_id, start_time1, end_time1,

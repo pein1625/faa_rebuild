@@ -6,6 +6,7 @@ import {defaultMessages} from '../../../../libs/i18n/default';
 import Pagination from '../../utils/Pagination';
 import {handleInput} from '../../utils/InputHandle';
 import axios from 'axios';
+import ReactOnRails from 'react-on-rails';
 
 class CourseList extends React.Component {
 
@@ -40,6 +41,7 @@ class CourseList extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/courses.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page
       }
@@ -62,6 +64,7 @@ class CourseList extends React.Component {
 
     axios.get(`/v1/courses.json`,
       {
+        headers: {'Authorization': this.props.authenticity_token},
         params: {
           on_slider_index: on_slider_index
         }
@@ -131,7 +134,7 @@ class CourseList extends React.Component {
               <tbody>
                 {
                   this.state.courses.map(course => (
-                    <Course {...course} key={course.id} handleDeleted={this.handleDeleted}/>
+                    <Course {...course} key={course.id} authenticity_token={this.props.authenticity_token} handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>

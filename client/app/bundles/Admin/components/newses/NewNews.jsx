@@ -43,7 +43,7 @@ class EditNews extends React.Component {
     axios.post(`/v1/newses.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {
