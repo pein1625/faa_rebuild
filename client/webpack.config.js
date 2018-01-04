@@ -30,12 +30,12 @@ const config = {
     // the filename of the compiled bundle, e.g. app/assets/javascripts/bundle.js
     filename: 'webpack-bundle.js',
     // if the webpack code-splitting feature is enabled, this is the path it'll use to download bundles
-    publicPath: '/assets',
+    // publicPath: '/assets',
     // Name comes from the entry section.
     // filename: '[name]-[hash].js',
 
     // Leading slash is necessary
-    // publicPath: `/${webpackPublicOutputDir}`,
+    publicPath: '/home/framgia/project/faa_rebuild/app/assets/javascripts'
     // path: webpackOutputPath,
   },
 
