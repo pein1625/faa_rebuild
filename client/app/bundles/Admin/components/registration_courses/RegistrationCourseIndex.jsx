@@ -50,9 +50,10 @@ class RegistrationCourseIndex extends React.Component {
   onDeleteHandle(cell) {
     let {id} = this.props;
     if (confirm("Delete the item?") == true) {
-      axios.delete(`/v1/registration_courses/${cell}.json`, null,
+      axios.delete(`/v1/registration_courses/${cell}.json`, {
+        headers: {'Authorization': this.props.authenticity_token}
+      },
         {
-          headers: {'X-CSRF-Token': csrfToken},
           responseType: 'JSON'
         }
       )
@@ -94,6 +95,7 @@ class RegistrationCourseIndex extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/registration_courses.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page,
         query: this.state.search_word,

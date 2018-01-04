@@ -53,7 +53,11 @@ class TemporaryRegistration extends React.Component {
         <td>{address}</td>
         <td>{course.name}</td>
         <td>{localDateString}</td>
-        <td>{comment}</td>
+        <td>
+          <textarea name="comment" className="comment"
+          onClick={this.onDeleteHandle}
+          value={comment}/>
+        </td>
         <td>
           <button className="btn btn-danger" onClick={this.onDeleteHandle}><i className="fa fa-times" aria-hidden="true"></i></button>
         </td>

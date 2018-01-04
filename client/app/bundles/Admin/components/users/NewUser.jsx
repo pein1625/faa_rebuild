@@ -55,8 +55,14 @@ class NewUser extends React.Component {
   }
 
   componentDidMount() {
-    $.getJSON('/v1/users/new.json', (response) => {
-      this.setState({roles: response.content.roles});
+    axios.get('/v1/users/new.json', {
+      headers: {'Authorization': this.props.authenticity_token},
+    })
+    .then(response => {
+      this.setState({ roles: response.data.content.roles});
+    })
+    .catch(error => {
+      console.log(error);
     });
   }
 
@@ -80,7 +86,7 @@ class NewUser extends React.Component {
     axios.post(`/v1/users.json`,
       formData,
       {
-        headers: {'X-CSRF-Token': csrfToken},
+        headers: {'Authorization': this.props.authenticity_token},
         responseType: 'json'
       })
       .then((response) => {

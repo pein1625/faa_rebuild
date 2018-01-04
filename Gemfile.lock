@@ -248,6 +248,10 @@ GEM
     simple_form (3.5.0)
       actionpack (> 4, < 5.2)
       activemodel (> 4, < 5.2)
+    simple_token_authentication (1.15.1)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     sitemap_generator (6.0.0)
       builder (~> 3.0)
     slop (3.6.0)
@@ -341,6 +345,7 @@ DEPENDENCIES
   responders
   sass-rails (~> 5.0)
   simple_form
+  simple_token_authentication (~> 1.0)
   sitemap_generator
   spring
   spring-watcher-listen (~> 2.0.0)
@@ -353,4 +358,4 @@ DEPENDENCIES
   webpacker_lite
 
 BUNDLED WITH
-   1.15.3
+   1.15.4

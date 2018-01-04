@@ -1,5 +1,5 @@
 class V1::TemporaryRegistrationsController < V1::ApiController
-  before_action :load_registration_course, only: :destroy
+  before_action :load_registration_course, only: [:destroy, :update]
 
   def index
     # if search_word = params[:query]
@@ -15,6 +15,14 @@ class V1::TemporaryRegistrationsController < V1::ApiController
     # response_success nil, {registration_courses: registration_serialize,
     #   page: page, pages: registration_courses.total_pages}
     response_success nil, {registration_courses: registration_serialize}
+  end
+
+  def update
+    if @registration_course.update(comment: params[:comment])
+      response_success t(".delete_success"), @registration_course
+    else
+      response_error t(".delete_failed"), @registration_course.errors.full_messages
+    end
   end
 
   def destroy

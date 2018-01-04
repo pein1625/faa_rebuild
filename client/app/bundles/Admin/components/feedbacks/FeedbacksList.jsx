@@ -5,6 +5,7 @@ import {FormattedMessage, injectIntl, intlShape} from 'react-intl';
 import {defaultMessages} from '../../../../libs/i18n/default';
 import Pagination from '../../utils/Pagination';
 import axios from 'axios';
+import ReactOnRails from 'react-on-rails';
 
 class FeedbacksList extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class FeedbacksList extends React.Component {
 
   getDataFromApi(page) {
     axios.get('/v1/feedbacks.json', {
+      headers: {'Authorization': this.props.authenticity_token},
       params: {
         page: page
       }
@@ -78,7 +80,7 @@ class FeedbacksList extends React.Component {
               <tbody>
                 {
                   this.state.feedbacks.map(feedback => (
-                    <Feedback {...feedback} key={feedback.id} handleDeleted={this.handleDeleted}/>
+                    <Feedback {...feedback} key={feedback.id} authenticity_token={this.props.authenticity_token} handleDeleted={this.handleDeleted}/>
                   ))
                 }
               </tbody>
