@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :users
     resources :newses
     resources :registration_courses
-    resources :temporary_registrations, only: [:index, :destroy]
+    resources :temporary_registrations, only: [:index, :destroy, :update]
   end
 
   namespace :admin do

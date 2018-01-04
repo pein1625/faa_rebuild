@@ -10,7 +10,6 @@ import { BootstrapTable, TableHeaderColumn, InsertButton } from 'react-bootstrap
 import ReactOnRails from 'react-on-rails';
 const csrfToken = ReactOnRails.authenticityToken();
 
-
 class TemporaryRegistrationIndex extends React.Component {
 
   constructor(props, _railsContext) {
@@ -20,7 +19,7 @@ class TemporaryRegistrationIndex extends React.Component {
       email_content: "",
       page: 1,
       pages: 0,
-      search_word: ""
+      search_word: "",
     };
     // this.handleDeleted = this.handleDeleted.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,6 +27,7 @@ class TemporaryRegistrationIndex extends React.Component {
     this.handleChangePage = this.handleChangePage.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.onDeleteHandle = this.onDeleteHandle.bind(this);
+    this.onEditHandle = this.onEditHandle.bind(this);
   }
 
   handlerClickCleanFiltered() {
@@ -35,11 +35,10 @@ class TemporaryRegistrationIndex extends React.Component {
   }
 
   onDeleteHandle(cell) {
-    console.log(cell)
     if (confirm("Delete the item?") == true) {
       axios.delete(`/v1/temporary_registrations/${cell}.json`, null,
         {
-          headers: {'X-CSRF-Token': csrfToken},
+          headers: {'X-CSRF-Token': csrfToken, 'Authorization': this.props.authenticity_token},
           responseType: 'JSON'
         }
       )
@@ -60,6 +59,31 @@ class TemporaryRegistrationIndex extends React.Component {
     }
   }
 
+  onEditHandle(e){
+    let new_registration_courses = this.state.registration_courses
+     .filter((item) => item.id == e.target.id)
+     .map(item => item.comment = e.target.value);
+    this.setState(new_registration_courses);
+
+    let formData = new FormData();
+    formData.append("comment", e.target.value);
+    // console.log(e.target.name);
+    $(e.target.id).val(e.target.value);
+    axios.put(`/v1/temporary_registrations/${e.target.id}.json`, formData,
+        {
+          headers: {'X-CSRF-Token': csrfToken, 'Authorization': this.props.authenticity_token},
+          responseType: 'JSON'
+        }
+      )
+      .then((response) => {
+        const {status, message, content} = response.data;
+        if(status === 200) {
+          // this.props.handleDeleted(content.id, message);
+        } else {
+          $.growl.error({message: message});
+        }
+      });
+  }
   // handleDeleted(id, message) {
   //   this.setState({
   //     registration_courses: this.state.registration_courses.filter(registration_course => {
@@ -112,6 +136,16 @@ class TemporaryRegistrationIndex extends React.Component {
                 this.onDeleteHandle(cell)} >
           <i className="fa fa-times" aria-hidden="true"></i>
          </button>
+      )
+   }
+
+  cellTextArea(cell, row, enumObject, rowIndex) {
+      return (
+         <textarea
+            id={row.id}
+            name={row.id}
+            onChange={this.onEditHandle.bind(this)} value={cell} >
+          </textarea>
       )
    }
 
@@ -178,7 +212,7 @@ class TemporaryRegistrationIndex extends React.Component {
               <TableHeaderColumn width='14%' dataField="address" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesAddress)}</TableHeaderColumn>
               <TableHeaderColumn width='14%' dataField="course_name" dataSort={true} filter={ { type: 'TextFilter'} }>{formatMessage(defaultMessages.adminRegistrationCoursesCourse)}</TableHeaderColumn>
               <TableHeaderColumn ref='inStockDate' width='12%' dataField="created_at" dataFormat={this.timeFormatter.bind(this)} dataSort={true} filter={ { type: 'DateFilter' } }>{formatMessage(defaultMessages.adminRegistrationCoursesCreated)}</TableHeaderColumn>
-              <TableHeaderColumn width='15%'>Note</TableHeaderColumn>
+              <TableHeaderColumn width='15%' dataField="comment" dataFormat={this.cellTextArea.bind(this)}>Note</TableHeaderColumn>
               <TableHeaderColumn width='3%' dataField='id' dataFormat={this.cellButton.bind(this)}></TableHeaderColumn>
             </BootstrapTable>
 
