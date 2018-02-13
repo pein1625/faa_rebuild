@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  
+
   /** Slider Image **/
   $('.js-slide').slick({
     autoplay: true,
@@ -92,5 +92,9 @@ $(document).ready(function() {
   $('.js-ontop').click(function(){
   	$('html, body').animate({scrollTop:0}, '2000');
   	return false;
+  });
+
+  $('.js-chat-toggle').click(function(){
+    $('.js-chat-active').toggleClass('active');
   });
 });

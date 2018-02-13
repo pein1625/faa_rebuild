@@ -149,11 +149,11 @@
 
   .full-top-a {
     .item {
-      min-height: inherit; 
+      min-height: inherit;
       margin-bottom: 40px;
     }
   }
-  
+
   .full-top-b {
     .new-class {
       .view-all {
@@ -247,5 +247,13 @@
       margin-left: auto;
       margin-right: auto;
     }
+  }
+
+  .chat-toggle {
+    display: none;
+  }
+
+  .chatbox {
+    display: none;
   }
 }
